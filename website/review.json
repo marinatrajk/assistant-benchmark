@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:59:45.797776+00:00",
+  "updated_at": "2026-10-02T18:01:19.943671+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -820,14 +820,28 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "pending",
+          "review_status": "reviewed",
           "run_id": "muse-reminder-delivery-20261002-01",
-          "summary": "One-shot reminder requested for 10 minutes from creation; awaiting exact native due time.",
+          "summary": "Scheduled for 2:09 p.m. EDT; actual delivery and duplicate observation pending through 2:11 p.m.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Native scheduling evidence retained; no early success credited.",
+            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/reminder-delivery/reviewed-report.json"
+            ],
+            [
+              "Job Definition",
+              "evidence/standalone-20261002/muse/reminder-delivery/evidence/job-definition.md"
+            ],
+            [
+              "Scheduling Notes",
+              "evidence/standalone-20261002/muse/reminder-delivery/evidence/scheduling-notes.txt"
+            ]
+          ]
         }
       },
       "criterion": "Create the reminder and observe exactly one delivery, not early and no more than 120 seconds late, through the observation window.",
@@ -934,11 +948,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-reminder-change-cancel-20261002-01",
+          "summary": "Creation turn sent; waiting for native job acknowledgment before separate update and cancellation.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },

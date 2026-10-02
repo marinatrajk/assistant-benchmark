@@ -1,0 +1,19 @@
+reminder-delivery scheduling notes — run muse-reminder-delivery-20261002-01, 2026-10-02
+
+Request received: 2026-10-02T13:58:52 EDT ("In 10 minutes, remind me HERE in this Muse side chat exactly:
+"Paces muse-reminder-delivery-20261002-01 — take a screen break"").
+
+Clock read at setup: 2026-10-02T13:59:15 EDT (-0400) = 2026-10-02T17:59:15 UTC.
+
+Native one-shot job created:
+- Job ID: muse-reminder-delivery-20261002-01
+- Created: 2026-10-02T13:59:24.961-04:00 (file mtime of the saved definition)
+- Due: 2026-10-02T14:09:00-04:00 (America/New_York) = 2026-10-02T18:09:00Z
+- Scheduler reported: next_run_local "Fri 2026-10-02 14:09:00 EDT", next_run_in 9m, timezone America/New_York, status reconciled
+- Delivery: this Muse side chat (chat [private-id-redacted])
+- Owner: goal:reminder-delivery-benchmark-run-muse-reminder-delivery-20261002-01 (dedicated tracked item)
+- Body carries the exact reminder text verbatim; the run's final chat message IS the delivery.
+
+No reminder was sent early or manually. No second job was created. All other jobs preserved.
+Observation window: due (18:09:00Z) through due+120s (18:11:00Z). Final result stays pending until the
+window is complete; the same report will then be updated from real channel evidence.

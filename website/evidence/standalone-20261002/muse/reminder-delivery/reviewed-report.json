@@ -1,0 +1,172 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "run_id": "muse-reminder-delivery-20261002-01",
+  "operator_label": "Muse",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-reminder-delivery-20261002-01; the checkout-handoff browser cart remains parked with no further input, and all other jobs were preserved."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces muse-reminder-delivery-20261002-01 \u2014 take a screen break",
+    "reminder_delay_minutes": 10,
+    "delivery_chat": "this Muse side chat (chat_id [private-id-redacted])"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-delivery"
+  ],
+  "started_at": "2026-10-02T13:58:52-04:00",
+  "updated_at": "2026-10-02T14:01:15-04:00",
+  "review_status": "reviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "reminder-delivery",
+      "status": "pending",
+      "reason": "One-shot native reminder is scheduled for 2026-10-02 14:09:00 EDT (18:09:00 UTC) with the exact requested text. Delivery, on-time, and once checks are unverified until the observation window closes at due+120s (18:11:00 UTC). The final result stays pending until then; the same report will be updated from real evidence.",
+      "execution_started": true,
+      "answer": "One-shot native reminder scheduled for 2026-10-02 14:09:00 EDT with the exact text \"Paces muse-reminder-delivery-20261002-01 \u2014 take a screen break\", targeting this side chat. Final result remains pending until the observation window closes at 18:11:00 UTC.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 143000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Provisional agent-reported elapsed time; active time/count not independently observable."
+      },
+      "tools_used": [],
+      "disclosure_note": "Scheduling performed via the native cron scheduler (one-shot job); backend tool names are undisclosed, so tools_used is intentionally empty. Scheduling evidence is retained in evidence/job-definition.md and evidence/scheduling-notes.txt.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "on-time",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "once",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:59:24-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/job-definition.md",
+          "summary": "Native one-shot scheduler job created: id muse-reminder-delivery-20261002-01, runonce at 2026-10-02T14:09:00 America/New_York (18:09:00 UTC), body carries the exact reminder text \"Paces muse-reminder-delivery-20261002-01 \u2014 take a screen break\", delivery targets this side chat, owner goal:reminder-delivery-benchmark-run-muse-reminder-delivery-20261002-01, enabled, scheduler reconciled, next_run_local Fri 2026-10-02 14:09:00 EDT."
+        },
+        {
+          "id": "E2",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:59:15-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduling-notes.txt",
+          "summary": "Actual clock read during setup: 2026-10-02T13:59:15 EDT (-0400) / 2026-10-02T17:59:15 UTC. Request arrived at 2026-10-02T13:58:52 EDT; the 10-minute delay places due at 2026-10-02T14:09:00 EDT (18:09:00 UTC)."
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "E1"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "Wait for the native scheduled run to deliver the reminder at 18:09:00 UTC, observe the channel through 18:11:00 UTC for on-time delivery and duplicates, then update this same report with delivered_at, source_observed_at, observation_through, observation_complete, and final check outcomes from real evidence.",
+        "deadline_at": "2026-10-02T18:11:00Z",
+        "observer": "Codex-assisted operator UI observation and native job export"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T13:59:24.961-04:00",
+        "original_due_at": "2026-10-02T14:09:00-04:00",
+        "due_at": "2026-10-02T14:09:00-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "observation_complete": false,
+        "timezone": "America/New_York",
+        "job_id": "muse-reminder-delivery-20261002-01",
+        "evidence_ids": [
+          "E1",
+          "E2"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Scheduling/phase evidence reviewed provisionally. Actual delivery/absence window incomplete; no success inferred from job creation. Private internal chat/device identifiers redacted."
+}
