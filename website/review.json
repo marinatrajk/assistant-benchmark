@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:55:56.962362+00:00",
+  "updated_at": "2026-10-02T17:59:45.797776+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -696,14 +696,33 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "awaiting_user",
+          "review_status": "reviewed",
           "run_id": "muse-checkout-handoff-20261002-01",
-          "summary": "Exact Philips White variant assigned for fresh guest checkout; stop before order or payment.",
+          "summary": "Needs user: exact charger in guest checkout; contact/address required and shipping/tax uncalculated.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Quantity 1, Philips White 65W charger; subtotal and displayed total $19.99 before shipping/tax.",
+            "Payment section reported visible, but checkout remains incomplete until user enters required contact/delivery information.",
+            "Muse browser takeover preserves the session; no payment or personal data entered."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/checkout-handoff/reviewed-report.json"
+            ],
+            [
+              "Operator checkpoint",
+              "evidence/standalone-20261002/muse/checkout-handoff/operator-observation.txt"
+            ],
+            [
+              "Browser task report",
+              "evidence/standalone-20261002/muse/checkout-handoff/evidence/browser-handoff-report.txt"
+            ],
+            [
+              "Checkpoint notes",
+              "evidence/standalone-20261002/muse/checkout-handoff/evidence/checkpoint-notes.txt"
+            ]
+          ]
         }
       },
       "criterion": "Prepare the exact cart, reach visible payment fields, verify displayed totals, and provide a secure handoff without placing an order.",
@@ -801,11 +820,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-reminder-delivery-20261002-01",
+          "summary": "One-shot reminder requested for 10 minutes from creation; awaiting exact native due time.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },

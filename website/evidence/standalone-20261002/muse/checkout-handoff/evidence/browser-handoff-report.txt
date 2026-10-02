@@ -1,0 +1,40 @@
+Publication note: private checkout-session URL withheld; original retained privately.
+
+checkout-handoff browser handoff — raw report received 2026-10-02 13:56:39 EDT (17:56:39Z)
+Sanitized; no credentials, card data, or unrelated conversations were reported.
+
+ITEM VERIFIED (product page, screenshot taken):
+- Name: Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN, 65W, White
+- Model/SKU: DLP3653W/37 (UPC 030878581199)
+- Variant/color: White (Color White selector selected)
+- Unit price: $19.99, In stock, quantity selector 1
+- URL: https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113
+
+CART VERIFIED (cart drawer, screenshot taken):
+- Exactly 1 unit of the White variant at $19.99; nothing else in cart
+- Subtotal: $19.99 USD; drawer notes free shipping over $50 ("spend $30.01 more to qualify")
+
+CHECKOUT REACHED (final checkpoint — checkout page, screenshot taken):
+- Guest checkout, no sign-in required (sign-in offered as optional link only). Express options shown (Shop Pay, Amazon Pay, G Pay) were NOT used.
+- Order summary: Subtotal $19.99; Shipping — not yet calculated ("Enter shipping address"); Taxes — blank/not yet calculated; Total: USD $19.99
+- Payment section (credit card fields) is visible on the page but the "Pay now" button is disabled pending required contact/shipping fields.
+- Blocker: required fields "Email or mobile phone number", "Last name", "Address", "City", "ZIP code" (First name optional, State pre-set to Minnesota) cannot be completed without the user's contact and shipping details. No personal data was available, so nothing was entered.
+
+EXACT URLs:
+- Cart: https://byjasco.com/cart (cart drawer used on product page; Shopify standard cart)
+- Checkout: https://byjasco.com/cart [private session URL withheld]
+
+SESSION HANDOFF NOTES:
+- The checkout URL contains a session-bound token; it may expire or not transfer to another browser/user. The cart is session/cookie-bound to this Chromium session.
+- To take over payment, the user should take over this same browser session (via browser takeover on the checkout page), where the cart (1x White Philips AC Charger at $19.99) is already loaded. They then fill their email, shipping address, pick a shipping method, and enter card details or use an express method, then confirm Pay now. Payment approval happens separately with the user.
+
+ACTION TRACE:
+1. Opened the supplied product URL — confirmed exact product/variant (White, $19.99, DLP3653W/37, In stock).
+2. Took a screenshot of the product page.
+3. Add-to-cart: first click failed with a stale element ref; retried. A "GET 10% OFF" newsletter popup obscured the button — dismissed it (did not subscribe). A cookie banner then obscured the button — declined optional cookies ("DECLINE", necessary-only). ADD TO CART then succeeded.
+4. Cart drawer opened showing exactly 1 unit at $19.99, subtotal $19.99 USD (header badge still showed "Cart 0 items" — badge lag; drawer quantity confirmed 1). Took a screenshot of the cart drawer.
+5. Clicked CHECK OUT (one stale-ref retry, then succeeded with a fresh ref) and landed on the Shopify checkout page.
+6. Confirmed the checkout order summary and took a screenshot of the checkout page. Stopped at contact/shipping inputs; nothing further possible without personal data.
+
+Errors/retries: stale element refs on two clicks (recovered with fresh refs); newsletter popup and cookie banner dismissed as blockers (no subscriptions accepted). No other unexpected behavior.
+Nothing purchased; no card details entered; no express pay used; no account created.

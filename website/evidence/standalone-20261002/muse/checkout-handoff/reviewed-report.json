@@ -1,0 +1,238 @@
+{
+  "deviations": [
+    "The user stopped the previously queued (unused) product-search browser task before this run; this run treats the delivered purchase-research report as the original attempt and does not alter it.",
+    "Screenshots were captured by the browser task (product page, cart drawer, checkout page), but no portable screenshot file paths were returned to the agent; they are retained as reported observations with the exact page refs. Their authenticity has not been independently reviewed."
+  ],
+  "environment": {
+    "os": "linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-checkout-handoff-20261002-01; the unused queued product-search browser task was stopped before this run and the delivered purchase-research report stands as the original attempt.",
+      "The previously prepared Weee! and Best Buy carts and all parked browser tasks were preserved; this run only touched byjasco.com with a fresh guest cart."
+    ]
+  },
+  "follow_up": {
+    "deadline_at": null,
+    "next_action": "User takes over the native browser session on the prepared byjasco.com checkout page, supplies email/shipping details, and proceeds to the payment step; the checkout task can then be resumed to verify the actionable payment step.",
+    "observer": null,
+    "required": true
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "currency": "USD",
+    "market": "US",
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-checkout-handoff-20261002-01",
+  "skill_name": "benchmark-checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "started_at": "2026-10-02T13:55:05-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "checkout-handoff"
+  ],
+  "task_inputs": {
+    "product_url": "https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113",
+    "product_variant": "White (model DLP3653W/37)"
+  },
+  "tasks": [
+    {
+      "answer": "Checkout preparation stopped at the guest contact/shipping step on byjasco.com. The cart holds exactly 1x Philips AC Charger DLP3653W/37 (White, 65W GaN, 2 USB-C PD + 1 USB-A) at $19.99, subtotal $19.99. Shipping and tax are not yet calculated (an address is required first); the payment section is visible but Pay now is disabled until contact/shipping fields are completed. The usable handoff is a browser takeover of the same session on the prepared checkout page.",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [
+            "E1",
+            "E2",
+            "E5",
+            "E6",
+            "E7"
+          ],
+          "label": null,
+          "mode": "mixed",
+          "status": "observed"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "operator-checkpoint"
+          ],
+          "id": "exact-cart",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "E5",
+            "E6"
+          ],
+          "id": "checkout-reached",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "E5",
+            "E6",
+            "operator-checkpoint"
+          ],
+          "id": "totals",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "E7",
+            "E8",
+            "operator-checkpoint"
+          ],
+          "id": "handoff",
+          "status": "passed"
+        }
+      ],
+      "disclosure_note": "One native browser task was used; backend tool names are undisclosed, so tools_used is intentionally empty. No card details, express pay, account sign-in, order placement, or personal data entry occurred. Existing carts and parked browser tasks were untouched.",
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113",
+          "summary": "Product page confirmed the exact supplied item: Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN, 65W, White (DLP3653W/37, UPC 030878581199), White color selector selected, $19.99, in stock, quantity 1."
+        },
+        {
+          "id": "E2",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113",
+          "summary": "Screenshot of the product page was captured by the browser task; the portable file path was not returned, so the observation above is retained from the task report."
+        },
+        {
+          "id": "E3",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "https://byjasco.com/cart",
+          "summary": "Cart drawer held exactly 1 unit of the White variant at $19.99 and nothing else; subtotal $19.99 USD. The drawer notes free shipping over $50. The header cart badge still showed 0 items (badge lag); drawer quantity confirmed 1."
+        },
+        {
+          "id": "E4",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "https://byjasco.com/cart",
+          "summary": "Screenshot of the cart drawer was captured by the browser task; the portable file path was not returned."
+        },
+        {
+          "id": "E5",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/checkpoint-notes.txt",
+          "summary": "Checkout order summary at 13:56 EDT: subtotal $19.99; shipping not yet calculated (\"Enter shipping address\"); taxes blank/not yet calculated; total USD $19.99. Guest checkout, no sign-in required. Payment section visible but Pay now disabled until contact/shipping fields are completed."
+        },
+        {
+          "id": "E6",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/checkpoint-notes.txt",
+          "summary": "Screenshot of the checkout page (final checkpoint) was captured by the browser task; the portable file path was not returned."
+        },
+        {
+          "id": "E7",
+          "kind": "trace",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/browser-handoff-report.txt",
+          "summary": "Full action trace: opened supplied URL, confirmed product, dismissed newsletter popup (no subscribe) and cookie banner (declined optional cookies), added 1 to cart after two stale-element-ref retries, opened cart drawer, clicked CHECK OUT, reached Shopify guest checkout, stopped at required contact/shipping fields without entering personal data. Nothing purchased, no card details entered, no express pay, no account created."
+        },
+        {
+          "id": "E8",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:56:39-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/checkpoint-notes.txt",
+          "summary": "Session handoff limitation: the checkout URL carries a session-bound token and the cart is cookie-bound to the native browser's Chromium session; remote URL transfer is not established. The usable handoff is browser takeover of the same session on the prepared checkout page, where the cart (1x charger, $19.99) remains loaded. No existing carts or parked browser tasks were touched."
+        },
+        {
+          "id": "operator-checkpoint",
+          "kind": "operator_attestation",
+          "provenance": "operator",
+          "observed_at": "2026-10-02T13:57:00-04:00",
+          "ref": "operator-observation.txt",
+          "summary": "Operator independently viewed current checkout, exact item/quantity, blank contact/address fields and displayed subtotal. Screenshot retained privately due to session token."
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": "User takes over the native browser session on the prepared byjasco.com checkout page, supplies email/shipping details, and proceeds to the payment step; the checkout task can then be resumed to verify the actionable payment step.",
+        "observer": null,
+        "required": true
+      },
+      "memory": null,
+      "reason": "The exact cart was prepared and verified, but the actionable payment step was not reached: the checkout stopped at required contact/shipping inputs (email/phone, last name, address, city, ZIP). Per instructions no personal data was entered, so the task records awaiting_user at that concrete checkpoint with shipping and tax explicitly not yet calculated.",
+      "schedule": null,
+      "status": "awaiting_user",
+      "task_id": "checkout-handoff",
+      "tools_used": [],
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 130000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent-reported elapsed time; active duration was estimated and count excluded browser internals, so comparable active duration/call count withheld."
+      }
+    }
+  ],
+  "updated_at": "2026-10-02T13:57:15-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Native live checkout preview independently observed. Correct quantity/item and totals corroborated; contact/address incomplete and payment not actionable. Portable screenshots absent; claimed screenshots relabeled observations. Private checkout token withheld from public evidence."
+}

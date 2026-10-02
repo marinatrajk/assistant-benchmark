@@ -1,0 +1,33 @@
+Publication note: private checkout-session URL withheld; original retained privately.
+
+checkout-handoff checkpoint notes — run muse-checkout-handoff-20261002-01, 2026-10-02 ~13:55–13:57 EDT
+
+Supplied product: Philips AC Charger, 1 USB-A + 2 USB-C PD, GaN, 65W, White, model DLP3653W/37,
+https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113
+
+Final checkpoint reached: Shopify checkout contact/shipping step (guest). Payment section visible on the
+page but "Pay now" disabled until required contact/shipping fields are completed.
+
+Blocker: required contact/shipping fields — Email or mobile phone number, Last name, Address, City,
+ZIP code (First name optional, State pre-set to Minnesota). No personal data was available or entered;
+per instruction, the task stopped and recorded awaiting_user rather than inventing details.
+
+Observed order summary at checkout (13:56 EDT):
+- Item: 1x Philips AC Charger DLP3653W/37, White, $19.99 — verified exact variant and quantity in the cart drawer.
+- Subtotal: $19.99 USD.
+- Shipping: NOT YET CALCULATED — "Enter shipping address". Cart drawer notes free shipping over $50.
+- Taxes: BLANK / NOT YET CALCULATED.
+- Total: USD $19.99 (shown before shipping/tax).
+
+URLs:
+- Cart: https://byjasco.com/cart
+- Checkout (session-bound token; may not transfer to another browser):
+  https://byjasco.com/cart [private session URL withheld]
+
+Session handoff limitation: the cart and checkout URL are bound to the native browser's Chromium session.
+A remote session transfer via URL is not established; the usable handoff is browser takeover of the same
+session on the checkout page, where the prepared cart (1x charger, $19.99) remains loaded.
+
+Nothing was purchased; no card details entered; no express pay used; no account created or signed in;
+no existing carts or parked browser tasks were touched. The unused queued product-search browser task was
+stopped by the user; the delivered research report stands as the original attempt and is not modified by this run.
