@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T12:04:43+00:00",
+  "updated_at": "2026-10-02T12:11:12+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -94,15 +94,31 @@
       "package_sha256": "68e1d9e53b967c0657ac10a6e573e905e732f38c584085043d4b9f90abd38ffa",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "dots-browser-research-20261002-01",
-          "summary": "Assigned after Browser form. Awaiting the new plan comparison and native skill evidence.",
+          "summary": "Correctly selected Studio at $18/month for 12 projects; required native skill-load evidence remains unverified.",
           "details": [
-            "Same existing Dots conversation, with previous benchmark exposure disclosed.",
-            "One attempt using the published Browser research skill and its original checks."
+            "Saved browser observations show all three plans and their prices and limits.",
+            "Studio is the cheapest qualifying plan, and the answer cites the exact visited plans page.",
+            "The exported native skill receipt omits the skill name, so the required playbook-loaded check is unverified.",
+            "Browser-only work took 20.162 seconds. Full active timing was unavailable; the report records three active tool invocations.",
+            "The existing conversation was reused. Text evidence was reviewed; screenshot bytes were not independently retrieved."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed Browser research report",
+              "evidence/standalone-20261002/dots/browser-research/reviewed-report.json"
+            ],
+            [
+              "Original plans observation",
+              "evidence/standalone-20261002/dots/browser-research/evidence/plans-browser-observation.txt"
+            ],
+            [
+              "Native skill receipt limitation",
+              "evidence/standalone-20261002/dots/browser-research/evidence/native-load-receipt-sanitized.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -140,11 +156,13 @@
       "package_sha256": "e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-memory-update-20261002-01",
+          "summary": "Assigned next: retrieve, update and read back an isolated synthetic preference.",
+          "details": [
+            "Existing conversation reused. Benchmark preferences must remain isolated from real user memories."
+          ],
           "sources": []
         },
         "GrokBot": {

@@ -1,0 +1,25 @@
+{
+  "run_id": "dots-browser-research-20261002-01",
+  "attempts": 1,
+  "setup_excluded": [
+    "Package download and verification",
+    "Assignment, inputs, template and contract reading",
+    "Capability discovery",
+    "Cloud browser selection and documentation initialization"
+  ],
+  "active_actions": [
+    "One existing native capability load",
+    "One cloud browser tab creation and navigation",
+    "One browser observation/screenshot capture call including URL read and evidence preservation"
+  ],
+  "active_tool_calls": 3,
+  "count_definition": "Top-level active tool invocations; nested browser operations are not counted individually. Capability load is one nested skills.read call inside functions.exec. The other two are mcp__cua_repl.js calls.",
+  "browser_action_interval_ms": 20162,
+  "full_active_duration_ms": null,
+  "full_elapsed_duration_ms": null,
+  "timing_limitation": "Browser action interval was measured with Date; no timestamp was captured before the native skill-load call, so complete active and elapsed timing cannot be reconstructed precisely. No stopwatch enforcement was installed.",
+  "report_writing_and_validation_excluded": true,
+  "budget_seconds": 300,
+  "budget_tool_calls": 50,
+  "token_counts": null
+}

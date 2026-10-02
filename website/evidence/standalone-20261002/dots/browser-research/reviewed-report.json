@@ -1,0 +1,219 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-browser-research",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-research"
+  },
+  "run_id": "dots-browser-research-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": "Chrome cloud cdp",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Fresh browser tab and new output directory; no prior answer artifacts read.",
+      "Operator disclosed prior benchmark exposure in the conversation, so this is not a clean-room benchmark.",
+      "No new cloud chat, fixture source/log access, harness, adapter or capability installation."
+    ],
+    "fixture_mode": "public_static"
+  },
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "browser-research"
+  ],
+  "started_at": "2026-10-02T12:05:19+00:00",
+  "updated_at": "2026-10-02T12:11:12Z",
+  "review_status": "reviewed",
+  "deviations": [
+    "Prior conversation benchmark exposure was disclosed by the operator; fresh page evidence was collected and no earlier answer was reused.",
+    "A relevant existing native capability was loaded, but private identity/content and raw receipt are not exportable. The sanitized receipt does not prove the named native skill event; playbook-loaded remains unverified.",
+    "Full active/elapsed duration and token counts are unobservable. Browser-only duration is measured separately; tool calls are counted at the explicitly stated invocation boundary.",
+    "The requested /plans URL redirected to /plans/; the answer cites the exact observed final URL.",
+    "The frozen commit is operator-supplied, not independently verified; archive SHA256 and every manifest file hash were verified.",
+    "Operator review used original saved browser accessibility observations and text artifacts exported through the platform. Screenshot bytes were not independently retrieved; the reviewed evidence references include only retrieved files."
+  ],
+  "tasks": [
+    {
+      "task_id": "browser-research",
+      "status": "partial",
+      "reason": "The plan comparison, source observation and citation are supported by fresh browser evidence. The required named native skill-load check is unverified because exportable evidence omits private identity and instructions.",
+      "execution_started": true,
+      "answer": "Studio is the cheapest plan with at least 10 projects: $18 per month for 12 projects. Personal costs $8/month but allows only 3 projects, so it does not qualify. Company offers unlimited projects for $45/month and qualifies, but costs more. The page states there are no additional fees. Source: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": 3,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "See evidence/measurement-notes.json. Active action invocation count: 3. Browser-only interval: 20162 ms. Full timing and tokens remain null; setup/reporting excluded."
+      },
+      "tools_used": [
+        "skills.read",
+        "mcp__cua_repl.js"
+      ],
+      "disclosure_note": "Private capability identity and contents are withheld. Sanitized receipt is agent attestation only; it is not treated as proof of the named native skill-load check. Original page observation and screenshot are included.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": [
+            "skill-receipt"
+          ]
+        },
+        {
+          "id": "source-observed",
+          "status": "passed",
+          "evidence_ids": [
+            "page",
+            "url"
+          ]
+        },
+        {
+          "id": "correct-choice",
+          "status": "passed",
+          "evidence_ids": [
+            "page",
+            "comparison",
+            "answer"
+          ]
+        },
+        {
+          "id": "source-cited",
+          "status": "passed",
+          "evidence_ids": [
+            "answer",
+            "url"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "page",
+          "kind": "observation",
+          "summary": "Original browser accessibility observation of all three plan prices and limits.",
+          "provenance": "agent_export",
+          "ref": "evidence/plans-browser-observation.txt",
+          "observed_at": "2026-10-02T12:06:42.092Z"
+        },
+        {
+          "id": "url",
+          "kind": "trace",
+          "summary": "Browser capture metadata preserves exact final URL and measured browser interval.",
+          "provenance": "agent_export",
+          "ref": "evidence/browser-capture-metadata.json",
+          "observed_at": "2026-10-02T12:06:42.092Z"
+        },
+        {
+          "id": "comparison",
+          "kind": "artifact",
+          "summary": "Every plan evaluated against at least 10 projects.",
+          "provenance": "agent_export",
+          "ref": "evidence/plan-comparison.json",
+          "observed_at": "2026-10-02T12:08:23.855445+00:00"
+        },
+        {
+          "id": "answer",
+          "kind": "artifact",
+          "summary": "Answer with monthly price and exact visited URL citation.",
+          "provenance": "agent_export",
+          "ref": "evidence/answer.txt",
+          "observed_at": "2026-10-02T12:08:23.855445+00:00"
+        },
+        {
+          "id": "skill-receipt",
+          "kind": "trace",
+          "summary": "Sanitized load attestation; named native event not independently verifiable.",
+          "provenance": "agent_export",
+          "ref": "evidence/native-load-receipt-sanitized.json",
+          "observed_at": null
+        },
+        {
+          "id": "integrity",
+          "kind": "artifact",
+          "summary": "Archive checksum and package manifest verification.",
+          "provenance": "agent_export",
+          "ref": "evidence/package-integrity.json",
+          "observed_at": "2026-10-02T12:08:23.855445+00:00"
+        },
+        {
+          "id": "measurements",
+          "kind": "trace",
+          "summary": "Explicit setup, active, counting and reporting boundaries.",
+          "provenance": "agent_export",
+          "ref": "evidence/measurement-notes.json",
+          "observed_at": "2026-10-02T12:08:23.855445+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": "Chrome cloud cdp",
+          "evidence_ids": [
+            "page",
+            "url"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "skill-receipt"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": [
+    "Saved plan-page observations support source observation, correct plan and price, and the exact visited source citation.",
+    "The required named native skill-load event remains unverified from the available export. The overall result is partial.",
+    "Only text evidence was retrieved and reviewed; screenshot bytes were not retrieved."
+  ]
+}

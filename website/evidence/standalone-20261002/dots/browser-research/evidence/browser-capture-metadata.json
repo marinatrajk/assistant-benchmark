@@ -1,0 +1,9 @@
+{
+  "requested_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans",
+  "visited_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/",
+  "active_started_at": "2026-10-02T12:06:21.930Z",
+  "active_ended_at": "2026-10-02T12:06:42.092Z",
+  "active_duration_ms": 20162,
+  "browser": "Chrome cloud cdp",
+  "native_skill_load_before_browser_setup": true
+}

@@ -1,0 +1,12 @@
+{
+  "receipt_type": "sanitized agent attestation, not an independently verifiable native event export",
+  "mechanism": "skills.read",
+  "load_success": true,
+  "load_observed_before": "2026-10-02T12:06:09.700Z",
+  "selected_skill_name": null,
+  "resource": null,
+  "contents_exported": false,
+  "constraint": "Private capability identity and instruction contents are withheld. This sanitized receipt does not satisfy the benchmark requirement for a named native skill-load event.",
+  "check_status": "unverified",
+  "assignment_and_workflow_excluded": true
+}

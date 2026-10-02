@@ -1,0 +1,29 @@
+{
+  "source": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/",
+  "requirement_minimum_projects": 10,
+  "plans": [
+    {
+      "name": "Personal",
+      "monthly_price_display": "$8",
+      "projects": 3,
+      "qualifies": false
+    },
+    {
+      "name": "Studio",
+      "monthly_price_display": "$18",
+      "projects": 12,
+      "qualifies": true
+    },
+    {
+      "name": "Company",
+      "monthly_price_display": "$45",
+      "projects": "Unlimited",
+      "qualifies": true
+    }
+  ],
+  "selected": "Studio",
+  "monthly_price_display": "$18",
+  "fee_statement": "All prices are per month. No additional fees.",
+  "currency_code": null,
+  "currency_note": "The page displays dollar signs but no explicit ISO currency code."
+}

@@ -1,0 +1,20 @@
+{
+  "download_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-browser-research.zip",
+  "sha256": "68e1d9e53b967c0657ac10a6e573e905e732f38c584085043d4b9f90abd38ffa",
+  "expected_sha256": "68e1d9e53b967c0657ac10a6e573e905e732f38c584085043d4b9f90abd38ffa",
+  "matches": true,
+  "version": "1.0.0",
+  "operator_supplied_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+  "commit_independently_verified": false,
+  "manifest_file_checks": {
+    "INVOCATION.txt": true,
+    "SKILL.md": true,
+    "agents/openai.yaml": true,
+    "assets/report-template.json": true,
+    "assets/task.json": true,
+    "references/report-format.md": true,
+    "references/task.md": true,
+    "references/workflow.md": true,
+    "scripts/validate_report.py": true
+  }
+}
