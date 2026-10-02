@@ -211,9 +211,5 @@
     }
   ],
   "reviewer": "Codex-assisted operator review",
-  "review_notes": [
-    "Saved plan-page observations support source observation, correct plan and price, and the exact visited source citation.",
-    "The required named native skill-load event remains unverified from the available export. The overall result is partial.",
-    "Only text evidence was retrieved and reviewed; screenshot bytes were not retrieved."
-  ]
+  "review_notes": "Saved plan-page observations support source observation, correct plan and price, and the exact visited source citation. The required named native skill-load event remains unverified from the available export. The overall result is partial. Only text evidence was retrieved and reviewed; screenshot bytes were not retrieved."
 }
