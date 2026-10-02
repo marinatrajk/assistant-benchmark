@@ -1,0 +1,253 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-change-cancel",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-change-cancel"
+  },
+  "run_id": "dots-reminder-change-cancel-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing user conversation with prior benchmark exposure; this is not an isolated fresh session.",
+      "Only the requested cancellation-test reminder was created by the parent. This report-preparation step made no scheduler changes."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "cancel_original_delay_minutes": 20,
+    "cancel_revised_delay_minutes": 25,
+    "cancel_observation_grace_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-change-cancel"
+  ],
+  "started_at": "2026-10-02T13:26:10+00:00",
+  "updated_at": "2026-10-02T13:30:35.773510+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Provisional phase 3 report: creation, separately requested update, and separately requested cancellation are observed. The no-late-delivery observation window is incomplete.",
+    "All metric values are null because complete task timing, tool counts and token usage were not available to the report preparer. Setup, report writing and user/event waiting are excluded from active-time accounting; waiting belongs in elapsed time. Budget enforcement is unverified.",
+    "The scheduler creation receipt exposes updated_at, not a separate created_at. The initial receipt timestamp is retained as the creation confirmation time.",
+    "The pre-creation clock was 13:26:10 UTC; the native relative 20-minute schedule resolved to 13:46:20 UTC at creation, about 10 seconds after that clock reading.",
+    "Private scheduler and conversation identifiers are redacted from this export.",
+    "The update request arrived at 13:27:33 UTC, the pre-update clock was 13:27:36 UTC, and native relative scheduling resolved 25 minutes from update execution to 13:52:47 UTC. The resulting due time is 14 seconds later than request-arrival time plus 25 minutes."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-change-cancel",
+      "status": "pending",
+      "reason": "The separately requested cancellation is confirmed by a subsequent scheduler inspection showing the same benchmark job inactive. A full pass requires complete platform/operator evidence of no delivery at both due times through 2026-10-02T13:54:47+00:00.",
+      "execution_started": true,
+      "answer": "Cancelled at 9:28:57 am EDT and confirmed inactive in a fresh scheduler inspection. The report stays Pending until 9:54:47 am EDT, when the no-late-delivery window ends",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Unavailable: no complete end-to-end active timer, elapsed timer, tool counter or token counter was supplied. Report preparation does not count as benchmark execution."
+      },
+      "tools_used": [
+        "automations.create_for_aeon",
+        "automations.update",
+        "automations.list",
+        "user_message.send_message"
+      ],
+      "disclosure_note": "Native tool calls verified in the coordinating thread. Only this synthetic job is included in public evidence; no full unrelated-job inventory is published.",
+      "checks": [
+        {
+          "id": "created",
+          "status": "passed",
+          "evidence_ids": [
+            "creation-receipt",
+            "creation-ack"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "passed",
+          "evidence_ids": [
+            "update-receipt",
+            "update-list",
+            "update-ack"
+          ]
+        },
+        {
+          "id": "cancelled",
+          "status": "passed",
+          "evidence_ids": [
+            "cancel-receipt",
+            "cancel-list",
+            "cancel-ack"
+          ]
+        },
+        {
+          "id": "no-late-delivery",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "creation-receipt",
+          "kind": "trace",
+          "summary": "Initial native scheduler receipt confirms the benchmark reminder is enabled and scheduled for 2026-10-02 09:46:20 EDT. Private identifiers removed.",
+          "provenance": "platform",
+          "ref": "evidence/phase1-safe-evidence.json",
+          "excerpt": "success=true; is_enabled=true; DTSTART:20261002T134620Z; default_timezone=America/New_York",
+          "observed_at": "2026-10-02T13:26:20.580141+00:00"
+        },
+        {
+          "id": "creation-ack",
+          "kind": "trace",
+          "summary": "Parent-provided creation acknowledgment sent to the existing user conversation; explicitly awaits the separate change turn.",
+          "provenance": "agent_export",
+          "ref": "evidence/phase1-safe-evidence.json",
+          "excerpt": "The cancellation-test reminder is due October 2 at 9:46:20 am EDT (America/New_York, UTC−04:00). Creation was confirmed at 9:26:20.580141 am EDT. It’s ready for your separate change message; the screen-break reminder is unchanged.",
+          "observed_at": "2026-10-02T13:26:28.021391+00:00"
+        },
+        {
+          "id": "update-receipt",
+          "kind": "trace",
+          "summary": "Native update confirms the revised schedule on the original job.",
+          "provenance": "platform",
+          "ref": "evidence/phase2-safe-evidence.json",
+          "excerpt": "success=true; DTSTART:20261002T135247Z; is_enabled=true; same_job_as_original=true",
+          "observed_at": "2026-10-02T13:27:47.893665+00:00"
+        },
+        {
+          "id": "update-list",
+          "kind": "observation",
+          "summary": "Subsequent native scheduler listing has exactly one enabled matching reminder at the revised time and no matching active original schedule.",
+          "provenance": "platform",
+          "ref": "evidence/phase2-safe-evidence.json",
+          "excerpt": "active_matching_count=1; same_job_as_original=true; original_schedule_still_active=false",
+          "observed_at": "2026-10-02T13:27:56+00:00"
+        },
+        {
+          "id": "update-ack",
+          "kind": "trace",
+          "summary": "Parent-provided update acknowledgment awaits the separate cancel message.",
+          "provenance": "agent_export",
+          "ref": "evidence/phase2-safe-evidence.json",
+          "excerpt": "Updated to October 2 at 9:52:47 am EDT (America/New_York, UTC−04:00). Verified exactly one active matching reminder; its original 9:46:20 am time is no longer active. Ready for your separate cancel message",
+          "observed_at": "2026-10-02T13:28:04.474339+00:00"
+        },
+        {
+          "id": "cancel-receipt",
+          "kind": "trace",
+          "summary": "Native update disables the same benchmark reminder after the separate cancellation request.",
+          "provenance": "platform",
+          "ref": "evidence/phase3-safe-evidence.json",
+          "excerpt": "is_enabled=false; same_job_as_original=true",
+          "observed_at": "2026-10-02T13:28:57.164662+00:00"
+        },
+        {
+          "id": "cancel-list",
+          "kind": "observation",
+          "summary": "A subsequent scheduler listing shows the sole matching job inactive and its last_run_time null.",
+          "provenance": "platform",
+          "ref": "evidence/phase3-safe-evidence.json",
+          "excerpt": "active_matching_count=0; matching_entry.is_enabled=false; last_run_time=null",
+          "observed_at": "2026-10-02T13:28:58+00:00"
+        },
+        {
+          "id": "cancel-ack",
+          "kind": "trace",
+          "summary": "Parent-provided cancellation acknowledgment retains Pending until the observation deadline.",
+          "provenance": "agent_export",
+          "ref": "evidence/phase3-safe-evidence.json",
+          "excerpt": "Cancelled at 9:28:57 am EDT and confirmed inactive in a fresh scheduler inspection. The report stays Pending until 9:54:47 am EDT, when the no-late-delivery window ends",
+          "observed_at": "2026-10-02T13:29:07.243705+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": "Native reminder scheduler",
+          "evidence_ids": [
+            "creation-receipt"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "Collect complete platform/operator observation evidence that no benchmark reminder notification arrives at either the original 13:46:20 UTC or revised 13:52:47 UTC due time, continuing through 13:54:47 UTC on October 2, 2026. Update this same report after the window completes; keep no-late-delivery unverified without complete evidence.",
+        "deadline_at": "2026-10-02T13:54:47+00:00",
+        "observer": "Parent assistant and operator/platform evidence in the existing user conversation"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T13:26:20.580141+00:00",
+        "original_due_at": "2026-10-02T09:46:20-04:00",
+        "due_at": "2026-10-02T09:52:47-04:00",
+        "source_observed_at": "2026-10-02T13:28:58+00:00",
+        "delivered_at": null,
+        "cancelled_at": "2026-10-02T13:28:57.164662+00:00",
+        "observation_through": null,
+        "timezone": "America/New_York",
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": [
+          "creation-receipt",
+          "creation-ack",
+          "update-receipt",
+          "update-list",
+          "update-ack",
+          "cancel-receipt",
+          "cancel-list",
+          "cancel-ack"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Reviewed separate operator turns, native create/update/list calls and safe receipts for the same reminder. Creation, reschedule uniqueness and subsequent inactive-state inspection are supported. Complete no-late-delivery observation remains outstanding."
+}

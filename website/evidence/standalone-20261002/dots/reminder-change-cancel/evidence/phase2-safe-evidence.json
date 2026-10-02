@@ -1,0 +1,54 @@
+{
+  "run_id": "dots-reminder-change-cancel-20261002-01",
+  "phase": "updated; awaiting separate user cancellation turn",
+  "request_received_at": "2026-10-02T13:27:33+00:00",
+  "pre_update_clock": "2026-10-02T13:27:36+00:00",
+  "update": {
+    "id": null,
+    "team_id": null,
+    "title": "Paces cancellation test",
+    "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261002T135247Z\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "display_schedule": null,
+    "is_enabled": true,
+    "conversation_id": null,
+    "thread_id": null,
+    "default_timezone": "America/New_York",
+    "next_run_time": null,
+    "last_run_time": null,
+    "updated_at": "2026-10-02T13:27:47.893665+00:00"
+  },
+  "list_observed_at": "2026-10-02T13:27:56+00:00",
+  "matching_entries": [
+    {
+      "id": null,
+      "team_id": null,
+      "title": "Paces cancellation test",
+      "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+      "schedule": "BEGIN:VEVENT\nDTSTART:20261002T135247Z\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "display_schedule": null,
+      "is_enabled": true,
+      "conversation_id": null,
+      "thread_id": null,
+      "default_timezone": "America/New_York",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-10-02T13:27:47.893665+00:00"
+    }
+  ],
+  "active_matching_count": 1,
+  "same_job_as_original": true,
+  "original_schedule_still_active": false,
+  "acknowledgment": {
+    "message_id": null,
+    "sent_at": "2026-10-02T13:28:04.474339+00:00",
+    "text": "Updated to October 2 at 9:52:47 am EDT (America/New_York, UTC−04:00). Verified exactly one active matching reminder; its original 9:46:20 am time is no longer active. Ready for your separate cancel message"
+  },
+  "limits": [
+    "Private IDs are null; same-job comparison was performed locally using the private creation, update and listing receipts.",
+    "Only matching benchmark entries are exported; unrelated jobs are omitted.",
+    "Cancellation and complete no-delivery observation remain unverified."
+  ]
+}

@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:27:33.536122+00:00",
+  "updated_at": "2026-10-02T13:34:54.420060+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -443,14 +443,21 @@
       "package_sha256": "ab5f39b1b4dbbab65d10845901b3768dd165328b4f8a92fb8252b35e5680616e",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "dots-reminder-change-cancel-20261002-01",
-          "summary": "Created for 9:46:20 a.m. EDT. Separate reschedule request sent; cancellation follows its acknowledgment.",
+          "summary": "Updated and cancelled; no-late-delivery observation ends at 9:54:47 a.m. EDT.",
           "details": [
-            "Default timing windows retained. The separate screen-break reminder is preserved."
+            "Original due time: 9:46:20 a.m. EDT. Revised due time: 9:52:47 a.m. EDT.",
+            "Separate create, change and cancel turns were acknowledged. Cancellation was confirmed inactive by a subsequent scheduler inspection.",
+            "Absence of a reminder at both due times still needs observation; cancellation acknowledgment alone is not a pass."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/dots/reminder-change-cancel/reviewed-report.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -488,12 +495,20 @@
       "package_sha256": "d01f720de81174ce6ae91e5a5177cc2200e386863afccdd9cfb96171c9bdbe95",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "pending",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
-          "sources": []
+          "run_id": "dots-scheduled-research-20261002-01",
+          "summary": "Fresh source check due at 9:45:33 a.m. EDT; delivery deadline 9:50:33 a.m. EDT.",
+          "details": [
+            "Native one-time job contains the exact Anker 735 Black variant URL.",
+            "The job must obtain fresh source evidence at or after its due time and send one price/stock update in the existing chat. Creation is verified; execution and delivery remain unverified."
+          ],
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/dots/scheduled-research/reviewed-report.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -531,11 +546,13 @@
       "package_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-memory-followup-20261002-01",
+          "summary": "Assigned: store isolated synthetic preferences, then update one preference in a separate turn.",
+          "details": [
+            "Fresh-conversation recall will require a genuinely separate chat without copied preference values."
+          ],
           "sources": []
         },
         "GrokBot": {

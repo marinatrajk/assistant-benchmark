@@ -1,0 +1,42 @@
+{
+  "run_id": "dots-reminder-change-cancel-20261002-01",
+  "phase": "created; awaiting separate user change turn",
+  "creation": {
+    "success": true,
+    "message": "Automation created.",
+    "job_id": null,
+    "conversation_id": null,
+    "thread_id": null,
+    "title": "Paces cancellation test",
+    "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261002T134620Z\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "is_enabled": true,
+    "default_timezone": "America/New_York",
+    "updated_at": "2026-10-02T13:26:20.580141+00:00",
+    "original_due_at": "2026-10-02T09:46:20-04:00"
+  },
+  "creation_acknowledgment": {
+    "message_id": null,
+    "sent_at": "2026-10-02T13:26:28.021391+00:00",
+    "text": "The cancellation-test reminder is due October 2 at 9:46:20 am EDT (America/New_York, UTC−04:00). Creation was confirmed at 9:26:20.580141 am EDT. It’s ready for your separate change message; the screen-break reminder is unchanged.",
+    "source": "Parent-provided sent-message receipt and exact text"
+  },
+  "pre_creation_clock": {
+    "observed_at": "2026-10-02T13:26:10+00:00",
+    "source": "Parent-provided clock observation"
+  },
+  "scope": {
+    "scheduler_mutations_by_report_preparer": 0,
+    "future_change_authorization_received": false,
+    "future_cancel_authorization_received": false,
+    "original_job_id": null,
+    "revised_job_id": null
+  },
+  "limits": [
+    "Sanitized export of the initial native scheduler receipt; private identifiers omitted.",
+    "This creation receipt alone does not establish active-job uniqueness after an update, cancellation, or absence of later delivery.",
+    "No complete platform/operator no-delivery observation window is available at phase 1.",
+    "Unrelated reminders are outside this report; the acknowledgment states they were unchanged, but no independent before/after inventory is exported."
+  ]
+}

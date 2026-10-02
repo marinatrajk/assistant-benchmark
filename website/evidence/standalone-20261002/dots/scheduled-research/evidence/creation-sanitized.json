@@ -1,0 +1,19 @@
+{
+  "evidence_type": "sanitized_native_scheduler_creation_receipt",
+  "provenance": "platform",
+  "success": true,
+  "message": "Automation created.",
+  "automation": {
+    "title": "Paces Anker price check",
+    "prompt": "For benchmark dots-scheduled-research-20261002-01, freshly check price and availability for exact product https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254 — Anker 735 Charger (Nano II 65W), A2667, Black, variant 41581366575254, quantity 1, US market/USD. Make a NEW live browser/source observation at or after the scheduled due time, never reuse the earlier research as current. Send exactly one update only to me in this existing ChatGPT conversation with exact variant, observed price, coupon conditions if any, stock, source URL, and actual check time in America/New_York. Preserve the benchmark marker in the update. Capture actual source observations and notification send timestamp/receipt for evidence. Do not purchase, change the checkout cart, subscribe, create monitors, or modify any jobs. If access fails, report the blocker honestly.",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261002T134533Z\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "is_enabled": true,
+    "default_timezone": "America/New_York",
+    "next_run_time": null,
+    "last_run_time": null,
+    "updated_at": "2026-10-02T13:30:33.383071+00:00"
+  },
+  "job_id": null,
+  "privacy_note": "Private automation, thread, conversation, and team identifiers omitted. updated_at is the creation receipt update timestamp; the receipt has no separate created_at field."
+}

@@ -1,0 +1,9 @@
+{
+  "evidence_type": "parent_exported_acknowledgment",
+  "provenance": "agent_export",
+  "sent_at": "2026-10-02T13:30:40.387634+00:00",
+  "channel": "chatgpt",
+  "text": "The fresh Anker price-and-stock check is scheduled for October 2 at 9:45:33 am EDT (America/New_York, UTC−04:00), with creation confirmed at 9:30:33.383071 am EDT. The report stays Pending through its 9:50:33 am EDT delivery deadline",
+  "message_id": null,
+  "note": "Scheduling acknowledgment only; not the scheduled research notification. Exact text and timestamp were supplied by the parent assistant."
+}

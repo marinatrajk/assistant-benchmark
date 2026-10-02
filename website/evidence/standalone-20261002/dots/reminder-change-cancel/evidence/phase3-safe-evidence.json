@@ -1,0 +1,53 @@
+{
+  "run_id": "dots-reminder-change-cancel-20261002-01",
+  "phase": "cancelled; awaiting complete observation window",
+  "request_received_at": "2026-10-02T13:28:44+00:00",
+  "cancel": {
+    "id": null,
+    "team_id": null,
+    "title": "Paces cancellation test",
+    "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261002T135247Z\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "display_schedule": null,
+    "is_enabled": false,
+    "conversation_id": null,
+    "thread_id": null,
+    "default_timezone": "America/New_York",
+    "next_run_time": null,
+    "last_run_time": null,
+    "updated_at": "2026-10-02T13:28:57.164662+00:00"
+  },
+  "list_observed_at": "2026-10-02T13:28:58+00:00",
+  "matching_entries": [
+    {
+      "id": null,
+      "team_id": null,
+      "title": "Paces cancellation test",
+      "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+      "schedule": "BEGIN:VEVENT\nDTSTART:20261002T135247Z\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "display_schedule": null,
+      "is_enabled": false,
+      "conversation_id": null,
+      "thread_id": null,
+      "default_timezone": "America/New_York",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-10-02T13:28:57.164662+00:00"
+    }
+  ],
+  "active_matching_count": 0,
+  "same_job_as_original": true,
+  "acknowledgment": {
+    "message_id": null,
+    "sent_at": "2026-10-02T13:29:07.243705+00:00",
+    "text": "Cancelled at 9:28:57 am EDT and confirmed inactive in a fresh scheduler inspection. The report stays Pending until 9:54:47 am EDT, when the no-late-delivery window ends"
+  },
+  "observation_deadline": "2026-10-02T13:54:47+00:00",
+  "limits": [
+    "Private IDs are null; same-job comparison was performed locally using the private receipts.",
+    "Only matching benchmark entries are exported; unrelated jobs are omitted.",
+    "An inactive scheduler entry and null last_run_time are not a complete no-delivery observation window."
+  ]
+}

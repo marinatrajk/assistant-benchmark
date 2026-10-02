@@ -1,0 +1,175 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "run_id": "dots-scheduled-research-20261002-01",
+  "operator_label": "ChatGPTDots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation with prior product-research exposure; no fresh product observation has occurred for this scheduled run at the provisional-report stage."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254",
+    "product_variant": "Anker 735 Charger (Nano II 65W), A2667, Black, variant 41581366575254, quantity 1"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "task_ids_requested": [
+    "scheduled-research"
+  ],
+  "started_at": "2026-10-02T13:30:17+00:00",
+  "updated_at": "2026-10-02T13:32:30.567904+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "No configuration overrides. The native relative 15-minute request resolved to 2026-10-02T13:45:33Z; the pre-creation clock reading was 2026-10-02T13:30:17Z.",
+    "Exact action-start and creation timestamps were not separately exposed. started_at uses the pre-creation clock; schedule.created_at uses the successful creation receipt updated_at.",
+    "Active duration, elapsed duration, total task tool calls and token counts are not measured; configured budget enforcement cannot be independently established. Setup, report writing, and event waiting are excluded from active time.",
+    "Private platform identifiers are omitted. The creation receipt confirms setup only, not a source observation or delivered research update."
+  ],
+  "tasks": [
+    {
+      "task_id": "scheduled-research",
+      "status": "pending",
+      "reason": "The native one-time job was created successfully. Its due time and notification observation window are still in the future; fresh research, update accuracy and actual delivery are unverified.",
+      "execution_started": true,
+      "answer": "The fresh Anker price-and-stock check is scheduled for October 2 at 9:45:33 am EDT (America/New_York, UTC−04:00), with creation confirmed at 9:30:33.383071 am EDT. The report stays Pending through its 9:50:33 am EDT delivery deadline",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Unmeasured. Task begins with native scheduling and ends with actual notification/deadline evidence; active timing excludes setup, report preparation and waiting. No complete counter or action timer was supplied."
+      },
+      "tools_used": [
+        "automations.create_for_aeon"
+      ],
+      "disclosure_note": "Native scheduler creation observed from a sanitized platform receipt; the actual tool name and acknowledgment were disclosed by the parent assistant. Reading the packaged skill document is not claimed as native workflow skill loading. Report preparation used exec_command and the packaged Python validator outside task-action metrics.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "schedule-created"
+          ]
+        },
+        {
+          "id": "fresh-execution",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "accurate-update",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "schedule-created",
+          "kind": "trace",
+          "provenance": "platform",
+          "summary": "Successful native one-time schedule receipt includes exact product URL, variant and quantity, fresh price/stock work, one update in the existing ChatGPT conversation, and due time.",
+          "ref": "evidence/creation-sanitized.json",
+          "observed_at": "2026-10-02T13:30:33.383071+00:00"
+        },
+        {
+          "id": "scheduling-acknowledgment",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "Parent-exported scheduling acknowledgment states the native due time and pending delivery deadline; it is not the research notification.",
+          "ref": "evidence/acknowledgment-sanitized.json",
+          "observed_at": "2026-10-02T13:30:40.387634+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": "Native one-time scheduler",
+          "evidence_ids": [
+            "schedule-created"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "At or after 2026-10-02T13:45:33Z, observe the exact product source anew through the native scheduled run. Preserve source check time and the actual ChatGPT notification/receipt; update this report from observed evidence. If no event arrives, establish complete observation through 2026-10-02T13:50:33Z before assessing missed delivery.",
+        "deadline_at": "2026-10-02T13:50:33+00:00",
+        "observer": "Parent assistant in the existing ChatGPT conversation"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T13:30:33.383071+00:00",
+        "original_due_at": "2026-10-02T13:45:33+00:00",
+        "due_at": "2026-10-02T13:45:33+00:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T13:30:33.383071+00:00",
+        "timezone": "America/New_York",
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": [
+          "schedule-created"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Reviewed actual native scheduler creation call and safe receipt. Exact target, delay and requested fresh work are recorded. Fresh source observation and delivered update are future events and remain unverified."
+}
