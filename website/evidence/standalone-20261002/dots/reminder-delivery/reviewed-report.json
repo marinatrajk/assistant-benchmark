@@ -1,0 +1,186 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "run_id": "dots-reminder-delivery-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation with prior benchmark exposure; no fresh-session isolation claimed.",
+      "Report preparation occurs in a cloud workspace; scheduler backend environment is not disclosed."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces dots-reminder-delivery-20261002-01 — take a screen break"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-delivery"
+  ],
+  "started_at": "2026-10-02T13:23:43+00:00",
+  "updated_at": "2026-10-02T13:26:09.670628+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Run uses an existing conversation with prior exposure; isolation is not claimed.",
+    "Scheduler computed its relative ten-minute due time as 13:33:54 UTC, eleven seconds after the time obtained from the precreation clock plus ten minutes. The scheduler due time is authoritative for delivery checks.",
+    "Exact action boundary timers, full tool-call counts and token metrics are unavailable; active-time and tool-budget enforcement cannot be independently verified. Setup, package reading and report writing are excluded from active timing; event waiting would count only toward elapsed time.",
+    "Private job and conversation identifiers are redacted. Creation time uses the successful creation receipt updated_at timestamp, the available confirmation of creation.",
+    "Reading the supplied benchmark package is not evidence of native workflow-skill loading."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-delivery",
+      "status": "pending",
+      "reason": "One native reminder was created successfully. Delivery, timing and duplicate absence remain unverified until actual channel evidence and observation through 2026-10-02T13:35:54+00:00.",
+      "execution_started": true,
+      "answer": "Scheduled for October 2 at 9:33:54 am EDT (America/New_York, UTC−04:00). Creation was confirmed at 9:23:55.037724 am EDT. The report is Pending until the actual message and duplicate-check window through 9:35:54 am EDT are verified",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "No instrumented task-wide measurements supplied. All metrics remain null; creation and due timestamps are evidence, not duration measurements."
+      },
+      "tools_used": [
+        "clock.curr_time",
+        "automations.create_for_aeon"
+      ],
+      "disclosure_note": "Task action tool names were disclosed by the coordinating agent. Full execution tool counts and token usage are unavailable. Sanitized native scheduler action/results are preserved. Package reading is not claimed as native skill use.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "creation-receipt"
+          ]
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "on-time",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "once",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "creation-receipt",
+          "kind": "trace",
+          "summary": "Sanitized successful native scheduler creation receipt contains exact reminder text, one-time VEVENT due time and America/New_York timezone.",
+          "provenance": "platform",
+          "ref": "reminder-creation-evidence.json",
+          "observed_at": "2026-10-02T13:23:55.037724+00:00"
+        },
+        {
+          "id": "creation-confirmation",
+          "kind": "trace",
+          "summary": "Coordinating agent reports a creation-confirmation send receipt at 13:24:01.752830 UTC. This is not the reminder notification.",
+          "provenance": "agent_export",
+          "ref": "reminder-creation-evidence.json",
+          "observed_at": "2026-10-02T13:24:01.752830+00:00"
+        },
+        {
+          "id": "source-package",
+          "kind": "artifact",
+          "summary": "Operator-pinned source commit and downloaded package SHA-256 retained for provenance.",
+          "provenance": "agent_export",
+          "ref": "reminder-creation-evidence.json",
+          "observed_at": null
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": "Native one-time reminder scheduler",
+          "evidence_ids": [
+            "creation-receipt"
+          ]
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "Inspect the actual reminder notification in the existing ChatGPT conversation, retain its platform timestamp and exact text, then observe through due plus 120 seconds to assess duplicate absence. Update this same report. If the channel evidence cannot be inspected, request the notification and timestamp from the operator and mark it operator-attested.",
+        "deadline_at": "2026-10-02T13:35:54+00:00",
+        "observer": "Coordinating assistant, or operator attestation if channel evidence is inaccessible"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T13:23:55.037724+00:00",
+        "original_due_at": "2026-10-02T13:33:54+00:00",
+        "due_at": "2026-10-02T13:33:54+00:00",
+        "source_observed_at": "2026-10-02T13:23:55.037724+00:00",
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "timezone": "America/New_York",
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": [
+          "creation-receipt",
+          "creation-confirmation"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Reviewed the native scheduler creation call and safe creation receipt. This is a provisional creation review only: actual delivery, on-time arrival and no duplicates remain unverified."
+}

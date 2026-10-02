@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:24:58.201731+00:00",
+  "updated_at": "2026-10-02T13:27:33.536122+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -388,14 +388,24 @@
       "package_sha256": "a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "dots-reminder-delivery-20261002-01",
-          "summary": "Assigned: create a native one-time reminder, then observe delivery and duplicates through the required window.",
+          "summary": "Created for 9:33:54 a.m. EDT; delivery and duplicate observation ends at 9:35:54 a.m. EDT.",
           "details": [
-            "Default ten-minute delay and two-minute delivery/duplicate observation window retained."
+            "Native creation confirmed at 9:23:55.037724 a.m. EDT. Actual delivery remains unverified.",
+            "The required ten-minute delay and two-minute observation window are unchanged."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/dots/reminder-delivery/reviewed-report.json"
+            ],
+            [
+              "Creation evidence",
+              "evidence/standalone-20261002/dots/reminder-delivery/reminder-creation-evidence.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -433,11 +443,13 @@
       "package_sha256": "ab5f39b1b4dbbab65d10845901b3768dd165328b4f8a92fb8252b35e5680616e",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-reminder-change-cancel-20261002-01",
+          "summary": "Created for 9:46:20 a.m. EDT. Separate reschedule request sent; cancellation follows its acknowledgment.",
+          "details": [
+            "Default timing windows retained. The separate screen-break reminder is preserved."
+          ],
           "sources": []
         },
         "GrokBot": {

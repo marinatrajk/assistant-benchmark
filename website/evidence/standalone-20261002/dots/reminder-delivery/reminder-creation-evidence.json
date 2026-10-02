@@ -1,0 +1,47 @@
+{
+  "evidence_scope": "Provisional creation evidence only; no delivery observation has occurred.",
+  "run_id": "dots-reminder-delivery-20261002-01",
+  "package_provenance": {
+    "sha256": "a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17",
+    "source_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+    "source": "Operator-pinned package; downloaded hash match reported by coordinating agent"
+  },
+  "precreation_clock": {
+    "observed_at": "2026-10-02T13:23:43+00:00",
+    "source": "Coordinating agent clock observation"
+  },
+  "request": {
+    "relative_delay_minutes": 10,
+    "reminder_text": "Paces dots-reminder-delivery-20261002-01 — take a screen break",
+    "channel": "Existing user ChatGPT conversation"
+  },
+  "scheduler_receipt": {
+    "success": true,
+    "message": "Automation created.",
+    "automation": {
+      "title": "Paces screen break",
+      "prompt": "Send exactly one message only to me in this existing ChatGPT conversation, with exactly this text and no punctuation added: Paces dots-reminder-delivery-20261002-01 — take a screen break\nRecord actual message send timestamp and platform receipt as execution evidence for this benchmark. Do not start other tests or create any jobs.",
+      "schedule": "BEGIN:VEVENT\nDTSTART:20261002T133354Z\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "is_enabled": true,
+      "default_timezone": "America/New_York",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-10-02T13:23:55.037724+00:00",
+      "id": null,
+      "thread_id": null,
+      "conversation_id": null
+    },
+    "tool": "automations.create_for_aeon"
+  },
+  "creation_confirmation": {
+    "sent_at": "2026-10-02T13:24:01.752830+00:00",
+    "receipt_id": null,
+    "source": "Send receipt reported by coordinating agent; not reminder delivery",
+    "text": "Scheduled for October 2 at 9:33:54 am EDT (America/New_York, UTC−04:00). Creation was confirmed at 9:23:55.037724 am EDT. The report is Pending until the actual message and duplicate-check window through 9:35:54 am EDT are verified"
+  },
+  "derived_due_at": "2026-10-02T13:33:54+00:00",
+  "due_at_local": "2026-10-02T09:33:54-04:00",
+  "observation_deadline_at": "2026-10-02T13:35:54+00:00",
+  "sanitization": "Automation/job, thread, conversation and message receipt identifiers omitted or null. No private source file included."
+}
