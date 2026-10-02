@@ -1,0 +1,10 @@
+{
+  "id": "wakeschedule-01M3YRF5TVV9DDE5JQ2YDZ85T0",
+  "next_fire_at": "2026-10-02T17:01:56Z",
+  "prompt": "Reminder-delivery benchmark due now (run_id instinct-reminder-delivery-20261002-01). Send exactly one iMessage to [benchmark-conversation] with this exact body, no other text, no reply-to, no duplicates: Paces instinct-reminder-delivery-20261002-01 \u2014 take a screen break.\nThen record actual send time (date -u) and update the single-task report; originated from request [assignment-message].",
+  "queued_fire_count": 0,
+  "schedule_summary": "one-shot wake at Friday, October 2, 2026, 7:01:56 PM CEST",
+  "timezone": "Agent scheduler uses +02:00; due time is recorded in UTC and America/New_York separately.",
+  "provenance": "agent_export",
+  "publication_note": "Conversation/message identifiers redacted. Original compact provisional report retained privately because it does not match the single-task schema; final report will require correction."
+}

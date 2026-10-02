@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:52:30.646607+00:00",
+  "updated_at": "2026-10-02T16:53:49.441428+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -656,14 +656,21 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "instinct-reminder-delivery-20261002-01",
-          "summary": "Ten-minute reminder assigned in Messages; waiting for exact due time and native creation evidence.",
+          "summary": "Native reminder scheduled for 1:01:56 p.m. EDT; delivery/duplicate observation closes at 1:03:56.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Native creation export contains the exact benchmark text and one-shot due time 17:01:56 UTC.",
+            "Creation is supported; actual delivery and completed observation are still pending.",
+            "The provisional export uses a compact custom schema. A contract-compliant final report is still needed."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Native creation evidence",
+              "evidence/standalone-20261002/instinct/reminder-delivery/creation-evidence.json"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -736,11 +743,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-reminder-change-cancel-20261002-01",
+          "summary": "Create-only phase assigned for the separate cancellation reminder; waiting for native creation evidence.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {
