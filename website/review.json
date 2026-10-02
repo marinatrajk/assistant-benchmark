@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:01:19.943671+00:00",
+  "updated_at": "2026-10-02T18:02:10.158044+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -948,14 +948,28 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "pending",
+          "review_status": "reviewed",
           "run_id": "muse-reminder-change-cancel-20261002-01",
-          "summary": "Creation turn sent; waiting for native job acknowledgment before separate update and cancellation.",
+          "summary": "Original reminder created for 2:20:39 p.m. EDT; separate change turn in progress.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Native scheduling evidence retained; no early success credited.",
+            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/reviewed-report.json"
+            ],
+            [
+              "Job Definition",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/job-definition.md"
+            ],
+            [
+              "Scheduling Notes",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/scheduling-notes.txt"
+            ]
+          ]
         }
       },
       "criterion": "Create one reminder, update that same reminder, cancel it, and verify no delivery through both due times plus two minutes.",

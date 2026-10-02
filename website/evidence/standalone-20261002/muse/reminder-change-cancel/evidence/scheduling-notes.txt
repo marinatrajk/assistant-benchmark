@@ -1,0 +1,26 @@
+reminder-change-cancel scheduling notes — run muse-reminder-change-cancel-20261002-01, 2026-10-02
+
+Turn 1 request received: 2026-10-02T14:00:36 EDT ("Create one native reminder for 20 minutes from the actual
+current time, exact text "Paces muse-reminder-change-cancel-20261002-01 — test reminder to cancel", delivering here").
+
+Clock read at setup: 2026-10-02T14:00:39 EDT (-0400) = 2026-10-02T18:00:39 UTC.
+
+Native one-shot job created:
+- Job ID: muse-reminder-change-cancel-20261002-01
+- Created: 2026-10-02T14:00:51.557-04:00 (file mtime of the saved definition)
+- Original due: 2026-10-02T14:20:39-04:00 (America/New_York) = 2026-10-02T18:20:39Z
+  (exactly 20 minutes after the observed clock reading)
+- Stored text (verbatim from the saved definition body): "Paces muse-reminder-change-cancel-20261002-01 — test reminder to cancel"
+- Active state: enabled=true, scheduler reconciled, next_run_local "Fri 2026-10-02 14:20:39 EDT", next_run_in 19m
+- Delivery: this Muse side chat (chat [private-id-redacted])
+- Owner: goal:reminder-change-cancel-benchmark-run-muse-reminder-change-cancel-20261002-01 (dedicated tracked item)
+
+Other jobs preserved: the prior delivery reminder (muse-reminder-delivery-20261002-01, due 14:09:00 EDT)
+remains active and untouched; all parked tasks and carts untouched.
+
+No change or cancel was performed — awaiting the operator's separate change message (turn 2), which will ask
+for 25 minutes from that message's current time. No observer, reporter, or substitute notification jobs were added.
+
+Observation window for no-late-delivery will be set after cancel: through max(original_due, revised_due) + 120 seconds.
+This report stays pending until that window completes; it will be updated with the change evidence, cancellation
+evidence, and the no-late-delivery observation from real evidence.
