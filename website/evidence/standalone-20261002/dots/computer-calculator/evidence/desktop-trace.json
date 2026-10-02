@@ -1,0 +1,32 @@
+{
+  "run_id": "dots-computer-calculator-20261002-01",
+  "description": "Agent-exported sanitized action/result trace; not a raw platform log. Unrelated windows and private instruction text omitted.",
+  "events": [
+    {
+      "at": "2026-10-02T12:57:16+00:00",
+      "action": "cua.getState()",
+      "result": "Native Linux app inventory available. No OS Calculator entry; KiCad PCB Calculator listed."
+    },
+    {
+      "at": "2026-10-02T12:57:44+00:00",
+      "action": "cua.computer.launch_app({app:\"xfce4-appfinder.desktop\"}); cua.listWindows()",
+      "result": "Application Finder launch requested; first inventory was too early to show it."
+    },
+    {
+      "at": "2026-10-02T12:57:49+00:00",
+      "action": "cua.listWindows()",
+      "result": "Application Finder window appeared."
+    },
+    {
+      "at": "2026-10-02T12:57:55+00:00",
+      "action": "cua.getApp({windowId:<observed Application Finder window>})",
+      "result": "Native accessibility tree showed focused search text control and installed-app list."
+    },
+    {
+      "at": "2026-10-02T12:58:03+00:00",
+      "action": "finder.typeText(\"calculator\"); finder.getAXState(); finder.getScreenshot()",
+      "result": "Only KiCad PCB Calculator shown, described as Calculator for various electronics-related computations. No OS Calculator available."
+    }
+  ],
+  "timestamps_note": "UTC second-precision observation bounds from conversation time reminders, not exact platform action start/end timestamps."
+}

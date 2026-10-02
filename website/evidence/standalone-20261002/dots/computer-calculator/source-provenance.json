@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-computer-calculator.zip",
+  "sha256_expected": "d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95",
+  "sha256_observed": "d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95",
+  "suite_version": "1.0.0",
+  "operator_pinned_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+  "commit_independently_verified": false
+}

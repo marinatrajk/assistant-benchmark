@@ -1,0 +1,64 @@
+Accessibility source: at_spi
+0 frame Application Finder
+	1 container
+		3 icon
+		4 text (focused, settable) Value: calculator, Secondary Actions: activate
+			5 icon go-up-symbolic, Description: Toggle view mode, Secondary Actions: activate
+		6 split pane
+			7 scroll pane
+				8 table
+					9 table column header
+					10 table cell (selected) Secondary Actions: expand or contract, edit, activate
+						11 table cell (selected) Secondary Actions: expand or contract, edit, activate
+						12 table cell (selected) All Applications, Secondary Actions: expand or contract, edit, activate
+					13 table cell Secondary Actions: expand or contract, edit, activate
+						14 table cell Secondary Actions: expand or contract, edit, activate
+						15 table cell Bookmarks, Secondary Actions: expand or contract, edit, activate
+					16 table cell Secondary Actions: expand or contract, edit, activate
+						17 table cell Secondary Actions: expand or contract, edit, activate
+						18 table cell Commands History, Secondary Actions: expand or contract, edit, activate
+					19 table cell Secondary Actions: expand or contract, edit, activate
+						20 table cell Secondary Actions: expand or contract, edit, activate
+						21 table cell Secondary Actions: expand or contract, edit, activate
+					22 table cell Secondary Actions: expand or contract, edit, activate
+						23 table cell Secondary Actions: expand or contract, edit, activate
+						24 table cell Accessories, Secondary Actions: expand or contract, edit, activate
+					25 table cell Secondary Actions: expand or contract, edit, activate
+						26 table cell Secondary Actions: expand or contract, edit, activate
+						27 table cell Development, Secondary Actions: expand or contract, edit, activate
+					28 table cell Secondary Actions: expand or contract, edit, activate
+						29 table cell Secondary Actions: expand or contract, edit, activate
+						30 table cell Education, Secondary Actions: expand or contract, edit, activate
+					31 table cell Secondary Actions: expand or contract, edit, activate
+						32 table cell Secondary Actions: expand or contract, edit, activate
+						33 table cell Games, Secondary Actions: expand or contract, edit, activate
+					34 table cell Secondary Actions: expand or contract, edit, activate
+						35 table cell Secondary Actions: expand or contract, edit, activate
+						36 table cell Graphics, Secondary Actions: expand or contract, edit, activate
+					37 table cell Secondary Actions: expand or contract, edit, activate
+						38 table cell Secondary Actions: expand or contract, edit, activate
+						39 table cell Internet, Secondary Actions: expand or contract, edit, activate
+					40 table cell Secondary Actions: expand or contract, edit, activate
+						41 table cell Secondary Actions: expand or contract, edit, activate
+						42 table cell Multimedia, Secondary Actions: expand or contract, edit, activate
+					43 table cell Secondary Actions: expand or contract, edit, activate
+						44 table cell Secondary Actions: expand or contract, edit, activate
+						45 table cell Science, Secondary Actions: expand or contract, edit, activate
+					46 table cell Secondary Actions: expand or contract, edit, activate
+						47 table cell Secondary Actions: expand or contract, edit, activate
+						48 table cell Settings, Secondary Actions: expand or contract, edit, activate
+					49 table cell Secondary Actions: expand or contract, edit, activate
+						50 table cell Secondary Actions: expand or contract, edit, activate
+						51 table cell System, Secondary Actions: expand or contract, edit, activate
+				52 scroll bar
+				53 scroll bar
+			54 scroll pane
+				55 table
+					56 table column header
+					135 table cell (selected) Secondary Actions: expand or contract, edit, activate
+						136 table cell (selected) Secondary Actions: expand or contract, edit, activate
+						137 table cell (selected) Secondary Actions: expand or contract, edit, activate, KiCad PCB Calculator\nCalculator for various electronics-related computations
+				228 scroll bar
+				229 scroll bar
+		231 button Preferences
+		232 button Launch

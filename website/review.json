@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T12:56:48+00:00",
+  "updated_at": "2026-10-02T13:01:55+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -214,14 +214,30 @@
       "package_sha256": "d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "blocked",
+          "review_status": "reviewed",
           "run_id": "dots-computer-calculator-20261002-01",
-          "summary": "Assigned next: use the operating system Calculator through actual desktop tools.",
+          "summary": "Desktop access worked, but the required operating-system Calculator was not found. No calculation was attempted.",
           "details": [
-            "A correct number alone does not satisfy the desktop-input and display-observation checks."
+            "Native Linux app inventory and Application Finder search returned only KiCad PCB Calculator, an electronics utility.",
+            "The saved accessibility observation and sanitized desktop trace support the app-availability blocker.",
+            "Dots did not substitute a browser calculator, code or mental arithmetic. All four required calculation checks remain unverified.",
+            "Five desktop setup calls were reported. Arithmetic execution did not start; screenshots were not independently retrieved."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed Calculator report",
+              "evidence/standalone-20261002/dots/computer-calculator/reviewed-report.json"
+            ],
+            [
+              "Original app-search observation",
+              "evidence/standalone-20261002/dots/computer-calculator/evidence/calculator-search-ax.txt"
+            ],
+            [
+              "Desktop action trace",
+              "evidence/standalone-20261002/dots/computer-calculator/evidence/desktop-trace.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -259,11 +275,13 @@
       "package_sha256": "d0c5f876295ecf24b073d2e28cb3c75f35110d5e6d291fa338822f06135e2634",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-purchase-research-20261002-01",
+          "summary": "Assigned next: compare three qualifying USB-C chargers using current product sources.",
+          "details": [
+            "Original US charger brief and 10-minute/80-tool-call limits retained."
+          ],
           "sources": []
         },
         "GrokBot": {
