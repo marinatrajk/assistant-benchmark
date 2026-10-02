@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:02:55.635095+00:00",
+  "updated_at": "2026-10-02T17:07:14.995826+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -656,19 +656,31 @@
           ]
         },
         "Instinct": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "instinct-reminder-delivery-20261002-01",
-          "summary": "Native reminder scheduled for 1:01:56 p.m. EDT; delivery/duplicate observation closes at 1:03:56.",
+          "summary": "One exact reminder arrived within the 2-minute window; no duplicate observed through the deadline.",
           "details": [
-            "Native creation export contains the exact benchmark text and one-shot due time 17:01:56 UTC.",
-            "Creation is supported; actual delivery and completed observation are still pending.",
-            "The provisional export uses a compact custom schema. A contract-compliant final report is still needed."
+            "Due 1:01:56 p.m. EDT; agent-exported send at 1:02:06 and channel timestamp 1:02:07. Independently visible in Messages by 1:02:17.913.",
+            "Duplicate observation completed at 1:04:10.277, after the 1:03:56 deadline. Final scheduler export shows the one-shot job absent.",
+            "Package was read after execution, and the compact provisional report was corrected. Existing conversation and incidental traffic are disclosed."
           ],
           "sources": [
             [
-              "Native creation evidence",
-              "evidence/standalone-20261002/instinct/reminder-delivery/creation-evidence.json"
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/reminder-delivery/reviewed-report.json"
+            ],
+            [
+              "Operator observations",
+              "evidence/standalone-20261002/instinct/reminder-delivery/operator-observations.json"
+            ],
+            [
+              "Agent-exported send record",
+              "evidence/standalone-20261002/instinct/reminder-delivery/evidence/send.json"
+            ],
+            [
+              "Completed-window evidence",
+              "evidence/standalone-20261002/instinct/reminder-delivery/evidence/complete-window.json"
             ]
           ]
         },
@@ -916,11 +928,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-memory-followup-20261002-01",
+          "summary": "Checking isolated durable memory and genuinely fresh-conversation support.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {

@@ -1,0 +1,26 @@
+{
+  "run_id": "instinct-reminder-delivery-20261002-01",
+  "operator_label": "Instinct",
+  "task": "reminder-delivery",
+  "status": "pending",
+  "review_status": "unreviewed",
+  "execution_started": true,
+  "created_at": "2026-10-02T18:51:55+02:00",
+  "created_at_utc": "2026-10-02T16:51:55Z",
+  "due_at_utc": "2026-10-02T17:01:56Z",
+  "due_at_america_new_york": "2026-10-02T13:01:56-04:00",
+  "due_at_local": "2026-10-02T19:01:56+02:00",
+  "required_window_end_utc": "2026-10-02T17:03:56Z",
+  "native_job_identifier": "wakeschedule-01M3YRF5TVV9DDE5JQ2YDZ85T0",
+  "stored_text": "Paces instinct-reminder-delivery-20261002-01 \u2014 take a screen break.",
+  "delivery": {
+    "source_send_timestamp": null,
+    "messages_receipt_time": null,
+    "observed": false
+  },
+  "metrics": {
+    "tool_calls": null,
+    "tokens": null
+  },
+  "notes": "Provisional: creation only; delivery not inferred from creation. Delivery fields to be filled from actual send evidence."
+}

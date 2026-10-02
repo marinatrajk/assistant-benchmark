@@ -1,0 +1,246 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "run_id": "instinct-reminder-delivery-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Existing Instinct Messages conversation, shared with other benchmark tasks and incidental unrelated traffic. Public evidence is task-scoped."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces instinct-reminder-delivery-20261002-01 \u2014 take a screen break."
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-delivery"
+  ],
+  "started_at": "2026-10-02T18:51:55+02:00",
+  "updated_at": "2026-10-02T19:05:05+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Package was downloaded, verified and read after scheduling and delivery, not before scheduling as requested. Initial report used a compact provisional schema; this update uses the full package template.",
+    "Native job creation and message delivery were performed before this report preparation.",
+    "Prior compact report retained. Original creation work instructions and unrelated read-back entries are not re-exported; sanitized run facts are preserved instead.",
+    "Metrics and exact budget enforcement are not observable across the attempt; all metrics remain null.",
+    "The visible channel delivered-status timestamp is recorded separately from source send time. User receipt/read timestamps are unobserved and null.",
+    "Operator observation added to the same run. 17:02:17Z is a receipt-observation bound, not an exact receipt timestamp. Final scheduler prompts withheld; native IDs and timing fields retained.",
+    "Operator review relabels platform claims as agent_export because these scheduler/history records came in an assistant-generated archive. Independent native Messages UI observation is separately supplied. Public conversation/message IDs redacted."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-delivery",
+      "status": "passed",
+      "reason": "All checks supported by native scheduling and channel evidence through the full required observation window.",
+      "execution_started": true,
+      "answer": "Paces instinct-reminder-delivery-20261002-01 \u2014 take a screen break.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Identifiers withheld. Evidence contains task facts and native scheduling/delivery outcomes only.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "creation"
+          ]
+        },
+        {
+          "id": "delivered",
+          "status": "passed",
+          "evidence_ids": [
+            "send",
+            "delivery",
+            "operator-observation"
+          ]
+        },
+        {
+          "id": "on-time",
+          "status": "passed",
+          "evidence_ids": [
+            "delivery",
+            "operator-observation"
+          ]
+        },
+        {
+          "id": "once",
+          "status": "passed",
+          "evidence_ids": [
+            "complete-window",
+            "operator-observation"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "creation",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "Native one-time job creation: exact due and stored text. Sanitized export.",
+          "ref": "evidence/creation-sanitized.json",
+          "observed_at": "2026-10-02T18:51:55+02:00"
+        },
+        {
+          "id": "send",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "One send with requested text; source clock boundaries are distinct from channel status time.",
+          "ref": "evidence/send.json",
+          "observed_at": "2026-10-02T17:02:06.290000+00:00"
+        },
+        {
+          "id": "delivery",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Requested reminder entry has visible delivered status at 19:02:07+02:00, 11 seconds after due. User receipt/read time unobserved.",
+          "ref": "evidence/read-back.json",
+          "observed_at": "2026-10-02T19:02:07+02:00"
+        },
+        {
+          "id": "prior",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Prior provisional compact report, task facts preserved.",
+          "ref": "evidence/prior-provisional-report.json"
+        },
+        {
+          "id": "package",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Package SHA-256 matches expected hash; read after creation and delivery.",
+          "ref": "evidence/package-verification.json"
+        },
+        {
+          "id": "complete-window",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "After due + 120 seconds, channel read contains exactly one requested reminder and no early or duplicate exact reminder.",
+          "ref": "evidence/complete-window.json",
+          "observed_at": "2026-10-02T19:04:00+02:00"
+        },
+        {
+          "id": "operator-observation",
+          "kind": "operator_attestation",
+          "provenance": "operator",
+          "summary": "Codex operator observed exactly one matching message by 17:02:17.913Z and no duplicate through 17:04:10.277Z; observation bounds, not exact receipt times.",
+          "ref": "operator-observations.json",
+          "observed_at": "2026-10-02T17:04:10.277Z"
+        },
+        {
+          "id": "final-scheduler",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Final listing: reminder-delivery job absent; research and cancellation-observation jobs still present. Exact listing capture second unobserved; prompts withheld.",
+          "ref": "evidence/final-scheduler-listing.json"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "creation"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": "2026-10-02T18:51:55+02:00",
+        "original_due_at": null,
+        "due_at": "2026-10-02T13:01:56-04:00",
+        "source_observed_at": "2026-10-02T17:02:06.290000+00:00",
+        "delivered_at": "2026-10-02T19:02:07+02:00",
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T17:04:10.277Z",
+        "timezone": "America/New_York",
+        "job_id": "wakeschedule-01M3YRF5TVV9DDE5JQ2YDZ85T0",
+        "observation_complete": true,
+        "evidence_ids": [
+          "creation",
+          "send",
+          "delivery",
+          "complete-window",
+          "operator-observation",
+          "final-scheduler"
+        ]
+      },
+      "memory": null,
+      "delivery_details": {
+        "source_send_started_at": "2026-10-02T17:02:06.07+00:00",
+        "source_send_completed_at": "2026-10-02T17:02:06.29+00:00",
+        "platform_status_at": "2026-10-02T19:02:07+02:00",
+        "user_receipt_at": null,
+        "user_read_at": null,
+        "operator_observed_by": "2026-10-02T17:02:17.913Z",
+        "operator_ui_minute_label": "1:02 PM",
+        "operator_no_duplicate_through": "2026-10-02T17:04:10.277Z",
+        "operator_receipt_observation_is_bound": true
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Passed: creation export, exact standalone incoming message in native Messages, on-time UI observation, and completed duplicate window agree. Agent-exported native history records one send at 17:02:06 UTC and platform status timestamp 17:02:07; independent operator first observed it at 17:02:17.913, not an exact receipt second. No duplicate through 17:04:10.277, after 17:03:56 deadline. Package read after scheduling/delivery and initial non-template report are disclosed deviations, retained privately; they do not negate the four demonstrated outcome checks."
+}

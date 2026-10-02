@@ -1,0 +1,12 @@
+{
+  "count": 1,
+  "events": [
+    {
+      "direction": "you_to_user",
+      "message": "[benchmark-message]",
+      "status": "delivered",
+      "timestamp": "Friday, October 2, 2026, 7:02:07 PM CEST"
+    }
+  ],
+  "note": "Task-related entry only; unrelated entries omitted. This is a visible platform status timestamp, not an independently observed user receipt/read time."
+}

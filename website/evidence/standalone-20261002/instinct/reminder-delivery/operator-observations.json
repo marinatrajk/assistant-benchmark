@@ -1,0 +1,28 @@
+{
+  "provenance": "operator_observation",
+  "channel": "macOS Messages / Instinct",
+  "run_id": "instinct-reminder-delivery-20261002-01",
+  "due_at": "2026-10-02T17:01:56Z",
+  "deadline_at": "2026-10-02T17:03:56Z",
+  "observations": [
+    {
+      "observed_at": "2026-10-02T17:02:17.913Z",
+      "note": "Exactly one standalone incoming message with body Paces instinct-reminder-delivery-20261002-01 \u2014 take a screen break. visible; UI labels it 1:02 PM. This is the first operator observation, not an exact receipt timestamp."
+    },
+    {
+      "observed_at": "2026-10-02T17:03:22.480Z",
+      "note": "No additional matching incoming message in the observed transcript."
+    },
+    {
+      "observed_at": "2026-10-02T17:04:10.277Z",
+      "note": "No duplicate matching incoming message observed after the deadline. Unrelated conversation traffic occurred during the observation window; its content is excluded."
+    }
+  ],
+  "matching_notifications_observed": 1,
+  "observation_complete": true,
+  "observation_through": "2026-10-02T17:04:10.277Z",
+  "limitations": [
+    "Periodic native UI observations, not continuous backend transport logging.",
+    "Minute-resolution UI receipt label; precise native send time, if supplied, is separate evidence."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-02T19:04:00+02:00",
+  "observation_through": "2026-10-02T19:03:56+02:00",
+  "requested_window_start": "2026-10-02T19:01:56+02:00",
+  "exact_body": "Paces instinct-reminder-delivery-20261002-01 — take a screen break.",
+  "matching_outbound_reminders": [
+    {
+      "body": "Paces instinct-reminder-delivery-20261002-01 — take a screen break.",
+      "direction": "you_to_user",
+      "message": "[benchmark-message]",
+      "status": "read",
+      "timestamp": "Friday, October 2, 2026, 7:02:07 PM CEST"
+    }
+  ],
+  "count_exact_outbound_reminders": 1,
+  "first_visible_timestamp": "Thursday, October 1, 2026, 9:30:55 PM CEST",
+  "note": "Native chronological recent channel read covers before creation through the completed window. Only the exact reminder entry is exported. No earlier or duplicate exact reminder found."
+}

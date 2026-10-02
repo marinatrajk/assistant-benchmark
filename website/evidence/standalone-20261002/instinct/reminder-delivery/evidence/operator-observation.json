@@ -1,0 +1,15 @@
+{
+  "source_message": {
+    "body": "Benchmark evidence follow-up for instinct-reminder-delivery-20261002-01 only: the operator observed one exact reminder in Messages at 17:02:17Z (UI minute label 1:02 PM), and no duplicate through 17:04:10Z, after the 17:03:56Z deadline. This is an observation bound, not an exact receipt second. Please finalize the SAME run without resending or recreating anything. Download/read the assigned benchmark-reminder-delivery v0.2.0 package if still unread, verify SHA-256 a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17, and disclose the original compact-format deviation and actual package-reading order. Return the full single-task template JSON plus actual native send/history and final scheduler evidence in a ZIP. Distinguish send time from operator receipt observation. Limit exported Messages evidence to this benchmark marker; exclude unrelated conversation. Preserve research and cancellation-observation jobs. Do not send another reminder.",
+    "direction": "user_to_you",
+    "message": "[benchmark-message]",
+    "status": "read",
+    "timestamp": "Friday, October 2, 2026, 7:04:29 PM CEST"
+  },
+  "operator_observed_reminder_by": "2026-10-02T17:02:17+00:00",
+  "ui_minute_label": "1:02 PM",
+  "operator_no_duplicate_through": "2026-10-02T17:04:10+00:00",
+  "actual_user_receipt_at": null,
+  "actual_user_read_at": null,
+  "note": "Operator-attested observation bound. Neither timestamp is an exact receipt second."
+}
