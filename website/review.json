@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:22:53.121282+00:00",
+  "updated_at": "2026-10-02T15:28:36.519066+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -678,18 +678,28 @@
           ]
         },
         "GrokBot": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "failed",
+          "review_status": "reviewed",
           "run_id": "grokbot-scheduled-research-20261002-01",
-          "summary": "Scheduled for 11:21 a.m. EDT; fresh source and actual delivery checks close at 11:26.",
+          "summary": "No scheduled product update arrived in the 11:21\u201311:26 a.m. EDT delivery window.",
           "details": [
-            "One native routine targets the exact recommended product. It must report any continuing Amazon access restriction without bypassing it or reusing earlier prices.",
-            "Minute granularity rounds the due time up by 40 seconds from the requested 15-minute delay."
+            "Native routine details matched the selected Belkin URL and white WCH017dq variant.",
+            "Operator UI observations and the agent-exported transcript check found no update by the deadline. No fresh source artifact was available.",
+            "Source freshness and accuracy remain unverified. No earlier price was passed off as a fresh check.",
+            "No operator task was sent during this window. Internal scheduler run/error logs were unavailable, so the cause is unknown."
           ],
           "sources": [
             [
-              "Provisional report",
-              "evidence/standalone-20261002/grokbot/scheduled-research/provisional-report.json"
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/scheduled-research/reviewed-report.json"
+            ],
+            [
+              "Operator observations",
+              "evidence/standalone-20261002/grokbot/scheduled-research/operator-observations.json"
+            ],
+            [
+              "Runtime/history evidence",
+              "evidence/standalone-20261002/grokbot/scheduled-research/evidence/runtime-history.md"
             ]
           ]
         },

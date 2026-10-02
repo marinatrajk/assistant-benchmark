@@ -1,0 +1,187 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "run_id": "grokbot-scheduled-research-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation; the product was selected in grokbot-purchase-research-20261002-01, and Amazon blocked browser access in grokbot-checkout-handoff-20261002-01."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.amazon.com/dp/B0DQVHMJNC",
+    "product_variant": "Belkin 112W 4-port GaN charger WCH017dq, White, Amazon.com offer"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "task_ids_requested": [
+    "scheduled-research"
+  ],
+  "started_at": "2026-10-02T11:05:20-04:00",
+  "updated_at": "2026-10-02T11:26:57-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Minute-granularity scheduler: due 11:21:00 (15 min 40 s after the time read).",
+    "Metrics are not exported and are left null.",
+    "Internal routine run logs are not visible to the assistant. fresh-execution and accurate-update are left unverified because nothing ran or was reported."
+  ],
+  "tasks": [
+    {
+      "task_id": "scheduled-research",
+      "status": "failed",
+      "reason": "Missed deadline: no price-check update reached the chat between 11:21:00 and 11:26:00 EDT, and no fresh source observation was recorded. The internal run history is not visible to the assistant, so the cause is unknown.",
+      "execution_started": true,
+      "answer": "One-time price check scheduled for 2026-10-02T11:21:00-04:00.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Hidden settings are withheld.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        {
+          "id": "fresh-execution",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "accurate-update",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "failed",
+          "evidence_ids": [
+            "ev-runtime",
+            "ev-operator"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-create",
+          "kind": "trace",
+          "summary": "Native one-time job with exact URL, variant and work",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduler-creation.md",
+          "excerpt": "(folder paces-scheduled-price-check-grokbot-scheduled-re): Once October 2 at 11:21 AM.",
+          "observed_at": "2026-10-02T11:05:30-04:00"
+        },
+        {
+          "id": "ev-runtime",
+          "kind": "trace",
+          "summary": "Post-deadline check of routine status, all sent messages and expected evidence files. Found no wake, no update and no fresh observation.",
+          "provenance": "agent_export",
+          "ref": "evidence/runtime-history.md",
+          "observed_at": "2026-10-02T11:26:57-04:00"
+        },
+        {
+          "id": "ev-operator",
+          "kind": "operator_attestation",
+          "summary": "Operator watched the chat through the 11:21-11:26 window and after 11:26:20. No price-check update appeared.",
+          "provenance": "operator",
+          "excerpt": "no price-check update appeared; the last messages were the earlier screen-break late-delivery addendum.",
+          "observed_at": "2026-10-02T15:26:25.281Z",
+          "ref": "operator-observations.json"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": "2026-10-02T11:05:30-04:00",
+        "original_due_at": "2026-10-02T11:21:00-04:00",
+        "due_at": "2026-10-02T11:21:00-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T11:26:00-04:00",
+        "timezone": "America/New_York",
+        "job_id": "paces-scheduled-price-check-grokbot-scheduled-re",
+        "observation_complete": true,
+        "evidence_ids": [
+          "ev-create",
+          "ev-runtime",
+          "ev-operator"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Original-chat UI observations during the window and after its end showed no research update. Native routine details were separately inspected before due; target and schedule matched. Agent-exported post-deadline transcript and file inspection found no execution evidence. Missed delivery is supported; source/accuracy checks remain unverified. Internal cause is unknown. No manual replacement check or retry was sent."
+}
