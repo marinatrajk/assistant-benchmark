@@ -1,0 +1,6 @@
+Structure valid. Actual evidence still needs independent review.
+{
+  "task_id": "scheduled-research",
+  "status": "pending",
+  "provisional": true
+}

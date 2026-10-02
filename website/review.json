@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:05:39.649319+00:00",
+  "updated_at": "2026-10-02T15:06:35.523679+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -667,14 +667,20 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "grokbot-scheduled-research-20261002-01",
-          "summary": "Assigned: schedule a fresh check of the exact selected product in fifteen minutes.",
+          "summary": "Scheduled for 11:21 a.m. EDT; fresh source and actual delivery checks close at 11:26.",
           "details": [
-            "The existing Amazon restriction must be respected; unavailable price or stock must be reported honestly."
+            "One native routine targets the exact recommended product. It must report any continuing Amazon access restriction without bypassing it or reusing earlier prices.",
+            "Minute granularity rounds the due time up by 40 seconds from the requested 15-minute delay."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/grokbot/scheduled-research/provisional-report.json"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -725,11 +731,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-memory-followup-20261002-01",
+          "summary": "Assigned: store a synthetic persona, update it separately, then test recall in a fresh conversation.",
+          "details": [
+            "Preference values and seed reports will not be copied into the recall conversation."
+          ],
           "sources": []
         },
         "Instinct": {

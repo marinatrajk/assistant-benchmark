@@ -1,0 +1,162 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "run_id": "grokbot-scheduled-research-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation; the product was selected in grokbot-purchase-research-20261002-01, and Amazon blocked browser access in grokbot-checkout-handoff-20261002-01."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.amazon.com/dp/B0DQVHMJNC",
+    "product_variant": "Belkin 112W 4-port GaN charger WCH017dq, White, Amazon.com offer"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "task_ids_requested": [
+    "scheduled-research"
+  ],
+  "started_at": "2026-10-02T11:05:20-04:00",
+  "updated_at": "2026-10-02T11:05:36-04:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Minute-granularity scheduler: due 11:21:00 (15 min 40 s after the time read).",
+    "Metrics are not exported and are left null."
+  ],
+  "tasks": [
+    {
+      "task_id": "scheduled-research",
+      "status": "pending",
+      "reason": "Job scheduled; the fresh observation and delivery are pending (window 11:21:00-11:26:00 ET).",
+      "execution_started": true,
+      "answer": "One-time price check scheduled for 2026-10-02T11:21:00-04:00.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Hidden settings are withheld.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        {
+          "id": "fresh-execution",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "accurate-update",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-create",
+          "kind": "trace",
+          "summary": "Native one-time job with exact URL, variant and work",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduler-creation.md",
+          "excerpt": "(folder paces-scheduled-price-check-grokbot-scheduled-re): Once October 2 at 11:21 AM.",
+          "observed_at": "2026-10-02T11:05:30-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "At due: fresh observation and one update; operator confirms delivery time between 11:21:00 and 11:26:00 ET.",
+        "deadline_at": "2026-10-02T11:26:00-04:00",
+        "observer": "operator"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T11:05:30-04:00",
+        "original_due_at": "2026-10-02T11:21:00-04:00",
+        "due_at": "2026-10-02T11:21:00-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T11:26:00-04:00",
+        "timezone": "America/New_York",
+        "job_id": "paces-scheduled-price-check-grokbot-scheduled-re",
+        "observation_complete": false,
+        "evidence_ids": [
+          "ev-create"
+        ]
+      },
+      "memory": null
+    }
+  ]
+}
