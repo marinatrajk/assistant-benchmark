@@ -1,0 +1,4 @@
+downloaded 2026-10-02T10:34:38-04:00
+1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1  benchmark-browser-form.zip
+expected 1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1
+manifest file hashes: all 8 match (checked 10:34:47-04:00)

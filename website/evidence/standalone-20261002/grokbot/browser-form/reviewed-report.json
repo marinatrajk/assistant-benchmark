@@ -1,0 +1,184 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "run_id": "grokbot-browser-form-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Assistant's own persistent cloud Linux machine and browser profile, shared with the user's other assistants; no other carts, jobs, memories or accounts were touched.",
+      "Prior exposure: this conversation already held the earlier six-task paces-everyday pilot, and that kit's zip contained an older form-trace/confirmation file from a previous run. It was not opened or reused here; all evidence comes from this run."
+    ],
+    "fixture_mode": "public_static"
+  },
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "browser-form"
+  ],
+  "started_at": "2026-10-02T10:34:38-04:00",
+  "updated_at": "2026-10-02T10:36:20-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "tool_calls counts only the browser worker's reported actions (8, screenshots included). Coordinator setup and report calls are excluded, and the 50-call limit was not machine-enforced.",
+    "Browser mode is recorded as visual: the browser worker works from screenshots and pixel-coordinate clicks and typing in the box browser, at a 1280x800 display."
+  ],
+  "tasks": [
+    {
+      "task_id": "browser-form",
+      "status": "passed",
+      "reason": "All three required checks are supported by screenshots and the action trace from a single submission.",
+      "execution_started": true,
+      "answer": "Submitted once. Confirmation code: PACES-8AFCD7547281293A",
+      "metrics": {
+        "active_duration_ms": 67000,
+        "elapsed_duration_ms": 77000,
+        "tool_calls": 8,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Active time runs from the browser open (10:34:48) to the confirmation being observed (10:35:55), by worker-reported wall-clock timestamps with 1 s precision. Elapsed time runs from the package download (10:34:38) to the confirmation. Both exclude report writing. tool_calls counts the browser worker's actions only. Tokens are unavailable."
+      },
+      "tools_used": [],
+      "disclosure_note": "Internal tool identifiers are withheld; the sanitized action trace and screenshots are provided.",
+      "checks": [
+        {
+          "id": "form-values",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-filled",
+            "ev-confirm"
+          ]
+        },
+        {
+          "id": "browser-interaction",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-trace",
+            "ev-loaded",
+            "ev-filled"
+          ]
+        },
+        {
+          "id": "receipt-observed",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-confirm",
+            "ev-trace"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-package",
+          "kind": "observation",
+          "summary": "Package downloaded; SHA-256 matches the operator's value and every file hash matches the manifest.",
+          "provenance": "agent_export",
+          "ref": "evidence/package-verification.txt",
+          "observed_at": "2026-10-02T10:34:47-04:00"
+        },
+        {
+          "id": "ev-trace",
+          "kind": "trace",
+          "summary": "Ordered browser action trace: open, name, email, topic select, one submit, confirmation.",
+          "provenance": "agent_export",
+          "ref": "evidence/action-trace.md",
+          "observed_at": "2026-10-02T10:35:55-04:00"
+        },
+        {
+          "id": "ev-loaded",
+          "kind": "screenshot",
+          "summary": "Form page loaded in the assistant's browser.",
+          "provenance": "agent_export",
+          "ref": "evidence/form-1-loaded.png",
+          "observed_at": "2026-10-02T10:34:48-04:00"
+        },
+        {
+          "id": "ev-filled",
+          "kind": "screenshot",
+          "summary": "Filled form before submit: Name Ada Lovelace, Email ada@example.com, Topic Research.",
+          "provenance": "agent_export",
+          "ref": "evidence/form-2-filled.png",
+          "observed_at": "2026-10-02T10:35:15-04:00"
+        },
+        {
+          "id": "ev-confirm",
+          "kind": "screenshot",
+          "summary": "Confirmation page: 'Request received', code PACES-8AFCD7547281293A, echoing Ada Lovelace / ada@example.com / Research.",
+          "provenance": "agent_export",
+          "ref": "evidence/form-3-confirmation.png",
+          "excerpt": "Request received. Your confirmation code: PACES-8AFCD7547281293A. Name Ada Lovelace. Email ada@example.com. Topic Research.",
+          "observed_at": "2026-10-02T10:35:55-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "visual",
+          "label": null,
+          "evidence_ids": [
+            "ev-trace",
+            "ev-filled",
+            "ev-confirm"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted artifact review",
+  "review_notes": "Downloaded the actual evidence ZIP from the Grok Bot macOS app. Reviewed all three original screenshots and the timestamped agent-exported action trace: empty form, exact filled values, one reported submission, matching receipt and echoed values. Timing and counts are worker-reported, not independently instrumented; prior conversation exposure and shared cloud browser profile disclosed."
+}

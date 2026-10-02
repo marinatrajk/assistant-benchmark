@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:34:56.520850+00:00",
+  "updated_at": "2026-10-02T14:38:29.094539+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -59,15 +59,30 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "grokbot-browser-form-20261002-01",
-          "summary": "Assigned in the Grok Bot macOS app: enter the synthetic form values, submit once, and capture the confirmation.",
+          "summary": "Submitted the exact form values once and captured confirmation PACES-8AFCD7547281293A.",
           "details": [
-            "Existing \u201cNew Bot\u201d conversation reused; it contains prior pilot benchmark context.",
-            "Five active minutes and 50 tool calls per the published protocol. The assistant must use its own browser; evidence will be reviewed before scoring."
+            "Original empty, filled and confirmation screenshots were downloaded and visually reviewed. Confirmation echoes Ada Lovelace, ada@example.com and Research.",
+            "The timestamped agent-exported trace records field entry, topic selection and one submit.",
+            "Runner reports 67 active seconds and eight browser actions; full tool telemetry and token usage are unavailable.",
+            "Existing conversation with prior benchmark context and shared persistent cloud browser profile; no clean-room claim."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/browser-form/reviewed-report.json"
+            ],
+            [
+              "Original confirmation screenshot",
+              "evidence/standalone-20261002/grokbot/browser-form/evidence/form-3-confirmation.png"
+            ],
+            [
+              "Original action trace",
+              "evidence/standalone-20261002/grokbot/browser-form/evidence/action-trace.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -124,11 +139,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-browser-research-20261002-01",
+          "summary": "Assigned: compare the live plans with a native research skill and cite the cheapest qualifying option.",
+          "details": [
+            "Requires current browser evidence and a named native skill-load event. Five active minutes, 50 calls, one attempt."
+          ],
           "sources": []
         },
         "Instinct": {
