@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual skill runs",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T11:24:18+00:00",
+  "updated_at": "2026-10-02T11:30:24+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -29,15 +29,22 @@
       "package_sha256": "1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
           "run_id": "dots-browser-form-20261002-01",
-          "summary": "Assigned to the existing Dots conversation; awaiting its report.",
+          "summary": "Assignment accepted; no assistant response or tool activity observed yet. Unscored.",
           "details": [
-            "Uses the published standalone Browser form skill, version 1.0.0.",
-            "The operator requested reuse of an existing Dots chat. Previous benchmark context is present."
+            "The existing Dots conversation reports an active turn, but no execution or result has been observable.",
+            "A status inquiry was sent without starting a second attempt. No response to that inquiry has been observed.",
+            "The active-task time budget cannot be assessed without execution evidence; this is not recorded as a benchmark failure.",
+            "Previous benchmark context is present because the operator requested the existing conversation."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Operator dispatch record",
+              "evidence/standalone-20261002/dots/browser-form/dispatch-observation.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",

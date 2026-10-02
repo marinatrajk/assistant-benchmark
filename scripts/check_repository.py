@@ -46,7 +46,7 @@ def check():
     runs = json.loads((web / 'skill-runs.json').read_text())
     catalog = json.loads((ROOT / 'benchmarks/task-catalog.json').read_text())
     assert [task['task_id'] for task in runs['tasks']] == [task['task_id'] for task in catalog['tasks']], 'Standalone task coverage/order changed'
-    run_statuses = statuses | {'not_run', 'running', 'blocked', 'unsupported', 'awaiting_review'}
+    run_statuses = statuses | {'not_run', 'running', 'blocked', 'unsupported', 'awaiting_review', 'awaiting_response'}
     for task in runs['tasks']:
         assert set(task['results']) == set(agents), 'Missing standalone assistant'
         for agent, result in task['results'].items():

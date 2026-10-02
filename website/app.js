@@ -9,7 +9,7 @@ const info = {
   'Muse': { id: 'muse', delay: 'Within limit', delayNote: 'Receipt was 30 to under 90 seconds after due, based on the app’s minute-level timestamp. The reported 52 seconds is a worker timestamp, not measured receipt latency.' }
 };
 const groups = { 'All tasks': [0, 1, 2, 3, 4, 5], Shopping: [1], Research: [0], Scheduling: [2, 3, 4], Files: [5] };
-const labels = { passed: 'Passed', partial: 'Partial', failed: 'Failed', pending: 'Pending', awaiting_user: 'Needs user', not_evaluated: 'Not tested', not_run: 'Not started', running: 'Running', blocked: 'Blocked', unsupported: 'Unsupported', awaiting_review: 'Awaiting review' };
+const labels = { passed: 'Passed', partial: 'Partial', failed: 'Failed', pending: 'Pending', awaiting_user: 'Needs user', not_evaluated: 'Not tested', not_run: 'Not started', running: 'Running', awaiting_response: 'Awaiting response', blocked: 'Blocked', unsupported: 'Unsupported', awaiting_review: 'Awaiting review' };
 let data;
 let skillRuns;
 let skillAgent = 'ChatGPT Dots';

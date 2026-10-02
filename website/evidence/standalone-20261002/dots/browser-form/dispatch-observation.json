@@ -1,0 +1,20 @@
+{
+  "record_type": "operator_dispatch_observation",
+  "run_id": "dots-browser-form-20261002-01",
+  "assistant": "ChatGPT Dots",
+  "task_id": "browser-form",
+  "assignment_accepted_at": "2026-10-02T11:23:58+00:00",
+  "last_observed_at": "2026-10-02T11:30:24+00:00",
+  "platform_turn_state": "active",
+  "assistant_response_observed": false,
+  "tool_activity_observed": false,
+  "task_execution_verified": false,
+  "outcome": "awaiting_response",
+  "grading": "No pass or failure assigned. The active-task budget cannot be assessed without observable execution.",
+  "conditions": [
+    "Existing conversation reused at the operator\u2019s request; previous benchmark context is present.",
+    "A follow-up status inquiry was sent after the assignment remained active without visible activity. It asked to preserve the same attempt and avoid duplicate submission."
+  ],
+  "next_action": "Inspect the existing Dots conversation when it responds, review its actual report and evidence, then assign Browser research.",
+  "privacy_note": "This record contains only the benchmark assignment and operator observations. Private conversation records and platform session identifiers are excluded."
+}

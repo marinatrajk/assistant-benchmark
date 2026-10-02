@@ -32,7 +32,7 @@
 .skill-protocol code { overflow-wrap: anywhere; font-size: 11px; }
 .skill-method { margin-top: 28px; font-size: 14px; color: #66666e; }
 .skill-method li { margin-bottom: 8px; }
-.badge.running, .badge.awaiting_review { background: #edf3fa; color: #527090; }
+.badge.running, .badge.awaiting_review, .badge.awaiting_response { background: #edf3fa; color: #527090; }
 .badge.blocked, .badge.unsupported, .badge.not_run { background: #f1f1f3; color: #77777d; }
 @media (max-width: 680px) {
   .skill-round-link { align-items: flex-start; padding: 18px; gap: 12px; flex-direction: column; }
