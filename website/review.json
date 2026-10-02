@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:34:39.748529+00:00",
+  "updated_at": "2026-10-02T17:40:30.349188+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -115,14 +115,38 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "muse-browser-form-20261002-01",
-          "summary": "Browser form assigned in Muse; awaiting actual browser and confirmation evidence.",
+          "summary": "Submitted the exact form values once; independently verified confirmation PACES-8551D67530E48F80.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Actual empty and filled screenshots match Ada Lovelace, ada@example.com and Research. Native completed-browser preview independently shows the same receipt and echoed values.",
+            "Agent-exported trace records browser field entry, dropdown selection and one successful submission, with stale-reference retries inside the same attempt.",
+            "Reported browser duration 49 seconds; 8 native steps and 28 calls including orchestration are declared, but full counters were not independently inspected.",
+            "Existing benchmark side chat and shared managed browser profile. Missing confirmation screenshot in the bundle was supplemented by the operator preview capture."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/browser-form/reviewed-report.json"
+            ],
+            [
+              "Operator confirmation capture",
+              "evidence/standalone-20261002/muse/browser-form/operator-confirmation-preview.jpg"
+            ],
+            [
+              "Operator observation",
+              "evidence/standalone-20261002/muse/browser-form/operator-observation.json"
+            ],
+            [
+              "Filled form screenshot",
+              "evidence/standalone-20261002/muse/browser-form/evidence/screenshot-filled-form.png"
+            ],
+            [
+              "Agent-exported action report",
+              "evidence/standalone-20261002/muse/browser-form/evidence/browser-task-report.md"
+            ]
+          ]
         }
       },
       "criterion": "Enter the requested values through the browser, submit once, and observe the confirmation receipt.",
@@ -213,11 +237,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-browser-research-20261002-01",
+          "summary": "Comparing plans and checking native research-skill loading; awaiting evidence.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },

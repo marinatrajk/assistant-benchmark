@@ -1,0 +1,196 @@
+{
+  "deviations": [
+    "Confirmation-page screenshot was captured and visually verified by the browser task, but its artifact path was not returned in the handoff, so the confirmation screenshot file itself is unavailable in this bundle. The exact confirmation code is preserved verbatim from the task's textual observation (evidence/confirmation-note.md). Empty-form and filled-form screenshots are preserved.",
+    "Two benign stale AX-reference retries occurred inside the browser task (one on field fill, one on submit click); each succeeded on the immediate retry with a fresh ref scope. Both are counted inside the single attempt; the form was submitted exactly once.",
+    "The first browser.spawn_task call in this run failed on a tool-schema refresh before any browser action started; it was retried once with the current schema. No duplicate browser attempt was created.",
+    "Operator supplemented the missing confirmation screenshot with an independently captured completed-browser preview. Agent-prepared platform/operator evidence labels corrected to agent_export. Unrelated parked-task details generalized for privacy."
+  ],
+  "environment": {
+    "browser": "Chromium (managed live browser)",
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-browser-form-20261002-01; the older paces-everyday pilot results were not reused and no other benchmark tasks were started.",
+      "Shared managed browser profile with unrelated parked tasks. Profile reset was not verified; unrelated state was preserved. Unrelated task details omitted from this public copy.",
+      "Existing side-chat context was present; fixture interaction was limited to the benchmark form at the configured fixture_base_url.",
+      "Unrelated carts, scheduled jobs, accounts, and memories were preserved. No purchase was made and no unrelated conversations were used."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-browser-form-20261002-01",
+  "skill_name": "benchmark-browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "started_at": "2026-10-02T13:34:39-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "browser-form"
+  ],
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "tasks": [
+    {
+      "answer": "PACES-8551D67530E48F80",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-empty",
+            "ev-screenshot-filled"
+          ],
+          "label": null,
+          "mode": "mixed",
+          "status": "observed"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-filled",
+            "operator-confirmation"
+          ],
+          "id": "form-values",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-empty",
+            "ev-screenshot-filled"
+          ],
+          "id": "browser-interaction",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-confirmation-note",
+            "operator-confirmation"
+          ],
+          "id": "receipt-observed",
+          "status": "passed"
+        }
+      ],
+      "disclosure_note": "Tool-call accounting (measurable): the browser task itself executed 8 native steps (7 browser_automation actions + 1 handoff), inside the 50-call budget. Orchestration around it (bundle download + SHA-256 verification, reading the task sheet/inputs/template, spawning and inspecting the browser task, verifying both screenshots visually, writing this report, validating and packaging) used 20 additional tool calls, for a run total of 28 \u2014 also inside the budget. Active duration covers the browser task's created_at to updated_at (49 s); bundle download/verification, evidence review, and report writing are excluded from active time per the report contract. input_tokens/output_tokens are not observable from this harness and are left null. The confirmation code above is the exact text observed on the confirmation page; it was not guessed. No HTTP submission and no fixture source/log inspection were used.",
+      "evidence": [
+        {
+          "id": "ev-browser-report",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:35:27-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/browser-task-report.md",
+          "summary": "Verbatim live-browser task handoff: form URL, values entered (Ada Lovelace / ada@example.com / Research via native dropdown), single submit click, confirmation page text including code PACES-8551D67530E48F80 and echoed details, plus the native action timeline (go to site, look, fill, look, click submit, look, handoff) and the two benign stale-ref retries."
+        },
+        {
+          "id": "ev-screenshot-empty",
+          "kind": "screenshot",
+          "observed_at": "2026-10-02T13:34:39-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/screenshot-empty-form.png",
+          "summary": "Screenshot of the empty benchmark form before entry: Name blank, Email blank, Topic showing 'Select a topic', 'Send request' button visible."
+        },
+        {
+          "id": "ev-screenshot-filled",
+          "kind": "screenshot",
+          "observed_at": "2026-10-02T13:35:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/screenshot-filled-form.png",
+          "summary": "Screenshot of the filled benchmark form before submit: Name 'Ada Lovelace', Email 'ada@example.com', Topic 'Research' selected in the dropdown."
+        },
+        {
+          "id": "ev-confirmation-note",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:35:27-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/confirmation-note.md",
+          "summary": "Exact confirmation code PACES-8551D67530E48F80 quoted from the confirmation page ('Request received'), with echoed submitted values; discloses that the confirmation screenshot file itself was not returned by the browser tool."
+        },
+        {
+          "id": "operator-confirmation",
+          "kind": "screenshot",
+          "provenance": "operator",
+          "summary": "Independent native browser preview capture shows receipt PACES-8551D67530E48F80 and all three exact values.",
+          "ref": "operator-confirmation-preview.jpg",
+          "observed_at": "2026-10-02T17:37:25.370904+00:00"
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": 49000,
+        "elapsed_duration_ms": 112000,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "active: browser task created_at to updated_at (setup/seed and report writing excluded); elapsed: report started_at to updated_at (includes the browser run and evidence assembly); tool_calls: browser-task native step_count from task inspection; token counts not observable from this harness",
+        "tool_calls": 8
+      },
+      "reason": "All three required checks passed with observed evidence: the submitted values match the assignment, the action trace shows real browser field entry and a single submission, and the confirmation code was observed on the confirmation page.",
+      "schedule": null,
+      "status": "passed",
+      "task_id": "browser-form",
+      "tools_used": [
+        "browser.spawn_task",
+        "browser.peek_task",
+        "browser_automation (native browser actions per task timeline: go to page, look, fill, click)",
+        "muse.exec",
+        "muse.read",
+        "muse.write"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-02T13:36:31-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Passed after reviewing the actual empty and filled screenshots and independently opening the native completed-browser preview, which shows the exact receipt and echoed requested values. Agent-exported browser narrative records fill/select/single successful submit and two stale-reference recoveries. Raw browser telemetry was not independently accessible. Reported counters are 8 native steps / 28 with orchestration; the listed timeline contains seven summarized entries, so counters are not independently verified. Reported 49 seconds is the browser-task boundary. Existing chat/shared browser profile and missing confirmation-file handoff are disclosed; operator preview capture supplies separate confirmation evidence."
+}

@@ -1,0 +1,13 @@
+{
+  "provenance": "operator_observation",
+  "captured_by": "2026-10-02T17:37:25.370904+00:00",
+  "surface": "Muse native macOS app, completed browser-session viewer",
+  "url_visible": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/",
+  "confirmation_code": "PACES-8551D67530E48F80",
+  "values": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.com",
+    "topic": "Research"
+  },
+  "note": "Operator independently opened the completed native browser preview and visually confirmed receipt and echoed values. No browser control, resubmission or page modification occurred. Full capture contains only this synthetic task and Muse interface."
+}
