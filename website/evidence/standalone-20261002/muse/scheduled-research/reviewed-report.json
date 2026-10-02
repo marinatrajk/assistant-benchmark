@@ -47,26 +47,29 @@
     "scheduled-research"
   ],
   "started_at": "2026-10-02T14:04:15-04:00",
-  "updated_at": "2026-10-02T14:05:10-04:00",
+  "updated_at": "2026-10-02T14:27:20-04:00",
   "review_status": "reviewed",
-  "deviations": [],
+  "deviations": [
+    "The evidence/scheduling-notes.txt line written at 14:05 EDT prematurely stated the delivery reminder had already delivered; corrected in place at 14:11 EDT with the actual outcome (verified in the final copy).",
+    "The first closeout version treated the worker's live-check TXT as source evidence; it is a narrated summary. This correction exports the run's original browser artifacts (screenshot, ax.json, manifest) and restores fresh-execution to verified, with source_observed_at set to the raw artifact timestamp (18:19:55Z) instead of the channel-observation time."
+  ],
   "tasks": [
     {
       "task_id": "scheduled-research",
-      "status": "pending",
-      "reason": "Native one-shot research job created with due 2026-10-02T14:19:23-04:00 (exactly 15 minutes after the fresh clock reading), recording the exact target URL and variant in the job body. The live price/stock check has not been performed yet; the run will save its actual source evidence to evidence/live-check/ and deliver one chat update. The report stays pending until delivery arrives within due+300s and the observation window through 2026-10-02T18:24:23Z completes from real evidence.",
+      "status": "failed",
+      "reason": "Fresh page artifacts were produced after due, but no research notification appeared by the 18:24:23Z deadline. A late update was first seen at 18:26:42.136Z; the native run finished at 18:25:22Z. Exact transport receipt timestamp is unavailable. The source content matches the late update; in-window delivery failed.",
       "execution_started": true,
-      "answer": "One native one-shot research job (muse-scheduled-research-20261002-01) scheduled for 2026-10-02 14:19:23 EDT to freshly check price and stock of the Philips DLP3653W/37 white 65W GaN charger (variant 55194167968113) at the exact byjasco URL, save live source evidence, and send one update here. The check has not been performed yet.",
+      "answer": "Failed delivery timing: fresh source checked after due, accurate product price/stock content arrived late.",
       "metrics": {
         "active_duration_ms": null,
-        "elapsed_duration_ms": 55000,
+        "elapsed_duration_ms": 1285000,
         "tool_calls": null,
         "input_tokens": null,
         "output_tokens": null,
-        "source": "Provisional agent-reported elapsed time; active time/count not independently observable."
+        "source": "Active time/count not independently observable; elapsed time agent-reported."
       },
       "tools_used": [],
-      "disclosure_note": "Scheduling performed via the native cron scheduler (one-shot job); backend tool names are undisclosed, so tools_used is intentionally empty. Scheduling evidence is retained in evidence/job-definition.md and evidence/scheduling-notes.txt.",
+      "disclosure_note": "Scheduling performed via the native cron scheduler (one-shot job); backend tool names are undisclosed, so tools_used is intentionally empty. Scheduling evidence is retained in evidence/job-definition.md and evidence/scheduling-notes.txt. Operator verified the raw AX file and screenshot hashes, page price/stock/identity, and original manifest timestamp after due. Screenshot and source export provide content evidence; timestamp provenance is agent-exported native metadata. Exact chat receipt time is not available: delivered_at is first-observed-present bound. Worker TXT is narrative only. Public copies redact private identifiers; source screenshot and AX bytes unchanged.",
       "checks": [
         {
           "id": "scheduled",
@@ -78,18 +81,26 @@
         },
         {
           "id": "fresh-execution",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "E3"
+          ]
         },
         {
           "id": "accurate-update",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "E3",
+            "E4"
+          ]
         },
         {
           "id": "delivered",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "failed",
+          "evidence_ids": [
+            "E4",
+            "E5"
+          ]
         }
       ],
       "evidence": [
@@ -108,6 +119,30 @@
           "provenance": "agent_export",
           "ref": "evidence/scheduling-notes.txt",
           "summary": "Fresh clock read at scheduling: 2026-10-02T14:04:23 EDT (-0400) / 2026-10-02T18:04:23 UTC; due 2026-10-02T14:19:23 EDT is exactly 15 minutes later. The live check has not been performed yet; evidence/live-check/ is empty pending the run."
+        },
+        {
+          "id": "E3",
+          "kind": "observation",
+          "observed_at": "2026-10-02T18:19:55Z",
+          "provenance": "agent_export",
+          "ref": "evidence/live-check/raw/manifest.json",
+          "summary": "Original artifacts from the 18:19:23Z scheduled run, exported unmodified (no new browser check was run): screenshot.png (1919x998, sha256 49dde55c89e58ac3b3ae301da8ecc934994dc6a9135d19c54bdd5ef24157bc25), ax.json (sha256 371ce1124aac075b5a27fe674e8512dc95c3fcf95c2258f6490b7a26753d4e44), manifest.json (ts 20261002T181955.510862705Z, url the exact product URL with variant 55194167968113). The ax.json page tree shows \"DLP3653W/37\", \"$19.99\", and \"In stock, ready to ship\". The worker-written TXT in evidence/live-check/ is a narrated summary only and is superseded as source evidence."
+        },
+        {
+          "id": "E4",
+          "kind": "operator_attestation",
+          "observed_at": "2026-10-02T18:26:42.136Z",
+          "provenance": "operator",
+          "ref": "operator-observation.json",
+          "summary": "Operator saw no research update through 18:24:35.354Z after deadline; still absent at 18:26:02.852Z; late update first seen at 18:26:42.136Z. This is an observation bound, not an exact transport timestamp."
+        },
+        {
+          "id": "E5",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:27:11-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/post-cleanup-state.json",
+          "summary": "Agent-exported native run history reports succeeded at 18:25:22Z, after deadline, with late update text. Post-cleanup job disabled/removed, no next run, no queued/running workers. Run finish does not independently prove exact chat receipt time."
         }
       ],
       "capabilities": {
@@ -145,28 +180,31 @@
         }
       },
       "follow_up": {
-        "required": true,
-        "next_action": "Wait for the native job to execute at 14:19:23 EDT, then confirm the live evidence file in evidence/live-check/ and the actual chat update in this side chat (due+300s tolerance), then update this same report: set fresh-execution, accurate-update and delivered from the real source and channel evidence, mark observation_complete, and finalize the outcome.",
-        "deadline_at": "2026-10-02T18:24:23Z",
-        "observer": "Codex-assisted operator UI observation and native job export"
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
       },
       "schedule": {
         "created_at": "2026-10-02T14:04:42.145-04:00",
         "due_at": "2026-10-02T14:19:23-04:00",
-        "source_observed_at": null,
-        "delivered_at": null,
-        "observation_through": null,
-        "observation_complete": false,
+        "source_observed_at": "2026-10-02T18:19:55Z",
+        "delivered_at": "2026-10-02T18:26:42.136Z",
+        "observation_through": "2026-10-02T18:26:42.136Z",
+        "observation_complete": true,
         "timezone": "America/New_York",
         "job_id": "muse-scheduled-research-20261002-01",
         "evidence_ids": [
           "E1",
-          "E2"
+          "E2",
+          "E3",
+          "E4",
+          "E5"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex-assisted operator review",
-  "review_notes": "Scheduling/phase evidence reviewed provisionally. Actual delivery/absence window incomplete; no success inferred from job creation. Private internal chat/device identifiers redacted."
+  "review_notes": "Original page tree and screenshot hashes verified and screenshot visually reviewed: exact Philips SKU, $19.99 and in-stock state; manifest records requested variant and 18:19:55Z source observation. Late update content matches; check completion 18:20:09Z is agent-reported. Independent operator observations establish missed deadline and later appearance, not exact transport timestamp. Run finish at 18:25:22Z must not be substituted for receipt. Benchmark worker is terminal and no benchmark job remains active per exported native status. Private identifiers redacted."
 }

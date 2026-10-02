@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:19:56.993234+00:00",
+  "updated_at": "2026-10-02T18:28:47.597830+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -1082,13 +1082,14 @@
           ]
         },
         "Muse": {
-          "status": "pending",
+          "status": "failed",
           "review_status": "reviewed",
           "run_id": "muse-scheduled-research-20261002-01",
-          "summary": "Fresh product check scheduled for 2:19:23 p.m. EDT; delivery deadline 2:24:23 p.m.",
+          "summary": "Fresh product check succeeded, but its update arrived after the five-minute delivery deadline.",
           "details": [
-            "Native scheduling evidence retained; no early success credited.",
-            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
+            "Source screenshot and page tree show the exact charger at $19.99 and in stock, with source metadata after the scheduled due time.",
+            "No update visible through 2:24:35 p.m. EDT, past the 2:24:23 deadline; late update first observed by 2:26:42.",
+            "Native run ended at 2:25:22; exact message receipt timestamp unavailable. Job removed and no worker remains."
           ],
           "sources": [
             [
@@ -1096,12 +1097,24 @@
               "evidence/standalone-20261002/muse/scheduled-research/reviewed-report.json"
             ],
             [
-              "Job Definition",
-              "evidence/standalone-20261002/muse/scheduled-research/evidence/job-definition.md"
+              "Operator delivery observations",
+              "evidence/standalone-20261002/muse/scheduled-research/operator-observation.json"
             ],
             [
-              "Scheduling Notes",
-              "evidence/standalone-20261002/muse/scheduled-research/evidence/scheduling-notes.txt"
+              "Actual source screenshot",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/live-check/raw/screenshot.png"
+            ],
+            [
+              "Actual page tree",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/live-check/raw/ax.json"
+            ],
+            [
+              "Source manifest",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/live-check/raw/manifest.json"
+            ],
+            [
+              "Final cleanup state",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/post-cleanup-state.json"
             ]
           ]
         }

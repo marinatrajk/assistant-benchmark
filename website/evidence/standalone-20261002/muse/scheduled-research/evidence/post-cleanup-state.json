@@ -1,0 +1,23 @@
+{
+  "exported_at": "2026-10-02T14:27:xx-04:00 (closeout correction turn)",
+  "run_record_final": {
+    "run_id": "[private-id-redacted]",
+    "status": "succeeded",
+    "started_at_utc": 1790965163,
+    "finished_at_utc": 1790965522,
+    "last_run_at_local": "Fri 2026-10-02 14:25:22 EDT",
+    "error_text": null,
+    "result_summary_includes_late_update_text": true
+  },
+  "scoped_status": {
+    "enabled": false,
+    "in_flight": false,
+    "queued_runs": 0,
+    "running_runs": 0,
+    "next_run_at_utc": null,
+    "last_status": "succeeded",
+    "note": "The job definition was removed at ~14:25 EDT (archived); the scheduler retains the finished run record only."
+  },
+  "subagents_active": "none (subagent.list active: [])",
+  "delivery_note": "The scheduled update text arrived via the native scheduled handoff at 14:25:22 EDT (18:25:22Z), AFTER the 18:24:23Z delivery deadline — too late to satisfy the in-window delivered check. It was surfaced as the late scheduled delivery, not counted as in-window delivery."
+}

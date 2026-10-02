@@ -1,0 +1,25 @@
+{
+  "run_id": "muse-scheduled-research-20261002-01",
+  "observer": "Codex-assisted operator, native Muse app",
+  "due_at": "2026-10-02T18:19:23Z",
+  "delivery_deadline": "2026-10-02T18:24:23Z",
+  "checks_at": [
+    "2026-10-02T18:18:57.473Z",
+    "2026-10-02T18:20:02.577Z",
+    "2026-10-02T18:20:29.858Z",
+    "2026-10-02T18:21:01.998Z",
+    "2026-10-02T18:22:00.196Z",
+    "2026-10-02T18:23:07.771Z",
+    "2026-10-02T18:23:59.522Z",
+    "2026-10-02T18:24:35.354Z"
+  ],
+  "observation_through": "2026-10-02T18:24:35.354Z",
+  "observation_complete": true,
+  "requested_notification_seen": false,
+  "delivered_at": null,
+  "method": "Periodic read-only accessibility observations of the original native Muse benchmark chat, including full chat state after the deadline. No research update, current price/stock result, or scheduled run marker appeared. Original exact screen-break notification remained in history. A waiting browser preview was inspected and found to be the earlier parked checkout, not research evidence. No takeover, navigation or interaction with that checkout occurred.",
+  "scope": "Records observable channel delivery only. Scheduler execution and source acquisition must be assessed separately from the returned native run history. Post-deadline evidence-export request is not an on-time notification. Raw UI logs are retained privately because they include unrelated chat and private identifiers. A late update appeared after closeout, first seen 18:26:42.136Z; exact transport timestamp unavailable. This does not satisfy the deadline. Native run attribution must be checked separately.",
+  "late_notification_first_seen_at": "2026-10-02T18:26:42.136Z",
+  "late_notification_absent_at": "2026-10-02T18:26:02.852Z",
+  "late_notification_text": "Paces muse-scheduled-research-20261002-01 \u2014 live check complete. Variant 55194167968113; claimed check 18:20:09Z; price USD 19.99; in stock, ready to ship."
+}

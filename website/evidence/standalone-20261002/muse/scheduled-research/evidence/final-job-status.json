@@ -1,0 +1,25 @@
+{
+  "note": "Exported 2026-10-02 ~14:25 EDT during closeout; due was 18:19:23Z, delivery deadline 18:24:23Z.",
+  "run_record": {
+    "run_id": "[private-id-redacted]",
+    "job_id": "muse-scheduled-research-20261002-01",
+    "scheduled_for_local": "Fri 2026-10-02 14:19:23 EDT",
+    "scheduled_for_utc": 1790965163,
+    "started_at_utc": 1790965163,
+    "finished_at_utc": null,
+    "status": "running",
+    "error_text": null,
+    "result_summary": null,
+    "trigger_reason": "scheduled"
+  },
+  "scoped_status_before_removal": {
+    "enabled": false,
+    "in_flight": true,
+    "queued_runs": 0,
+    "running_runs": 1,
+    "next_run_at_utc": null,
+    "last_status": null
+  },
+  "removal": "cron.remove at ~14:25 EDT removed the leftover one-shot job definition (archived); scheduler reconciled. No other jobs touched; parked checkout untouched.",
+  "live_check_artifact": "evidence/live-check/live-check-20261002T142009-0400.txt — worker-saved at 14:20:09 EDT (at/after due): live browser check completed, price $19.99 USD, stock 'In stock, ready to ship', read-only constraints honored. The run never emitted its scheduled chat message."
+}

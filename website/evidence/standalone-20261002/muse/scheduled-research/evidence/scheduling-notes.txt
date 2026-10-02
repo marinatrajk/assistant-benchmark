@@ -1,5 +1,3 @@
-Operator note: the final paragraph claims the prior delivery reminder already delivered; that due time is still in the future at this export. This claim is not accepted as delivery evidence.
-
 scheduled-research scheduling notes — run muse-scheduled-research-20261002-01, 2026-10-02
 
 Request received: 2026-10-02T14:04:15 EDT ("In 15 minutes from a fresh current clock reading, check current price and stock
@@ -24,8 +22,14 @@ Native one-shot job created:
 - Owner: goal:scheduled-research-benchmark-run-muse-scheduled-research-20261002-01 (dedicated tracked item).
 
 Other work preserved: the checkout-handoff cart remains parked; the change-cancel benchmark reminder is already
-cancelled; the prior delivery reminder delivered at its due time; no other jobs added, removed, or changed.
+cancelled; the prior delivery reminder had not yet delivered when these notes were written (that was a premature note —
+CORRECTION 14:11 EDT: it delivered at 2026-10-02T14:09:18-04:00 per the native run record and was operator-observed
+exactly once by 18:09:54Z with no duplicates through 18:11:01Z; see that run's final report); no other jobs added, removed, or changed.
 
 This report stays pending until the scheduled run executes, the update is delivered, and the observation window
 through 2026-10-02T18:24:23Z is complete. It will be updated from the run's real evidence file
 (evidence/live-check/) and the actual delivered chat message.
+
+--- CLOSEOUT (14:24-14:25 EDT) ---
+Operator observed this chat through 18:24:32Z: no requested research notification arrived in the due -> due+300s window (18:19:23Z to 18:24:23Z).
+Native inspection showed run 3d681673 fired exactly on time (started 18:19:23Z) and the worker saved real live-check evidence at 14:20:09 EDT ($19.99, in stock), but the run never reached a terminal status (still "running"/in_flight, no error_text) and never delivered its scheduled chat message. The leftover job definition was removed at ~14:25 EDT per the operator's instruction; no replacement check was run, no delivery time was fabricated, and this follow-up response is not counted as scheduled delivery. All other jobs and the parked checkout are preserved. The cancelled-reminder no-late-delivery observation remains open through 18:28:39Z and was not disturbed.

@@ -1,0 +1,23 @@
+LIVE CHECK — Paces muse-scheduled-research-20261002-01
+Observation timestamp: Fri 2026-10-02 14:20:09 EDT (2026-10-02T18:20:09Z UTC)
+Check method: live browser task on exact variant URL (read-only; no cart, no sign-in, no checkout)
+
+Final page URL:
+https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113
+
+Page title as shown: "Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN, 65W, White"
+
+(a) Product title as shown: "Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN, 65W, White"
+(b) Variant identity: Page SKU displayed is "DLP3653W/37", color White, 65W GaN,
+    2 USB-C + 1 USB-A — all matching. The loaded URL retained the exact variant
+    query parameter ?variant=55194167968113 and no variant was changed or
+    selected; no visible variant picker existed on the page.
+(c) Observed price: $19.99 USD, shown as a single price — no sale/strikethrough
+    price displayed.
+(d) Stock status: "In stock, ready to ship"; the "ADD TO CART" button was present
+    and enabled (not disabled); quantity selector default 1.
+(e) Observation time: page loaded at 14:20 EDT with full price/stock content
+    rendered; check completed 14:20:09 EDT (18:20:09 UTC).
+(f) Caveats: None — page loaded normally, no CAPTCHA or bot block; price and
+    stock content fully rendered. Read-only constraints honored: nothing added to
+    the cart, no sign-in, no checkout, no cart modification.
