@@ -17,6 +17,8 @@ Each assistant uses its **own tools and capabilities**. The public pilot evaluat
 
 Each task has its own [standalone benchmark skill](docs/SKILLS.md), including browser use, computer use, and memory. The project also includes a local harness for comparing models with a shared set of tools. Cross-session memory was not evaluated in the initial Everyday pilot.
 
+Human-operated [voice-mode tests](manual-testing/voice-mode/README.md) cover interruptions, spoken corrections, noisy speech, screen awareness, reminders, and continuity between voice and text. They include shared test pages, scoring criteria, and a results template.
+
 ## The first pilot
 
 The October 1–2, 2026 pilot covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, with one attempt per assistant. Results distinguish passes, partial completion, required user input, failures, pending checks, and tasks that were not tested.
