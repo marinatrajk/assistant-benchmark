@@ -1,0 +1,31 @@
+Paces portable benchmark v1
+
+Give another agent this folder/ZIP plus INVOCATION.txt. If its interface cannot read ZIP files, extract it and supply SKILL.md and its referenced task, playbook, and report files. Installation and attachment support varies by product; this package does not certify integration with GrokBot, OpenClaw, Instinct, or ChatGPT.
+
+Every evaluated action uses the target harness's own capabilities. No Paces API or Paces agent tools are required or permitted as substitutes. The optional fixture server serves controlled test pages only.
+
+The folder follows the Agent Skills SKILL.md layout:
+https://agentskills.io/specification
+OpenClaw documents local SKILL.md skills; follow its current skill setup flow:
+https://docs.openclaw.ai/tools/creating-skills
+For other tools, use their documented skill mechanism when present. Reading the files as instructions is a document-mode fallback, not proof of native skill support.
+
+1. Start a fresh agent session. Record model/settings only when available and shareable; undisclosed values may remain null.
+2. Give the agent this skill package and the ready-to-send INVOCATION.txt. It already contains the published fixture base URL:
+   https://paces-agent-tests-20261001.marinatrajk.chatgpt.site
+   Contact form: /form/   Pricing page: /plans/
+3. Request one repetition first, using the agent's own capabilities. Collect paces-results.json, its summary, and evidence. Validate:
+   python3 scripts/validate_report.py /path/to/paces-results.json
+4. Review the action trace and confirmation screenshot. The public form validates in the browser and generates a random code; there is no central submission ledger. A code or structurally valid report alone is not proof of task execution. Keep external self-reports separate from instrumented Paces runs.
+
+Optional local fixture mode: on the same machine as the agent's browser, run:
+   python3 scripts/serve_fixtures.py --port 4320 --output ./fixture-evidence
+Python 3.9+ standard library is sufficient. The server prints a local base URL and writes fixture-info.json plus invocation.txt inside the output directory. Send that generated prompt for local_server mode. It uses assets/invocation-template.txt. Leave the server running and use a fresh output directory each independent run. This mode additionally writes submissions.jsonl for operator review. It is separate from Paces on port 4317.
+
+Cloud browsers can use the public pages above. They cannot reach a fixture server on your laptop through 127.0.0.1. No hosting setup is needed for the public mode. Agents still supply all their own browser, memory, computer, and skill capabilities.
+
+The test persona's preference must not replace your real preference. Use each harness's own existing memory system, including normal file-backed memory. Do not implement a scratch-file replacement. Missing memory is unsupported. Use relevant skills already in that harness's own library and record which ones. Missing native skill loading or a relevant skill means document reads cannot pass the native skill check. No desktop tool means an unsupported computer-use task, not an invented result.
+
+Version scope: these are portable variants of the existing four starter tasks, not the identical local suite. The receipt is dynamic, memory uses a synthetic persona, and grading requires evidence. Repeated results are still needed for reliability estimates. Script and format checks are included; actual behavior in each named third-party harness remains to be tested. No automatic Paces import is included in v1.
+
+Metadata disclosure is optional. The report accepts null harness name/model/version/settings without penalizing task outcomes. Use operator_label for a human-provided product name. Version 1.0.1 changes setup and metadata handling only; task checks are unchanged.

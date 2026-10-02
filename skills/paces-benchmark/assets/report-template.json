@@ -1,0 +1,194 @@
+{
+  "suite_id": "paces-portable-v1",
+  "suite_version": "1.0.1",
+  "run_id": "replace-with-unique-run-id",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site",
+    "isolation_notes": [],
+    "fixture_mode": "public_static"
+  },
+  "limits": {
+    "task_timeout_seconds": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1
+  },
+  "review_status": "unreviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "browser-form",
+      "repetition": 1,
+      "status": "not_run",
+      "reason": "Template only; no attempt has been made.",
+      "browser_mode": "unavailable",
+      "skill_mode": "not_applicable",
+      "memory_mode": "not_applicable",
+      "tools_used": [],
+      "metrics": {
+        "duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "answer": null,
+      "checks": [
+        {
+          "id": "form-values",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "browser-interaction",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "receipt-observed",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "computer_mode": "not_applicable"
+    },
+    {
+      "task_id": "browser-research",
+      "repetition": 1,
+      "status": "not_run",
+      "reason": "Template only; no attempt has been made.",
+      "browser_mode": "unavailable",
+      "skill_mode": "unavailable",
+      "memory_mode": "not_applicable",
+      "tools_used": [],
+      "metrics": {
+        "duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "answer": null,
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "source-observed",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "correct-choice",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "source-cited",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "computer_mode": "not_applicable"
+    },
+    {
+      "task_id": "memory-update",
+      "repetition": 1,
+      "status": "not_run",
+      "reason": "Template only; no attempt has been made.",
+      "browser_mode": "not_applicable",
+      "skill_mode": "unavailable",
+      "memory_mode": "unavailable",
+      "tools_used": [],
+      "metrics": {
+        "duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "answer": null,
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "prior-retrieved",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "current-updated",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "readback-verified",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "computer_mode": "not_applicable"
+    },
+    {
+      "task_id": "computer-calculator",
+      "repetition": 1,
+      "status": "not_run",
+      "reason": "Template only; no attempt has been made.",
+      "browser_mode": "not_applicable",
+      "skill_mode": "unavailable",
+      "memory_mode": "not_applicable",
+      "tools_used": [],
+      "metrics": {
+        "duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "answer": null,
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "desktop-input",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "display-observed",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "answer-matches",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "computer_mode": "unavailable"
+    }
+  ],
+  "operator_label": null,
+  "metadata_note": null
+}

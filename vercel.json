@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "website",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/results/",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

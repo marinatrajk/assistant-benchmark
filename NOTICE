@@ -1,0 +1,7 @@
+Assistant Benchmark was previously named Paces. Historical identifiers are retained for compatibility.
+
+The MIT license applies to original project code, benchmark instructions, documentation and original branding. It does not grant rights in third-party assistant logos, trademarks, retailer product screenshots, or externally submitted evidence. Those materials retain their respective rights and are included for identification and evaluation context. No endorsement by the named vendors is implied.
+
+The assets named dots-logo.png, grokbot-logo.png and muse-logo.png identify the evaluated products. Retailer screenshots and agent-submitted artifacts under website/evidence retain their source provenance; inclusion is not a claim that their underlying content is owned by this project.
+
+The initial project and evidence reviews were created with assistance from Codex. Vellum Assistant inspired architectural separation in the standalone local harness; no Vellum source tree is distributed here. Playwright, YAML, Zod and other transitive dependencies retain their own licenses in their distributed packages.

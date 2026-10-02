@@ -1,0 +1,647 @@
+{
+  "suite_id": "paces-everyday-v1",
+  "suite_version": "0.1.0",
+  "run_id": "example-not-executed",
+  "operator_label": null,
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "run_config": {
+    "market": "US",
+    "currency": "USD",
+    "timezone": "America/New_York",
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120,
+    "cancel_original_delay_minutes": 20,
+    "cancel_revised_delay_minutes": 25,
+    "cancel_observation_grace_seconds": 120,
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300,
+    "shopping_item_price_limit": 50,
+    "shopping_payment_boundary": "Stop at payment; no purchase or card data entry",
+    "live_web_mode": true
+  },
+  "task_ids_requested": [
+    "purchase-research",
+    "checkout-handoff",
+    "reminder-delivery",
+    "reminder-change-cancel",
+    "scheduled-research",
+    "expense-summary"
+  ],
+  "started_at": null,
+  "updated_at": null,
+  "review_status": "unreviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "purchase-research",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "current-sources",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "tradeoffs",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "recommendation",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    },
+    {
+      "task_id": "checkout-handoff",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "exact-cart",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "checkout-reached",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "totals",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "handoff",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    },
+    {
+      "task_id": "reminder-delivery",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "on-time",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "once",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": null,
+        "original_due_at": null,
+        "due_at": null,
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "timezone": null,
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": []
+      },
+      "memory": null
+    },
+    {
+      "task_id": "reminder-change-cancel",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "created",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "updated",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "cancelled",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "no-late-delivery",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": null,
+        "original_due_at": null,
+        "due_at": null,
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "timezone": null,
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": []
+      },
+      "memory": null
+    },
+    {
+      "task_id": "scheduled-research",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "fresh-execution",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "accurate-update",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": null,
+        "original_due_at": null,
+        "due_at": null,
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "timezone": null,
+        "job_id": null,
+        "observation_complete": false,
+        "evidence_ids": []
+      },
+      "memory": null
+    },
+    {
+      "task_id": "memory-followup",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "stored",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "updated",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "new-session-recall",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "applied",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "initial_session": null,
+        "recall_session": null,
+        "same_environment": null,
+        "isolated": null,
+        "evidence_ids": []
+      }
+    },
+    {
+      "task_id": "expense-summary",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "correct-totals",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "usable-artifact",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "explanation",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ]
+}

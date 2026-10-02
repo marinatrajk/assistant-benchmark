@@ -1,0 +1,18 @@
+{
+  "suite_id": "paces-portable-v1",
+  "version": "1.0.1",
+  "files": {
+    "INVOCATION.txt": "72e7fd78ac912d396b2e4f8d057533ca66445f979e9ab2dffbb6d96b0f8918ce",
+    "SKILL.md": "7432baa9a976fb6fce52a631ed3095c06492e8769d64a2db693f1a09d9382ed8",
+    "START-HERE.txt": "e188520a014ba30fb5a34c144884eeb1da46edacaa46aa098c935d9ff3705926",
+    "assets/invocation-template.txt": "80ac2c0453f6817010ae522fbfb60a7d9cd7c796f05cbe373c25dc83b75daa10",
+    "assets/report-template.json": "bbfac2a8dcae1ae11fa16cdd6a904778eedf81329bd545524900e5c3a6183d10",
+    "references/report-format.md": "2e8aed0d2d1925b66cd365d0875fd49cb9e89bace497bf215916f689c0041f15",
+    "references/task-skills/browser-research.md": "f5e541cf8377b59e2d8f7a4cabc02b084152e630d67bde17514bdb7258a93d36",
+    "references/task-skills/desktop-workflow.md": "023a0610c1b0a674bfb645525aa78d9983cc93cfc0b7b3cc5f044544abdadaea",
+    "references/task-skills/remember-preferences.md": "be586a18790d5f2c09f1a828ecfd7f571eba7e69334535460f29858230b5a2ca",
+    "references/tasks.md": "430116c6b46d732f13cebc0f009d0ac82ac8344ca26a7ded3905966dd7f165b9",
+    "scripts/serve_fixtures.py": "0766293957dcbe3d01ec059ac348b76566cefea1aaeb57ae4c50977e2bdfaf78",
+    "scripts/validate_report.py": "c64e221e7c50eacc29892484bca0b476b36f9dd8f67bae7c00f4a82c82c586ec"
+  }
+}

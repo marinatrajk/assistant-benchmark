@@ -1,0 +1,16 @@
+{
+  "suite_id": "paces-everyday-v1",
+  "version": "0.1.0",
+  "stage": "pilot-not-yet-agent-tested",
+  "files": {
+    "INVOCATION.txt": "bf85242a47c213a0aba681f22797577c3f523d0a2cbb4d88d160882d412e8567",
+    "SKILL.md": "eb08d45a4e4e22fa1a4e2066db378435dc99e29def34afd7f44fe084ec946563",
+    "assets/report-template.json": "18a8165f3ad849cc0ee391b69eeab8d71ae82b96de05f3ec661f7978f078fb77",
+    "assets/run-config.json": "ccf30016e76fdc5db564e1ff2fffbc1067a3a560094d6f30cf4236c69e658797",
+    "assets/sample-expenses.csv": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+    "assets/scenarios.json": "e7eab8c46ca0ca94c2e9e35c562f643f27a41ac2e5f5ac80d1867c3fd317eb1a",
+    "references/reporting.md": "090602df1c495269aa516d277e987cd049066419985ced8261468aa97f4fbd1a",
+    "references/scenarios.md": "b3c0ce0712c22a91bfa4a612622ad4ea6159c0afbae95039f84b4f0c065a51a2",
+    "scripts/validate_report.py": "6a88bf37d8c9c6c738bd1d53ae1631963be8f9d8bade1136d710ae96a028275c"
+  }
+}

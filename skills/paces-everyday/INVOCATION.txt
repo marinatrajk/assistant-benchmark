@@ -1,0 +1,15 @@
+Use the attached paces-everyday skill to run the Paces everyday pilot with your own existing tools.
+
+Run purchase-research, checkout-handoff, reminder-delivery, reminder-change-cancel, scheduled-research and expense-summary once. We will test memory-followup separately in a fresh conversation.
+
+Use the attached run configuration: US market, USD, America/New_York. Do not install capabilities or use Paces tools. Use available native skills naturally and report whether you actually loaded them, separately from task success.
+
+Research the charger brief in the task sheet. For checkout, add only the recommended exact variant to a fresh guest cart and stop at payment. Do not place an order or charge anything. If you need account or delivery information, ask me or provide a secure browser handoff. Do not ask me to paste card details into chat.
+
+Use your native scheduler for the benchmark reminders and the one-time scheduled product check, notifying only me in this conversation. Start the 10-minute reminder now. Create the reminder-change-cancel job, then wait for my separate update and cancel messages. Tell me when it is ready for those messages. For scheduled research, use the selected exact product URL from your research, 15 minutes after that job is created.
+
+Creating a schedule is not a delivery pass. Return a provisional report while waiting; complete the report after actual execution and notification evidence. If you cannot see a notification, ask me to return its timestamp/evidence. Do not hold the conversation open by sleeping.
+
+Use assets/sample-expenses.csv for the expense task. Mark unsupported, blocked, pending and awaiting_user honestly, and continue independent work. Leave unavailable metrics and undisclosed internal identifiers null or empty.
+
+Return paces-everyday-results.json, evidence and usable output files, plus a short summary. Keep the report unreviewed. Respect the attached task budgets and preserve unrelated memories, jobs, carts and accounts.

@@ -1,0 +1,44 @@
+{
+  "purchase-research": [
+    "constraints",
+    "current-sources",
+    "tradeoffs",
+    "recommendation"
+  ],
+  "checkout-handoff": [
+    "exact-cart",
+    "checkout-reached",
+    "totals",
+    "handoff"
+  ],
+  "reminder-delivery": [
+    "scheduled",
+    "delivered",
+    "on-time",
+    "once"
+  ],
+  "reminder-change-cancel": [
+    "created",
+    "updated",
+    "cancelled",
+    "no-late-delivery"
+  ],
+  "scheduled-research": [
+    "scheduled",
+    "fresh-execution",
+    "accurate-update",
+    "delivered"
+  ],
+  "memory-followup": [
+    "stored",
+    "updated",
+    "new-session-recall",
+    "applied"
+  ],
+  "expense-summary": [
+    "cleaned-data",
+    "correct-totals",
+    "usable-artifact",
+    "explanation"
+  ]
+}

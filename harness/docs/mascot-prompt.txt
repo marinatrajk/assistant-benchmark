@@ -1,0 +1,9 @@
+Paces mascot — generated with the built-in image generation tool.
+Reference: user-provided plush avatar photograph.
+Asset: public/paces-mascot.png (original generated PNG, alpha preserved).
+
+Use case: logo-brand.
+Asset type: one original mascot logo for the Paces local agent-evaluation app, displayed as a 40–48px sidebar icon and as a larger brand avatar.
+The attached image is a STYLE REFERENCE ONLY: borrow the playful soft plush forms, bold saturated color, minimal facial features and toy-like charm of its small avatars. Do not reproduce the photo or its people, table, background, or four-character lineup.
+Create ONE original coral-orange squishy plush character, with a compact, beautifully simple asymmetric rounded pebble/mound body, a broad rounded base, a very subtle forward lean, and two oversized raised white googly eyes near its top. Eyes have large glossy near-black round pupils, glancing slightly up and to the right, conveying curiosity. No mouth, nose, hands, feet, clothing, hat or glasses. Body color warm vivid coral-orange around #EE7956 to fit the app's existing palette. Soft short velvety fabric with very restrained fine fuzz, smooth clean silhouette, tactile 3D plush product rendering, subtle soft studio illumination and natural dimensional shading. Keep eye contrast very strong and shapes readable at tiny icon size; avoid intricate details.
+Composition: front view, single centered fully visible character occupying about 88 percent of the square canvas in both width and height, balanced minimal transparent padding. GENUINELY TRANSPARENT background with an alpha channel; no painted checkerboard, no backdrop, no surrounding shadow, no ground plane, no text, no letters, no border, no watermark. Produce the finished isolated mascot asset, not a mockup or a sheet of alternatives.

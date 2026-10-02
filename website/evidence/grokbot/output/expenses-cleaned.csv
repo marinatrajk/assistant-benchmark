@@ -1,0 +1,10 @@
+record_id,receipt_id,date,merchant,category,amount,currency,needs_review,review_reason
+r001,A101,2026-10-01,Metro,Transport,2.90,USD,,
+r002,A102,2026-10-01,Coffee Corner,Meals,4.50,USD,,
+r003,A103,2026-10-01,Market Lunch,Meals,12.80,USD,,
+r004,A104,2026-10-01,Paper Shop,Office,8.00,USD,,
+r006,A106,2026-10-01,City Taxi,Transport,22.00,USD,,
+r007,A107,2026-10-01,Paper Shop refund,Office,-5.00,USD,,
+r008,A108,2026-10-01,Example Hotel,Lodging,120.00,USD,,
+r009,A109,2026-10-01,Dinner Cafe,Meals,24.60,USD,,
+r010,A110,2026-10-01,Station Kiosk,Meals,,USD,TRUE,Missing amount

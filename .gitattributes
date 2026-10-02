@@ -1,0 +1,7 @@
+* text=auto eol=lf
+skills/** -text
+website/evidence/** -text
+*.csv whitespace=cr-at-eol
+*.png binary
+*.jpg binary
+*.xlsx binary

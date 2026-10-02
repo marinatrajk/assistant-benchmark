@@ -1,0 +1,10 @@
+Use the attached paces-benchmark skill to evaluate this agent environment.
+
+Fixture base URL: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site
+Run all four tasks once, using your own available tools. Use an isolated synthetic benchmark persona for memory. Keep each task within five minutes and 50 tool calls where measurable. Record the harness/model/settings only when available and shareable and whether browser, skills, memory, and computer tools are native capabilities, native file-backed memory, or document-only skill reading.
+
+Do the actions and retain evidence. Use only your own existing capabilities; do not call Paces APIs, borrow its tools, install adapters, or implement missing capabilities. Report unsupported capabilities and access blockers explicitly. Leave unavailable metrics and undisclosed identity/settings null, including harness.name. Keep model_source as "unknown" if the model is undisclosed. This does not affect task scores. Do not reveal protected internals; a human-supplied product name may go in operator_label. Do not inspect fixture source code or server logs for answers, and do not replace the desktop task with code or mental arithmetic.
+
+Return paces-results.json using the supplied report contract, the available evidence files or trace references, and a short summary. Leave results unreviewed for independent assessment. If the fixture URL has not been filled in, ask for it and continue independent tasks.
+
+Fixture mode: public_static. Use /form/ and /plans/. The form validates in the browser and creates a fresh confirmation code; it has no server receipt ledger. Include the action trace and confirmation screenshot as evidence. Undisclosed metadata is allowed.

@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Check published data, local evidence links and frozen skill manifests."""
+import json
+from pathlib import Path
+import sys
+from urllib.parse import unquote, urlsplit
+
+from package_skills import verified_files
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def check():
+    for name in ('paces-benchmark', 'paces-everyday'):
+        verified_files(ROOT / 'skills' / name)
+    web = ROOT / 'website'
+    review = json.loads((web / 'review.json').read_text())
+    agents = review['agents']
+    assert len(set(agents)) == len(agents), 'Duplicate assistant'
+    statuses = {'passed', 'partial', 'failed', 'pending', 'awaiting_user', 'not_evaluated'}
+    for task in review['tasks']:
+        assert set(task['results']) == set(agents), f'Missing assistant in {task["name"]}'
+        for agent, result in task['results'].items():
+            assert result['status'] in statuses, f'Unknown status: {agent}'
+            assert result['summary'] and result['details'], f'Missing rationale: {agent}'
+            for label, url in result['sources']:
+                assert label, 'Unlabeled source'
+                parts = urlsplit(url)
+                if parts.scheme:
+                    assert parts.scheme == 'https', f'Unsafe evidence URL: {url}'
+                    continue
+                path = (web / unquote(parts.path)).resolve()
+                assert path.is_relative_to(web.resolve()) and path.is_file(), f'Missing/unsafe source: {url}'
+    for row in review['original_suite']:
+        assert all(agent in row for agent in agents), 'Missing original-suite coverage'
+    for path in ROOT.rglob('*.json'):
+        if any(part in {'node_modules', '.git', '.vercel', '.data', 'artifacts'} for part in path.parts):
+            continue
+        json.loads(path.read_text())
+    config = json.loads((ROOT / 'vercel.json').read_text())
+    assert config['outputDirectory'] == 'website', 'Deploy only the static results site'
+    print(f'Checked {len(agents)} assistants, {len(review["tasks"])} tasks, source links and both skill manifests.')
+
+
+if __name__ == '__main__':
+    try:
+        check()
+    except (AssertionError, OSError, ValueError, KeyError) as error:
+        sys.exit(str(error))

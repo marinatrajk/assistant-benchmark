@@ -1,0 +1,18 @@
+{
+  "market": "US",
+  "currency": "USD",
+  "timezone": "America/New_York",
+  "active_timeout_seconds_per_task": 600,
+  "max_tool_calls_per_task": 80,
+  "repetitions": 1,
+  "reminder_delay_minutes": 10,
+  "reminder_delivery_tolerance_seconds": 120,
+  "cancel_original_delay_minutes": 20,
+  "cancel_revised_delay_minutes": 25,
+  "cancel_observation_grace_seconds": 120,
+  "research_delay_minutes": 15,
+  "research_delivery_tolerance_seconds": 300,
+  "shopping_item_price_limit": 50,
+  "shopping_payment_boundary": "Stop at payment; no purchase or card data entry",
+  "live_web_mode": true
+}
