@@ -1,0 +1,10 @@
+{
+  "source": "Native Grok macOS app accessibility transcript",
+  "message": "Paces grokbot-reminder-delivery-20261002-01 \u2014 take a screen break.",
+  "platform_message_time": "2026-10-02T11:18:54-04:00",
+  "due_time": "2026-10-02T11:10:00-04:00",
+  "late_by_seconds": 534,
+  "tolerance_seconds": 120,
+  "evidence_note": "The agent reported a native routine wake and self-deletion; operator observed the Deleted routine card and actual reminder message. No manual retry request was sent.",
+  "agent_clock_after_send": "2026-10-02T11:18:59-04:00"
+}

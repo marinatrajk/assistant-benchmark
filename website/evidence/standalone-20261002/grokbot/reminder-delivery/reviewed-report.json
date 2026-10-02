@@ -42,21 +42,22 @@
     "reminder-delivery"
   ],
   "started_at": "2026-10-02T10:59:56-04:00",
-  "updated_at": "2026-10-02T11:12:37-04:00",
+  "updated_at": "2026-10-02T15:20:58.179086+00:00",
   "review_status": "reviewed",
   "deviations": [
     "The scheduler has minute granularity, so it is due 11:10:00, 10 min 4 s after the current-time read at 10:59:56.",
     "Metrics are not exported and are left null.",
     "Concurrent condition: a memory-followup recall turn was sent to another chat with the same bot at 11:10:16 EDT; recorded as a condition, not a cause.",
-    "Platform routine run history is not exposed to the assistant; the once check is left unverified because zero deliveries were observed, so exactly-once is not established."
+    "Platform routine run history is not exposed to the assistant; the once check is left unverified because zero deliveries were observed, so exactly-once is not established.",
+    "Late delivery occurred after the original deadline report. The reviewed delivery time is the native app message timestamp, not the five-seconds-later agent clock read."
   ],
   "tasks": [
     {
       "task_id": "reminder-delivery",
       "status": "failed",
-      "reason": "Missed deadline: no reminder notification was delivered in the requested chat by 11:12:00 EDT (due 11:10:00 + 2 min). Operator saw none; the assistant transcript shows no reminder send and no routine wake. Platform run history (fired/errored/interrupted) was not exposed, so the internal cause is unknown.",
+      "reason": "The exact reminder was eventually delivered at the native app timestamp 11:18:54 EDT, 534 seconds after its 11:10 due time and outside the 120-second tolerance. Status remains failed for timeliness.",
       "execution_started": true,
-      "answer": "No reminder notification was observed in the requested chat by the 11:12:00 EDT deadline.",
+      "answer": "The reminder arrived 8 minutes 54 seconds late.",
       "metrics": {
         "active_duration_ms": null,
         "elapsed_duration_ms": null,
@@ -77,10 +78,10 @@
         },
         {
           "id": "delivered",
-          "status": "failed",
+          "status": "passed",
           "evidence_ids": [
-            "ev-history",
-            "ev-operator"
+            "ev-late",
+            "ev-platform-late"
           ]
         },
         {
@@ -88,7 +89,9 @@
           "status": "failed",
           "evidence_ids": [
             "ev-history",
-            "ev-operator"
+            "ev-operator",
+            "ev-late",
+            "ev-platform-late"
           ]
         },
         {
@@ -123,6 +126,22 @@
           "excerpt": "no screen-break notification is visible; the app briefly showed New Bot working then stopped without replying.",
           "observed_at": "2026-10-02T11:12:13.589-04:00",
           "ref": "operator-observations.json"
+        },
+        {
+          "id": "ev-late",
+          "kind": "trace",
+          "summary": "Routine fired late (~11:18 ET), self-deleted; exact reminder text sent in this chat at ~11:18:59 EDT (assistant clock).",
+          "provenance": "agent_export",
+          "ref": "evidence/late-delivery-addendum.md",
+          "observed_at": "2026-10-02T11:18:59-04:00"
+        },
+        {
+          "id": "ev-platform-late",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Native app transcript shows exact reminder notification timestamp 11:18:54 AM EDT.",
+          "ref": "operator-late-delivery.json",
+          "observed_at": "2026-10-02T11:18:54-04:00"
         }
       ],
       "capabilities": {
@@ -170,7 +189,7 @@
         "original_due_at": "2026-10-02T11:10:00-04:00",
         "due_at": "2026-10-02T11:10:00-04:00",
         "source_observed_at": null,
-        "delivered_at": null,
+        "delivered_at": "2026-10-02T11:18:54-04:00",
         "cancelled_at": null,
         "observation_through": "2026-10-02T11:12:00-04:00",
         "timezone": "America/New_York",
@@ -179,12 +198,14 @@
         "evidence_ids": [
           "ev-create",
           "ev-history",
-          "ev-operator"
+          "ev-operator",
+          "ev-late",
+          "ev-platform-late"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex-assisted operator review",
-  "review_notes": "The operator observed the original persistent chat after due, during the window and at 11:12:13.589 EDT after the deadline; it remained at its 11:08:24 message. The agent separately exported a native transcript search with no reminder send. Missed delivery is supported, while scheduler execution/cause remains unknown. Concurrent recall activity is disclosed. The original rounded operator-evidence timestamp was replaced with the actual post-deadline observation time."
+  "review_notes": "The operator observed the original persistent chat after due, during the window and at 11:12:13.589 EDT after the deadline; it remained at its 11:08:24 message. The agent separately exported a native transcript search with no reminder send. Missed delivery is supported, while scheduler execution/cause remains unknown. Concurrent recall activity is disclosed. The original rounded operator-evidence timestamp was replaced with the actual post-deadline observation time. A subsequent native routine delivered the exact text at the app timestamp 11:18:54. Delivered now passes; on-time remains failed. The agent clock read 11:18:59 after sending; the reviewed delivery timestamp uses the platform message time."
 }

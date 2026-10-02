@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:16:21.471544+00:00",
+  "updated_at": "2026-10-02T15:20:58.180013+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -525,12 +525,12 @@
           "status": "failed",
           "review_status": "reviewed",
           "run_id": "grokbot-reminder-delivery-20261002-01",
-          "summary": "No reminder reached the requested chat by the 11:12 a.m. EDT deadline.",
+          "summary": "Reminder arrived at 11:18:54 a.m. EDT, 8 minutes 54 seconds late\u2014outside the two-minute tolerance.",
           "details": [
-            "The native reminder was scheduled for 11:10. Operator observations after due and after the deadline show no notification in the persistent chat history.",
-            "A separate agent-exported transcript check found no reminder send. Internal scheduler run/error history was unavailable, so the cause is unknown.",
-            "A recall task was active in another room with the same bot at 11:10:16; this is a recorded condition, not an asserted cause.",
-            "No manual reminder or retry was used to replace the missed delivery."
+            "Native creation set the reminder for 11:10. No notification appeared by the 11:12 deadline.",
+            "The exact message later arrived through the routine; its native app timestamp was 11:18:54. Grok reported that the routine deleted itself.",
+            "Delivery is confirmed; the timeliness check fails. Internal scheduling cause remains unknown.",
+            "Recall activity in another room at 11:10:16 is disclosed as a concurrent condition, not an asserted cause."
           ],
           "sources": [
             [
@@ -544,6 +544,10 @@
             [
               "Exported history check",
               "evidence/standalone-20261002/grokbot/reminder-delivery/evidence/delivery-history.md"
+            ],
+            [
+              "Observed late notification",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/operator-late-delivery.json"
             ]
           ]
         },
