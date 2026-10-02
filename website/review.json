@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:28:47.597830+00:00",
+  "updated_at": "2026-10-02T18:31:10.459551+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -953,13 +953,14 @@
           ]
         },
         "Muse": {
-          "status": "pending",
+          "status": "passed",
           "review_status": "reviewed",
           "run_id": "muse-reminder-change-cancel-20261002-01",
-          "summary": "Same reminder updated then cancelled; absence observation pending through 2:28:39 p.m. EDT.",
+          "summary": "Same reminder changed then cancelled; no delivery through both due times and the completed grace window.",
           "details": [
-            "Native scheduling evidence retained; no early success credited.",
-            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
+            "Original due 2:20:39 p.m. EDT changed to 2:26:39; cancellation confirmed at 2:03:11.",
+            "Operator observed no cancelled-reminder notification through 2:28:53 p.m., after the 2:28:39 grace deadline.",
+            "Final scoped scheduler export reports no next run, no queued/running jobs and empty run history."
           ],
           "sources": [
             [
@@ -967,20 +968,24 @@
               "evidence/standalone-20261002/muse/reminder-change-cancel/reviewed-report.json"
             ],
             [
-              "Removal Output",
-              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/removal-output.txt"
+              "Operator absence observations",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/operator-observation.json"
             ],
             [
-              "Job Definition Revised",
-              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/job-definition-revised.md"
-            ],
-            [
-              "Job Definition",
+              "Original definition",
               "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/job-definition.md"
             ],
             [
-              "Scheduling Notes",
-              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/scheduling-notes.txt"
+              "Revised definition",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/job-definition-revised.md"
+            ],
+            [
+              "Cancellation output",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/removal-output.txt"
+            ],
+            [
+              "Final scheduler state",
+              "evidence/standalone-20261002/muse/reminder-change-cancel/evidence/final-scheduler-state.txt"
             ]
           ]
         }

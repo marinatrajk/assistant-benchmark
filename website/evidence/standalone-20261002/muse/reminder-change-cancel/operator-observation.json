@@ -1,0 +1,25 @@
+{
+  "run_id": "muse-reminder-change-cancel-20261002-01",
+  "observer": "Codex-assisted operator using native Muse chat UI",
+  "original_due_at": "2026-10-02T18:20:39Z",
+  "revised_due_at": "2026-10-02T18:26:39Z",
+  "cancelled_at_agent_export": "2026-10-02T18:03:11Z",
+  "deadline_at": "2026-10-02T18:28:39Z",
+  "observation_through": "2026-10-02T18:28:53.674Z",
+  "observation_complete": true,
+  "cancelled_reminder_notification_count": 0,
+  "checks_after_due_at": [
+    "2026-10-02T18:21:01.998Z",
+    "2026-10-02T18:22:00.196Z",
+    "2026-10-02T18:23:07.771Z",
+    "2026-10-02T18:23:59.522Z",
+    "2026-10-02T18:24:35.354Z",
+    "2026-10-02T18:26:42.136Z",
+    "2026-10-02T18:27:01.644Z",
+    "2026-10-02T18:27:39.379Z",
+    "2026-10-02T18:27:55.846Z",
+    "2026-10-02T18:28:53.674Z"
+  ],
+  "method": "Periodic native-chat accessibility observations covered both due times and continued beyond the full 120-second grace window. Final full-state observation found no notification delivering the cancelled reminder. Earlier setup/change/cancel acknowledgments quoting the text were not counted as notifications. The separate screen-break reminder and late research update were distinguishable by their run markers. Raw UI logs are retained privately because they include unrelated history and private identifiers.",
+  "limitations": "Operator-attested periodic channel observation, not an independently exported message-transport log. Scheduler creation/update/removal evidence is separately supplied by Muse."
+}

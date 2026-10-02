@@ -23,13 +23,13 @@
     "execution_location": "cloud",
     "fixture_mode": "public_static",
     "isolation_notes": [
-      "New individual run_id muse-reminder-change-cancel-20261002-01. The prior reminder-delivery job (muse-reminder-delivery-20261002-01, due 14:09:00 EDT) remains active and untouched; the checkout-handoff browser cart remains parked; all other jobs and carts preserved."
+      "During the create/change/cancel turns, the separate screen-break reminder and unrelated jobs were preserved. Screen-break later completed separately. The parked checkout remains unchanged."
     ]
   },
   "task_inputs": {
     "reminder_text": "Paces muse-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel",
     "original_delay_minutes": 20,
-    "revised_delay_minutes": "pending operator turn 2 (25 minutes from that request)",
+    "revised_delay_minutes": 25,
     "delivery_chat": "this Muse side chat (chat_id [private-id-redacted])"
   },
   "run_config": {
@@ -47,26 +47,26 @@
     "reminder-change-cancel"
   ],
   "started_at": "2026-10-02T14:00:36-04:00",
-  "updated_at": "2026-10-02T14:03:25-04:00",
+  "updated_at": "2026-10-02T14:29:20-04:00",
   "review_status": "reviewed",
   "deviations": [],
   "tasks": [
     {
       "task_id": "reminder-change-cancel",
-      "status": "pending",
-      "reason": "Cancel turn completed: the benchmark job was removed at ~14:03:05 EDT (confirmed 14:03:11 EDT); post-cancel scheduler inspection shows the job absent/inactive with no replacement active, and every other job preserved. The report stays pending only for the no-late-delivery observation window through 2026-10-02T18:28:39Z (max of original and revised due + 120s), to be confirmed from real channel evidence.",
+      "status": "passed",
+      "reason": "All checks passed from real evidence: the native reminder was created for the exact text and original due (14:20:39 EDT), changed in place to the revised due (14:26:39 EDT) with exactly one active matching reminder and no active original-time job, then cancelled (14:03:11 EDT) with the job absent/inactive and no replacement. Operator-attested channel observation through 2026-10-02T18:28:53.674Z \u2014 past original due, revised due, and the 18:28:39Z grace deadline \u2014 shows no delivery of the cancelled reminder. Native run history is empty (the job never fired) and the scheduler shows no queued, running, next, or replacement job.",
       "execution_started": true,
-      "answer": "Reminder muse-reminder-change-cancel-20261002-01 is cancelled: absent from the native scheduler (enabled=false, no queued/running runs, no replacement active), both original and revised definitions retained. The screen-break delivery job is preserved. Only the no-late-delivery observation through 18:28:39 UTC remains pending.",
+      "answer": "muse-reminder-change-cancel-20261002-01 passed: created (due 14:20:39 EDT), changed to 14:26:39 EDT with exactly one active reminder, cancelled 14:03:11 EDT, and \u2014 per operator observation through 18:28:53Z and native scheduler inspection \u2014 nothing was delivered at either due time or through the grace deadline.",
       "metrics": {
         "active_duration_ms": null,
-        "elapsed_duration_ms": 169000,
+        "elapsed_duration_ms": 1724000,
         "tool_calls": null,
         "input_tokens": null,
         "output_tokens": null,
-        "source": "Provisional agent-reported elapsed time; active time/count not independently observable."
+        "source": "Active time and tool count not independently observable; elapsed time agent-reported."
       },
       "tools_used": [],
-      "disclosure_note": "Scheduling performed via the native cron scheduler (one-shot job); backend tool names are undisclosed, so tools_used is intentionally empty. Scheduling evidence is retained in evidence/job-definition.md and evidence/scheduling-notes.txt.",
+      "disclosure_note": "Scheduling performed via the native cron scheduler (one-shot job); backend tool names are undisclosed, so tools_used is intentionally empty. Scheduling evidence is retained in evidence/job-definition.md and evidence/scheduling-notes.txt. The operator independently observed channel absence through the full window. Native scheduler definitions/output are agent exports, not independent raw transport logs. Final state export gives approximate closeout time; no exact timestamp is inferred. Public copies redact private identifiers and normalize home-directory paths.",
       "checks": [
         {
           "id": "created",
@@ -95,8 +95,11 @@
         },
         {
           "id": "no-late-delivery",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "E8",
+            "E9"
+          ]
         }
       ],
       "evidence": [
@@ -155,6 +158,21 @@
           "provenance": "agent_export",
           "ref": "evidence/scheduling-notes.txt",
           "summary": "Post-cancel scheduler inspection: cron.list contains no schedule with the benchmark job id (absent); scoped cron.status shows enabled=false, no next run, no queued/running runs, no last run \u2014 no replacement remains active. The screen-break delivery job muse-reminder-delivery-20261002-01 (runonce@14:09:00) and every other job are unchanged. Reminder text was not delivered manually; no observer job was created."
+        },
+        {
+          "id": "E8",
+          "kind": "operator_attestation",
+          "observed_at": "2026-10-02T18:28:53.674Z",
+          "provenance": "operator",
+          "ref": "operator-observation.json",
+          "summary": "Periodic native-chat UI observations through 18:28:53.674Z found no cancelled-reminder notification at either due time or through the full grace deadline. Operator-attested channel absence, distinct from native scheduler history."
+        },
+        {
+          "id": "E9",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "ref": "evidence/final-scheduler-state.txt",
+          "summary": "Agent-exported scoped native scheduler inspection reports empty run history, disabled/absent job, no in-flight/queued/running runs or next scheduled run. Exact closeout timestamp is unavailable."
         }
       ],
       "capabilities": {
@@ -197,10 +215,10 @@
         }
       },
       "follow_up": {
-        "required": true,
-        "next_action": "Observe the channel through max(original_due 18:20:39Z, revised_due 18:26:39Z) + 120s = 2026-10-02T18:28:39Z for any late delivery of the benchmark reminder text, then update this same report: set no-late-delivery from real evidence (operator-attested observation or platform timestamps), mark observation_complete, and finalize the task outcome.",
-        "deadline_at": "2026-10-02T18:28:39Z",
-        "observer": "Codex-assisted operator UI observation and native job export"
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
       },
       "schedule": {
         "created_at": "2026-10-02T14:00:51.557-04:00",
@@ -210,8 +228,8 @@
         "source_observed_at": null,
         "delivered_at": null,
         "cancelled_at": "2026-10-02T14:03:11-04:00",
-        "observation_through": null,
-        "observation_complete": false,
+        "observation_through": "2026-10-02T18:28:53.674Z",
+        "observation_complete": true,
         "timezone": "America/New_York",
         "job_id": "muse-reminder-change-cancel-20261002-01",
         "evidence_ids": [
@@ -221,12 +239,14 @@
           "E4",
           "E5",
           "E6",
-          "E7"
+          "E7",
+          "E8",
+          "E9"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex-assisted operator review",
-  "review_notes": "Scheduling/phase evidence reviewed provisionally. Actual delivery/absence window incomplete; no success inferred from job creation. Private internal chat/device identifiers redacted."
+  "review_notes": "Reviewed separate create/change/cancel turns, original/revised native definitions with same id and unchanged exact text, removal output, and final scoped inactive state. Operator native-chat observations spanned both due times and the completed grace window through 18:28:53.674Z without a cancelled-reminder delivery. Final scheduler history is agent-exported; no independent message-transport log is claimed. Private identifiers redacted; corrected stale revised-delay placeholder to 25 minutes."
 }

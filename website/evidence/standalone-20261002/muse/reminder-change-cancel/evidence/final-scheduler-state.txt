@@ -1,0 +1,5 @@
+Final scheduler inspection — 2026-10-02T14:29:0x-04:00 (closeout)
+
+cron.runs (scoped to muse-reminder-change-cancel-20261002-01): empty history (not truncated) — the job never fired, as expected after cancellation.
+cron.status (scoped): enabled=false, in_flight=false, queued_runs=0, running_runs=0, next_run_at=null, last_run_at=null, last_status=null.
+Conclusion: the benchmark reminder job is absent/inactive; no queued, running, next, or replacement job exists.
