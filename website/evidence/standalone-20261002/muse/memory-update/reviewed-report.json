@@ -1,0 +1,208 @@
+{
+  "deviations": [
+    "No applicable memory/preference skill exists in the native skill library (only `forget`, which removes facts and is not relevant to seeding/updating a preference); memory in this harness is a built-in native file-backed capability. Disclosed in evidence/skill-disclosure.md; playbook-loaded left unverified per operator instruction.",
+    "The native indexed memory search had not yet indexed the persona file (written ~1 minute before the update turn), returning only daily-note entries on two attempts. Retrieval fell back to a direct native read of the known entry path in the same durable store; the lag is disclosed in evidence/search-observation.md and counted inside the single attempt."
+  ],
+  "environment": {
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-memory-update-20261002-01; no other benchmark tasks were started and earlier run results were not reused.",
+      "The synthetic preference was seeded and updated only inside the isolated namespace ~/memory/benchmark-personas/paces-test-muse-memory-update-20261002-01.md. Real user memory (~/MEMORY.md, dated notes, people/, groups/) was not modified; grep confirms no benchmark-persona text leaked into it.",
+      "The persona file is header-labeled synthetic benchmark data, not the user's preference, and must not be merged into global user memory.",
+      "Setup (seeding) was performed in the preceding turn, outside task timing, per the task sheet."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-memory-update-20261002-01",
+  "skill_name": "benchmark-memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "started_at": "2026-10-02T13:45:37-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "memory-update"
+  ],
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site",
+    "persona_id": "paces-test-muse-memory-update-20261002-01"
+  },
+  "tasks": [
+    {
+      "answer": "TypeScript. The benchmark persona's preferred programming language is TypeScript (previously Python, retained as labeled history only).",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [
+            "ev-search",
+            "ev-write",
+            "ev-readback",
+            "ev-native"
+          ],
+          "label": null,
+          "mode": "native_file",
+          "status": "observed"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [
+            "ev-skill"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "unavailable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-skill"
+          ],
+          "id": "playbook-loaded",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-search",
+            "ev-seed"
+          ],
+          "id": "prior-retrieved",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-write",
+            "ev-readback"
+          ],
+          "id": "current-updated",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-readback"
+          ],
+          "id": "readback-verified",
+          "status": "unverified"
+        }
+      ],
+      "disclosure_note": "Tool-call accounting (measurable): this measured update turn used 20 tool calls total (2 native memory searches, 3 memory file reads, 1 durable edit, evidence writes, validation, packaging), inside the 50-call budget; the disclosed search-index lag and its recovery are counted inside the single attempt. Active duration covers the measured update turn only (setup seeding was outside task timing per the task sheet). input_tokens/output_tokens are not observable from this harness and are left null. The preference update was a durable in-place edit of the existing entry (same path/identity); the previous Python value survives only as explicitly labeled history, not as a competing current preference. No real user preferences or other namespaces were changed. Operator review: supplied evidence is agent-authored seed, update and readback notes; actual durable persona file has been requested separately. These are not operator observations or platform logs.",
+      "evidence": [
+        {
+          "id": "ev-seed",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:44:30-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/seed-before.md",
+          "summary": "The exact seeded sentence and full before-content of the persona entry: 'The benchmark persona prefers Python as their programming language.', at ~/memory/benchmark-personas/paces-test-muse-memory-update-20261002-01.md."
+        },
+        {
+          "id": "ev-search",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:45:40-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/search-observation.md",
+          "summary": "Two native memory_search attempts hit the known index lag (daily-note hits only); the seeded preference was then retrieved verbatim via direct native read of the entry path in the same durable store."
+        },
+        {
+          "id": "ev-write",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:45:50-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/update-observation.md",
+          "summary": "Durable in-place update of the existing entry: current preference changed from Python to TypeScript at the original path/identity; previous value kept only as labeled history."
+        },
+        {
+          "id": "ev-readback",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:46:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/readback-and-namespace.md",
+          "summary": "Post-update readback shows exactly one current preference (TypeScript); namespace inspection finds only the one persona file and no competing current Python entry."
+        },
+        {
+          "id": "ev-skill",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:46:15-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-disclosure.md",
+          "summary": "Attested disclosure: no applicable memory/preference skill in the native library (only `forget`, not relevant); memory is the harness's native file-backed capability, which was used."
+        },
+        {
+          "id": "ev-native",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:46:15-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/native-memory-note.md",
+          "summary": "Attested structural evidence that the store is the established native memory tree (no real user memories exported); persona entry is a namespaced file in that store, not a new scratch system."
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": 38000,
+        "elapsed_duration_ms": 38000,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent-reported update-turn timing and call count; no independent counter export. Seed setup excluded.",
+        "tool_calls": 20
+      },
+      "reason": "Agent reports Python-to-TypeScript update in established native file-backed memory, but actual saved entry export and applicable skill-load evidence are not yet supplied. Seed/update notes retained; durability and no-conflict claims unverified.",
+      "schedule": null,
+      "status": "partial",
+      "task_id": "memory-update",
+      "tools_used": [
+        "muse.memory_search",
+        "muse.read",
+        "muse.edit",
+        "muse.exec",
+        "muse.write"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-02T13:46:15-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed exported synthetic seed and update notes. Native skill unavailable; durable entry export still requested, so storage and conflict-check claims remain unverified. Agent evidence relabeled correctly."
+}

@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:44:34.997748+00:00",
+  "updated_at": "2026-10-02T17:48:46.131786+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -354,14 +354,37 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "muse-memory-update-20261002-01",
-          "summary": "Isolated synthetic memory setup requested; awaiting native capability and seed evidence.",
+          "summary": "TypeScript update reported; native skill and durable entry verification incomplete.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Separate setup and update operator turns were observed.",
+            "Muse reports an in-place update after indexed-search lag, using direct native file read.",
+            "Awaiting actual saved persona export; agent-authored notes are not independent storage evidence."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/memory-update/reviewed-report.json"
+            ],
+            [
+              "Seed before",
+              "evidence/standalone-20261002/muse/memory-update/evidence/seed-before.md"
+            ],
+            [
+              "Update notes",
+              "evidence/standalone-20261002/muse/memory-update/evidence/update-observation.md"
+            ],
+            [
+              "Readback notes",
+              "evidence/standalone-20261002/muse/memory-update/evidence/readback-and-namespace.md"
+            ],
+            [
+              "Native memory disclosure",
+              "evidence/standalone-20261002/muse/memory-update/evidence/native-memory-note.md"
+            ]
+          ]
         }
       },
       "criterion": "Load a relevant native memory skill, retrieve the isolated seeded preference, update it durably, and verify the current value without conflicting entries.",
@@ -456,11 +479,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-computer-calculator-20261002-01",
+          "summary": "Native operating-system Calculator test assigned; awaiting desktop capability and result evidence.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },
