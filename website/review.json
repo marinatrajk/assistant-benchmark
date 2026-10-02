@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:38:29.094539+00:00",
+  "updated_at": "2026-10-02T14:41:52.235755+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -139,14 +139,29 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "grokbot-browser-research-20261002-01",
-          "summary": "Assigned: compare the live plans with a native research skill and cite the cheapest qualifying option.",
+          "summary": "Correctly chose Studio at USD 18/month for 12 projects; native skill-load evidence remains unverified.",
           "details": [
-            "Requires current browser evidence and a named native skill-load event. Five active minutes, 50 calls, one attempt."
+            "Original screenshot shows Personal USD 8/3 projects, Studio USD 18/12 and Company USD 45/unlimited. Exact visited plans URL is cited.",
+            "The box-desktop load is explicitly self-attested. No native load-result record or workflow content was exported to verify the required check.",
+            "Three browser actions reported; task-wide active timing, total call count and token usage remain unavailable. Existing conversation and prior exposure disclosed."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/browser-research/reviewed-report.json"
+            ],
+            [
+              "Original plans screenshot",
+              "evidence/standalone-20261002/grokbot/browser-research/evidence/plans-1.png"
+            ],
+            [
+              "Skill evidence limitation",
+              "evidence/standalone-20261002/grokbot/browser-research/evidence/skill-load.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -199,11 +214,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-memory-update-20261002-01",
+          "summary": "Assigned: seed a synthetic persona in existing isolated durable memory, then update and read it back.",
+          "details": [
+            "Only the synthetic namespace may be modified. A separate update request follows the seed acknowledgment."
+          ],
           "sources": []
         },
         "Instinct": {

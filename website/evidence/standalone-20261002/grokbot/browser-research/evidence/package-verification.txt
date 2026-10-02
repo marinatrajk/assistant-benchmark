@@ -1,0 +1,3 @@
+benchmark-browser-research.zip downloaded 2026-10-02T10:37:50-04:00
+SHA256 68e1d9e53b967c0657ac10a6e573e905e732f38c584085043d4b9f90abd38ffa (matches published)
+pinned commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817 (as stated by operator)
