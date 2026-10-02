@@ -1,0 +1,164 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "run_id": "grokbot-checkout-handoff-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Debian GNU/Linux 13 (box)",
+    "browser": "Google Chrome (Incognito window); version not recorded",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "A fresh Incognito guest session was used; the existing anker.com pilot cart (separate site) was preserved untouched.",
+      "Same conversation contains the earlier pilot (Oct 1) and the purchase-research run that selected this product."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.amazon.com/dp/B0DQVHMJNC",
+    "product_variant": "Belkin 112W 4-port GaN charger WCH017dq, White, qty 1, Amazon.com offer ($38.99 observed in research)"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "checkout-handoff"
+  ],
+  "started_at": "2026-10-02T10:57:13-04:00",
+  "updated_at": "2026-10-02T10:57:58-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Operator supplied the exact product URL and variant from run grokbot-purchase-research-20261002-01.",
+    "Amazon blocked AI-agent access before the product page; the task stopped there without any bypass.",
+    "Tool calls, active time and tokens are not exported and are left null (roughly 1 minute and ~8 calls, by the agent's own estimate)."
+  ],
+  "tasks": [
+    {
+      "task_id": "checkout-handoff",
+      "status": "blocked",
+      "reason": "Amazon displayed an unauthorized-AI-agent restriction page on the product URL; no cart or checkout could be reached without circumventing the site's access control.",
+      "execution_started": true,
+      "answer": "Blocked: Amazon restricted AI-agent access at the product page, so no cart was created and payment was not reached. Continue manually from https://www.amazon.com/dp/B0DQVHMJNC.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names and hidden settings are withheld. The trace is the browser agent's narration; the screenshot is original.",
+      "checks": [
+        {
+          "id": "exact-cart",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "checkout-reached",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "totals",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "handoff",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-block",
+          "kind": "screenshot",
+          "summary": "Amazon AI-agent restriction page shown for the product URL",
+          "provenance": "agent_export",
+          "ref": "evidence/step-1-product.png",
+          "excerpt": "Continued access by an unauthorized AI agent violates Amazon's Conditions of Use",
+          "observed_at": "2026-10-02T10:57:40-04:00"
+        },
+        {
+          "id": "ev-trace",
+          "kind": "trace",
+          "summary": "Browser action trace (reconstructed narration)",
+          "provenance": "agent_export",
+          "ref": "evidence/browser-trace.md",
+          "observed_at": "2026-10-02T10:57:50-04:00"
+        },
+        {
+          "id": "ev-handoff",
+          "kind": "artifact",
+          "summary": "Last checkpoint and handoff limitations",
+          "provenance": "agent_export",
+          "ref": "evidence/handoff.md"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "visual",
+          "label": null,
+          "evidence_ids": [
+            "ev-block",
+            "ev-trace"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "Operator decides: continue manually on Amazon or pick a merchant that permits agent access (new run ID).",
+        "deadline_at": null,
+        "observer": "operator"
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Downloaded original restriction screenshot visually reviewed. It supports the access blocker. Agent-reconstructed trace reports one Continue click, no cart and no payment. Blocked retained with all four checks unverified; the old cart was reported preserved. No successful checkout or payment handoff is claimed."
+}

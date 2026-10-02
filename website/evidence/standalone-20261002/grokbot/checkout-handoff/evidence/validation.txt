@@ -1,0 +1,6 @@
+Structure valid. Actual evidence still needs independent review.
+{
+  "task_id": "checkout-handoff",
+  "status": "blocked",
+  "provisional": false
+}

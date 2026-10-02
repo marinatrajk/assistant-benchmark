@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:58:44.050338+00:00",
+  "updated_at": "2026-10-02T15:00:29.472286+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -445,14 +445,29 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "blocked",
+          "review_status": "reviewed",
           "run_id": "grokbot-checkout-handoff-20261002-01",
-          "summary": "Assigned: prepare the exact selected Belkin in a fresh guest cart and stop at payment.",
+          "summary": "Amazon blocked agent access before the product page; no cart or payment handoff was reached.",
           "details": [
-            "Existing cart must be preserved; login, address and session blockers must be reported."
+            "The downloaded original screenshot shows the restriction. The agent reports one Continue click, then stopping when it remained.",
+            "No item, address, login or payment details were entered. The existing pilot cart was reported preserved.",
+            "All four checkout checks remain unverified. Action sequence is reconstructed narration; exact timing and full telemetry are unavailable."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/checkout-handoff/reviewed-report.json"
+            ],
+            [
+              "Original blocker screenshot",
+              "evidence/standalone-20261002/grokbot/checkout-handoff/evidence/step-1-product.png"
+            ],
+            [
+              "Browser trace",
+              "evidence/standalone-20261002/grokbot/checkout-handoff/evidence/browser-trace.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -507,11 +522,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-reminder-delivery-20261002-01",
+          "summary": "Assigned: create one native reminder for ten minutes from the observed current time.",
+          "details": [
+            "Actual delivery and duplicate observation must be checked through due plus two minutes."
+          ],
           "sources": []
         },
         "Instinct": {
