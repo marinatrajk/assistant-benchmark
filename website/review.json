@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:13:21.291597+00:00",
+  "updated_at": "2026-10-02T18:14:47.551096+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -820,13 +820,14 @@
           ]
         },
         "Muse": {
-          "status": "pending",
+          "status": "passed",
           "review_status": "reviewed",
           "run_id": "muse-reminder-delivery-20261002-01",
-          "summary": "Scheduled for 2:09 p.m. EDT; actual delivery and duplicate observation pending through 2:11 p.m.",
+          "summary": "Delivered once within tolerance; duplicate window completed at 2:11 p.m. EDT.",
           "details": [
-            "Native scheduling evidence retained; no early success credited.",
-            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
+            "Native run started at 2:09:00 p.m. and finished at 2:09:18; exact notification receipt timestamp unavailable.",
+            "Operator first saw the exact message by 2:09:54 p.m.; no duplicate through 2:11:16 p.m.",
+            "Earlier premature delivery statement was flagged and excluded from scoring."
           ],
           "sources": [
             [
@@ -834,12 +835,16 @@
               "evidence/standalone-20261002/muse/reminder-delivery/reviewed-report.json"
             ],
             [
-              "Job Definition",
-              "evidence/standalone-20261002/muse/reminder-delivery/evidence/job-definition.md"
+              "Operator delivery observation",
+              "evidence/standalone-20261002/muse/reminder-delivery/operator-delivery-observation.json"
             ],
             [
-              "Scheduling Notes",
-              "evidence/standalone-20261002/muse/reminder-delivery/evidence/scheduling-notes.txt"
+              "Native run history",
+              "evidence/standalone-20261002/muse/reminder-delivery/evidence/run-history.json"
+            ],
+            [
+              "Original job definition",
+              "evidence/standalone-20261002/muse/reminder-delivery/evidence/job-definition.md"
             ]
           ]
         }
@@ -1320,11 +1325,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-expense-summary-20261002-01",
+          "summary": "Immutable expense fixture assigned; actual cleaned artifact will be independently reconciled.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },

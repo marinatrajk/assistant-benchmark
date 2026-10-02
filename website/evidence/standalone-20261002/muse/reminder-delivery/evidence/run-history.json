@@ -1,0 +1,23 @@
+{
+  "source": "cron.runs scoped to id muse-reminder-delivery-20261002-01, retrieved 2026-10-02 ~14:11:20 EDT",
+  "history_may_be_truncated": false,
+  "limit": 5,
+  "runs": [
+    {
+      "attempt": 1,
+      "error_text": null,
+      "finished_at_utc": 1790964558,
+      "job_id": "muse-reminder-delivery-20261002-01",
+      "result_summary": "Delivered reminder text: Paces muse-reminder-delivery-20261002-01 — take a screen break",
+      "run_id": "[private-id-redacted]",
+      "scheduled_for_local": "Fri 2026-10-02 14:09:00 EDT",
+      "scheduled_for_utc": 1790964540,
+      "started_at_utc": 1790964540,
+      "status": "succeeded",
+      "timezone": "America/New_York",
+      "trigger_reason": "scheduled"
+    }
+  ],
+  "source_data_freshness": "not_measured",
+  "user_visible_delivery": "not_measured"
+}
