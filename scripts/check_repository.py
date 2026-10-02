@@ -43,6 +43,26 @@ def check():
                 assert path.is_relative_to(web.resolve()) and path.is_file(), f'Missing/unsafe source: {url}'
     for row in review['original_suite']:
         assert all(agent in row for agent in agents), 'Missing original-suite coverage'
+    runs = json.loads((web / 'skill-runs.json').read_text())
+    catalog = json.loads((ROOT / 'benchmarks/task-catalog.json').read_text())
+    assert [task['task_id'] for task in runs['tasks']] == [task['task_id'] for task in catalog['tasks']], 'Standalone task coverage/order changed'
+    run_statuses = statuses | {'not_run', 'running', 'blocked', 'unsupported', 'awaiting_review'}
+    for task in runs['tasks']:
+        assert set(task['results']) == set(agents), 'Missing standalone assistant'
+        for agent, result in task['results'].items():
+            assert result['status'] in run_statuses, f'Unknown standalone status: {agent}'
+            assert result['review_status'] in {'reviewed', 'unreviewed'}
+            assert result['summary'], 'Missing standalone summary'
+            if result['status'] == 'passed':
+                assert result['review_status'] == 'reviewed' and result['sources'], 'Pass requires reviewed evidence'
+            for label, url in result['sources']:
+                assert label
+                parts = urlsplit(url)
+                if parts.scheme:
+                    assert parts.scheme == 'https'
+                else:
+                    path = (web / unquote(parts.path)).resolve()
+                    assert path.is_relative_to(web.resolve()) and path.is_file(), f'Missing standalone evidence: {url}'
     for path in ROOT.rglob('*.json'):
         if any(part in {'node_modules', '.git', '.vercel', '.data', 'artifacts'} for part in path.parts):
             continue

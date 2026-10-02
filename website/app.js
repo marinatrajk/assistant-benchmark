@@ -9,8 +9,10 @@ const info = {
   'Muse': { id: 'muse', delay: 'Within limit', delayNote: 'Receipt was 30 to under 90 seconds after due, based on the app’s minute-level timestamp. The reported 52 seconds is a worker timestamp, not measured receipt latency.' }
 };
 const groups = { 'All tasks': [0, 1, 2, 3, 4, 5], Shopping: [1], Research: [0], Scheduling: [2, 3, 4], Files: [5] };
-const labels = { passed: 'Passed', partial: 'Partial', failed: 'Failed', pending: 'Pending', awaiting_user: 'Needs user', not_evaluated: 'Not tested' };
+const labels = { passed: 'Passed', partial: 'Partial', failed: 'Failed', pending: 'Pending', awaiting_user: 'Needs user', not_evaluated: 'Not tested', not_run: 'Not started', running: 'Running', blocked: 'Blocked', unsupported: 'Unsupported', awaiting_review: 'Awaiting review' };
 let data;
+let skillRuns;
+let skillAgent = 'ChatGPT Dots';
 let filter = 'All tasks';
 let layout = 'list';
 
@@ -69,7 +71,7 @@ function renderHome() {
     <div id="leaderboard" aria-live="polite">${leaderboard()}</div>
     <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_evaluated">Not tested</span></div><span class="key-caption">Full passes / assigned tasks</span></div>
     <p class="manual-note">Manual: <a href="https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode">Voice-mode tests</a> · Results coming after testing.</p>
-    ${note()}`;
+    ${note()}${skillRoundLink()}`;
   content.querySelectorAll('[data-filter]').forEach(button => {
     button.onclick = () => {
       filter = button.dataset.filter;
@@ -89,6 +91,28 @@ function renderHome() {
 function updateLeaderboard() {
   hideTaskTooltip();
   document.getElementById('leaderboard').innerHTML = leaderboard();
+}
+
+function skillRoundLink(name) {
+  return `<a class="skill-round-link" href="#skill-runs${name ? '/' + info[name].id : ''}"><span><strong>Individual skill runs</strong><span>11 standalone tests · October 2 round</span></span><span>View progress ${glyph('chevron')}</span></a>`;
+}
+
+function renderSkillRuns() {
+  if (!skillRuns) {
+    content.innerHTML = '<div class="empty-state"><h1>Skill runs couldn’t load.</h1><p>Please refresh, or open the run data directly.</p><a class="button" href="skill-runs.json">Open run data</a></div>';
+    return;
+  }
+  const rows = skillRuns.tasks.map(task => ({ task, result: task.results[skillAgent] }));
+  const reviewedCount = rows.filter(({ result }) => result.review_status === 'reviewed').length;
+  const passed = rows.filter(({ result }) => result.review_status === 'reviewed' && result.status === 'passed').length;
+  content.innerHTML = `<div class="intro"><div><p class="eyebrow">October 2, 2026 · Standalone skills</p><h1>Individual skill runs<span class="title-period">.</span></h1><p class="intro-caption">One skill at a time. Evidence reviewed after each run.</p></div><a class="button" href="skill-runs.json" download>Run data ${glyph('file')}</a></div>
+    <div class="skill-agent-tabs" role="group" aria-label="Choose assistant">${names.map(name => `<button class="chip" type="button" data-skill-agent="${info[name].id}" aria-pressed="${skillAgent === name}">${esc(name)}</button>`).join('')}</div>
+    <div class="skill-run-heading">${icon(skillAgent)}<div><h2>${esc(skillAgent)}</h2><p>${reviewedCount} of ${rows.length} reviewed · ${passed} passed</p></div></div>
+    <div class="task-list">${rows.map(({task, result}, index) => `<article class="task-result"><div class="task-result-head"><h3><span class="skill-order">${String(index + 1).padStart(2, '0')}</span>${esc(task.name)}</h3>${badge(result.status)}</div><p class="task-summary">${esc(result.summary)}</p>${result.details.length || result.sources.length ? evidence({criterion: 'All required checks in the published task skill must be supported by observed evidence.'}, result) : ''}<details class="skill-protocol"><summary>Task protocol</summary><div><a href="https://github.com/marinatrajk/assistant-benchmark/tree/${esc(skillRuns.repository_commit)}/skills/${esc(task.skill)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(skillRuns.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details></article>`).join('')}</div>
+    <details class="skill-method"><summary>How to read this round</summary><ul>${skillRuns.methodology.map(item => `<li>${esc(item)}</li>`).join('')}</ul></details><p class="fineprint">Updated ${esc(skillRuns.updated_at)}. <a href="#assistants">View the earlier Everyday pilot.</a></p>`;
+  content.querySelectorAll('[data-skill-agent]').forEach(button => {
+    button.onclick = () => { location.hash = `skill-runs/${button.dataset.skillAgent}`; };
+  });
 }
 
 // A single floating tooltip stays clear of clipped rows and narrow viewports.
@@ -203,7 +227,7 @@ function renderProfile(name) {
     <div class="profile-hero">${icon(name)}<div class="profile-heading"><h1>${name}</h1><div class="profile-stat">${score(count(name), data.tasks.length)}<span>supported outcomes</span><span class="profile-pending">${unresolvedLabel(name)}</span></div></div><a class="button" href="#compare">Compare</a></div>
     <div class="profile-layout"><section><div class="section-title"><h2>Task results</h2><span>${data.tasks.length} scenarios</span></div><div class="task-list">${tasks}</div></section>
       <aside class="sidebar"><div class="run-card"><h2>At a glance</h2><dl><div class="stat-line"><dt>Reminder</dt><dd>${info[name].delay}</dd></div><div class="stat-line"><dt>Expense total</dt><dd>$189.80</dd></div><div class="stat-line"><dt>Orders placed</dt><dd>0</dd></div></dl><details class="timing-note"><summary>About the timing${glyph('chevron')}</summary><p>${info[name].delayNote} Timing describes the conversation notification, not a device push or a read receipt.</p></details></div><div class="review-note">${pilot(name)}<p>One run with the assistant’s own tools.</p><a href="#methodology">How we tested</a></div></aside>
-    </div>${reviewed()}`;
+    </div>${skillRoundLink(name)}${reviewed()}`;
 }
 
 function renderCompare() {
@@ -227,7 +251,9 @@ function route() {
   // The skip link moves focus without replacing the current view.
   if (hash === 'content') { content.focus(); return; }
   const name = names.find(item => hash === `assistant/${info[item].id}`);
-  const view = name ? 'assistants' : ['compare', 'methodology'].includes(hash) ? hash : 'assistants';
+  const skillName = names.find(item => hash === `skill-runs/${info[item].id}`);
+  if (skillName) skillAgent = skillName;
+  const view = hash === 'skill-runs' || skillName ? 'skill-runs' : name ? 'assistants' : ['compare', 'methodology'].includes(hash) ? hash : 'assistants';
   document.querySelectorAll('[data-nav]').forEach(link => {
     const active = link.dataset.nav === view;
     link.classList.toggle('active', active);
@@ -235,10 +261,11 @@ function route() {
   });
   content.dataset.view = name ? 'profile' : view;
   if (name) renderProfile(name);
+  else if (view === 'skill-runs') renderSkillRuns();
   else if (view === 'compare') renderCompare();
   else if (view === 'methodology') renderMethod();
   else renderHome();
-  document.title = name ? `${name} — Assistant Benchmark` : view === 'compare' ? 'Compare assistants — Assistant Benchmark' : view === 'methodology' ? 'Methodology — Assistant Benchmark' : 'Assistant Benchmark — real-world results';
+  document.title = name ? `${name} — Assistant Benchmark` : view === 'skill-runs' ? 'Individual skill runs — Assistant Benchmark' : view === 'compare' ? 'Compare assistants — Assistant Benchmark' : view === 'methodology' ? 'Methodology — Assistant Benchmark' : 'Assistant Benchmark — real-world results';
 }
 
 window.addEventListener('hashchange', () => {
@@ -276,4 +303,13 @@ fetch('review.json?v=20261002-muse').then(response => {
   route();
 }).catch(() => {
   content.innerHTML = '<div class="empty-state"><h1>Results couldn’t load.</h1><p>Please refresh, or open the reviewed data directly.</p><a class="button" href="review.json">Open reviewed data</a></div>';
+});
+fetch('skill-runs.json', { cache: 'no-cache' }).then(response => {
+  if (!response.ok) throw new Error('Skill runs unavailable');
+  return response.json();
+}).then(result => {
+  skillRuns = result;
+  if (location.hash.startsWith('#skill-runs')) route();
+}).catch(() => {
+  if (location.hash.startsWith('#skill-runs')) route();
 });
