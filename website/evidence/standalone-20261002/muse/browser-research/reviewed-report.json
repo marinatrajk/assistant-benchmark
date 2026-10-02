@@ -1,0 +1,192 @@
+{
+  "deviations": [
+    "No applicable research skill exists in this harness's native skill library: the only research skill (wide_research) explicitly excludes single-item tasks in its own contract, and no separate skill-load tool exists beyond catalog search + SKILL.md read + application. Per the operator's instruction this is disclosed in evidence/skill-load-disclosure.md and the playbook-loaded check is left unverified; the browser comparison was completed in full."
+  ],
+  "environment": {
+    "browser": "Chromium (managed live browser)",
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-browser-research-20261002-01; the earlier muse-browser-form run results were not reused and no other benchmark tasks were started.",
+      "The browser task ran in the shared managed-Chromium profile alongside unrelated parked tasks (a Weee! grocery-cart task and a Best Buy checkout task awaiting user input); it shared no site state with the benchmark fixture pages and did not touch those tasks.",
+      "Existing side-chat context was present; fixture interaction was limited to the benchmark plans page at the configured fixture_base_url.",
+      "Unrelated carts, scheduled jobs, accounts, and memories were preserved. No purchase or signup was made and no unrelated conversations were used."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-browser-research-20261002-01",
+  "skill_name": "benchmark-browser-research",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-research"
+  },
+  "started_at": "2026-10-02T13:40:38-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "browser-research"
+  ],
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "tasks": [
+    {
+      "answer": "Studio at $18/month (12 projects) is the cheapest plan with at least 10 projects. Source: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-plans"
+          ],
+          "label": null,
+          "mode": "mixed",
+          "status": "observed"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [
+            "ev-skill-disclosure"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "unavailable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-skill-disclosure"
+          ],
+          "id": "playbook-loaded",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-plans"
+          ],
+          "id": "source-observed",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-screenshot-plans",
+            "ev-plan-comparison"
+          ],
+          "id": "correct-choice",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-browser-report",
+            "ev-plan-comparison"
+          ],
+          "id": "source-cited",
+          "status": "passed"
+        }
+      ],
+      "disclosure_note": "Tool-call accounting (measurable): the browser task itself executed 5 native steps (4 browser_automation actions + 1 handoff), inside the 50-call budget. Orchestration around it (bundle download + SHA-256 verification, reading task sheet/inputs/template/workflow, native skill-catalog search and SKILL.md review, spawning and inspecting the browser task, visually verifying the screenshot, writing this report, validating and packaging) used 20 additional tool calls, for a run total of 25 \u2014 also inside the budget. Active duration covers the browser task's created_at to updated_at (54 s); bundle download/verification, skill-catalog search, evidence review, and report writing are excluded from active time per the report contract. input_tokens/output_tokens are not observable from this harness and are left null. The winning plan and price were derived from visible page content only; no search snippets and no fixture source/log inspection were used. playbook-loaded is unverified for the disclosed harness reason, not from lack of attempt. Operator review: the claimed 5 native steps/25 total calls are not verified; timeline lists 6 entries, so measured tool_calls is null. Agent-authored notes relabeled agent_export; screenshot reviewed independently. Shared browser profile and existing conversation, not a verified reset.",
+      "evidence": [
+        {
+          "id": "ev-browser-report",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:41:32-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/browser-task-report.md",
+          "summary": "Verbatim live-browser task handoff: exact visited URL https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/, all three plans quoted verbatim (Personal $8 / 3 projects; Studio $18 / 12 projects; Company $45 / Unlimited), page note 'All prices are per month. No additional fees.', and the native action timeline."
+        },
+        {
+          "id": "ev-screenshot-plans",
+          "kind": "screenshot",
+          "observed_at": "2026-10-02T13:41:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/screenshot-plans.png",
+          "summary": "Muse-exported screenshot independently viewed by reviewer: all three plans, prices and project limits visible."
+        },
+        {
+          "id": "ev-plan-comparison",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:41:43-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/plan-comparison.md",
+          "summary": "Muse-authored comparison; reviewer independently checked its arithmetic against exported page screenshot."
+        },
+        {
+          "id": "ev-skill-disclosure",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:41:43-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-load-disclosure.md",
+          "summary": "Muse reports no applicable native research skill; no native load event supplied."
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": 54000,
+        "elapsed_duration_ms": 65000,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent-reported browser task timing (54 seconds), not full end-to-end timing. Call count is null because reported 5 steps conflicts with 6 timeline entries; no independent counter export.",
+        "tool_calls": null
+      },
+      "reason": "Three of four required checks passed with observed evidence: the live page was observed with all prices and project limits, the cheapest qualifying plan and correct monthly price were selected, and the exact visited URL is cited. playbook-loaded is unverified because no applicable research skill exists in this harness's native library (disclosed, per operator instruction); the browser comparison itself is complete.",
+      "schedule": null,
+      "status": "partial",
+      "task_id": "browser-research",
+      "tools_used": [
+        "browser.spawn_task",
+        "browser.peek_task",
+        "browser_automation (native browser actions per task timeline: go to page, inspect info, look at page)",
+        "muse.skill_search",
+        "muse.exec",
+        "muse.read",
+        "muse.write"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-02T13:41:43-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed actual exported page screenshot and comparison. Studio $18/month for 12 projects is correct; native research skill-load remains unverified. Metrics and capability-library claims are self-reported; step count inconsistent."
+}

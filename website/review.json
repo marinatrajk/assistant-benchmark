@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:40:30.349188+00:00",
+  "updated_at": "2026-10-02T17:44:34.997748+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -237,14 +237,37 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "muse-browser-research-20261002-01",
-          "summary": "Comparing plans and checking native research-skill loading; awaiting evidence.",
+          "summary": "Correct Studio plan at $18/month; applicable native research skill not verified.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "All three plans checked against the at-least-10-project constraint from the returned page screenshot.",
+            "Research outcome passed; overall partial because required playbook-loaded check is unverified.",
+            "Muse-reported 54-second browser task; tool-call count withheld due to inconsistent timeline."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/browser-research/reviewed-report.json"
+            ],
+            [
+              "Plans screenshot",
+              "evidence/standalone-20261002/muse/browser-research/evidence/screenshot-plans.png"
+            ],
+            [
+              "Browser task report",
+              "evidence/standalone-20261002/muse/browser-research/evidence/browser-task-report.md"
+            ],
+            [
+              "Plan comparison",
+              "evidence/standalone-20261002/muse/browser-research/evidence/plan-comparison.md"
+            ],
+            [
+              "Skill disclosure",
+              "evidence/standalone-20261002/muse/browser-research/evidence/skill-load-disclosure.md"
+            ]
+          ]
         }
       },
       "criterion": "Load a relevant native research skill, observe all plan limits and prices, choose the cheapest qualifying plan, and cite the visited page.",
@@ -331,11 +354,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-memory-update-20261002-01",
+          "summary": "Isolated synthetic memory setup requested; awaiting native capability and seed evidence.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },
