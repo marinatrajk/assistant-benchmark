@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:04:53.270651+00:00",
+  "updated_at": "2026-10-02T18:06:09.624282+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -1077,14 +1077,28 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "pending",
+          "review_status": "reviewed",
           "run_id": "muse-scheduled-research-20261002-01",
-          "summary": "One fresh check of the exact Philips White charger requested for 15 minutes from native clock.",
+          "summary": "Fresh product check scheduled for 2:19:23 p.m. EDT; delivery deadline 2:24:23 p.m.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Native scheduling evidence retained; no early success credited.",
+            "Passive waiting may overlap separately assigned active tasks; each run remains individual."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/scheduled-research/reviewed-report.json"
+            ],
+            [
+              "Job Definition",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/job-definition.md"
+            ],
+            [
+              "Scheduling Notes",
+              "evidence/standalone-20261002/muse/scheduled-research/evidence/scheduling-notes.txt"
+            ]
+          ]
         }
       },
       "criterion": "Schedule a fresh product check after the due time and deliver an accurate source-linked update within five minutes.",
@@ -1165,11 +1179,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-memory-followup-20261002-01",
+          "summary": "Synthetic meal preferences assigned for isolated durable storage; separate update and fresh-chat recall still to come.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },
