@@ -1,0 +1,66 @@
+{
+  "run_id": "instinct-purchase-research-20261002-01",
+  "reviewed_at": "2026-10-02T16:48:39.668218+00:00",
+  "method": "Reviewed original agent-exported manufacturer/retailer page text. Public evidence paraphrases relevant facts with source hashes; full captures containing tracking URLs and unrelated page text stay private. Supplementary policy/specification checks below were reviewer lookups after the attempt, not additional agent execution.",
+  "agent_observation_window": "2026-10-02T18:44:40+02:00 through approximately 18:45:03+02:00; individual report metadata also uses 18:44:55. Exact per-page seconds are not independently verified.",
+  "candidates": [
+    {
+      "product": "Monoprice 45244 65W dual USB-C PD3.0 flat wall charger",
+      "url": "https://www.monoprice.com/product?p_id=45244",
+      "price_usd": 27.99,
+      "stock": "In stock in exported text",
+      "plug": "Foldable US plug explicitly stated",
+      "ports": "Two USB-C",
+      "power": "65 W advertised total; C1 single up to 65 W; simultaneous C1+C2 up to 45+18 W",
+      "review": "Recommended exact product supported by exported page."
+    },
+    {
+      "product": "VisionTek 901536 65W GaN II dual USB-C",
+      "url": "https://visiontek.com/products/visiontek-65w-gan-ii-power-adapter-2-port",
+      "price_usd": 19.99,
+      "stock": "In stock in exported text",
+      "plug": "Not verified by agent",
+      "power": "65 W single-port, 45+20 W dual-port; USB PD 3.0",
+      "review": "Candidate plug requirement unresolved."
+    },
+    {
+      "product": "NOCO X65B black",
+      "url": "https://no.co/x65b",
+      "price_usd": 34.95,
+      "stock": "No availability shown in exported text",
+      "plug": "Not verified by agent",
+      "power": "Two USB-C, PD3.0, 65 W advertised. Agent linked specifications for 45+20 or 30+30 W sharing.",
+      "review": "Reviewer opened the cited specs URL, which supports those sharing modes and Type A plug; this was omitted from the agent comparison. Availability remains unverified."
+    }
+  ],
+  "supplementary_reviewer_sources": [
+    {
+      "url": "https://www.monoprice.com/help?pn=support",
+      "summary": "Policy supports 30 days from delivery for Monoprice-branded goods, with RMA approval and condition/accessory requirements."
+    },
+    {
+      "url": "https://visiontek.com/pages/shipping-returns-policy",
+      "summary": "Direct eligible purchases have 30 days from purchase, RMA required, like-new condition and original packaging; customer pays return shipping and original shipping is nonrefundable."
+    },
+    {
+      "url": "https://no.co/return-policy",
+      "summary": "Direct webstore purchases have 30 days after receipt; shipping fees are nonrefundable and damage restrictions apply."
+    },
+    {
+      "url": "https://no.co/x65b/specs",
+      "summary": "Two USB-C ports, PD3.0, Type A input plug, dual power modes 45+20 W or 30+30 W."
+    }
+  ],
+  "limitations": [
+    "Only one candidate was fully verified by the agent against the brief; stock and plug gaps remain in the comparison.",
+    "Original policy page captures and NOCO spec capture were not exported. Reviewer corroboration does not prove the exact original retrieval time.",
+    "Shipping and tax were explicitly unknown. No checkout or purchase happened during research."
+  ],
+  "original_source_sha256": {
+    "hyper.txt": "7418241e265a2262faf4945bd46609d4e1c95068c43636ea9900b37167ccec8f",
+    "iogear.txt": "3f36351952b126b016c79cb3e6f57846103ab63a6c3dff2dc2f684652ab69aa2",
+    "mono.txt": "520b97d70aab9bce66372d294989dccf5b52df02da956c994be810cb8ba9eccb",
+    "noco.txt": "07291dc076397f019202b8db2f440e404fb314663c525263e55a14dc6618845e",
+    "visiontek.txt": "9981f3b62d28edc10ff8abf8eb2ac59661bbf5d3d2d0de28917f6ce029f7c3a2"
+  }
+}

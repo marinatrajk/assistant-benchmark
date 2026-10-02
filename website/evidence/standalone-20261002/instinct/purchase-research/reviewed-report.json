@@ -1,0 +1,189 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "run_id": "instinct-purchase-research-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff. Operator addition: exact merchant URL and variant required; research only; shipping/tax unknowns disclosed."
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "purchase-research"
+  ],
+  "started_at": "2026-10-02T18:44:21+02:00",
+  "updated_at": "2026-10-02T18:46:00+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Operator added: no checkout/cart/purchase; recommend exact merchant URL and variant.",
+    "Report timestamps use explicit +02:00 offsets; benchmark timezone remains America/New_York. No operator location is inferred.",
+    "Source pages were retrieved as text (no screenshots); price/stock observed at 2026-10-02T18:44:40-18:45:03+02:00.",
+    "Public source refs point to a reviewer summary with hashes. Original full page captures retained privately; supplementary reviewer lookups are identified separately."
+  ],
+  "tasks": [
+    {
+      "task_id": "purchase-research",
+      "status": "partial",
+      "reason": "Fewer than three candidates were fully verified against the brief. The chosen Monoprice product is supported; VisionTek plug and NOCO availability remain unverified. Reviewer corroboration of cited policy/specification pages is documented separately.",
+      "execution_started": true,
+      "answer": "Recommend Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger, item 45244, single variant, $27.99, In Stock: https://www.monoprice.com/product?p_id=45244 . 65W is total; with both ports used the spec is 45W + 18W. Tradeoff: ~$8 more than VisionTek 901536 ($19.99, 45W+20W) but only one with explicit 'Foldable US Plug' text and a 30-day money-back policy; one-year warranty. Others: VisionTek https://visiontek.com/products/visiontek-65w-gan-ii-power-adapter-2-port ; NOCO X65B (black) $34.95 https://no.co/x65b (30-day return; split 45/20 or 30/30 per specs page https://no.co/x65b/specs; stock not shown). Excluded: IOGEAR GPAWC65W $35.95 sold out; HyperGear $49.99 availability ambiguous; Belkin $50.99 over budget; Greenworks single USB-C. Shipping and tax unknown (calculated at checkout).",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Counts and durations not measurable by the agent; null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names withheld; actions: web searches, page fetches of manufacturer/retailer pages, saved as text evidence.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "unverified",
+          "evidence_ids": [
+            "e-mono",
+            "e-vt",
+            "e-noco"
+          ]
+        },
+        {
+          "id": "current-sources",
+          "status": "passed",
+          "evidence_ids": [
+            "e-mono",
+            "e-vt",
+            "e-noco"
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "status": "passed",
+          "evidence_ids": [
+            "e-mono",
+            "e-vt",
+            "e-noco",
+            "e-ret"
+          ]
+        },
+        {
+          "id": "recommendation",
+          "status": "passed",
+          "evidence_ids": [
+            "e-mono"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "e-mono",
+          "kind": "observation",
+          "summary": "Monoprice 45244 page: $27.99, In Stock, Foldable US Plug, 65W Total, C1 65W max, C1+C2 45W+18W; observed 2026-10-02T18:44:40+02:00",
+          "provenance": "agent_export",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T18:44:55+02:00"
+        },
+        {
+          "id": "e-vt",
+          "kind": "observation",
+          "summary": "VisionTek 901536 page: $19.99, in stock ready to ship, 2x USB-C, 65W total, dual 45W+20W, UL/FCC, 1-year warranty; plug type not stated; observed 2026-10-02T18:44:40+02:00",
+          "provenance": "agent_export",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T18:44:55+02:00"
+        },
+        {
+          "id": "e-noco",
+          "kind": "observation",
+          "summary": "NOCO X65B page: $34.95 black, 2 ports, PD 3.0, 3-year warranty; stock not shown; specs page lists 45W/20W and 30W/30W sharing (https://no.co/x65b/specs); observed 2026-10-02T18:44:40+02:00",
+          "provenance": "agent_export",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T18:44:55+02:00"
+        },
+        {
+          "id": "e-excl",
+          "kind": "observation",
+          "summary": "Excluded: IOGEAR sold out ($35.95); HyperGear $49.99 sold-out/in-stock labels conflict; Belkin $50.99 per search snippet; observed 18:44-18:45+02:00",
+          "provenance": "agent_export",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T18:44:55+02:00"
+        },
+        {
+          "id": "e-ret",
+          "kind": "observation",
+          "summary": "Return policies: Monoprice 30-day money back https://www.monoprice.com/help?pn=support ; VisionTek 30-day https://visiontek.com/pages/shipping-returns-policy ; NOCO 30-day https://no.co/return-policy ; observed 2026-10-02T18:44:55+02:00",
+          "provenance": "agent_export",
+          "ref": "https://www.monoprice.com/help?pn=support",
+          "observed_at": "2026-10-02T18:44:55+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Compared recommendation and numerical claims to original exported page text. Monoprice product, price, stock, US plug, PD, two USB-C ports and sharing supported; VisionTek plug not established by agent, NOCO stock unavailable. The agent correctly withheld a full pass. Reviewer independently corroborated the cited return policies and NOCO power-sharing specifications; NOCO specs also state Type A, omitted by the agent. Historical retrieval precision and complete qualifying-candidate coverage remain limited. No raw tracking URLs or full third-party pages published."
+}

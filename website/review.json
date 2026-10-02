@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:44:46.944946+00:00",
+  "updated_at": "2026-10-02T16:48:39.692763+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -465,14 +465,29 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "instinct-purchase-research-20261002-01",
-          "summary": "Three-charger research assigned with the standard US plug, USB PD, port, wattage and USD 50 constraints.",
+          "summary": "Recommended Monoprice 45244 at the observed USD 27.99 price; fewer than three candidates were fully verified.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Monoprice source supports US plug, two USB-C ports, USB PD and 65 W advertised total; shared output is 45 W + 18 W.",
+            "VisionTek plug type and NOCO stock were unresolved. The agent also omitted NOCO Type A plug information present on its cited specification page.",
+            "Current prices were reported from text captures; shipping and tax remained unknown. Cited return policies and shared-power specifications were corroborated during review."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/purchase-research/reviewed-report.json"
+            ],
+            [
+              "Source and policy review",
+              "evidence/standalone-20261002/instinct/purchase-research/source-review.json"
+            ],
+            [
+              "Submitted comparison",
+              "evidence/standalone-20261002/instinct/purchase-research/comparison.md"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -541,11 +556,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-checkout-handoff-20261002-01",
+          "summary": "Guest checkout assigned for Monoprice product 45244, quantity one; stop before payment or order.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {
