@@ -1,0 +1,7 @@
+{
+  "skill_name": "deep-research",
+  "supplied": "Full skill document text and a sanitized action-trace assertion that the native library file was read.",
+  "review": "Document contents reviewed as relevant research guidance. No actual native load call/event or raw read request identifying the library mechanism was supplied; playbook-loaded remains unverified under the unchanged task contract.",
+  "original_sha256": "ea9fa185bb0310454882bf0960aa05b71b2d573efe8b20e22d558e20bc90b420",
+  "publication": "Full third-party skill text and internal browser configuration/history exports retained privately; only the relevant review is published."
+}

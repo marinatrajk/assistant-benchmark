@@ -1,0 +1,190 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-browser-research",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-research"
+  },
+  "run_id": "instinct-browser-research-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": "cloud browser (Chrome), read lease",
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Fresh read lease acquired for this run; no unrelated state touched.",
+      "Existing Messages conversation; fresh browser lease is agent-reported, not a fresh assistant conversation."
+    ],
+    "fixture_mode": "public_static"
+  },
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "browser-research"
+  ],
+  "started_at": "2026-10-02T18:36:32+02:00",
+  "updated_at": "2026-10-02T18:38:00+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Agent clock uses explicit +02:00 offsets; benchmark configuration remains America/New_York (-04:00). No operator location is inferred.",
+    "Tool-call count and tokens not measured by the runtime; null.",
+    "No distinct native skill-load event is exposed; the native deep-research SKILL.md was read from the skill library as a file. Recorded as unverified per contract."
+  ],
+  "tasks": [
+    {
+      "task_id": "browser-research",
+      "status": "partial",
+      "reason": "Page observed and answer correct, but playbook-loaded is unverified: the harness exposes no separate skill-load event, only a file read of its native deep-research SKILL.md (skill library).",
+      "execution_started": true,
+      "answer": "Studio is the cheapest plan with at least 10 projects: $18/month, 12 projects. Personal ($8, 3 projects) misses the constraint; Company ($45, Unlimited) qualifies but costs more. Source: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans (loaded URL resolved to .../plans/).",
+      "metrics": {
+        "active_duration_ms": 10000,
+        "elapsed_duration_ms": 92000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Actual clock readings 18:36:54 to 18:37:04 +02:00 for browser work (setup and report writing excluded); tool calls not counted by runtime."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names withheld; sanitized action trace in evidence/action-trace.txt.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": [
+            "ev-skill-read"
+          ]
+        },
+        {
+          "id": "source-observed",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-page-text",
+            "ev-shot"
+          ]
+        },
+        {
+          "id": "correct-choice",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-page-text",
+            "ev-shot"
+          ]
+        },
+        {
+          "id": "source-cited",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-url"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-skill-read",
+          "kind": "trace",
+          "summary": "Read of native deep-research SKILL.md from the assistant skill library (file read, no separate load event exposed).",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-review.json",
+          "observed_at": "2026-10-02T18:36:46+02:00"
+        },
+        {
+          "id": "ev-page-text",
+          "kind": "observation",
+          "summary": "Browser accessibility-tree read of the live /plans page: table rows Personal $8/3, Studio $18/12, Company $45/Unlimited; caption says all prices per month.",
+          "provenance": "agent_export",
+          "ref": "evidence/plans-page-read.json",
+          "observed_at": "2026-10-02T18:36:55+02:00"
+        },
+        {
+          "id": "ev-shot",
+          "kind": "screenshot",
+          "summary": "Screenshot of the rendered plans page showing the same three rows.",
+          "provenance": "agent_export",
+          "ref": "evidence/plans-screenshot.png",
+          "observed_at": "2026-10-02T18:37:04+02:00"
+        },
+        {
+          "id": "ev-url",
+          "kind": "observation",
+          "summary": "Visited URL after load: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/",
+          "provenance": "agent_export",
+          "ref": "evidence/current-url.json",
+          "observed_at": "2026-10-02T18:37:04+02:00"
+        },
+        {
+          "id": "ev-trace",
+          "kind": "trace",
+          "summary": "Sanitized action trace.",
+          "provenance": "agent_export",
+          "ref": "evidence/action-trace.txt",
+          "observed_at": "2026-10-02T18:37:04+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": null,
+          "evidence_ids": [
+            "ev-page-text",
+            "ev-shot"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "ev-skill-read"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Visually reviewed the actual plans screenshot and browser page observation: Studio USD 18/month for 12 projects is the cheapest qualifying plan. Exact visited source supplied. Exported deep-research document content and sanitized read assertion do not establish a native load event; retained partial. No raw native call/event was supplied. Removed internal browser configuration/history and third-party skill text from public evidence; retained originals privately and published a task-scoped skill review with hash. Explicit clock offsets retained without operator-location inference."
+}

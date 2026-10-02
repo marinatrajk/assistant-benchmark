@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:36:49.281927+00:00",
+  "updated_at": "2026-10-02T16:39:12.849810+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -186,14 +186,29 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "instinct-browser-research-20261002-01",
-          "summary": "Browser research assigned; waiting for the plan comparison and native research-skill evidence.",
+          "summary": "Correctly chose Studio at USD 18/month for 12 projects; native research-skill loading remains unverified.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Actual screenshot and browser page read show Personal USD 8/3 projects, Studio USD 18/12, Company USD 45/unlimited. Exact plans source was cited.",
+            "Instinct exported the deep-research skill document and a sanitized read trace; no actual native load event was exposed. Document contents alone do not pass the required skill check.",
+            "Reported 10 seconds browser work; call and token counts unavailable. Existing Messages context retained."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/browser-research/reviewed-report.json"
+            ],
+            [
+              "Observed plans page",
+              "evidence/standalone-20261002/instinct/browser-research/evidence/plans-screenshot.png"
+            ],
+            [
+              "Skill evidence review",
+              "evidence/standalone-20261002/instinct/browser-research/evidence/skill-review.json"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -267,11 +282,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-memory-update-20261002-01",
+          "summary": "Isolated synthetic-memory setup assigned; waiting for seed and readback evidence.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {
