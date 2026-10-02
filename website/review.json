@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:47:49.507491+00:00",
+  "updated_at": "2026-10-02T14:51:43.945429+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -296,14 +296,34 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "blocked",
+          "review_status": "reviewed",
           "run_id": "grokbot-computer-calculator-20261002-01",
-          "summary": "Assigned: use the operating system Calculator through native desktop input.",
+          "summary": "Desktop access worked, but no operating-system Calculator was available. No calculation was attempted.",
           "details": [
-            "One attempt with a five-minute active limit and 50 calls where measurable."
+            "Seven downloaded screenshots and an installed-app probe support the Debian/Xfce app-availability blocker. Two representative screenshots are published.",
+            "Grok did not install a calculator or substitute a spreadsheet, browser or code.",
+            "The named box-desktop load is self-attested; its actual native load result was not exported, so all four checks remain unverified.",
+            "Agent estimates about 2.5 minutes; active timing, complete call count and tokens remain unavailable."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/computer-calculator/reviewed-report.json"
+            ],
+            [
+              "Desktop observation",
+              "evidence/standalone-20261002/grokbot/computer-calculator/evidence/desktop-5-104858.webp"
+            ],
+            [
+              "Installed-app probe",
+              "evidence/standalone-20261002/grokbot/computer-calculator/evidence/environment-probe.txt"
+            ],
+            [
+              "Desktop search trace",
+              "evidence/standalone-20261002/grokbot/computer-calculator/evidence/desktop-trace.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -354,11 +374,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-purchase-research-20261002-01",
+          "summary": "Assigned: compare three current US-plug chargers against the full product brief.",
+          "details": [
+            "Exact variant, current price/stock, shared-port output and returns must be supported by sources."
+          ],
           "sources": []
         },
         "Instinct": {

@@ -1,0 +1,4 @@
+# Read-only environment probe (10:47:19 ET, shell; not used for calculation)
+OS: Debian GNU/Linux 13 (trixie), kernel Linux 6.12.94+, Xfce components (xfwm4, Thunar, xfce4-terminal), Plank dock, X11 via VNC.
+Calculator binaries searched (gnome-calculator, galculator, kcalc, xcalc, mate-calc, qalculate-gtk, qalc): none found. Only `localc` (LibreOffice Calc spreadsheet) matched "calc".
+/usr/share/applications: com.google.Chrome, google-chrome, libreoffice-{calc,draw,impress,startcenter,writer,xsltfilter}, picom, plank, python3.13, thunar(+settings,bulk-rename), x11vnc, xfce-wm-settings, xfce-wmtweaks-settings, xfce-workspaces-settings, xfce4-terminal(+settings). No Calculator .desktop entry. No flatpak calculator.

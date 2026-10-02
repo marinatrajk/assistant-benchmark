@@ -1,0 +1,180 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-computer-calculator",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "computer-calculator"
+  },
+  "run_id": "grokbot-computer-calculator-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Debian GNU/Linux 13 (trixie), Xfce/Plank desktop",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Assistant's own remote Linux desktop (the box), not the operator's machine.",
+      "Existing conversation that also contains earlier benchmark runs; no prior Calculator exposure."
+    ]
+  },
+  "task_inputs": {
+    "expression": "137 \u00d7 29"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "computer-calculator"
+  ],
+  "started_at": "2026-10-02T10:47:15-04:00",
+  "updated_at": "2026-10-02T10:49:46-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "No OS Calculator app is installed on the desktop; installing one or substituting LibreOffice Calc, a browser or code was not allowed, so the attempt is blocked.",
+    "Tool calls, active duration and tokens are not exported and are left null (agent estimate: about 12 top-level calls plus 14 desktop actions, roughly 2.5 minutes)."
+  ],
+  "tasks": [
+    {
+      "task_id": "computer-calculator",
+      "status": "blocked",
+      "reason": "Desktop input tools exist and were used, but no operating-system Calculator app is available on this Debian/Xfce desktop; installs and substitutes are prohibited.",
+      "execution_started": true,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names and hidden model/harness/settings are withheld. The desktop trace is the desktop agent's own report; the screenshots are actual automatic captures.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": [
+            "ev-skill"
+          ]
+        },
+        {
+          "id": "desktop-input",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "display-observed",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "answer-matches",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-skill",
+          "kind": "observation",
+          "summary": "Self-attested native box-desktop load; actual load return not exported",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-load.md",
+          "observed_at": "2026-10-02T10:47:19-04:00"
+        },
+        {
+          "id": "ev-probe",
+          "kind": "observation",
+          "summary": "Read-only check of the OS and installed apps: no Calculator",
+          "provenance": "agent_export",
+          "ref": "evidence/environment-probe.txt",
+          "observed_at": "2026-10-02T10:47:19-04:00"
+        },
+        {
+          "id": "ev-trace",
+          "kind": "trace",
+          "summary": "Desktop input search for a Calculator app; none found",
+          "provenance": "agent_export",
+          "ref": "evidence/desktop-trace.md",
+          "observed_at": "2026-10-02T10:49:13-04:00"
+        },
+        {
+          "id": "ev-shot1",
+          "kind": "screenshot",
+          "summary": "Desktop capture during Calculator search",
+          "provenance": "agent_export",
+          "ref": "evidence/desktop-1-104735.webp",
+          "observed_at": "2026-10-02T10:47:35-04:00"
+        },
+        {
+          "id": "ev-shot5",
+          "kind": "screenshot",
+          "summary": "Desktop capture during Calculator search",
+          "provenance": "agent_export",
+          "ref": "evidence/desktop-5-104858.webp",
+          "observed_at": "2026-10-02T10:48:58-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-trace",
+            "ev-shot5"
+          ]
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": "native",
+          "label": "box-desktop",
+          "evidence_ids": [
+            "ev-skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed seven actual screenshots, installed-app probe and reconstructed desktop action trace. Blocked retained because no OS Calculator was found. Named skill load is self-attested without actual load-result content, so its check is changed to unverified. Two representative screenshots published; redundant captures and a file-manager view of unrelated filenames retained privately. No arithmetic result was claimed."
+}
