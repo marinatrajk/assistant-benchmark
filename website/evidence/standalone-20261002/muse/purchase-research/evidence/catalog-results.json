@@ -1,0 +1,239 @@
+{
+  "publication_note": "Reduced to product identity/price fields; tracking parameters, catalog internals and CDN image URLs omitted. Private original retained. Discovery data alone does not establish current merchant stock.",
+  "products": [
+    {
+      "rank": 1,
+      "name": "Nimble WALLY (v2) 65-watt wall charger with USB-C and USB-A ports",
+      "brand": "Nimble",
+      "price": "$39.95",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.crutchfield.com/I-rFBFc1H36/p_352WALLY2/Nimble-WALLY-v2.html"
+    },
+    {
+      "rank": 2,
+      "name": "USB C Charger 65W  Portable Charger USB Type-C Charger Compact GaN Fast Charger USB C Fast Charging",
+      "brand": "LUOM",
+      "price": "$18.49",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.newegg.com/p/359-01JF-00056?item=9SIACD5JV56174"
+    },
+    {
+      "rank": 3,
+      "name": "SpeedBoost 65W USB-C PD GaN Laptop Wall Charger with PPS - White",
+      "brand": "Hypergear",
+      "price": "$49.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.electronicexpress.com/catalog/565948/hypergear-15876-speedboost-65w-usb-c-pd-gan-laptop-wall-charger-with-pps-white"
+    },
+    {
+      "rank": 4,
+      "name": "Dual USB-C Charger (65W)",
+      "brand": "Westcott",
+      "price": "$24.90",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.fjwestcott.com/products/dual-usb-c-charger-65w?variant=51188182352103"
+    },
+    {
+      "rank": 5,
+      "name": "Dual Port USB C Charger 65W PD 3.0 USB C Wall Charger Portable Adapter with  iPhone Charger USB C Bl",
+      "brand": "Jansicotek",
+      "price": "$15.50",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.newegg.com/white-jansicotek-usb-type-c-wall-charger/p/379-00P8-00013?item=9SIAD8FJV56172"
+    },
+    {
+      "rank": 6,
+      "name": "65W GaN Power Adapter",
+      "brand": null,
+      "price": "$43",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://oakywood.shop/products/65w-gan-power-adapter?variant=41337936347197"
+    },
+    {
+      "rank": 7,
+      "name": "Charge Shack - 2-Port USB & USB-C 65W Wall Charger",
+      "brand": "Smartish",
+      "price": "$39.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://smartish.com/products/charge-shack-2-port-usb-wall-charger?variant=40305021452484"
+    },
+    {
+      "rank": 8,
+      "name": "65W GaN Triple Port Wall Charger, USB-C & USB-A Outputs",
+      "brand": null,
+      "price": "$34.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://codiworldwide.com/products/65w-gan-dual-port-wall-charger-usbc-usba?variant=42585031966933"
+    },
+    {
+      "rank": 9,
+      "name": "Griffin PowerBlock 65W Dual USB-C Wall Charger",
+      "brand": null,
+      "price": "$34.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://incipio.com/products/grfwp1008-wht?variant=52660130677100"
+    },
+    {
+      "rank": 10,
+      "name": "65 W USB-C PD GaN Power Supply",
+      "brand": null,
+      "price": "$29",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.elektor.com/products/65-w-usb-c-pd-gan-power-supply?variant=47310488699212"
+    },
+    {
+      "rank": 11,
+      "name": "30W/65W/120W USB-C GaN Charger",
+      "brand": null,
+      "price": "$22.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.pisen.us/products/pisen-30w-65w-120w-usb-c-gan-charger?variant=49939077366040"
+    },
+    {
+      "rank": 12,
+      "name": "Belkin Dual USB-C GaN Wall Charger with PPS 45W",
+      "brand": "Belkin",
+      "price": "$39.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.belkin.com/p/dual-usb-c-gan-wall-charger-with-pps-45w/WCH011dqWH.html"
+    },
+    {
+      "rank": 13,
+      "name": "PISEN Pro 65W GaN Fast Charger 2C+2A (US) TS-C146",
+      "brand": null,
+      "price": "$49.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.pisen.biz/products/pisen-pro-65w-gan-fast-charger-2c-2a-us?variant=50353210622268"
+    },
+    {
+      "rank": 14,
+      "name": "Vention 3-Port USB (C+C+A) GaN Charger (65W/65W/60W) EU-Plug",
+      "brand": null,
+      "price": "$37.59",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://ventiontech.com/products/3-port-usb-c-c-a-gan-charger-65w-65w-60w-eu-plug-black?variant=44773565399206"
+    },
+    {
+      "rank": 15,
+      "name": "HyperGear SpeedBoost 65W USB-C PD PPS GaN Laptop Charger",
+      "brand": null,
+      "price": "$49.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://moogdesk.com/products/hypergear-speedboost-65w-usb-c-pd-pps-gan-laptop-charger?variant=42575391621225"
+    },
+    {
+      "rank": 16,
+      "name": "65W GaN Wall Charger with 32\" Retractable Type-C Cable",
+      "brand": null,
+      "price": "$49.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://limitlessinnovations.com/products/65w-wall-charger-retractable-type-c-cable?variant=46940655648989"
+    },
+    {
+      "rank": 17,
+      "name": "GearPower Dual USB-C 65W GaN Charger",
+      "brand": null,
+      "price": "$35.95",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://iogear.com/products/gpawc65w?variant=45443695706365"
+    },
+    {
+      "rank": 18,
+      "name": "Targus 65w multi-port gan wall charger",
+      "brand": "Targus",
+      "price": "$37.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.dell.com/en-us/shop/notebook-ac-adapters/apd/ad630368/pc-accessories"
+    },
+    {
+      "rank": 19,
+      "name": "65W PD Adapter",
+      "brand": null,
+      "price": "$30",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://ampere.shop/products/65w-usb-c-pd-adapter-gan-technology?variant=39809632174214"
+    },
+    {
+      "rank": 20,
+      "name": "IceCore 65W GaN Retractable Charger (0.7m/2.4ft USB-C Cable) with 1.8m/6ft 100W C-to-C Cable",
+      "brand": null,
+      "price": "$45.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.nillkin.com/products/icecore-retractable-65w-gan-charger-2-4-ft-usb-c-cable-with-100w-c-to-c-cable?variant=47052273549530"
+    },
+    {
+      "rank": 21,
+      "name": "Choetech PD6052 35W GaN Fast Charger \u2013 Dual USB-C Ports, Compact Design",
+      "brand": "Choetech",
+      "price": "$23.39",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://choetech.com/en-us/products/choetech-35w-gan-dual-ports-fast-charger?variant=48499890290921"
+    },
+    {
+      "rank": 22,
+      "name": "INIU Cougar A21 65W GaN Charger",
+      "brand": null,
+      "price": "$26.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://iniushop.com/products/iniu-a21-e1-65w-3-port-gan-charger?variant=46969870090418"
+    },
+    {
+      "rank": 23,
+      "name": "Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN, 65W, White",
+      "brand": null,
+      "price": "$19.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113"
+    },
+    {
+      "rank": 24,
+      "name": "45W Dual Port GaN Wall Charger  (Type C + Type-C)",
+      "brand": null,
+      "price": "$44.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://www.cellhelmet.com/products/45w-dual-port-gan-wall-charger-type-c-type-c?variant=47957775614110"
+    },
+    {
+      "rank": 25,
+      "name": "Dual USB-C GaN 45W Wall Charger",
+      "brand": null,
+      "price": "$29.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://aluratek.com/products/dual-usb-c-gan-45w-wall-charger?variant=50259796230466"
+    },
+    {
+      "rank": 26,
+      "name": "Phone & Laptop Charger with 6ft USB-C to USB-C Power Delivery Cable - Blush",
+      "brand": null,
+      "price": "$49.99",
+      "sale_price": null,
+      "currency": "USD",
+      "url": "https://justwireless.com/products/blush-45-watt-universal-charger-with-6ft-usb-c-to-usb-c-power-delivery-cable?variant=39573138014243"
+    }
+  ]
+}

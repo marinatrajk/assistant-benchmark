@@ -1,0 +1,214 @@
+{
+  "deviations": [
+    "A live-browser product-search task covering Amazon/Best Buy/Walmart was spawned at ~13:51 EDT for additional coverage but remained queued when this report was finalized; its results were not incorporated. All three candidates were verified on current retailer/manufacturer pages via fresh page reads instead.",
+    "Operator review changes self-reported passed to partial: return-policy comparison incomplete and current stock/variant verification insufficient. No later reviewer research credited as agent execution."
+  ],
+  "environment": {
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-purchase-research-20261002-01; no legacy pilot evidence or cached conclusions were reused \u2014 every candidate was verified on current pages during this run.",
+      "Existing grocery (Weee!) and Best Buy carts were preserved; nothing was added to any cart, no checkout was started, and nothing was scheduled."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "recommended_url": "https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113",
+  "recommended_variant": "Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN 65W, White (DLP3653W/37), $19.99, byjasco.com",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "currency": "USD",
+    "market": "US",
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-purchase-research-20261002-01",
+  "skill_name": "benchmark-purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "started_at": "2026-10-02T13:50:51-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "purchase-research"
+  ],
+  "task_inputs": {
+    "product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff."
+  },
+  "tasks": [
+    {
+      "answer": "RECOMMENDED: Philips AC Charger, 1 USB-A, 2 USB-C Port, GaN 65W, White (model DLP3653W/37) \u2014 $19.99 at https://byjasco.com/products/philips-1-usb-and-2-usb-c-wall-charger-with-power-delivery-white?variant=55194167968113. It meets every hard constraint (US plug via foldable prongs, USB Power Delivery on both USB-C ports, 2 USB-C ports, 65W total shared output, $19.99 <= $50) and is confirmed In Stock with free shipping over $50. Tradeoffs: the exact per-port split when sharing is unstated (one port gets up to 65W of the 65W shared budget); a sub-$50 order incurs a shipping fee whose amount was not observed; return terms were not fully observed (refund-policy link present but unread). Runners-up: Griffin PowerBlock 65W Dual USB-C ($34.99, incipio.com, both colors Available) \u2014 compact dual USB-C but higher price and unstated shared split; Targus 65W Multi-Port GaN ($37.99, dell.com, InStock, 2-year warranty) \u2014 most expensive, shared split unstated. All three verified fresh on current pages 2026-10-02 ~13:51-13:52 EDT.",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [
+            "ev-griffin",
+            "ev-philips",
+            "ev-targus"
+          ],
+          "label": null,
+          "mode": "dom",
+          "status": "observed"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [
+            "ev-skill"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "unverified"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-griffin",
+            "ev-philips",
+            "ev-targus"
+          ],
+          "id": "constraints",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-catalog",
+            "ev-griffin",
+            "ev-philips",
+            "ev-targus"
+          ],
+          "id": "current-sources",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-griffin",
+            "ev-philips",
+            "ev-targus",
+            "ev-alternates"
+          ],
+          "id": "tradeoffs",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-philips"
+          ],
+          "id": "recommendation",
+          "status": "passed"
+        }
+      ],
+      "disclosure_note": "The native shopping skill was used through its documented workflows (SKILL.md read; meta-catalog-search for discovery; browser.spawn_task for retailer coverage; shopping.resolve_results for product citations). Per the report format, document reading is not native skill loading, so skills is recorded unverified with evidence ev-skill. No items were added to any cart and no checkout was started. input_tokens/output_tokens are not observable from this harness and are left null. Tax and shipping-cost data that could not be observed are identified as missing rather than estimated.",
+      "evidence": [
+        {
+          "id": "ev-catalog",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:50:51-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/catalog-results.json",
+          "summary": "Meta catalog search returned 26 products under $50; three were shortlisted and verified on current pages."
+        },
+        {
+          "id": "ev-griffin",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:51:30-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/observations.md",
+          "summary": "Griffin PowerBlock 65W Dual USB-C Wall Charger at incipio.com: $34.99, both Black/White variants Available; 65W GaN PD, dual USB-C, foldable prongs; shared-port split unstated; return policy not observed."
+        },
+        {
+          "id": "ev-philips",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:52:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/observations.md",
+          "summary": "Philips DLP3653W/37 65W (2 USB-C PD + 1 USB-A) at byjasco.com: $19.99, In Stock / InStock; 65W shared GaN, foldable plug, ETL certified; free shipping over $50 (sub-$50 shipping fee unobserved); exact shared split unstated; refund-policy link present but terms unread."
+        },
+        {
+          "id": "ev-targus",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:52:20-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/observations.md",
+          "summary": "Targus 65W Multi-Port GaN (APA11606TT) at dell.com: $37.99, InStock; 2 USB-C PD + 1 USB-A, 65W max, foldable Type A prongs, 2-year warranty; shared split unstated; return/shipping terms not observed."
+        },
+        {
+          "id": "ev-alternates",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:51:50-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/observations.md",
+          "summary": "IOGEAR GearPower 65W ($35.95, explicit 45W+20W split, 6ft cable) \u2014 availability not confirmed on the fetched page, excluded as a candidate. INIU Cougar A21 65W ($26.99) \u2014 fully spec-compliant but Sold out, excluded."
+        },
+        {
+          "id": "ev-skill",
+          "kind": "artifact",
+          "observed_at": "2026-10-02T13:51:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-load.md",
+          "summary": "Record of the native shopping skill load event and the skill workflows actually used in this run (catalog search, browser product search, result resolution)."
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": 111000,
+        "elapsed_duration_ms": 111000,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent-reported text research timing/call count; no independent counter export. Extra live-browser research remained queued and was stopped by operator after final report, without modifying other browser tasks.",
+        "tool_calls": 35
+      },
+      "reason": "Recommendation and cited product comparison delivered, but return policies were not read for any candidate, exact simultaneous-port splits remained unknown, and evidence contains agent-authored page summaries rather than retained raw source captures. Three fully verified purchasable candidates are not established.",
+      "schedule": null,
+      "status": "partial",
+      "task_id": "purchase-research",
+      "tools_used": [
+        "meta-catalog-search",
+        "browser.open",
+        "browser.spawn_task",
+        "browser.find",
+        "shopping.resolve_results"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-02T13:52:42-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Read complete report, source notes and catalog export; downgraded passed to partial. Return policies all unread and simultaneous output missing. Later reviewer source checks support product identity/prices but do not establish all run-time variant/stock claims."
+}

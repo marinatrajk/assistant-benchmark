@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:51:07.644669+00:00",
+  "updated_at": "2026-10-02T17:55:56.962362+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -583,14 +583,33 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "muse-purchase-research-20261002-01",
-          "summary": "Fresh three-charger research assigned with current source and exact variant evidence.",
+          "summary": "Three candidates returned; return policies and full stock/variant evidence incomplete.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Recommended Philips DLP3653W/37 White at reported $19.99; exact URL retained for paired tasks.",
+            "All three return policies unread; per-port shared-output split unstated.",
+            "Agent self-score passed changed to partial; extra queued browser task stopped after report."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/purchase-research/reviewed-report.json"
+            ],
+            [
+              "Source observations",
+              "evidence/standalone-20261002/muse/purchase-research/evidence/observations.md"
+            ],
+            [
+              "Reviewed catalog excerpt",
+              "evidence/standalone-20261002/muse/purchase-research/evidence/catalog-results.json"
+            ],
+            [
+              "Operator review",
+              "evidence/standalone-20261002/muse/purchase-research/operator-review.md"
+            ]
+          ]
         }
       },
       "criterion": "Verify three exact products against every constraint using current sources; explain port sharing, returns, and a supported recommendation.",
@@ -677,11 +696,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-checkout-handoff-20261002-01",
+          "summary": "Exact Philips White variant assigned for fresh guest checkout; stop before order or payment.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },
