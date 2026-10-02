@@ -1,0 +1,182 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "run_id": "muse-expense-summary-20261002-01",
+  "operator_label": "Muse",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-expense-summary-20261002-01. Input used ONLY from this package: assets/sample-expenses.csv (SHA-256 401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f); no legacy pilot output was consulted. Desktop interaction was not used. Scheduled-research job and cancelled-reminder state, real user files, synthetic memory personas, and the parked checkout were preserved untouched."
+    ]
+  },
+  "task_inputs": {
+    "input_csv": "evidence/input/sample-expenses.csv",
+    "input_sha256": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+    "currency": "USD",
+    "output_artifact": "evidence/output/muse-expense-summary-20261002-01.xlsx",
+    "input_file": "evidence/input/sample-expenses.csv"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "expense-summary"
+  ],
+  "started_at": "2026-10-02T14:13:45-04:00",
+  "updated_at": "2026-10-02T14:16:10-04:00",
+  "review_status": "reviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "expense-summary",
+      "status": "passed",
+      "reason": "Cleaned the immutable synthetic CSV with the agent's own file tools (no desktop interaction): deduplicated by receipt_id (kept r003, excluded r005), retained the -5.00 refund (A107) in the Office total, left the missing A110 amount unfilled and flagged. The Excel workbook contains 9 cleaned rows, a review_flag column, category totals (Transport 24.90, Meals 41.90, Office 3.00, Lodging 120.00) and overall total 189.80 USD reconciling to the 8 numeric rows, plus a Notes sheet explaining duplicates, refunds, exclusions, and the one row needing review. The input asset was not modified; the workbook was read back to verify actual content.",
+      "execution_started": true,
+      "answer": "Workbook delivered: 9 cleaned receipts (1 duplicate removed), refund retained (-5.00), one missing amount flagged (A110). Totals: Transport 24.90, Meals 41.90, Office 3.00, Lodging 120.00, overall 189.80 USD. One row needs review: r010/A110 (Station Kiosk) \u2014 missing amount, excluded from totals.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 145000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent reports 145 seconds and 12 calls; active timing and call count were not independently observable and are not credited as measured metrics. Agent-reported elapsed time retained."
+      },
+      "tools_used": [],
+      "disclosure_note": "Cleaning and workbook construction used the agent's own file tools (Python standard library + openpyxl); desktop interaction was not used. Backend tool names are undisclosed, so tools_used is intentionally empty.",
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "passed",
+          "evidence_ids": [
+            "E1",
+            "E2",
+            "E4"
+          ]
+        },
+        {
+          "id": "correct-totals",
+          "status": "passed",
+          "evidence_ids": [
+            "E2",
+            "E4"
+          ]
+        },
+        {
+          "id": "usable-artifact",
+          "status": "passed",
+          "evidence_ids": [
+            "E2",
+            "E3",
+            "E4"
+          ]
+        },
+        {
+          "id": "explanation",
+          "status": "passed",
+          "evidence_ids": [
+            "E3",
+            "E4"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:14:30-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/input/sample-expenses.csv",
+          "summary": "Exact byte copy of the immutable input (SHA-256 401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f, verified after copy). The bundle original was not modified. Input: 10 rows; r003/r005 share receipt_id A103 (duplicate); r007/A107 is a -5.00 refund; r010/A110 has a blank amount."
+        },
+        {
+          "id": "E2",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:15:20-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/output/muse-expense-summary-20261002-01.xlsx",
+          "summary": "Readback of the actual produced workbook (3 sheets): Cleaned Expenses has 9 data rows (r005 excluded), review_flag column marks r007 \"refund retained\" and r010 \"MISSING AMOUNT \u2014 review needed; excluded from totals\"; Summary sheet: Transport 24.90, Meals 41.90, Office 3.00, Lodging 120.00, OVERALL 189.80 USD (8 numeric rows; Office = 8.00 - 5.00 = 3.00); Notes sheet explains duplicate handling, exclusions, refund treatment, the A110 review row, and input integrity."
+        },
+        {
+          "id": "E3",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:15:20-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/output/muse-expense-summary-20261002-01.xlsx",
+          "summary": "Deliverable workbook muse-expense-summary-20261002-01.xlsx is a readable xlsx with cleaned rows, category totals, overall total, review flags, and the explanation sheet; the user can reconcile it independently."
+        },
+        {
+          "id": "E4",
+          "kind": "operator_attestation",
+          "provenance": "operator",
+          "observed_at": "2026-10-02T18:19:33.235Z",
+          "ref": "operator-review.json",
+          "summary": "Independent field-by-field and integer-cent reconciliation of the actual returned workbook, with visual inspection of all three rendered sheets."
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Actual workbook and frozen CSV downloaded; every retained field, duplicate removal, negative refund, missing blank, category totals and overall numeric total independently verified. All three sheets rendered and visually reviewed. Static values are correct; workbook does not recalculate automatically when edited, which was not a protocol requirement. Repaired input/output packaging references to the delivered evidence paths; workbook bytes unchanged. The $189.80 is the known numeric total. A110 remains blank, flagged and excluded; it is not a complete total until that amount is supplied."
+}

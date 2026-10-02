@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T18:14:47.551096+00:00",
+  "updated_at": "2026-10-02T18:19:56.993234+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -1325,14 +1325,42 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "muse-expense-summary-20261002-01",
-          "summary": "Immutable expense fixture assigned; actual cleaned artifact will be independently reconciled.",
+          "summary": "Verified workbook: 9 receipts, duplicate removed, refund retained; $189.80 known total, one missing amount flagged.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "Actual workbook and frozen CSV downloaded; every retained field, duplicate removal, negative refund, missing blank, category totals and overall numeric total independently verified.",
+            "All three sheets rendered and visually reviewed. Static values are correct; workbook does not recalculate automatically when edited, which was not a protocol requirement.",
+            "Repaired input/output packaging references to the delivered evidence paths; workbook bytes unchanged.",
+            "The $189.80 is the known numeric total. A110 remains blank, flagged and excluded; it is not a complete total until that amount is supplied."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/expense-summary/reviewed-report.json"
+            ],
+            [
+              "Workbook",
+              "evidence/standalone-20261002/muse/expense-summary/evidence/output/muse-expense-summary-20261002-01.xlsx"
+            ],
+            [
+              "Independent audit",
+              "evidence/standalone-20261002/muse/expense-summary/operator-review.json"
+            ],
+            [
+              "Summary preview",
+              "evidence/standalone-20261002/muse/expense-summary/summary.png"
+            ],
+            [
+              "Cleaned rows preview",
+              "evidence/standalone-20261002/muse/expense-summary/cleaned-expenses.png"
+            ],
+            [
+              "Notes preview",
+              "evidence/standalone-20261002/muse/expense-summary/notes.png"
+            ]
+          ]
         }
       },
       "criterion": "Remove duplicate expenses, retain refunds, flag missing values, reconcile totals, and deliver usable files.",

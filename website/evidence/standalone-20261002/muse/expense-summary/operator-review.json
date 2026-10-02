@@ -1,0 +1,21 @@
+{
+  "reviewed_at": "2026-10-02T18:19:33.235Z",
+  "method": "Read-only XLSX import through SpreadsheetFile; every retained field and integer-cent total compared independently with the frozen fixture. All three sheets rendered and visually inspected. Delivered workbook was not modified.",
+  "all_checks_passed": true,
+  "input_matches_frozen_fixture": true,
+  "input_sha256": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+  "source_rows": 10,
+  "retained_receipts": 9,
+  "numeric_rows": 8,
+  "duplicate_removed": "r005 / A103; kept r003",
+  "refund_preserved_usd": -5,
+  "missing_amount": "A110 remains blank and explicitly excluded/flagged",
+  "category_totals_usd": {
+    "Transport": 24.9,
+    "Meals": 41.9,
+    "Office": 3,
+    "Lodging": 120
+  },
+  "known_numeric_total_usd": 189.8,
+  "readability": "All sheets readable; missing amount and exclusions explained. Plain static workbook: totals are stored values, so edits require recalculation by the user; the protocol did not require formulas."
+}
