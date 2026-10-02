@@ -1,0 +1,161 @@
+{
+  "deviations": [
+    "No desktop tools exist in this harness environment (headless Linux: no DISPLAY/Wayland session, no window manager, no input/screen-capture tools, no Calculator app). Per the task contract the desktop attempt was not started and the outcome is unsupported. No arithmetic was performed by code, mental calculation, or browser calculator as a substitute."
+  ],
+  "environment": {
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-computer-calculator-20261002-01; no other benchmark tasks were started and earlier run results were not reused.",
+      "No other apps or files were edited; only this run's own report directory was written."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-computer-calculator-20261002-01",
+  "skill_name": "benchmark-computer-calculator",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "computer-calculator"
+  },
+  "started_at": "2026-10-02T13:47:39-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "computer-calculator"
+  ],
+  "task_inputs": {
+    "expression": "137 \u00d7 29"
+  },
+  "tasks": [
+    {
+      "answer": null,
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "computer": {
+          "evidence_ids": [
+            "ev-env"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "unavailable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [
+            "ev-skill"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "unavailable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-skill"
+          ],
+          "id": "playbook-loaded",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-env"
+          ],
+          "id": "desktop-input",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-env"
+          ],
+          "id": "display-observed",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "ev-env"
+          ],
+          "id": "answer-matches",
+          "status": "unverified"
+        }
+      ],
+      "disclosure_note": "The required capability (native desktop input) is absent from this environment, so no task action beyond capability/setup inspection occurred; execution_started is false and tools_used is empty. Environment inspection used only ordinary shell commands (curl, sha256sum, unzip, which, ps, grep, ls, python3 import probe); there are no desktop input tools to name. No arithmetic was performed by code or mentally as a substitute, so no answer is reported. input_tokens/output_tokens are not observable from this harness and are left null.",
+      "evidence": [
+        {
+          "id": "ev-env",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:47:55-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/desktop-environment.md",
+          "summary": "Headless Linux environment: no DISPLAY/Wayland session, no window manager, no desktop input or screen-capture tools (xdotool, scrot, import, pyautogui all absent), no OS Calculator app installed. The desktop attempt could not be started."
+        },
+        {
+          "id": "ev-skill",
+          "kind": "observation",
+          "observed_at": "2026-10-02T13:48:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-disclosure.md",
+          "summary": "Attested disclosure: the native skill catalog contains no desktop/computer-use workflow skill; playbook-loaded is unverified."
+        }
+      ],
+      "execution_started": false,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 41000,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Agent-reported setup/report elapsed time and tool-call count; desktop execution did not start. Active execution duration unavailable.",
+        "tool_calls": 19
+      },
+      "reason": "The needed capability is absent: this environment has no desktop tools (no display session, no window manager, no desktop input or screen-capture tools, no Calculator app) and the native skill library has no desktop workflow skill. Per the task contract, the outcome is unsupported. No arithmetic was computed as a substitute, so no answer is reported.",
+      "schedule": null,
+      "status": "unsupported",
+      "task_id": "computer-calculator",
+      "tools_used": []
+    }
+  ],
+  "updated_at": "2026-10-02T13:48:20-04:00",
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Observed native Muse response declining desktop execution. Environment and skill inventory evidence is agent-exported; no native desktop interaction or displayed answer. Unsupported applies to this tested cloud harness, not to the operator Mac."
+}

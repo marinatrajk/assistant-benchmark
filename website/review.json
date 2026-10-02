@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:48:46.131786+00:00",
+  "updated_at": "2026-10-02T17:50:02.776440+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -479,14 +479,29 @@
           ]
         },
         "Muse": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "unsupported",
+          "review_status": "reviewed",
           "run_id": "muse-computer-calculator-20261002-01",
-          "summary": "Native operating-system Calculator test assigned; awaiting desktop capability and result evidence.",
+          "summary": "Unsupported: Muse’s tested cloud environment exposes no desktop input or Calculator.",
           "details": [
-            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+            "No native desktop attempt or displayed result; no substitute arithmetic credited.",
+            "Agent reports headless Linux without desktop tools or applicable skill.",
+            "The macOS Muse client is the communication surface; reported execution environment is cloud Linux."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/muse/computer-calculator/reviewed-report.json"
+            ],
+            [
+              "Desktop capability disclosure",
+              "evidence/standalone-20261002/muse/computer-calculator/evidence/desktop-environment.md"
+            ],
+            [
+              "Skill disclosure",
+              "evidence/standalone-20261002/muse/computer-calculator/evidence/skill-disclosure.md"
+            ]
+          ]
         }
       },
       "criterion": "Load a relevant native desktop skill, enter 137 × 29 in the operating system’s Calculator, observe its display, and report the displayed result.",
