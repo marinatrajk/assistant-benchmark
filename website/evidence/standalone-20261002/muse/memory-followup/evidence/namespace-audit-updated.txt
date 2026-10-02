@@ -1,0 +1,11 @@
+Namespace conflict audit — 2026-10-02T14:07:xx-04:00 (operator update turn)
+
+Namespace contents:
+paces-test-muse-memory-followup-20261002-01.md
+paces-test-muse-memory-update-20261002-01.md
+
+All 'minutes' lines in namespace (current vs history):
+~/memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md:14:- The benchmark persona's meals must take at most 15 minutes total preparation and cooking time (updated 2026-10-02 from 30 minutes; 30 is history only, not current).
+~/memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md:20:- 2026-10-02 (America/New_York), update turn: maximum total preparation/cooking time changed from 30 minutes to 15 minutes per the operator's separate update instruction. All other preferences (vegan meals, no mushrooms, no peanuts) unchanged. The 30-minute value is history only — the current value is 15 minutes.
+
+Result: the only time value for persona paces-test-muse-memory-followup-20261002-01 is 15 minutes (current); 30 minutes appears solely as update history in the same file. The other namespace entry (memory-update persona) carries a programming-language preference only and no conflicting food/time values. Real-user memory clean (MEMORY.md, daily log, people index: no matches for vegan/mushroom/peanut).

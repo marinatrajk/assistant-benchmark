@@ -1,0 +1,236 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "run_id": "muse-memory-followup-20261002-01",
+  "operator_label": "Muse",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "fixture_mode": "public_static",
+    "isolation_notes": [
+      "New individual run_id muse-memory-followup-20261002-01. The synthetic persona lives only at memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md and is NOT merged into ~/MEMORY.md or any real-person profile. The prior benchmark persona (memory-update) is preserved untouched; all timed jobs and the checkout cart are untouched."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-muse-memory-followup-20261002-01",
+    "initial_preferences": {
+      "meals": "vegan",
+      "avoids": "mushrooms",
+      "no_peanuts": "persona constraint, NOT the user allergy",
+      "max_total_prep_cook_minutes": 30
+    }
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "memory-followup"
+  ],
+  "started_at": "2026-10-02T14:05:33-04:00",
+  "updated_at": "2026-10-02T18:13:21.290587+00:00",
+  "review_status": "reviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "memory-followup",
+      "status": "passed",
+      "reason": "Separate seed and update turns saved an isolated native persona; an operator-created fresh chat received no answer values and retrieved all latest constraints via native memory_get, then applied them in its suggestion.",
+      "execution_started": true,
+      "answer": "**Suggested option:** Vegan garlic-ginger tofu stir-fry with bell peppers and snap peas over jasmine rice (stove-top version, ~12 minutes total).\n\n**Native retrieval evidence** \u2014 entry `memory://md:memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md`, read fresh via my native memory tools. Its current-preference section (not the seed/update logs, and not any benchmark report) states:\n\n1. **Vegan meals** \u2192 the dish is fully plant-based: tofu, vegetables, rice, and a soy-ginger sauce with no animal products.\n2. **Avoids mushrooms** \u2192 the recipe uses bell peppers and snap peas instead; no mushrooms anywhere.\n3. **Consumes no peanuts** \u2192 the sauce is soy + garlic + ginger + a touch of sesame oil; no peanut or peanut-oil ingredients.\n4. **At most 15 minutes total prep + cooking** \u2192 while the vegetables and rice cook (~10 min), press and sear the tofu cubes (~8 min) in the same window; total lands around 12 minutes. The file's update log confirms 30 minutes is history only \u2014 15 is current \u2014 so I applied the 15-minute cap, not the old value.\n\nNote: this persona is synthetic benchmark data and unrelated to you \u2014 nothing from it goes into your own memory.\n",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Aggregate metrics across separate turns unavailable; no reconstructed counts/timings."
+      },
+      "tools_used": [
+        "muse.memory_search",
+        "muse.memory_get",
+        "native memory file read/write"
+      ],
+      "disclosure_note": "Operator joined seed/update and fresh-recall artifacts outside evaluated chat. Native searches missed persona; path lookup and memory_get succeeded. Raw per-call transport/timestamps unavailable. Unrelated private memory omitted from public evidence. Suggested preparation time is an estimate, not a measured cooking result.",
+      "checks": [
+        {
+          "id": "stored",
+          "status": "passed",
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "passed",
+          "evidence_ids": [
+            "E3",
+            "E4"
+          ]
+        },
+        {
+          "id": "new-session-recall",
+          "status": "passed",
+          "evidence_ids": [
+            "recall-native",
+            "fresh-session"
+          ]
+        },
+        {
+          "id": "applied",
+          "status": "passed",
+          "evidence_ids": [
+            "recall-answer",
+            "fresh-session"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:06:09-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/persona-entry.md",
+          "summary": "Native durable memory entry created at memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md (the established benchmark-persona namespace in ~/memory/, same pattern as the memory-update test persona). The entry records the persona ID and exactly the four supplied preferences: vegan meals; avoids mushrooms; no peanuts; at most 30 minutes total prep/cook. The file header marks the data synthetic and forbids merging into user memory. Readback through the native memory read path returned the identical content."
+        },
+        {
+          "id": "E2",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:06:09-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/contamination-audit.txt",
+          "summary": "Contamination audit: no occurrences of vegan/mushroom/peanut anywhere in ~/MEMORY.md, ~/memory/2026-10-02.md, or ~/memory/people/. Real user memory, the people index, and the prior memory-update benchmark persona are unchanged; all timed jobs and the checkout cart are untouched. No scratch store was used."
+        },
+        {
+          "id": "E3",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:07:09-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/persona-entry-updated.md",
+          "summary": "Updated native memory entry: the persona's maximum total preparation/cooking time is now 15 minutes; the same file records that 30 minutes was the previous value (history only, not current). All other preferences unchanged (vegan meals, avoids mushrooms, no peanuts). Native readback returned the identical updated content."
+        },
+        {
+          "id": "E4",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:07:09-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/namespace-audit-updated.txt",
+          "summary": "Namespace conflict audit of memory/benchmark-personas/: only two entries exist; the persona file contains a single current time value (15 minutes) with 30 minutes appearing only as update history; the other entry (memory-update persona) carries a programming-language preference and no conflicting food/time values. Real-user memory (MEMORY.md, daily log, people index) has no synthetic values. No conflicting current value exists."
+        },
+        {
+          "id": "recall-native",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "observed_at": null,
+          "ref": "recall/native-retrieval-excerpt.md",
+          "summary": "Native memory_get export contains the current isolated persona, including 15 minutes. Retrieval occurred in fresh recall turn between 14:08:21 and 14:09:46 EDT; exact per-call time unavailable."
+        },
+        {
+          "id": "recall-answer",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "observed_at": null,
+          "ref": "recall/original-answer.txt",
+          "summary": "Unchanged original recall answer, hash independently verified."
+        },
+        {
+          "id": "fresh-session",
+          "kind": "operator_attestation",
+          "provenance": "operator",
+          "observed_at": null,
+          "ref": "operator-session-review.txt",
+          "summary": "Operator observed empty new chat, sent only persona ID/recall request, and checked original answer against updated current constraints."
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "observed",
+          "mode": "native_file",
+          "label": "native",
+          "evidence_ids": [
+            "E1",
+            "E2",
+            "recall-native"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "persona_id": "paces-test-muse-memory-followup-20261002-01",
+        "entry_path": "memory/benchmark-personas/paces-test-muse-memory-followup-20261002-01.md",
+        "current_preferences": {
+          "meals": "vegan",
+          "avoids": "mushrooms",
+          "no_peanuts": "persona constraint, NOT the user allergy",
+          "max_total_prep_cook_minutes": 15
+        },
+        "seeded_at": "2026-10-02T14:06:09-04:00",
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "recall-native",
+          "fresh-session"
+        ],
+        "initial_session": "operator-verified-initial-Muse-benchmark-chat",
+        "recall_session": "operator-created-fresh-Muse-recall-chat",
+        "same_environment": true,
+        "isolated": true
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Actual seed/update files and native retrieval excerpt reviewed. Fresh chat and no-answer-key prompt independently observed; original answer hash verified. Latest constraints correctly recalled/applied; raw transport unavailable and cooking time only estimated."
+}
