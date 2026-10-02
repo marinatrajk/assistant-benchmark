@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-10-02T13:36:07+00:00",
+  "query": {
+    "query": "dots-reminder-delivery-20261002-01",
+    "author": "aeon",
+    "channels": [
+      "chatgpt"
+    ],
+    "sent_after": "2026-10-02T13:23:55+00:00",
+    "sent_before": "2026-10-02T13:35:55+00:00",
+    "limit": 50
+  },
+  "result": {
+    "messages": [
+      {
+        "message_id": null,
+        "channel": "chatgpt",
+        "author": "aeon",
+        "content": "Paces dots-reminder-delivery-20261002-01 \u2014 take a screen break",
+        "sent_at": "2026-10-02T13:35:15.114021+00:00",
+        "has_attachments": false
+      }
+    ],
+    "cursor": null,
+    "partial": false
+  },
+  "scope": "Complete matching-message search within existing user room for bounded window; does not prove device push presentation."
+}

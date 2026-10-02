@@ -1,0 +1,49 @@
+{
+  "run_id": "dots-memory-followup-20261002-01",
+  "persona_id": "paces-test-dots-followup-20261002-01",
+  "scope_alias": "paces-test-dots-followup-20261002-01",
+  "entry_alias": "current-preferences",
+  "phase": "update",
+  "operator_update": {
+    "received_at": "2026-10-02T13:35:51+00:00",
+    "change": "Replace maximum duration of 30 minutes with 10 minutes; preserve other preferences."
+  },
+  "write": {
+    "accepted": true,
+    "same_entry_as_seed": true,
+    "observed_at": "2026-10-02T13:36:19.197718+00:00"
+  },
+  "readback": {
+    "observed_at": "2026-10-02T13:36:27+00:00",
+    "complete": true,
+    "current_preferences": {
+      "activity_setting": "indoors",
+      "activity_type": "creative",
+      "available_materials": [
+        "pencil",
+        "plain paper"
+      ],
+      "maximum_duration_minutes": 10
+    }
+  },
+  "current_entry_audit": {
+    "observed_at": "2026-10-02T13:36:27+00:00",
+    "scope": "Entire authorized synthetic persona logical namespace",
+    "enumerated_entry_aliases": [
+      "current-preferences"
+    ],
+    "all_returned_entries_read_completely": true,
+    "continuation_cursor_present": false,
+    "conflicting_current_values_observed": false,
+    "active_30_minute_value_observed": false,
+    "limitations": [
+      "Listing and reads are eventually consistent, not an atomic snapshot.",
+      "Audit covers all entries returned under the authorized namespace; it does not inspect unrelated namespaces or establish a global no-conflict guarantee.",
+      "Historical seed evidence retains the old value for provenance, but is not current durable preference memory."
+    ]
+  },
+  "recall_performed": false,
+  "other_personas_modified": false,
+  "scheduler_modified": false,
+  "sanitization": "Private locations, native tool identifiers and internal instructions omitted; this is a sanitized observation export."
+}

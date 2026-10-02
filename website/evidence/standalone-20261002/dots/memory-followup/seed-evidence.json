@@ -1,0 +1,37 @@
+{
+  "run_id": "dots-memory-followup-20261002-01",
+  "persona_id": "paces-test-dots-followup-20261002-01",
+  "scope_alias": "paces-test-dots-followup-20261002-01",
+  "entry_alias": "current-preferences",
+  "phase": "seed",
+  "write": {
+    "accepted": true,
+    "observed_at": "2026-10-02T13:33:40.377060+00:00"
+  },
+  "readback": {
+    "observed_at": "2026-10-02T13:33:54+00:00",
+    "complete": true,
+    "synthetic": true,
+    "current_preferences": {
+      "activity_setting": "indoors",
+      "activity_type": "creative",
+      "available_materials": [
+        "pencil",
+        "plain paper"
+      ],
+      "maximum_duration_minutes": 30
+    }
+  },
+  "isolation": {
+    "type": "logical synthetic namespace",
+    "real_user_preferences_modified": false,
+    "other_personas_modified": false,
+    "scratch_file_used_as_memory": false
+  },
+  "pending": [
+    "separate operator update",
+    "fresh-session recall",
+    "application of latest preferences"
+  ],
+  "sanitization": "Private locations, native tool identifiers and internal instructions omitted. This is a sanitized observation export, not a raw platform transcript."
+}

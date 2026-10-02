@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:34:54.420060+00:00",
+  "updated_at": "2026-10-02T13:39:32.888997+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -388,22 +388,27 @@
       "package_sha256": "a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17",
       "results": {
         "ChatGPT Dots": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "dots-reminder-delivery-20261002-01",
-          "summary": "Created for 9:33:54 a.m. EDT; delivery and duplicate observation ends at 9:35:54 a.m. EDT.",
+          "summary": "Exact reminder delivered once at 9:35:15.114 a.m. EDT, within the allowed two-minute window.",
           "details": [
-            "Native creation confirmed at 9:23:55.037724 a.m. EDT. Actual delivery remains unverified.",
-            "The required ten-minute delay and two-minute observation window are unchanged."
+            "Due 9:33:54 a.m. EDT; delivery latency 81.114 seconds.",
+            "Complete scoped message history through 9:35:54 a.m. EDT contains exactly one matching reminder. The native one-time job is now inactive.",
+            "Delivery in the requested chat was verified; device push presentation and whether the user read it were not assessed."
           ],
           "sources": [
             [
-              "Provisional report",
+              "Reviewed report",
               "evidence/standalone-20261002/dots/reminder-delivery/reviewed-report.json"
             ],
             [
-              "Creation evidence",
-              "evidence/standalone-20261002/dots/reminder-delivery/reminder-creation-evidence.json"
+              "Complete scoped message observation",
+              "evidence/standalone-20261002/dots/reminder-delivery/safe-channel-observation.json"
+            ],
+            [
+              "Actual send receipt",
+              "evidence/standalone-20261002/dots/reminder-delivery/safe-delivery-receipt.json"
             ]
           ]
         },
@@ -546,14 +551,25 @@
       "package_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
+          "status": "awaiting_user",
           "review_status": "unreviewed",
           "run_id": "dots-memory-followup-20261002-01",
-          "summary": "Assigned: store isolated synthetic preferences, then update one preference in a separate turn.",
+          "summary": "Stored and updated isolated preferences; awaiting permission for the required fresh recall chat.",
           "details": [
-            "Fresh-conversation recall will require a genuinely separate chat without copied preference values."
+            "Separate seed and update turns completed. One current entry retains the revised ten-minute limit and no active conflicting value was observed.",
+            "The namespace inventory is eventually consistent; it is not a global or atomic audit.",
+            "User requested existing chats. A genuinely new Dots conversation is required for recall, so explicit permission has been requested. Same-chat recall will not count."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Seed/update report",
+              "evidence/standalone-20261002/dots/memory-followup/reviewed-report.json"
+            ],
+            [
+              "Durable update evidence",
+              "evidence/standalone-20261002/dots/memory-followup/update-evidence.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -591,11 +607,13 @@
       "package_sha256": "62d320275f9bb9d81b711177d76c8c56fadb66689c9f08bb6aaae079096a5d8d",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-expense-summary-20261002-01",
+          "summary": "Assigned: clean the bundled synthetic expenses and deliver a CSV bundle with totals and review flags.",
+          "details": [
+            "Actual output files will be independently reconciled against the unchanged input."
+          ],
           "sources": []
         },
         "GrokBot": {

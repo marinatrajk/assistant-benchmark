@@ -1,0 +1,12 @@
+{
+  "run_id": "dots-reminder-delivery-20261002-01",
+  "text": "Paces dots-reminder-delivery-20261002-01 \u2014 take a screen break",
+  "channel": "chatgpt",
+  "message_id": null,
+  "created_at": "2026-10-02T13:35:15.114021+00:00",
+  "status": "accepted",
+  "due_at": "2026-10-02T13:33:54+00:00",
+  "automation_wake_observed_at": "2026-10-02T13:35:09+00:00",
+  "timestamp_source": "platform send receipt; wake time from contextual clock",
+  "duplicate_observation_complete": false
+}

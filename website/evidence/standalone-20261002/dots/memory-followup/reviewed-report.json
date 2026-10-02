@@ -1,0 +1,239 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "run_id": "dots-memory-followup-20261002-01",
+  "operator_label": "ChatGPTDots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Only the synthetic persona namespace paces-test-dots-followup-20261002-01 was accessed for the memory action.",
+      "Isolation is a logical namespace in an existing durable memory capability; no separate security boundary is claimed.",
+      "Existing-context exposure before this seed is unknown."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-dots-followup-20261002-01",
+    "initial_preferences": {
+      "activity_setting": "indoors",
+      "activity_type": "creative",
+      "available_materials": [
+        "pencil",
+        "plain paper"
+      ],
+      "maximum_duration_minutes": 30
+    },
+    "separate_update": {
+      "received_at": "2026-10-02T13:35:51+00:00",
+      "maximum_duration_minutes": 10,
+      "unchanged_preferences": [
+        "indoor creative activity",
+        "pencil and plain paper only"
+      ]
+    }
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "memory-followup"
+  ],
+  "started_at": "2026-10-02T13:32:44+00:00",
+  "updated_at": "2026-10-02T13:37:37.963503+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Seed and separate operator update phases completed; fresh-conversation recall remains outstanding.",
+    "Private memory locations, native memory tool identifiers and internal instructions are withheld. Shareable scope and entry aliases are used instead.",
+    "Metrics are null: a complete instrumented measurement is unavailable. Setup, seed, waiting and report writing are excluded from active timing; budget enforcement was not independently instrumented.",
+    "Existing-context exposure is unknown; no clean-session claim is made.",
+    "Protocol configuration defaults retained. Observation timestamps use explicit UTC offsets.",
+    "Namespace enumeration is eventually consistent and not a transactional snapshot. All returned entries were inspected, with no further listing pages. No global or cross-namespace audit is claimed."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-followup",
+      "status": "awaiting_user",
+      "reason": "The seed and separate update were durably stored and read back. Fresh-conversation recall and application await a new operator-initiated conversation.",
+      "execution_started": true,
+      "answer": "Updated the same synthetic persona entry to a 10-minute maximum. Complete readback preserved indoor creative activity and pencil/plain-paper-only constraints. Namespace enumeration found one current entry and no conflicting active 30-minute value. Awaiting fresh-conversation recall.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "No complete instrumented timing, tool-count or token measurements; all values left null. Setup/seed, waits and report writing excluded from active-time scope."
+      },
+      "tools_used": [],
+      "disclosure_note": "Native memory tool identifiers and private locations are withheld; sanitized action/result evidence uses a logical scope and entry alias only.",
+      "checks": [
+        {
+          "id": "stored",
+          "status": "passed",
+          "evidence_ids": [
+            "seed-write",
+            "seed-readback"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "passed",
+          "evidence_ids": [
+            "update-write",
+            "update-readback",
+            "current-entry-audit"
+          ]
+        },
+        {
+          "id": "new-session-recall",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "applied",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "seed-write",
+          "kind": "observation",
+          "summary": "Existing native durable memory accepted the seed for the isolated synthetic persona scope; entry alias current-preferences.",
+          "provenance": "agent_export",
+          "ref": "seed-evidence.json",
+          "excerpt": "Seed write accepted at 2026-10-02T13:33:40.377060+00:00. Only the synthetic persona namespace was written.",
+          "observed_at": "2026-10-02T13:33:40.377060+00:00"
+        },
+        {
+          "id": "seed-readback",
+          "kind": "observation",
+          "summary": "Complete durable readback matched every operator-supplied seed preference.",
+          "provenance": "agent_export",
+          "ref": "seed-evidence.json",
+          "excerpt": "Indoors; creative activity; available materials: pencil and plain paper; maximum duration: 30 minutes. Synthetic persona marker retained.",
+          "observed_at": "2026-10-02T13:33:54+00:00"
+        },
+        {
+          "id": "update-write",
+          "kind": "observation",
+          "summary": "Same isolated durable entry accepted the separate operator update.",
+          "provenance": "agent_export",
+          "ref": "update-evidence.json",
+          "excerpt": "Maximum duration replaced with 10 minutes; all other preferences preserved.",
+          "observed_at": "2026-10-02T13:36:19.197718+00:00"
+        },
+        {
+          "id": "update-readback",
+          "kind": "observation",
+          "summary": "Complete durable readback confirmed current preferences.",
+          "provenance": "agent_export",
+          "ref": "update-evidence.json",
+          "excerpt": "Indoors; creative; pencil and plain paper only; maximum 10 minutes. No old duration remains in this current entry.",
+          "observed_at": "2026-10-02T13:36:27+00:00"
+        },
+        {
+          "id": "current-entry-audit",
+          "kind": "observation",
+          "summary": "Enumerated all currently returned entries in the authorized persona namespace and read each completely.",
+          "provenance": "agent_export",
+          "ref": "update-evidence.json",
+          "excerpt": "Exactly one entry returned, with no continuation cursor. No conflicting active 30-minute value observed. Eventually consistent listing/readback are not an atomic or global audit.",
+          "observed_at": "2026-10-02T13:36:27+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "observed",
+          "mode": "native",
+          "label": "Existing durable memory with a synthetic logical namespace",
+          "evidence_ids": [
+            "seed-write",
+            "seed-readback",
+            "update-write",
+            "update-readback",
+            "current-entry-audit"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "The operator should initiate a genuinely new conversation in the same assistant environment, supplying only the persona ID and a request to retrieve and apply its current preferences. Keep seed/update reports, transcripts and answer-bearing artifacts out of that recall conversation. Join both sessions\u2019 evidence outside the evaluated recall context.",
+        "deadline_at": null,
+        "observer": "operator"
+      },
+      "schedule": null,
+      "memory": {
+        "initial_session": "initial-seed-conversation-alias",
+        "recall_session": null,
+        "same_environment": null,
+        "isolated": true,
+        "evidence_ids": [
+          "seed-write",
+          "seed-readback",
+          "update-write",
+          "update-readback",
+          "current-entry-audit"
+        ],
+        "scope_alias": "paces-test-dots-followup-20261002-01",
+        "entry_alias": "current-preferences",
+        "existing_context_exposure": "unknown",
+        "session_identity_evidence": "Initial-session alias only; no independently verified fresh-session identifier is available."
+      }
+    }
+  ],
+  "package_verification": {
+    "source_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-followup.zip",
+    "expected_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
+    "actual_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
+    "manifest_files_verified": true,
+    "operator_pinned_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+    "commit_relationship": "Operator-supplied reference; release ZIP and manifest checksums verified, commit relationship not independently verified."
+  },
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Reviewed sanitized durable seed/update readbacks and complete returned namespace inventory. Eventual consistency limits retained. Fresh-conversation recall is awaiting explicit operator authorization and has not occurred; no cross-conversation pass claimed."
+}
