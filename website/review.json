@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:39:12.849810+00:00",
+  "updated_at": "2026-10-02T16:42:34.488600+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -282,14 +282,25 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "blocked",
+          "review_status": "reviewed",
           "run_id": "instinct-memory-update-20261002-01",
-          "summary": "Isolated synthetic-memory setup assigned; waiting for seed and readback evidence.",
+          "summary": "Isolated memory setup was blocked: Instinct reports no direct durable write or controllable synthetic namespace.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Only setup/capability inspection occurred; no synthetic preference was deliberately seeded or updated.",
+            "Its memory is maintained in the background from conversations. Waiting for indexing would not establish the controlled isolated write/readback required here.",
+            "All four task checks remain unverified. Capability limits and empty persona search are agent-exported evidence; no internal memory audit is available."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/memory-update/reviewed-report.json"
+            ],
+            [
+              "Capability evidence",
+              "evidence/standalone-20261002/instinct/memory-update/evidence/capability-inspection.txt"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -367,11 +378,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-computer-calculator-20261002-01",
+          "summary": "Calculator desktop task assigned; waiting for capability and display evidence.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {

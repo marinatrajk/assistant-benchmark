@@ -1,0 +1,174 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "run_id": "instinct-memory-update-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Controlled isolated synthetic-memory setup and writes unavailable. No real preferences were included or changed."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-instinct-memory-update-20261002-01"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "memory-update"
+  ],
+  "started_at": "2026-10-02T18:39:55+02:00",
+  "updated_at": "2026-10-02T18:40:36+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Setup was blocked before task execution. Package downloaded and read for reporting only.",
+    "Timestamps use actual clock offsets (+02:00); run_config timezone remains America/New_York.",
+    "Search evidence is the previously reported exact persona-ID empty result, not a new search; its precise observation time is unavailable.",
+    "No seed, original entry ID, before/after preference content, update or readback evidence exists.",
+    "Internal identifiers and implementation details withheld; no personal memories or transcripts exported."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-update",
+      "status": "blocked",
+      "reason": "Durable memory exists, but controlled isolated setup and durable writes are unavailable. The operator closed the task without further memory action.",
+      "execution_started": false,
+      "answer": "Blocked before execution. The synthetic persona was not seeded and no preference was updated.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Only setup/capability inspection and report preparation occurred. No task execution interval was measured; all metrics remain null. Setup and report writing are excluded from active task timing."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool and system identifiers are withheld. Sanitized capability facts and the exact previously reported persona search result are included; no personal memory or transcript is included.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "prior-retrieved",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "current-updated",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "readback-verified",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "persona-search",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Exact synthetic persona-ID search returned an empty result during earlier setup; this is an export of that reported result, not a repeated search.",
+          "ref": "evidence/persona-search.json",
+          "observed_at": null
+        },
+        {
+          "id": "capability-inspection",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Durable memory exists but controlled isolated setup and writes are unavailable; no memory action occurred.",
+          "ref": "evidence/capability-inspection.txt",
+          "observed_at": "2026-10-02T18:40:36+02:00"
+        },
+        {
+          "id": "package-verification",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Assigned package downloaded, SHA-256 verified, and reporting contract read.",
+          "ref": "evidence/package-verification.txt",
+          "observed_at": "2026-10-02T18:39:55+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "capability-inspection"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "persona_id": "paces-test-instinct-memory-update-20261002-01",
+        "isolated": null,
+        "seed": null,
+        "seed_entry_id": null,
+        "before": null,
+        "after": null,
+        "readback": null,
+        "no_conflict_assessment": "unverified",
+        "evidence_ids": [
+          "persona-search",
+          "capability-inspection"
+        ]
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Blocked at setup on the assistant's disclosed capability limit: existing memory is background-maintained and cannot be directly written to an isolated synthetic namespace. Messages acknowledgments and task-scoped capability export agree. No seed/update evidence exists and all task checks remain unverified. The empty search is an agent-exported reconstruction, not an independently inspected native result; automatic background indexing cannot be independently audited. No replacement or same-chat simulation was performed."
+}

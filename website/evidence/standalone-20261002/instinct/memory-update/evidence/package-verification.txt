@@ -1,0 +1,5 @@
+Source: https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-update.zip
+Expected SHA-256: e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f
+Actual SHA-256: e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f
+Match: true
+Read assignment, task sheet, inputs, report template and reporting contract only to prepare the blocked report. External setup/update instructions were not executed.

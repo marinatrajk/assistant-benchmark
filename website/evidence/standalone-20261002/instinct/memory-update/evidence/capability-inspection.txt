@@ -1,0 +1,1 @@
+Durable memory exists. Controlled isolated setup and durable writes are unavailable for this task. No isolated persona entry was created. No seed, update or readback occurred. No replacement memory store was created. No background indexing wait or further memory action is planned. Native preference-skill loading was not tested; the required check remains unverified.
