@@ -1,0 +1,106 @@
+{
+  "run_id": "dots-memory-update-20261002-01",
+  "persona_id": "paces-test-dots-memory-update-20261002-01",
+  "export_kind": "sanitized platform-result excerpts",
+  "identity_alias": "synthetic-entry-1",
+  "privacy_note": "Private implementation identifiers and skill details omitted. Alias is identical across before, write, after and inventory results. Raw private traces are not exported.",
+  "setup": {
+    "excluded_from_measurement": true,
+    "initial_namespace_inventory": {
+      "files": [],
+      "next_after_path": null
+    },
+    "seed": {
+      "observed_at": "2026-10-02T12:11:44.105Z",
+      "content": "The benchmark persona prefers Python as their programming language.",
+      "result": {
+        "path": "synthetic-entry-1",
+        "updated_at": "2026-10-02T12:11:43.576332Z",
+        "n_lines": 1,
+        "size_in_bytes": 67
+      }
+    }
+  },
+  "measurement": {
+    "started_at": "2026-10-02T12:11:49.145Z",
+    "ended_at": "2026-10-02T12:12:15.396Z",
+    "tool_calls": 6,
+    "counting": "Six underlying actions: skill load, prior read, update write, readback, namespace inventory, conflict search. Four orchestration wrappers excluded (10 calls if included). Discovery-only in-memory metadata inspection excluded.",
+    "active_duration_ms": 26251,
+    "elapsed_duration_ms": 26251,
+    "scope": "Setup, seed, catalog inspection and report writing excluded; no user wait."
+  },
+  "skill": {
+    "observed_at": "2026-10-02T12:11:49.148Z",
+    "normal_native_load_observed": true,
+    "name": null,
+    "contents": null,
+    "named_load_check": "unverified",
+    "qualification": "Existing context/preference-retrieval skill loaded; no dedicated preference-write skill located. Document workflow used for update procedure; document mode does not prove native update skill."
+  },
+  "before": {
+    "observed_at": "2026-10-02T12:11:56.135Z",
+    "result": {
+      "path": "synthetic-entry-1",
+      "updated_at": "2026-10-02T12:11:43.576332Z",
+      "n_lines": 1,
+      "size_in_bytes": 67,
+      "text": "The benchmark persona prefers Python as their programming language.",
+      "offset_chars": 0,
+      "next_offset_chars": 67,
+      "has_more": false
+    }
+  },
+  "update": {
+    "observed_at": "2026-10-02T12:12:04.651Z",
+    "result": {
+      "path": "synthetic-entry-1",
+      "updated_at": "2026-10-02T12:12:04.503245Z",
+      "n_lines": 1,
+      "size_in_bytes": 71
+    }
+  },
+  "after": {
+    "observed_at": "2026-10-02T12:12:14.827Z",
+    "result": {
+      "path": "synthetic-entry-1",
+      "updated_at": "2026-10-02T12:12:04.503245Z",
+      "n_lines": 1,
+      "size_in_bytes": 71,
+      "text": "The benchmark persona prefers TypeScript as their programming language.",
+      "offset_chars": 0,
+      "next_offset_chars": 71,
+      "has_more": false
+    }
+  },
+  "inventory": {
+    "observed_at": "2026-10-02T12:12:15.396Z",
+    "result": {
+      "files": [
+        {
+          "path": "synthetic-entry-1",
+          "updated_at": "2026-10-02T12:12:04.503245Z",
+          "n_lines": 1,
+          "size_in_bytes": 71
+        }
+      ],
+      "next_after_path": null
+    }
+  },
+  "conflict_search": {
+    "observed_at": "2026-10-02T12:12:15.396Z",
+    "query": "Python",
+    "scope": "Only isolated benchmark persona",
+    "result": {
+      "files": [],
+      "next_after_path": null
+    }
+  },
+  "assessment": {
+    "current_preference": "TypeScript",
+    "same_entry": true,
+    "no_conflict": "Observed: exhaustive one-entry namespace inventory and full read showed only TypeScript; scoped Python search returned no entries. Listing/search service is eventually consistent.",
+    "cross_session_retention_tested": false,
+    "real_user_memories_modified": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "download_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-update.zip",
+  "expected_sha256": "e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f",
+  "actual_sha256": "e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f",
+  "match": true,
+  "operator_pinned_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+  "commit_independently_verified": false,
+  "benchmark_version": "1.0.0"
+}

@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T12:11:12+00:00",
+  "updated_at": "2026-10-02T12:56:48+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -156,14 +156,27 @@
       "package_sha256": "e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "dots-memory-update-20261002-01",
-          "summary": "Assigned next: retrieve, update and read back an isolated synthetic preference.",
+          "summary": "Updated an isolated durable preference from Python to TypeScript and read it back; native skill-load evidence remains unverified.",
           "details": [
-            "Existing conversation reused. Benchmark preferences must remain isolated from real user memories."
+            "Sanitized before, write and readback excerpts consistently identify the same aliased durable entry.",
+            "The complete synthetic namespace inventory contained one entry with TypeScript; the scoped Python search was empty. Listing/search is eventually consistent.",
+            "The native skill name is withheld, so the required named load check is unverified.",
+            "Runner measured 26.251 seconds and six underlying action calls (10 including wrappers).",
+            "Only the synthetic namespace was used; the report makes no cross-conversation retention claim."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed memory update report",
+              "evidence/standalone-20261002/dots/memory-update/reviewed-report.json"
+            ],
+            [
+              "Sanitized memory observations",
+              "evidence/standalone-20261002/dots/memory-update/evidence/sanitized-results.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -201,11 +214,13 @@
       "package_sha256": "d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-computer-calculator-20261002-01",
+          "summary": "Assigned next: use the operating system Calculator through actual desktop tools.",
+          "details": [
+            "A correct number alone does not satisfy the desktop-input and display-observation checks."
+          ],
           "sources": []
         },
         "GrokBot": {

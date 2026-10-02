@@ -1,0 +1,209 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "run_id": "dots-memory-update-20261002-01",
+  "operator_label": "dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Only the operator-authorized synthetic persona namespace was accessed for memory operations. Entry identity is consistently aliased in exports. No real-user preference read or write."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-dots-memory-update-20261002-01"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "memory-update"
+  ],
+  "started_at": "2026-10-02T12:11:49.145Z",
+  "updated_at": "2026-10-02T12:56:48Z",
+  "review_status": "reviewed",
+  "deviations": [
+    "Executed in an existing conversation after prior benchmark exposure, not a fresh clean chat; all outcome evidence is fresh from this attempt.",
+    "Private implementation identifiers, native skill name/content and original internal entry path withheld. Stable alias substitutes for original entry identity. Required named playbook-loaded check remains unverified.",
+    "Existing context/preference-retrieval skill loaded natively; dedicated preference-update skill not located. Update procedure used the supplied document workflow fallback.",
+    "Logical namespace isolation within existing durable memory, not a separate account or storage service.",
+    "Package SHA256 verified; commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817 is operator-pinned provenance, not independently verified by this run.",
+    "Default report timezone America/New_York retained; evidence timestamps use UTC offsets.",
+    "Setup/seed/catalog discovery and report writing excluded from measurement. Six underlying tool actions counted; four orchestration calls excluded (10 including wrappers). Native load was 1 of the six actions."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-update",
+      "status": "partial",
+      "reason": "Durable update and conflict-free same-entry readback succeeded. Named native preference-skill check remains unverified in privacy-safe evidence; document fallback does not meet that check.",
+      "execution_started": true,
+      "answer": "The benchmark persona previously preferred Python and now prefers TypeScript. The same durable entry was updated and read back; no conflicting current preference was found in the isolated namespace.",
+      "metrics": {
+        "active_duration_ms": 26251,
+        "elapsed_duration_ms": 26251,
+        "tool_calls": 6,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Wall-clock timestamps around the single measured attempt, no user/event waits. Six underlying action calls, four wrappers excluded. Setup and report writing excluded. Token counts unavailable."
+      },
+      "tools_used": [],
+      "disclosure_note": "Private memory and skill tool identifiers withheld. Safe platform result excerpts retain observed actions, content, timestamps and consistent entry alias. No raw private trace is included.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": [
+            "skill"
+          ]
+        },
+        {
+          "id": "prior-retrieved",
+          "status": "passed",
+          "evidence_ids": [
+            "before"
+          ]
+        },
+        {
+          "id": "current-updated",
+          "status": "passed",
+          "evidence_ids": [
+            "update",
+            "after"
+          ]
+        },
+        {
+          "id": "readback-verified",
+          "status": "passed",
+          "evidence_ids": [
+            "after"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "seed",
+          "kind": "trace",
+          "summary": "Exact Python seed written before measured work.",
+          "provenance": "agent_export",
+          "ref": "evidence/sanitized-results.json",
+          "observed_at": "2026-10-02T12:11:44.105Z"
+        },
+        {
+          "id": "skill",
+          "kind": "observation",
+          "summary": "Native context/preference retrieval skill load observed, identity withheld. Document update workflow fallback; required named load unverified.",
+          "provenance": "agent_export",
+          "ref": "evidence/sanitized-results.json",
+          "observed_at": "2026-10-02T12:11:49.148Z"
+        },
+        {
+          "id": "before",
+          "kind": "trace",
+          "summary": "Full durable read retrieved Python from synthetic-entry-1.",
+          "provenance": "agent_export",
+          "ref": "evidence/sanitized-results.json",
+          "observed_at": "2026-10-02T12:11:56.135Z"
+        },
+        {
+          "id": "update",
+          "kind": "trace",
+          "summary": "Durable write replaced content of synthetic-entry-1 with TypeScript.",
+          "provenance": "agent_export",
+          "ref": "evidence/sanitized-results.json",
+          "observed_at": "2026-10-02T12:12:04.651Z"
+        },
+        {
+          "id": "after",
+          "kind": "trace",
+          "summary": "Full readback of same entry confirmed TypeScript; namespace listing contained that sole entry, and scoped Python search was empty.",
+          "provenance": "agent_export",
+          "ref": "evidence/sanitized-results.json",
+          "observed_at": "2026-10-02T12:12:15.396Z"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "observed",
+          "mode": "native_file",
+          "label": null,
+          "evidence_ids": [
+            "seed",
+            "before",
+            "update",
+            "after"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "persona_id": "paces-test-dots-memory-update-20261002-01",
+        "entry_id": "synthetic-entry-1",
+        "entry_path": null,
+        "isolated": true,
+        "seed": "The benchmark persona prefers Python as their programming language.",
+        "before": "The benchmark persona prefers Python as their programming language.",
+        "after": "The benchmark persona prefers TypeScript as their programming language.",
+        "current_conflicts": [],
+        "no_conflict_assessment": "Observed within authorized namespace; list/search are eventually consistent.",
+        "evidence_ids": [
+          "seed",
+          "before",
+          "update",
+          "after"
+        ]
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed the agent-exported, sanitized platform result excerpts: before/readback and complete namespace inventory consistently identify the same aliased entry and show Python replaced by TypeScript without an observed current conflict. These are exported projections, not raw platform logs; the eventual consistency limitation is retained. The required named native skill-load event remains unverified, so Partial is retained. No cross-conversation retention claim."
+}
