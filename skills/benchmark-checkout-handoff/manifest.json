@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-checkout-handoff",
+  "version": "1.0.0",
+  "task_id": "checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "files": {
+    "INVOCATION.txt": "ecbf976431ae9c67f5870a36dc176eeea6baf6eaa3beb0c2f16cee67dba7bb87",
+    "SKILL.md": "cb8d294d26c9daeb7692db4c2f6a1c292d5666b54b8c5931de10cc84673da038",
+    "agents/openai.yaml": "341adcfd0483eb102962ffd6497b557884187ff717dfe2b93cb47e5a74e2ccdc",
+    "assets/report-template.json": "48cb5558953665b76a0037939bc6d705a4ef5f76f7d77b6c26127fcb969a7ff1",
+    "assets/task.json": "767ab58049d7f97b98a4881d212184add7d3f1fd343981b233f043883a49f1a1",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "4479ca5ba8bc9e4332015015ae7b0ac8a68ed91f6d593fa2f66c5ccec0a150a8",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

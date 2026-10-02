@@ -1,0 +1,38 @@
+{
+  "task_id": "expense-summary",
+  "family": "everyday",
+  "name": "benchmark-expense-summary",
+  "title": "Expense file cleanup",
+  "description": "Evaluate expense deduplication, refunds, missing-value flags and reconciled totals using the included synthetic CSV; deliver usable files and an evidence report.",
+  "summary": "Test expense cleanup and usable output files",
+  "inputs": {
+    "input_file": "assets/sample-expenses.csv"
+  },
+  "required_inputs": [
+    "input_file"
+  ],
+  "required_capabilities": {},
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "checks": [
+    "cleaned-data",
+    "correct-totals",
+    "usable-artifact",
+    "explanation"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "report_filename": "assistant-benchmark-expense-summary-results.json"
+}

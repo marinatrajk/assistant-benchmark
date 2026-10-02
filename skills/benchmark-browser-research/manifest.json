@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-browser-research",
+  "version": "1.0.0",
+  "task_id": "browser-research",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-research"
+  },
+  "files": {
+    "INVOCATION.txt": "0ed69a0011be3e634807cfbce4159d256542b7a259197b11749fc99f1e8a5c40",
+    "SKILL.md": "33abfde1e3cb7b038139d5da74d356e565dd5afb5a788e224e72cb7c6ed0cfe0",
+    "agents/openai.yaml": "5e391444df9532160ef3510dd4717c723ce250d6255468fb62fc84221912060a",
+    "assets/report-template.json": "60deb07d309f5913d38cdcff8e9abd913dc6070bdfea4d0e2e8a5315958afae0",
+    "assets/task.json": "d9fb13c52514702528718422348960f51c977afea84a8b7e7f2d7080504334dd",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "624f8ea2ea679bffae7391fea459743cdb6c01901cf3fc01499a93b773b0fef0",
+    "references/workflow.md": "f5e541cf8377b59e2d8f7a4cabc02b084152e630d67bde17514bdb7258a93d36",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

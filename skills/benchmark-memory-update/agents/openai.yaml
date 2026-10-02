@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Memory update and skill use"
+  short_description: "Test durable preference updates and readback"
+  default_prompt: "Use $benchmark-memory-update to run this task once with your own capabilities and return its report and evidence."

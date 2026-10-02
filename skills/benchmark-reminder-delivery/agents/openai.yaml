@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Reminder delivery"
+  short_description: "Test reminder delivery, timing and duplicates"
+  default_prompt: "Use $benchmark-reminder-delivery to run this task once with your own capabilities and return its report and evidence."

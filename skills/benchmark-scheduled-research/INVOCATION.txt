@@ -1,0 +1,1 @@
+Use $benchmark-scheduled-research to evaluate only scheduled-research once using your own existing tools. Follow the task sheet and limits; return the one-task report and actual evidence. Keep hidden metadata null and the report unreviewed. Ask me for the exact product URL and variant before starting if they are not already supplied.

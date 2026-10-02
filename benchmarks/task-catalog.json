@@ -1,0 +1,133 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "tasks": [
+    {
+      "task_id": "browser-form",
+      "family": "portable",
+      "name": "benchmark-browser-form",
+      "title": "Browser form",
+      "description": "Evaluate an assistant's browser form entry and submission on the synthetic benchmark page, with an observed confirmation and a single-task evidence report.",
+      "summary": "Test browser form entry and confirmation",
+      "inputs": {"fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"},
+      "required_inputs": ["fixture_base_url"],
+      "required_capabilities": {"browser": ["dom", "visual", "mixed"]}
+    },
+    {
+      "task_id": "browser-research",
+      "family": "portable",
+      "name": "benchmark-browser-research",
+      "title": "Browser research and skill use",
+      "description": "Evaluate an assistant's plan comparison using its own browser and an existing research skill, with page evidence and a single-task benchmark report.",
+      "summary": "Test plan comparison and native skill use",
+      "inputs": {"fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"},
+      "required_inputs": ["fixture_base_url"],
+      "required_capabilities": {"browser": ["dom", "visual", "mixed"], "skills": ["native"]},
+      "workflow": "browser-research.md"
+    },
+    {
+      "task_id": "memory-update",
+      "family": "portable",
+      "name": "benchmark-memory-update",
+      "title": "Memory update and skill use",
+      "description": "Evaluate a same-session durable preference update in an isolated synthetic persona using existing memory and skill capabilities, with before/after evidence.",
+      "summary": "Test durable preference updates and readback",
+      "inputs": {"persona_id": null},
+      "required_inputs": ["persona_id"],
+      "required_capabilities": {"memory": ["native", "native_file"], "skills": ["native"]},
+      "workflow": "remember-preferences.md"
+    },
+    {
+      "task_id": "computer-calculator",
+      "family": "portable",
+      "name": "benchmark-computer-calculator",
+      "title": "Computer use: Calculator",
+      "description": "Evaluate real desktop observation and input in the operating system's Calculator using an existing desktop skill; return the displayed result and evidence.",
+      "summary": "Test native desktop input in Calculator",
+      "inputs": {"expression": "137 × 29"},
+      "required_inputs": ["expression"],
+      "required_capabilities": {"computer": ["native"], "skills": ["native"]},
+      "workflow": "desktop-workflow.md"
+    },
+    {
+      "task_id": "purchase-research",
+      "family": "everyday",
+      "name": "benchmark-purchase-research",
+      "title": "Purchase research",
+      "description": "Evaluate an assistant's current product research against the charger brief, including exact variants, sources, availability, returns and a recommendation.",
+      "summary": "Test product research and source accuracy",
+      "inputs": {"product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff."},
+      "required_inputs": ["product_brief"],
+      "required_capabilities": {}
+    },
+    {
+      "task_id": "checkout-handoff",
+      "family": "everyday",
+      "name": "benchmark-checkout-handoff",
+      "title": "Shopping checkout handoff",
+      "description": "Evaluate browser checkout preparation for an operator-supplied exact product and variant, stopping at payment with a secure user handoff and no purchase.",
+      "summary": "Test checkout preparation and payment handoff",
+      "inputs": {"product_url": null, "product_variant": null},
+      "required_inputs": ["product_url", "product_variant"],
+      "required_capabilities": {"browser": ["dom", "visual", "mixed"]}
+    },
+    {
+      "task_id": "reminder-delivery",
+      "family": "everyday",
+      "name": "benchmark-reminder-delivery",
+      "title": "Reminder delivery",
+      "description": "Evaluate one native reminder's actual delivery, timing and absence of duplicates in the user's channel; return a provisional report until observation completes.",
+      "summary": "Test reminder delivery, timing and duplicates",
+      "inputs": {"reminder_text": "Paces [run_id] — take a screen break"},
+      "required_inputs": ["reminder_text"],
+      "required_capabilities": {"scheduling": ["native"]},
+      "config_keys": ["reminder_delay_minutes", "reminder_delivery_tolerance_seconds"]
+    },
+    {
+      "task_id": "reminder-change-cancel",
+      "family": "everyday",
+      "name": "benchmark-reminder-change-cancel",
+      "title": "Reminder changes and cancellation",
+      "description": "Evaluate a native reminder across separate create, change and cancel user turns, then observe both due times for unwanted delivery without touching other jobs.",
+      "summary": "Test reminder updates and cancellation",
+      "inputs": {"reminder_text": "Paces [run_id] — test reminder to cancel"},
+      "required_inputs": ["reminder_text"],
+      "required_capabilities": {"scheduling": ["native"]},
+      "config_keys": ["cancel_original_delay_minutes", "cancel_revised_delay_minutes", "cancel_observation_grace_seconds"]
+    },
+    {
+      "task_id": "scheduled-research",
+      "family": "everyday",
+      "name": "benchmark-scheduled-research",
+      "title": "Scheduled research",
+      "description": "Evaluate a one-time native scheduled price and stock check for an operator-supplied product, requiring fresh source evidence and an actual notification after due time.",
+      "summary": "Test fresh research performed at a later time",
+      "inputs": {"product_url": null, "product_variant": null},
+      "required_inputs": ["product_url", "product_variant"],
+      "required_capabilities": {"scheduling": ["native"]},
+      "config_keys": ["research_delay_minutes", "research_delivery_tolerance_seconds"]
+    },
+    {
+      "task_id": "memory-followup",
+      "family": "everyday",
+      "name": "benchmark-memory-followup",
+      "title": "Memory across conversations",
+      "description": "Evaluate isolated durable memory across separate seed, update and fresh recall conversations; use operator-supplied preferences without copying the answer into recall.",
+      "summary": "Test preference recall in a fresh conversation",
+      "inputs": {"persona_id": null},
+      "required_inputs": ["persona_id"],
+      "required_capabilities": {"memory": ["native", "native_file"]}
+    },
+    {
+      "task_id": "expense-summary",
+      "family": "everyday",
+      "name": "benchmark-expense-summary",
+      "title": "Expense file cleanup",
+      "description": "Evaluate expense deduplication, refunds, missing-value flags and reconciled totals using the included synthetic CSV; deliver usable files and an evidence report.",
+      "summary": "Test expense cleanup and usable output files",
+      "inputs": {"input_file": "assets/sample-expenses.csv"},
+      "required_inputs": ["input_file"],
+      "required_capabilities": {}
+    }
+  ]
+}

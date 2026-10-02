@@ -16,10 +16,10 @@ Identify the exact task criterion, the previous assessment, the proposed result 
 
 ## Change the protocol
 
-The two published skill packages are frozen pilot versions. Changes to measured prompts, criteria or budgets should be versioned deliberately, with updated manifests and documentation of comparability. Setup fixes must also have updated hashes. Run `python3 scripts/package_skills.py` to verify and package the exact files.
+The original two published packages are frozen pilot versions under `benchmarks/legacy/`. Individual task skills live in `skills/`; see [the task catalog](docs/SKILLS.md). Update their maintained sources in `benchmarks/task-catalog.json`, the shared validator or `scripts/build_task_skills.py`, then regenerate with `python3 scripts/build_task_skills.py`. Changes to measured prompts, criteria or budgets need deliberate versions, updated manifests and comparability notes. Run `python3 scripts/package_skills.py` to verify and package the exact files; `--include-legacy` also reproduces the originals.
 
 ## Development checks
 
-Follow the root README commands. Unit tests use synthetic inputs and mock providers. Browser integration tests use only local fixtures. Native desktop use and real shopping/scheduling require a deliberate operator-run evaluation, not CI.
+Run the repository/source checks and benchmark tests listed in [the CI workflow](.github/workflows/checks.yml). Unit tests use synthetic inputs and mock providers. Browser integration tests use only local fixtures. Native desktop use and real shopping/scheduling require a deliberate operator-run evaluation, not CI.
 
 Explain what changed and how it was verified in the pull request. Contributions of original code/docs are under the project license; identify any third-party material and its rights separately.

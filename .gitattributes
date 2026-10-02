@@ -1,5 +1,6 @@
 * text=auto eol=lf
 skills/** -text
+benchmarks/legacy/** -text
 website/evidence/** -text
 *.csv whitespace=cr-at-eol
 *.png binary

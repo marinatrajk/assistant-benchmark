@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Shopping checkout handoff"
+  short_description: "Test checkout preparation and payment handoff"
+  default_prompt: "Use $benchmark-checkout-handoff to run this task once with your own capabilities and return its report and evidence."

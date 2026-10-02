@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-memory-update",
+  "version": "1.0.0",
+  "task_id": "memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "files": {
+    "INVOCATION.txt": "fe7ac8091ef840cb49b28dd74fbd47d60b0a961da0af535214500a1019c93ff5",
+    "SKILL.md": "591f39a59476a188021052cc997303a794649a2b9b3455db5c5b4c7a47bdd76d",
+    "agents/openai.yaml": "bf7d65aee28ddd40bc34994017db7ae94b2b5613fd48a9dbbe238de36e5d954b",
+    "assets/report-template.json": "ef08058788e98bb259f81476303a3580810f4944ad3433ff92ab3144e5d97399",
+    "assets/task.json": "e87b4841afb1a31a5b63348db5238da17a4fb1308906a2d4fadbca6db1dec7ef",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "eae50c9a7a543816b8a5b9721d94d964877e53dd146f940fd52c54874a7dcf12",
+    "references/workflow.md": "be586a18790d5f2c09f1a828ecfd7f571eba7e69334535460f29858230b5a2ca",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

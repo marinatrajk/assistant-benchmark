@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Browser form"
+  short_description: "Test browser form entry and confirmation"
+  default_prompt: "Use $benchmark-browser-form to run this task once with your own capabilities and return its report and evidence."

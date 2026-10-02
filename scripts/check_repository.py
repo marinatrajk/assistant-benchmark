@@ -5,14 +5,24 @@ from pathlib import Path
 import sys
 from urllib.parse import unquote, urlsplit
 
-from package_skills import verified_files
+from package_skills import task_folders, verified_files
+from build_task_skills import build as build_task_skills
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def check():
     for name in ('paces-benchmark', 'paces-everyday'):
-        verified_files(ROOT / 'skills' / name)
+        verified_files(ROOT / 'benchmarks/legacy' / name)
+    for folder in task_folders():
+        verified_files(folder)
+    with tempfile.TemporaryDirectory() as temporary:
+        rebuilt = Path(temporary)
+        build_task_skills(rebuilt)
+        for folder in task_folders():
+            for relative in verified_files(folder):
+                assert (folder / relative).read_bytes() == (rebuilt / folder.name / relative).read_bytes(), f'Stale generated skill: {folder.name}/{relative}'
     web = ROOT / 'website'
     review = json.loads((web / 'review.json').read_text())
     agents = review['agents']
@@ -39,7 +49,7 @@ def check():
         json.loads(path.read_text())
     config = json.loads((ROOT / 'vercel.json').read_text())
     assert config['outputDirectory'] == 'website', 'Deploy only the static results site'
-    print(f'Checked {len(agents)} assistants, {len(review["tasks"])} tasks, source links and both skill manifests.')
+    print(f'Checked {len(agents)} assistants, {len(review["tasks"])} results, source links, 11 task skills and both frozen manifests.')
 
 
 if __name__ == '__main__':

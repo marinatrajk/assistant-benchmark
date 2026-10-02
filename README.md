@@ -15,7 +15,7 @@ Each assistant uses its **own tools and capabilities**. The public pilot evaluat
 - **Scheduling:** Deliver reminders, handle changes and cancellations, and do work at a later time.
 - **Files:** Turn messy information into usable files with accurate calculations.
 
-The project also includes benchmark skills for browser use, computer use, and memory, plus a local harness for comparing models with a shared set of tools. Cross-session memory was not evaluated in the initial Everyday pilot.
+Each task has its own [standalone benchmark skill](docs/SKILLS.md), including browser use, computer use, and memory. The project also includes a local harness for comparing models with a shared set of tools. Cross-session memory was not evaluated in the initial Everyday pilot.
 
 ## The first pilot
 

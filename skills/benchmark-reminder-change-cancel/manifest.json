@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-reminder-change-cancel",
+  "version": "1.0.0",
+  "task_id": "reminder-change-cancel",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-change-cancel"
+  },
+  "files": {
+    "INVOCATION.txt": "f1e876760bb26b99617a7c1be840f0d197da363a14c3620a09be9f7a776eb134",
+    "SKILL.md": "e1b9df836f84fa1d28902644e9340f90e00c9020239b43110ee25a6d7c5c0662",
+    "agents/openai.yaml": "d150186e9932f016622e4b9c54b76d0f448e006f68cccad9fcd60902db7aac2e",
+    "assets/report-template.json": "214c52ee55d716f91c8daa53443309c21936bbfd6108b61db8c5dd42c0a4e7f8",
+    "assets/task.json": "a128f8bf9b849b0fc671685c8b5c2a1d8f2ae6390309bb1bbb76ee8d17896e79",
+    "references/operator-turns.md": "c6b2f4658490cb21fa69f7e0a9e4e03a8f4cf0c24203ab886215f73605419b1e",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "ab22bb166d0079d3216c0785241dea7fbde959211978d05248177dd2b38134a2",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

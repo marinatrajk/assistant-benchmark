@@ -1,0 +1,1 @@
+Use $benchmark-browser-form to evaluate only browser-form once using your own existing tools. Follow the task sheet and limits; return the one-task report and actual evidence. Keep hidden metadata null and the report unreviewed. Fixture base URL: https://paces-agent-tests-20261001.marinatrajk.chatgpt.site (public_static).

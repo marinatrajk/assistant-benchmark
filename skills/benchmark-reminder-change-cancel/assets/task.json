@@ -1,0 +1,50 @@
+{
+  "task_id": "reminder-change-cancel",
+  "family": "everyday",
+  "name": "benchmark-reminder-change-cancel",
+  "title": "Reminder changes and cancellation",
+  "description": "Evaluate a native reminder across separate create, change and cancel user turns, then observe both due times for unwanted delivery without touching other jobs.",
+  "summary": "Test reminder updates and cancellation",
+  "inputs": {
+    "reminder_text": "Paces [run_id] — test reminder to cancel"
+  },
+  "required_inputs": [
+    "reminder_text"
+  ],
+  "required_capabilities": {
+    "scheduling": [
+      "native"
+    ]
+  },
+  "config_keys": [
+    "cancel_original_delay_minutes",
+    "cancel_revised_delay_minutes",
+    "cancel_observation_grace_seconds"
+  ],
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-reminder-change-cancel",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-change-cancel"
+  },
+  "checks": [
+    "created",
+    "updated",
+    "cancelled",
+    "no-late-delivery"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "cancel_original_delay_minutes": 20,
+    "cancel_revised_delay_minutes": 25,
+    "cancel_observation_grace_seconds": 120
+  },
+  "report_filename": "assistant-benchmark-reminder-change-cancel-results.json"
+}

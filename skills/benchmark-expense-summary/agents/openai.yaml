@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Expense file cleanup"
+  short_description: "Test expense cleanup and usable output files"
+  default_prompt: "Use $benchmark-expense-summary to run this task once with your own capabilities and return its report and evidence."

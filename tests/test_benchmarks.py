@@ -20,17 +20,17 @@ def module(name, path):
     return value
 
 
-everyday = module('everyday', 'skills/paces-everyday/scripts/validate_report.py')
-portable = module('portable', 'skills/paces-benchmark/scripts/validate_report.py')
-fixtures = module('fixtures', 'skills/paces-benchmark/scripts/serve_fixtures.py')
+everyday = module('everyday', 'benchmarks/legacy/paces-everyday/scripts/validate_report.py')
+portable = module('portable', 'benchmarks/legacy/paces-benchmark/scripts/validate_report.py')
+fixtures = module('fixtures', 'benchmarks/legacy/paces-benchmark/scripts/serve_fixtures.py')
 packages = module('packages', 'scripts/package_skills.py')
 
 
 class ReportTests(unittest.TestCase):
     def setUp(self):
         self.reports = {
-            'everyday': json.loads((ROOT / 'skills/paces-everyday/assets/report-template.json').read_text()),
-            'portable': json.loads((ROOT / 'skills/paces-benchmark/assets/report-template.json').read_text()),
+            'everyday': json.loads((ROOT / 'benchmarks/legacy/paces-everyday/assets/report-template.json').read_text()),
+            'portable': json.loads((ROOT / 'benchmarks/legacy/paces-benchmark/assets/report-template.json').read_text()),
         }
 
     def test_templates_are_structurally_valid_but_claim_no_passes(self):
@@ -68,7 +68,7 @@ class ReportTests(unittest.TestCase):
 
     def test_frozen_skill_manifests_match(self):
         for name in ['paces-benchmark', 'paces-everyday']:
-            self.assertIn('SKILL.md', packages.verified_files(ROOT / 'skills' / name))
+            self.assertIn('SKILL.md', packages.verified_files(ROOT / 'benchmarks/legacy' / name))
 
     def test_skill_archives_are_reproducible(self):
         with tempfile.TemporaryDirectory() as directory:

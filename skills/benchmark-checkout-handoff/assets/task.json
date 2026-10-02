@@ -1,0 +1,46 @@
+{
+  "task_id": "checkout-handoff",
+  "family": "everyday",
+  "name": "benchmark-checkout-handoff",
+  "title": "Shopping checkout handoff",
+  "description": "Evaluate browser checkout preparation for an operator-supplied exact product and variant, stopping at payment with a secure user handoff and no purchase.",
+  "summary": "Test checkout preparation and payment handoff",
+  "inputs": {
+    "product_url": null,
+    "product_variant": null
+  },
+  "required_inputs": [
+    "product_url",
+    "product_variant"
+  ],
+  "required_capabilities": {
+    "browser": [
+      "dom",
+      "visual",
+      "mixed"
+    ]
+  },
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "checks": [
+    "exact-cart",
+    "checkout-reached",
+    "totals",
+    "handoff"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "report_filename": "assistant-benchmark-checkout-handoff-results.json"
+}

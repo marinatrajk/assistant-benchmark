@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-browser-form",
+  "version": "1.0.0",
+  "task_id": "browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "files": {
+    "INVOCATION.txt": "9de940ec5f407d1ceed73706c2ad09ca0a5deefc35489242b25764f4df1e1992",
+    "SKILL.md": "11152c6f74c9210a652f0711757aa4c6a9d159ff82fa222c18d4e6a4756f1ac2",
+    "agents/openai.yaml": "8edb2e1a3b71497fec0fbf912b93ec1a978887694ce5f5fb8c7fdd959cb8477f",
+    "assets/report-template.json": "95b312a91a950974daf748539e280285c11af48a4af9eb92d3ed734559065524",
+    "assets/task.json": "577caa56b7e578c75c8a8b7175f21772e39885e690f9b8cfe6f1d78d4e2e7391",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "6fbf362fb0a0e96fdfd410810c3c5afd88067b2ec896204fd7c11efaf8196b03",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

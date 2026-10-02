@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Purchase research"
+  short_description: "Test product research and source accuracy"
+  default_prompt: "Use $benchmark-purchase-research to run this task once with your own capabilities and return its report and evidence."

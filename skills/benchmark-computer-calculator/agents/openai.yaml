@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Computer use: Calculator"
+  short_description: "Test native desktop input in Calculator"
+  default_prompt: "Use $benchmark-computer-calculator to run this task once with your own capabilities and return its report and evidence."

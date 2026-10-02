@@ -1,0 +1,43 @@
+{
+  "task_id": "memory-followup",
+  "family": "everyday",
+  "name": "benchmark-memory-followup",
+  "title": "Memory across conversations",
+  "description": "Evaluate isolated durable memory across separate seed, update and fresh recall conversations; use operator-supplied preferences without copying the answer into recall.",
+  "summary": "Test preference recall in a fresh conversation",
+  "inputs": {
+    "persona_id": null
+  },
+  "required_inputs": [
+    "persona_id"
+  ],
+  "required_capabilities": {
+    "memory": [
+      "native",
+      "native_file"
+    ]
+  },
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "checks": [
+    "stored",
+    "updated",
+    "new-session-recall",
+    "applied"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "report_filename": "assistant-benchmark-memory-followup-results.json"
+}

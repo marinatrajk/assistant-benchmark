@@ -1,0 +1,38 @@
+{
+  "task_id": "purchase-research",
+  "family": "everyday",
+  "name": "benchmark-purchase-research",
+  "title": "Purchase research",
+  "description": "Evaluate an assistant's current product research against the charger brief, including exact variants, sources, availability, returns and a recommendation.",
+  "summary": "Test product research and source accuracy",
+  "inputs": {
+    "product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff."
+  },
+  "required_inputs": [
+    "product_brief"
+  ],
+  "required_capabilities": {},
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "checks": [
+    "constraints",
+    "current-sources",
+    "tradeoffs",
+    "recommendation"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "report_filename": "assistant-benchmark-purchase-research-results.json"
+}

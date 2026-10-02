@@ -1,0 +1,126 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "run_id": "replace-with-unique-run-id",
+  "operator_label": null,
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "input_file": "assets/sample-expenses.csv"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "expense-summary"
+  ],
+  "started_at": null,
+  "updated_at": null,
+  "review_status": "unreviewed",
+  "deviations": [],
+  "tasks": [
+    {
+      "task_id": "expense-summary",
+      "status": "not_run",
+      "reason": "Template only; no execution yet.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": null,
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "correct-totals",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "usable-artifact",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "explanation",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ]
+}

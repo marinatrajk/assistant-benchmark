@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-purchase-research",
+  "version": "1.0.0",
+  "task_id": "purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "files": {
+    "INVOCATION.txt": "966625c518eb304e0ed73304592e32eb1bfd36b9e7d46dffe0cb876f34b49c6a",
+    "SKILL.md": "641669c311b7fa36741916865874e5812fb08e7a94d0d2b456392c517b522342",
+    "agents/openai.yaml": "d4a283cae1defa525df75d9d4e6984d4dccea7e15e92ac16e816a957fc3278a6",
+    "assets/report-template.json": "e39cd1311c88630e915e6177e5cb6e0a04f8cf6b910c95266ede2bd8271743cb",
+    "assets/task.json": "4baa439b9705876de12e70f04899d27d678a416bf50fb5cf5ae72e7d7a7f56d6",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "287f741a9e02cb81b22b19973ab195b37339aac65515bbd63cb5afcd282feee6",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

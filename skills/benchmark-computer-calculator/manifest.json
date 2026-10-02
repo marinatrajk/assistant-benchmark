@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-computer-calculator",
+  "version": "1.0.0",
+  "task_id": "computer-calculator",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "computer-calculator"
+  },
+  "files": {
+    "INVOCATION.txt": "640ac791b3aa315961ffd2d58a75518e7c6842f3c7e3fcfb1ab75bed610d4054",
+    "SKILL.md": "5b156ab2fc5261a695eb11f87a6b064fcf8bbdd2b26156c10a273f58db18bee6",
+    "agents/openai.yaml": "ba553c4935e17d54ecd4aa9ea2618d42bc6ea5c7cc041ba89a984ce45d9c512f",
+    "assets/report-template.json": "d5683941441374d5991013b5f19815b655575e0ec886883227f0f6fddb120880",
+    "assets/task.json": "d3bd9afb47ba0056f48a61bdd491a84604332cd93539be1d79d3ad8c18f67ae5",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "5388e69b8bcd6010a459abb80cf488c801e67c93a6968277c3adb2a1e2543503",
+    "references/workflow.md": "023a0610c1b0a674bfb645525aa78d9983cc93cfc0b7b3cc5f044544abdadaea",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

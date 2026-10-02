@@ -15,6 +15,14 @@ This repository begins with a clean source snapshot on October 2, 2026. It is no
 
 The release's packaged skill archives contain only their manifest and manifest-listed files. `SHA256SUMS` identifies the ZIP assets. `scripts/package_skills.py` recreates them with fixed archive metadata; it fails if a source hash differs from its original manifest. Aggregate repository release versions are separate from the two suite versions.
 
+## Individual task skills, October 2, 2026
+
+The four portable tests and seven Everyday scenarios now each have a standalone skill under `skills/`. The original two packages moved to `benchmarks/legacy/`, with their manifest-listed bytes preserved. Their original release archives remain available and can be reproduced with the packaging script's `--include-legacy` option.
+
+The new format is `assistant-benchmark-tasks-v1`, version `1.0.0`. Each package records its source protocol and contains one task sheet, inputs, limits, report template and validator. Task criteria and default timing windows are retained; the new validator uses a consistent one-task report, permits sanitized traces when tool identifiers are withheld, and checks local evidence paths. Task selection and orchestration differ from the historical full-suite invocations, so the new reports are explicitly distinguished from pilot reports. No evaluated assistant was rerun, and no published pilot grade changed as part of this restructuring.
+
+`benchmarks/task-catalog.json`, the frozen sheets and `benchmarks/task_report_validator.py` are the maintained sources. `scripts/build_task_skills.py` generates self-contained folders, and the repository checker verifies the generated content and manifests. Releases include one archive per skill plus a complete skill bundle; no package depends on an adjacent skill directory.
+
 ## What is not included
 
 API keys, local environment files, credentials, app conversations, private operator observations, raw submitted report bundles, local SQLite databases, browser profiles, checkout session URLs, hidden model settings, temporary build outputs and provider account state are not part of this release. The Vellum Assistant reference checkout is not included.

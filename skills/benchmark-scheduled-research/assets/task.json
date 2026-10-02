@@ -1,0 +1,50 @@
+{
+  "task_id": "scheduled-research",
+  "family": "everyday",
+  "name": "benchmark-scheduled-research",
+  "title": "Scheduled research",
+  "description": "Evaluate a one-time native scheduled price and stock check for an operator-supplied product, requiring fresh source evidence and an actual notification after due time.",
+  "summary": "Test fresh research performed at a later time",
+  "inputs": {
+    "product_url": null,
+    "product_variant": null
+  },
+  "required_inputs": [
+    "product_url",
+    "product_variant"
+  ],
+  "required_capabilities": {
+    "scheduling": [
+      "native"
+    ]
+  },
+  "config_keys": [
+    "research_delay_minutes",
+    "research_delivery_tolerance_seconds"
+  ],
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "checks": [
+    "scheduled",
+    "fresh-execution",
+    "accurate-update",
+    "delivered"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "report_filename": "assistant-benchmark-scheduled-research-results.json"
+}

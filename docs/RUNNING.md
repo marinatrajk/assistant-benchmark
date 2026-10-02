@@ -1,8 +1,24 @@
 # Operator guide
 
-## Everyday pilot
+## Run one task
 
-1. Build the ZIPs with `python3 scripts/package_skills.py` or use the matching GitHub release assets. Record the repository commit, suite version and manifest.
+1. Pick a skill from [the task catalog](SKILLS.md). Download that task's ZIP from a matching release, or build the archives with `python3 scripts/package_skills.py`. Record the commit, skill version and package hash.
+2. Start a fresh conversation in the assistant being evaluated. Attach the individual ZIP and send its `INVOCATION.txt`, or use its supported native skill interface. If ZIPs are unsupported, extract and provide that folder's files. Reading an assignment as a document does not itself establish native workflow skill loading.
+3. Supply the required inputs and use the same task brief, limits and environment across compared runs. Checkout and scheduled research accept an exact product URL and variant directly. They do not automatically run purchase research. The expense skill includes its CSV.
+4. Collect the single-task result JSON, actual evidence and output files. Keep required future events and operator turns pending; update the same report when evidence arrives. Memory follow-up requires a genuinely fresh conversation without the seed/update transcript or report.
+5. Validate using the script inside the selected skill, then independently inspect the evidence. For example:
+
+```sh
+python3 skills/benchmark-checkout-handoff/scripts/validate_report.py /path/to/assistant-benchmark-checkout-handoff-results.json --check-files
+```
+
+Each report includes only its own task. The package's `references/operator-turns.md` describes the change/cancel or memory follow-up phases where relevant. Use a new run ID for a repeat and keep the previous attempt.
+
+Maintainers can regenerate task folders from the frozen task sheets, catalog and shared validator with `python3 scripts/build_task_skills.py`. The repository checker verifies that committed task packages match those sources. `python3 scripts/package_skills.py --include-legacy` also reproduces the historical archives.
+
+## Historical Everyday pilot
+
+1. Use the original v0.1.0 release assets, or build the frozen ZIPs with `python3 scripts/package_skills.py --include-legacy`. Record the repository commit, suite version and manifest.
 2. Start a fresh conversation in the assistant you want to evaluate. Attach `paces-everyday.zip` and send its `INVOCATION.txt`. If ZIPs are unsupported, extract the package and supply its files through the assistant's supported document or skill interface.
 3. Use the same `assets/run-config.json` and task brief across participants. Record the date, reset state, permissions and changes. The default six tasks exclude the separate memory scenario.
 4. Keep the initial reminder and price-check notifications, with platform timestamps. A provisional report is expected while future events remain pending.
@@ -11,7 +27,7 @@
 7. Validate the report from the directory containing its evidence:
 
 ```sh
-python3 skills/paces-everyday/scripts/validate_report.py /path/to/paces-everyday-results.json --check-files
+python3 benchmarks/legacy/paces-everyday/scripts/validate_report.py /path/to/paces-everyday-results.json --check-files
 ```
 
 Validation is only a structural check. Apply the task criteria to the observed behavior and document disagreements with the self-score.
@@ -36,10 +52,10 @@ Memory-followup requires a separate conversation with only the synthetic persona
 
 ## Original portable suite
 
-Use `skills/paces-benchmark/START-HERE.txt` and its invocation. The historical invocation includes the public fixture URL used in the pilot. You can instead host the included `fixtures/` directory as its own static site, or run the local ledger-backed fixture server:
+Use `benchmarks/legacy/paces-benchmark/START-HERE.txt` and its invocation. The historical invocation includes the public fixture URL used in the pilot. You can instead host the included `fixtures/` directory as its own static site, or run the local ledger-backed fixture server:
 
 ```sh
-python3 skills/paces-benchmark/scripts/serve_fixtures.py --port 4320 --output ./fixture-evidence
+python3 benchmarks/legacy/paces-benchmark/scripts/serve_fixtures.py --port 4320 --output ./fixture-evidence
 ```
 
 Use a new empty output directory each run. Send the generated `fixture-evidence/invocation.txt`, which contains the actual randomized local URL. Cloud browsers cannot reach a server on your laptop at `127.0.0.1`.
@@ -53,7 +69,7 @@ python3 -m http.server 4321 --bind 127.0.0.1 --directory fixtures
 Record `public_static` or `local_server` in the report. Static form receipts are generated in the browser and have no server ledger; a code alone does not prove execution. The ledger is for the reviewer, not a source the evaluated assistant may read for answers. The fixture source is open for transparency, but source inspection is prohibited during a measured browser task.
 
 ```sh
-python3 skills/paces-benchmark/scripts/validate_report.py /path/to/paces-results.json
+python3 benchmarks/legacy/paces-benchmark/scripts/validate_report.py /path/to/paces-results.json
 ```
 
 ## Record limitations

@@ -1,0 +1,46 @@
+{
+  "task_id": "browser-research",
+  "family": "portable",
+  "name": "benchmark-browser-research",
+  "title": "Browser research and skill use",
+  "description": "Evaluate an assistant's plan comparison using its own browser and an existing research skill, with page evidence and a single-task benchmark report.",
+  "summary": "Test plan comparison and native skill use",
+  "inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "required_inputs": [
+    "fixture_base_url"
+  ],
+  "required_capabilities": {
+    "browser": [
+      "dom",
+      "visual",
+      "mixed"
+    ],
+    "skills": [
+      "native"
+    ]
+  },
+  "workflow": "browser-research.md",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-browser-research",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-research"
+  },
+  "checks": [
+    "playbook-loaded",
+    "source-observed",
+    "correct-choice",
+    "source-cited"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "report_filename": "assistant-benchmark-browser-research-results.json"
+}

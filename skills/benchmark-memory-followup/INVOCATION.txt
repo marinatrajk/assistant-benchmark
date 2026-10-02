@@ -1,0 +1,1 @@
+Use $benchmark-memory-followup to evaluate only memory-followup once using your own existing tools. Follow the task sheet and limits; return the one-task report and actual evidence. Keep hidden metadata null and the report unreviewed. Ask me for the synthetic persona ID and initial preferences; wait for the separate update and fresh-conversation recall steps.

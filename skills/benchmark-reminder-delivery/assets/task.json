@@ -1,0 +1,48 @@
+{
+  "task_id": "reminder-delivery",
+  "family": "everyday",
+  "name": "benchmark-reminder-delivery",
+  "title": "Reminder delivery",
+  "description": "Evaluate one native reminder's actual delivery, timing and absence of duplicates in the user's channel; return a provisional report until observation completes.",
+  "summary": "Test reminder delivery, timing and duplicates",
+  "inputs": {
+    "reminder_text": "Paces [run_id] — take a screen break"
+  },
+  "required_inputs": [
+    "reminder_text"
+  ],
+  "required_capabilities": {
+    "scheduling": [
+      "native"
+    ]
+  },
+  "config_keys": [
+    "reminder_delay_minutes",
+    "reminder_delivery_tolerance_seconds"
+  ],
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "checks": [
+    "scheduled",
+    "delivered",
+    "on-time",
+    "once"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120
+  },
+  "report_filename": "assistant-benchmark-reminder-delivery-results.json"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-memory-followup",
+  "version": "1.0.0",
+  "task_id": "memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "files": {
+    "INVOCATION.txt": "cbf1a8dec32dbf3e0ae44fa5c10f26656c8ad1520a38d5c994f15c404535eb1e",
+    "SKILL.md": "7b50ad4c779b8faf6477412a38b9555fe9e49cf6da6c0f87ce9b48a1110cbbda",
+    "agents/openai.yaml": "77af3a57f95e46e8cfb9f98ca1435a71baa53801a611a6a87ed8140625441a91",
+    "assets/report-template.json": "c3cc5824a319538333741d7028859ea932522e4cdadbfe5b672ce8ef81d389a7",
+    "assets/task.json": "bf50d71ceb9956125defc382977143fa271912a37bcf7b2d3ebd1b3a51f9a058",
+    "references/operator-turns.md": "500730526d8c1984d32d304d682f8b5698ec0761b9dffc521c20064107fcb3d7",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "0428443f6fdfc3e0a0597ec15f2b0a4c1583f3aa214dd3734846357c0604abca",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

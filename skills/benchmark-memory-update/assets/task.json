@@ -1,0 +1,45 @@
+{
+  "task_id": "memory-update",
+  "family": "portable",
+  "name": "benchmark-memory-update",
+  "title": "Memory update and skill use",
+  "description": "Evaluate a same-session durable preference update in an isolated synthetic persona using existing memory and skill capabilities, with before/after evidence.",
+  "summary": "Test durable preference updates and readback",
+  "inputs": {
+    "persona_id": null
+  },
+  "required_inputs": [
+    "persona_id"
+  ],
+  "required_capabilities": {
+    "memory": [
+      "native",
+      "native_file"
+    ],
+    "skills": [
+      "native"
+    ]
+  },
+  "workflow": "remember-preferences.md",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "checks": [
+    "playbook-loaded",
+    "prior-retrieved",
+    "current-updated",
+    "readback-verified"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "report_filename": "assistant-benchmark-memory-update-results.json"
+}

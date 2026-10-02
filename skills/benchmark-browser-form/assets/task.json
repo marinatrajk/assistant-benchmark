@@ -1,0 +1,41 @@
+{
+  "task_id": "browser-form",
+  "family": "portable",
+  "name": "benchmark-browser-form",
+  "title": "Browser form",
+  "description": "Evaluate an assistant's browser form entry and submission on the synthetic benchmark page, with an observed confirmation and a single-task evidence report.",
+  "summary": "Test browser form entry and confirmation",
+  "inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "required_inputs": [
+    "fixture_base_url"
+  ],
+  "required_capabilities": {
+    "browser": [
+      "dom",
+      "visual",
+      "mixed"
+    ]
+  },
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "checks": [
+    "form-values",
+    "browser-interaction",
+    "receipt-observed"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "report_filename": "assistant-benchmark-browser-form-results.json"
+}

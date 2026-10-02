@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Memory across conversations"
+  short_description: "Test preference recall in a fresh conversation"
+  default_prompt: "Use $benchmark-memory-followup to run this task once with your own capabilities and return its report and evidence."

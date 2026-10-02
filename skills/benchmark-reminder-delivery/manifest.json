@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-reminder-delivery",
+  "version": "1.0.0",
+  "task_id": "reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "files": {
+    "INVOCATION.txt": "ce6aaea95798c83631ecebf66ac6bea99bf608ce35f3d65009f708248798f8a5",
+    "SKILL.md": "346e7b67e86c52ac21f6ddd54bcb47c119a32c4ecbf1cd09a31e6c33a8d06295",
+    "agents/openai.yaml": "c23d667035141ea1685a0fc50ca81ad6ef6f543fb72630bf4fd2f0d1f7bd62ea",
+    "assets/report-template.json": "aa52606d137ea93212f69d89ed281b48ba44f6f03b008ea7f744ee5e56e1f397",
+    "assets/task.json": "3df5846530a41122a99f02aaaf1ddd1866df48c085048d403fd8b18f463369e3",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "d1038a88302579bfcf9c15a128313e9778e76a8890401ae9291a5274343a2a85",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

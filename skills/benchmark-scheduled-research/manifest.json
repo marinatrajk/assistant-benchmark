@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-scheduled-research",
+  "version": "1.0.0",
+  "task_id": "scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "files": {
+    "INVOCATION.txt": "2b14f072de901697d234c2ceee5188ddbfe3a496cb8728521e87b934515c0464",
+    "SKILL.md": "4e7ad4d4e36367ab3a01c9502e543a63cb85714a2776fc190058155685d9b198",
+    "agents/openai.yaml": "7d43342f414bfbdb675fb7dfbc818b3ec4397611c3b638ba2c13e85e840b4d1b",
+    "assets/report-template.json": "88b9582b207962b10caa05ddfa24b9edca4aa20cb1749df89324c2d9808cc94f",
+    "assets/task.json": "4acb466d1eb0a252b450867d65c7ddcffe5e18ebfb504fb8afa379a0f5b38409",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "f197b2316c8d51c90f81119780718a7c49e1fe38c8f2fb9e04252043d45a67b8",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

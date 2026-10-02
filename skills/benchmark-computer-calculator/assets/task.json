@@ -1,0 +1,44 @@
+{
+  "task_id": "computer-calculator",
+  "family": "portable",
+  "name": "benchmark-computer-calculator",
+  "title": "Computer use: Calculator",
+  "description": "Evaluate real desktop observation and input in the operating system's Calculator using an existing desktop skill; return the displayed result and evidence.",
+  "summary": "Test native desktop input in Calculator",
+  "inputs": {
+    "expression": "137 × 29"
+  },
+  "required_inputs": [
+    "expression"
+  ],
+  "required_capabilities": {
+    "computer": [
+      "native"
+    ],
+    "skills": [
+      "native"
+    ]
+  },
+  "workflow": "desktop-workflow.md",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "skill_name": "benchmark-computer-calculator",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "computer-calculator"
+  },
+  "checks": [
+    "playbook-loaded",
+    "desktop-input",
+    "display-observed",
+    "answer-matches"
+  ],
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "report_filename": "assistant-benchmark-computer-calculator-results.json"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-expense-summary",
+  "version": "1.0.0",
+  "task_id": "expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "files": {
+    "INVOCATION.txt": "56aed12411e68063f363df11239c5390b1720922d09ed5426b203babc73d033f",
+    "SKILL.md": "5f9f659b5783551175a0f3793c5805c0266214991fb92353116a9d7f9a4904b4",
+    "agents/openai.yaml": "f218a450571f3ddc80a56f2cf8584677635b506b5e4a4063764f845ee5188e1e",
+    "assets/report-template.json": "257369bf1b2391d8737b805a636d604922e5afd775db396a9231f4c0fe2db722",
+    "assets/sample-expenses.csv": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+    "assets/task.json": "47171761888560869119dea2fb4fc2da2c291d8400482603a9c8edbc3490e475",
+    "references/report-format.md": "889da81b5d31564fe02a9ba32197538f9e49fe547fe3fc4df4cd8c0889ee14ff",
+    "references/task.md": "548c532c8369c726d816e8f2b5b550f8c24b63fa1c88a4dc2a9ce5ca2009ae40",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}
