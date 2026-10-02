@@ -1,0 +1,13 @@
+Action trace (browser interaction, one attempt, agent clock +02:00)
+18:34:35 run start
+18:34:39 browser session opened (read mode, no login used)
+18:34:40 navigated to https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/form (landed on /form/)
+18:34:44 screenshot: empty form (evidence/01-form-empty.png)
+18:34:44 typed Name field: "Ada Lovelace" (filled=true)
+18:34:44 typed Email field: "ada@example.com" (filled=true)
+18:34:44 selected Topic option: "Research" (selected=true)
+18:34:45 screenshot: filled form (evidence/02-form-filled.png)
+18:34:49 clicked "Send request" button once (clicked=true)
+18:34:51 page read: "Request received", code PACES-6E622A02D010C395, Name/Email/Topic echoed (evidence/04-confirmation-page-text.txt)
+18:34:53 screenshot: confirmation (evidence/03-confirmation.png)
+No HTTP submission, no fixture source or log inspection, no retries. Submitted once.

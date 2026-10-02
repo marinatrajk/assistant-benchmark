@@ -1,0 +1,182 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "run_id": "instinct-browser-form-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": "Cloud-hosted Chrome (remote session, headless)",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Remote cloud browser session with no login used; fresh session for this run only.",
+      "Operator assigned this test in an existing Instinct Messages conversation; prior conversation context is present. Only the browser session was reported fresh."
+    ],
+    "fixture_mode": "public_static"
+  },
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "browser-form"
+  ],
+  "started_at": "2026-10-02T18:34:35+02:00",
+  "updated_at": "2026-10-02T18:35:30+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Agent-reported timestamps use +02:00. Benchmark run_config timezone remains America/New_York; these are explicit equivalent instants, not evidence of operator location.",
+    "Tool calls and tokens were not measured or independently enforced. The agent reports 19 seconds active; the call-budget limit cannot be independently verified."
+  ],
+  "tasks": [
+    {
+      "task_id": "browser-form",
+      "status": "passed",
+      "reason": null,
+      "execution_started": true,
+      "answer": "Confirmation code shown on the page: PACES-6E622A02D010C395 (Name Ada Lovelace, Email ada@example.com, Topic Research).",
+      "metrics": {
+        "active_duration_ms": 19000,
+        "elapsed_duration_ms": 19000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Active time from wall-clock start (18:34:35) to final screenshot (18:34:54); report writing excluded. Tool-call and token counts not measured; limits not enforced by the runtime."
+      },
+      "tools_used": [],
+      "disclosure_note": "Agent did not export actual tool names or model identity. Sanitized browser action trace and actual screenshots were supplied.",
+      "checks": [
+        {
+          "id": "form-values",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-confirmation-text",
+            "ev-confirmation-shot",
+            "ev-filled-form"
+          ]
+        },
+        {
+          "id": "browser-interaction",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-trace",
+            "ev-filled-form"
+          ]
+        },
+        {
+          "id": "receipt-observed",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-confirmation-shot",
+            "ev-confirmation-text"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-empty-form",
+          "kind": "screenshot",
+          "summary": "Empty form before entry",
+          "provenance": "agent_export",
+          "ref": "evidence/01-form-empty.png",
+          "observed_at": "2026-10-02T18:34:44+02:00"
+        },
+        {
+          "id": "ev-filled-form",
+          "kind": "screenshot",
+          "summary": "Form with Ada Lovelace, ada@example.com, Research entered, before submit",
+          "provenance": "agent_export",
+          "ref": "evidence/02-form-filled.png",
+          "observed_at": "2026-10-02T18:34:45+02:00"
+        },
+        {
+          "id": "ev-confirmation-shot",
+          "kind": "screenshot",
+          "summary": "Confirmation page showing code PACES-6E622A02D010C395 and echoed values",
+          "provenance": "agent_export",
+          "ref": "evidence/03-confirmation.png",
+          "observed_at": "2026-10-02T18:34:53+02:00"
+        },
+        {
+          "id": "ev-confirmation-text",
+          "kind": "observation",
+          "summary": "Page text of confirmation: Request received, code PACES-6E622A02D010C395, Name/Email/Topic echoed",
+          "provenance": "agent_export",
+          "ref": "evidence/04-confirmation-page-text.txt",
+          "observed_at": "2026-10-02T18:34:51+02:00"
+        },
+        {
+          "id": "ev-trace",
+          "kind": "trace",
+          "summary": "Sanitized action trace: field entry, topic selection, single click on Send request",
+          "provenance": "agent_export",
+          "ref": "evidence/05-action-trace.txt",
+          "observed_at": "2026-10-02T18:34:53+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": null,
+          "evidence_ids": [
+            "ev-trace",
+            "ev-confirmation-shot"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Visually inspected all three actual exported screenshots: empty form, correct entered values, and matching confirmation code. The sanitized agent action trace records browser entry and one submission. No independent browser event log is available. The current run reused an existing Messages conversation; its separate fresh cloud browser session is agent-reported. Active time is agent-measured; unknown call/token counts stay null. Removed an unsupported assertion about operator location, retaining the reported +02:00 clock offset."
+}

@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:34:37.791318+00:00",
+  "updated_at": "2026-10-02T16:36:49.281927+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -86,14 +86,33 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "instinct-browser-form-20261002-01",
-          "summary": "Browser form assigned in Messages; waiting for the result and actual browser evidence.",
+          "summary": "Submitted the exact form values once and captured confirmation PACES-6E622A02D010C395.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Actual empty, filled and confirmation screenshots were visually reviewed: Ada Lovelace, ada@example.com, Research.",
+            "Agent-exported trace records native browser field entry, topic selection and one submission. No independent event log was available.",
+            "Existing Messages conversation; fresh remote browser session reported. Active time was agent-measured at 19 seconds; call and token counts are unavailable."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/browser-form/reviewed-report.json"
+            ],
+            [
+              "Filled form",
+              "evidence/standalone-20261002/instinct/browser-form/evidence/02-form-filled.png"
+            ],
+            [
+              "Confirmation screenshot",
+              "evidence/standalone-20261002/instinct/browser-form/evidence/03-confirmation.png"
+            ],
+            [
+              "Action trace",
+              "evidence/standalone-20261002/instinct/browser-form/evidence/05-action-trace.txt"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -167,11 +186,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-browser-research-20261002-01",
+          "summary": "Browser research assigned; waiting for the plan comparison and native research-skill evidence.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {
