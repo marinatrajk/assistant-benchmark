@@ -1,0 +1,18 @@
+cron.remove output — 2026-10-02T14:03:05-04:00 (call; confirmed 14:03:11 EDT)
+{
+  "changed_paths": [
+    "~/workspace/goals/reminder-change-cancel-benchmark-run-muse-reminder-change-cancel-20261002-01/crons/runonce/muse-reminder-change-cancel-20261002-01__runonce@2026-10-02T14:26:39.md"
+  ],
+  "removed": [
+    "~/workspace/cron.d/_archive/muse-reminder-change-cancel-20261002-01__runonce@2026-10-02T14:26:39.md"
+  ],
+  "scheduler_sync": "reconciled"
+}
+
+Post-cancel cron.status (scoped to id muse-reminder-change-cancel-20261002-01):
+{"enabled": false, "next_run_at_local": null, "next_run_at_utc": null, "queued_runs": 0, "running_runs": 0,
+ "last_run_at_utc": null, "last_status": null, "consecutive_failures": 0,
+ "schedule": {"expr": "runonce@2026-10-02T14:26:39", "kind": "runonce", "timezone": "America/New_York"}}
+
+Post-cancel cron.list: no schedule with id muse-reminder-change-cancel-20261002-01 present.
+muse-reminder-delivery-20261002-01 (runonce@2026-10-02T14:09:00, "Reminder: take a screen break") is still enabled and present; all other jobs unchanged.

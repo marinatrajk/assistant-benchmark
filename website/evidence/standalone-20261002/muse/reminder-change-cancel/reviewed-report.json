@@ -47,19 +47,19 @@
     "reminder-change-cancel"
   ],
   "started_at": "2026-10-02T14:00:36-04:00",
-  "updated_at": "2026-10-02T14:02:05-04:00",
+  "updated_at": "2026-10-02T14:03:25-04:00",
   "review_status": "reviewed",
   "deviations": [],
   "tasks": [
     {
       "task_id": "reminder-change-cancel",
       "status": "pending",
-      "reason": "Original native reminder created and active with due 2026-10-02T14:20:39-04:00 (exactly 20 minutes after the observed clock). The operator has not yet sent the separate change message; no update or cancellation has been performed. The report stays pending until the change and cancel turns complete and the no-late-delivery observation window (max(original_due, revised_due) + 120s) is observed from real evidence.",
+      "reason": "Cancel turn completed: the benchmark job was removed at ~14:03:05 EDT (confirmed 14:03:11 EDT); post-cancel scheduler inspection shows the job absent/inactive with no replacement active, and every other job preserved. The report stays pending only for the no-late-delivery observation window through 2026-10-02T18:28:39Z (max of original and revised due + 120s), to be confirmed from real channel evidence.",
       "execution_started": true,
-      "answer": "One native reminder created for 2026-10-02 14:20:39 EDT with the exact text \"Paces muse-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel\", targeting this side chat. Waiting for the separate change instruction; nothing else was touched.",
+      "answer": "Reminder muse-reminder-change-cancel-20261002-01 is cancelled: absent from the native scheduler (enabled=false, no queued/running runs, no replacement active), both original and revised definitions retained. The screen-break delivery job is preserved. Only the no-late-delivery observation through 18:28:39 UTC remains pending.",
       "metrics": {
         "active_duration_ms": null,
-        "elapsed_duration_ms": 89000,
+        "elapsed_duration_ms": 169000,
         "tool_calls": null,
         "input_tokens": null,
         "output_tokens": null,
@@ -78,13 +78,20 @@
         },
         {
           "id": "updated",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "E3",
+            "E4",
+            "E5"
+          ]
         },
         {
           "id": "cancelled",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "E6",
+            "E7"
+          ]
         },
         {
           "id": "no-late-delivery",
@@ -108,6 +115,46 @@
           "provenance": "agent_export",
           "ref": "evidence/scheduling-notes.txt",
           "summary": "Actual clock read at creation: 2026-10-02T14:00:39 EDT (-0400) / 2026-10-02T18:00:39 UTC; due 2026-10-02T14:20:39 EDT is exactly 20 minutes later. No preemptive change or cancel; awaiting the operator's separate change message."
+        },
+        {
+          "id": "E3",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:01:50-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/job-definition.md",
+          "summary": "Before-definition export: original native job definition created 2026-10-02T14:00:51.557-04:00 with schedule_key runonce@2026-10-02T14:20:39 and the exact text \"Paces muse-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel\"."
+        },
+        {
+          "id": "E4",
+          "kind": "trace",
+          "observed_at": "2026-10-02T14:01:50-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduling-notes.txt",
+          "summary": "Update operation: cron.update on id muse-reminder-change-cancel-20261002-01 replaced the schedule in place \u2014 previous_path runonce@2026-10-02T14:20:39 archived, new path runonce@2026-10-02T14:26:39, scheduler_sync reconciled, next_run_local \"Fri 2026-10-02 14:26:39 EDT\", next_run_in 24m, same job id, title and owner preserved, body text unchanged."
+        },
+        {
+          "id": "E5",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:02:00-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/job-definition-revised.md",
+          "summary": "Post-update scheduler inspection: cron.view shows exactly one job with id muse-reminder-change-cancel-20261002-01, schedule_key runonce@2026-10-02T14:26:39, enabled=true, and the identical verbatim reminder text. cron.list shows no schedule at the original key runonce@2026-10-02T14:20:39 (it was archived). The screen-break delivery job muse-reminder-delivery-20261002-01 (runonce@14:09:00) and every other job are unchanged."
+        },
+        {
+          "id": "E6",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:03:11-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/removal-output.txt",
+          "summary": "cron.remove on id muse-reminder-change-cancel-20261002-01 succeeded at ~14:03:05 EDT (confirmed 14:03:11 EDT); scheduler reconciled; the revised definition was archived. Original and revised definitions retained in workspace/cron.d/_archive/ and in evidence/job-definition.md + evidence/job-definition-revised.md."
+        },
+        {
+          "id": "E7",
+          "kind": "observation",
+          "observed_at": "2026-10-02T14:03:10-04:00",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduling-notes.txt",
+          "summary": "Post-cancel scheduler inspection: cron.list contains no schedule with the benchmark job id (absent); scoped cron.status shows enabled=false, no next run, no queued/running runs, no last run \u2014 no replacement remains active. The screen-break delivery job muse-reminder-delivery-20261002-01 (runonce@14:09:00) and every other job are unchanged. Reminder text was not delivered manually; no observer job was created."
         }
       ],
       "capabilities": {
@@ -134,7 +181,12 @@
           "mode": "native",
           "label": null,
           "evidence_ids": [
-            "E1"
+            "E1",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7"
           ]
         },
         "skills": {
@@ -146,25 +198,30 @@
       },
       "follow_up": {
         "required": true,
-        "next_action": "Wait for the operator's separate change message (turn 2), then update this same report: revise the due time to 25 minutes from that request, verify exactly one active reminder matches, then cancel on the operator's turn 3, verify inactive/absent, and observe the channel through max(original_due, revised_due) + 120s with complete evidence before finalizing. Provisional observation deadline: original_due + 120s = 2026-10-02T18:22:39Z; the true deadline is max(original_due, revised_due) + 120s once the revised time is known.",
-        "deadline_at": "2026-10-02T18:22:39Z",
+        "next_action": "Observe the channel through max(original_due 18:20:39Z, revised_due 18:26:39Z) + 120s = 2026-10-02T18:28:39Z for any late delivery of the benchmark reminder text, then update this same report: set no-late-delivery from real evidence (operator-attested observation or platform timestamps), mark observation_complete, and finalize the task outcome.",
+        "deadline_at": "2026-10-02T18:28:39Z",
         "observer": "Codex-assisted operator UI observation and native job export"
       },
       "schedule": {
         "created_at": "2026-10-02T14:00:51.557-04:00",
         "original_due_at": "2026-10-02T14:20:39-04:00",
-        "due_at": "2026-10-02T14:20:39-04:00",
-        "revised_due_at": null,
+        "due_at": "2026-10-02T14:26:39-04:00",
+        "revised_due_at": "2026-10-02T14:26:39-04:00",
         "source_observed_at": null,
         "delivered_at": null,
-        "cancelled_at": null,
+        "cancelled_at": "2026-10-02T14:03:11-04:00",
         "observation_through": null,
         "observation_complete": false,
         "timezone": "America/New_York",
         "job_id": "muse-reminder-change-cancel-20261002-01",
         "evidence_ids": [
           "E1",
-          "E2"
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7"
         ]
       },
       "memory": null

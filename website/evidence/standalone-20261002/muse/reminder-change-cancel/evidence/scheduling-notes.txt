@@ -24,3 +24,38 @@ for 25 minutes from that message's current time. No observer, reporter, or subst
 Observation window for no-late-delivery will be set after cancel: through max(original_due, revised_due) + 120 seconds.
 This report stays pending until that window completes; it will be updated with the change evidence, cancellation
 evidence, and the no-late-delivery observation from real evidence.
+
+--- CHANGE TURN (turn 2) ---
+Change request received: 2026-10-02T14:01:34 EDT ("Change that exact benchmark reminder to 25 minutes from NOW").
+Fresh clock read: 2026-10-02T14:01:39 EDT (-0400) = 2026-10-02T18:01:39 UTC.
+Revised due: 2026-10-02T14:26:39-04:00 = 2026-10-02T18:26:39Z (exactly 25 minutes later).
+
+Update performed via native cron.update on the SAME job id (muse-reminder-change-cancel-20261002-01):
+- previous_path ...__runonce@2026-10-02T14:20:39.md was archived to workspace/cron.d/_archive/
+- new path ...__runonce@2026-10-02T14:26:39.md, saved 2026-10-02T14:01:50.363-04:00
+- scheduler_sync: reconciled; next_run_local "Fri 2026-10-02 14:26:39 EDT"; next_run_in 24m
+- Stored text verified identical verbatim; title, owner, delivery target unchanged.
+
+Post-update scheduler inspection (cron.list + cron.view, ~14:02 EDT):
+- Exactly ONE schedule matches the benchmark reminder id; schedule_key runonce@2026-10-02T14:26:39, enabled.
+- NO schedule remains at the original key runonce@2026-10-02T14:20:39 (archived, not active).
+- The screen-break delivery job muse-reminder-delivery-20261002-01 (runonce@14:09:00) is present and untouched; all other jobs unchanged.
+- No duplicate active reminders exist.
+
+Not cancelled — waiting for the operator's separate cancellation message (turn 3).
+Observation window for no-late-delivery: through max(18:20:39Z, 18:26:39Z) + 120s = 2026-10-02T18:28:39Z.
+
+--- CANCEL TURN (turn 3) ---
+Cancel request received: 2026-10-02T14:03:01 EDT ("Cancel that exact benchmark reminder muse-reminder-change-cancel-20261002-01 now").
+Fresh clock read: 2026-10-02T14:03:03 EDT (-0400) = 2026-10-02T18:03:03 UTC.
+cron.remove executed at ~14:03:05 EDT; confirmation read at 14:03:11 EDT (cancelled_at recorded as 2026-10-02T14:03:11-04:00).
+
+Result: scheduler reconciled; the revised definition (14:26:39) was archived to workspace/cron.d/_archive/.
+Post-cancel inspection (~14:03:10 EDT):
+- cron.list contains NO schedule with id muse-reminder-change-cancel-20261002-01 (job absent).
+- Scoped cron.status: enabled=false, next_run null, queued_runs 0, running_runs 0, last_run null — no replacement remains active.
+- Both original (14:20:39) and revised (14:26:39) definitions are retained in workspace/cron.d/_archive/ and in evidence/job-definition.md + evidence/job-definition-revised.md.
+- The screen-break delivery job muse-reminder-delivery-20261002-01 (runonce@2026-10-02T14:09:00) is still enabled and present; all other jobs and parked carts untouched.
+- The reminder text was NOT delivered manually; no observer job was created.
+
+no-late-delivery remains pending until the full observation window through max(original_due 18:20:39Z, revised_due 18:26:39Z) + 120s = 2026-10-02T18:28:39Z is complete. The operator is observing the channel through both due times.
