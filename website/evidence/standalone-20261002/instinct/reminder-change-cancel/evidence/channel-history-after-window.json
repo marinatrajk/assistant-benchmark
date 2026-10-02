@@ -1,0 +1,8 @@
+[
+  {
+    "timestamp": "Friday, October 2, 2026, 6:53:32 PM CEST",
+    "message": "[benchmark-message]",
+    "status": "delivered",
+    "body": "Created: 2026-10-02 18:53:19 +02:00 (16:53:19 UTC)\nDue: 2026-10-02 13:13:19 -04:00 America/New_York (17:13:19 UTC, 19:13:19 CEST)\nJob: wakeschedule-01M3YRHP61RG8NJ551ADEX4MAE\nStored text: Paces instinct-reminder-change-cancel-20261002-01 — test reminder to cancel\nListing at creation: this job plus the screen-break reminder (wakeschedule-01M3YRF5TVV9DDE5JQ2YDZ85T0, untouched)."
+  }
+]

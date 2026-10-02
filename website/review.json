@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:16:43.413289+00:00",
+  "updated_at": "2026-10-02T17:28:15.732822+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -755,18 +755,44 @@
           ]
         },
         "Instinct": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "instinct-reminder-change-cancel-20261002-01",
-          "summary": "Same reminder updated and cancelled; absence check ends at 1:22:07 p.m. EDT.",
+          "summary": "Same reminder updated and cancelled; no delivery observed through both due times and the final grace window.",
           "details": [
-            "Create, change and cancel done with evidence. The absence-observation window through 13:22:07 EDT (19:22:07 CEST, 17:22:07Z) has not elapsed, so no-late-delivery is unverified.",
-            "Native scheduler evidence received and inspected; timing checks remain open."
+            "Original due 1:13:19 p.m. EDT; revised due 1:20:07. The same job was deleted at 12:56:46, and the subsequent listing shows it absent.",
+            "Independent Messages observation completed at 1:22:20.498, after the required 1:22:07 cutoff, with no cancelled notification.",
+            "Separate screen-break reminder was preserved. Package was read late; the procedural deviation and original provisional evidence remain visible.",
+            "The auxiliary report-follow-up wake did not fire by 1:25:11 p.m. Instinct removed it after follow-up; the final exported scheduler list contains zero jobs. This limitation is disclosed separately from the cancellation outcome."
           ],
           "sources": [
             [
-              "Provisional report",
-              "evidence/standalone-20261002/instinct/reminder-change-cancel/pending-report.json"
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/reviewed-report.json"
+            ],
+            [
+              "Operator absence observations",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/operator-observations.json"
+            ],
+            [
+              "Native update export",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/evidence/native-update-evidence.json"
+            ],
+            [
+              "Delete result",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/evidence/cancel-delete-response.json"
+            ],
+            [
+              "Listing after cancellation",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/evidence/job-listing-after-cancel.json"
+            ],
+            [
+              "Post-window channel evidence",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/evidence/channel-history-after-window.json"
+            ],
+            [
+              "Final scheduler listing",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/evidence/scheduler-listing-after-1725-20Z.json"
             ]
           ]
         },
@@ -847,18 +873,31 @@
           ]
         },
         "Instinct": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "instinct-scheduled-research-20261002-01",
-          "summary": "Fresh Monoprice price/stock check scheduled for 1:13:48 p.m. EDT; delivery deadline 1:18:48.",
+          "summary": "Update arrived on time, but the fresh source check and reported values lack retained tool/page evidence.",
           "details": [
-            "One-time native job scheduled; due time and delivery window have not yet elapsed.",
-            "Native scheduler evidence received and inspected; timing checks remain open."
+            "Native one-time job and independent Messages delivery were verified. The update was visible by 1:16:52.470 p.m., before the 1:18:48 deadline.",
+            "Instinct claims a 1:15:28 source read but retained only its own text summary, with no original page or tool capture. Fresh execution and accuracy remain unverified.",
+            "Operator grade is Partial; Instinct self-scored Passed. The self-report and evidence gap are preserved separately."
           ],
           "sources": [
             [
-              "Provisional report",
-              "evidence/standalone-20261002/instinct/scheduled-research/pending-report.json"
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/scheduled-research/reviewed-report.json"
+            ],
+            [
+              "Operator delivery observation",
+              "evidence/standalone-20261002/instinct/scheduled-research/operator-observations.json"
+            ],
+            [
+              "Agent self-report (unreviewed)",
+              "evidence/standalone-20261002/instinct/scheduled-research/agent-submitted-report.json"
+            ],
+            [
+              "Agent-exported channel record",
+              "evidence/standalone-20261002/instinct/scheduled-research/evidence/sr-channel-read-after-window.json"
             ]
           ]
         },

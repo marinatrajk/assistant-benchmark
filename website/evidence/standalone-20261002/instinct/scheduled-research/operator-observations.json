@@ -1,0 +1,12 @@
+{
+  "provenance": "operator_observation",
+  "run_id": "instinct-scheduled-research-20261002-01",
+  "due_at": "2026-10-02T17:13:48Z",
+  "deadline_at": "2026-10-02T17:18:48Z",
+  "first_observed_by": "2026-10-02T17:16:52.470Z",
+  "ui_minute_label": "1:15 PM",
+  "body": "instinct-scheduled-research-20261002-01: Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger (45244) is $27.99, In Stock. Single listed product, no variant options. Source: https://www.monoprice.com/product?p_id=45244. Page read 2026-10-02 19:15:28 +02:00 (17:15:28 UTC).",
+  "matching_standalone_updates_observed": 1,
+  "within_delivery_window": true,
+  "limitations": ["Receipt observation is an upper bound, not the exact receipt second.","The body establishes the delivered update; fresh source execution and accuracy require the separate original agent artifacts."]
+}

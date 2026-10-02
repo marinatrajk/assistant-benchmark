@@ -1,0 +1,172 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "run_id": "instinct-scheduled-research-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "product_url": "https://www.monoprice.com/product?p_id=45244",
+    "product_variant": "single variant (Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger, product 45244)"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "task_ids_requested": [
+    "scheduled-research"
+  ],
+  "started_at": "2026-10-02T18:58:48+02:00",
+  "updated_at": "2026-10-02T18:59:30+02:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Package was downloaded, hash-verified (d01f720d...be95) and read before scheduling, as required.",
+    "Scheduling was performed by the main assistant; the report was built afterward by a separate worker.",
+    "Pending report only: due-time check and delivery not yet occurred.",
+    "Metrics not measurable; null."
+  ],
+  "tasks": [
+    {
+      "task_id": "scheduled-research",
+      "status": "pending",
+      "reason": "One-time native job scheduled; due time and delivery window have not yet elapsed.",
+      "execution_started": true,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool identifiers withheld. Hidden identity/settings and unmeasurable metrics left null.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-creation",
+            "ev-listing"
+          ]
+        },
+        {
+          "id": "fresh-execution",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "accurate-update",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "delivered",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-creation",
+          "kind": "observation",
+          "summary": "Native scheduler response for the created one-shot job: id, fire time, stored prompt with exact target URL and requested work.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-creation-evidence.json",
+          "observed_at": "2026-10-02T18:58:48+02:00"
+        },
+        {
+          "id": "ev-listing",
+          "kind": "observation",
+          "summary": "Scheduler listing at creation: this job pending at 17:13:48Z; unrelated screen-break reminder and change-cancel absence-check wake untouched; cancelled reminder absent.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-job-listing-at-creation.json",
+          "observed_at": "2026-10-02T18:58:48+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-creation",
+            "ev-listing"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "At due time, freshly check price/stock on the source page, send one Messages update with run marker, price, stock, variant, URL and check time; then update this report with source_observed_at and delivered_at evidence.",
+        "deadline_at": "2026-10-02T19:18:48+02:00",
+        "observer": "Instinct main assistant"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T18:58:48+02:00",
+        "original_due_at": null,
+        "due_at": "2026-10-02T19:13:48+02:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T19:18:48+02:00",
+        "timezone": "America/New_York",
+        "job_id": "wakeschedule-01M3YRVR6ZM85R6S47S1N6XE2R",
+        "observation_complete": false,
+        "evidence_ids": [
+          "ev-creation",
+          "ev-listing"
+        ]
+      },
+      "memory": null
+    }
+  ]
+}

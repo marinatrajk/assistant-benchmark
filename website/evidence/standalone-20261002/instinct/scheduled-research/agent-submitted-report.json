@@ -1,0 +1,227 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-scheduled-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "scheduled-research"
+  },
+  "run_id": "instinct-scheduled-research-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "product_url": "https://www.monoprice.com/product?p_id=45244",
+    "product_variant": "single variant (Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger, product 45244)"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "research_delay_minutes": 15,
+    "research_delivery_tolerance_seconds": 300
+  },
+  "task_ids_requested": [
+    "scheduled-research"
+  ],
+  "started_at": "2026-10-02T18:58:48+02:00",
+  "updated_at": "2026-10-02T19:25:00+02:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Package was downloaded, hash-verified (d01f720d...be95) and read before scheduling.",
+    "Scheduling was done by the main assistant; reports were built afterward by a separate worker.",
+    "A pending report was issued earlier (preserved in evidence/sr-pending-report.json); this is the final update.",
+    "Scheduled wake was delivered about 28 s after the due time (about 17:14:16Z vs due 17:13:48Z); the source read still occurred after due time and before the update.",
+    "No screenshot or file capture of the source page was retained. The fresh read exists only as the reading agent's text report (ev-source-read) and as the values quoted in the sent update. The page was not browsed again to replace it.",
+    "Operator observation of the update (by 17:16:52.470Z, UI label 1:15 PM) is an upper bound, not a receipt second. Receipt/read fields are null.",
+    "Metrics not measurable; null."
+  ],
+  "tasks": [
+    {
+      "task_id": "scheduled-research",
+      "status": "passed",
+      "reason": "Job fired, a fresh page read occurred after due time, and one update with the observed values was sent and platform-marked delivered inside the 300 s window. Caveat: no page capture was retained; the source read rests on a text report.",
+      "execution_started": true,
+      "answer": "Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger (product 45244): $27.99, In Stock, single listed product with no variant options. Page read 2026-10-02T19:15:28+02:00 (17:15:28Z).",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool identifiers withheld. Hidden identity/settings and unmeasurable metrics left null. No source-page capture retained.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-creation",
+            "ev-listing",
+            "ev-scheduler-final"
+          ]
+        },
+        {
+          "id": "fresh-execution",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-source-read"
+          ]
+        },
+        {
+          "id": "accurate-update",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-source-read",
+            "ev-update-send"
+          ]
+        },
+        {
+          "id": "delivered",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-update-send",
+            "ev-operator-observed"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-creation",
+          "kind": "observation",
+          "summary": "Native scheduler response for the created one-shot job: id, fire time, stored prompt with exact target URL and requested work.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-creation-evidence.json",
+          "observed_at": "2026-10-02T18:58:48+02:00"
+        },
+        {
+          "id": "ev-listing",
+          "kind": "observation",
+          "summary": "Scheduler listing at creation: this job pending at 17:13:48Z; unrelated screen-break reminder and change-cancel absence-check wake untouched; cancelled reminder absent.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-job-listing-at-creation.json",
+          "observed_at": "2026-10-02T18:58:48+02:00"
+        },
+        {
+          "id": "ev-source-read",
+          "kind": "observation",
+          "summary": "Fresh read-only page read by a separate browser task after the job fired. Only the agent's text report was retained; no screenshot or page file.",
+          "provenance": "agent_export",
+          "excerpt": "Page read time 2026-10-02T19:15:28+02:00 (17:15:28Z); title 'Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger'; price $27.99; stock In Stock; single listed product, no selectable variant options; no cart/purchase actions.",
+          "observed_at": "2026-10-02T19:15:28+02:00"
+        },
+        {
+          "id": "ev-update-send",
+          "kind": "observation",
+          "summary": "Sent update (marker, price, stock, variant, URL, check time) and platform status 'delivered' from the Messages history read taken after the window. Send command ran 17:15:45.57Z-17:15:46.75Z; platform record timestamp 19:15:48 CEST is the delivered-status time.",
+          "provenance": "platform",
+          "ref": "evidence/sr-channel-read-after-window.json",
+          "observed_at": "2026-10-02T19:15:48+02:00"
+        },
+        {
+          "id": "ev-operator-observed",
+          "kind": "operator_attestation",
+          "summary": "Operator reports seeing the update in Messages by 17:16:52.470Z (UI minute label 1:15 PM). Upper bound only, not a receipt second.",
+          "provenance": "operator",
+          "excerpt": "observed ... by 17:16:52.470Z, with UI minute label 1:15 PM",
+          "observed_at": "2026-10-02T19:16:52+02:00"
+        },
+        {
+          "id": "ev-scheduler-final",
+          "kind": "observation",
+          "summary": "Final scheduler listing: the research job is no longer pending (consumed after firing); no recurring research job was created. Unrelated jobs left untouched.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-scheduler-final-listing.json",
+          "observed_at": "2026-10-02T19:20:00+02:00"
+        },
+        {
+          "id": "ev-pending-report",
+          "kind": "artifact",
+          "summary": "Earlier pending report, preserved.",
+          "provenance": "agent_export",
+          "ref": "evidence/sr-pending-report.json"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-creation",
+            "ev-listing"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": "2026-10-02T18:58:48+02:00",
+        "original_due_at": null,
+        "due_at": "2026-10-02T19:13:48+02:00",
+        "source_observed_at": "2026-10-02T19:15:28+02:00",
+        "delivered_at": "2026-10-02T19:15:48+02:00",
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T19:18:48+02:00",
+        "timezone": "America/New_York",
+        "job_id": "wakeschedule-01M3YRVR6ZM85R6S47S1N6XE2R",
+        "observation_complete": true,
+        "evidence_ids": [
+          "ev-creation",
+          "ev-listing",
+          "ev-source-read",
+          "ev-update-send",
+          "ev-operator-observed",
+          "ev-scheduler-final"
+        ]
+      },
+      "memory": null
+    }
+  ]
+}

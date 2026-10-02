@@ -1,0 +1,21 @@
+{
+  "provenance":"operator_observation",
+  "run_id":"instinct-reminder-change-cancel-20261002-01",
+  "channel":"macOS Messages / Instinct",
+  "exact_cancelled_body":"Paces instinct-reminder-change-cancel-20261002-01 — test reminder to cancel",
+  "original_due_at":"2026-10-02T17:13:19Z",
+  "revised_due_at":"2026-10-02T17:20:07Z",
+  "required_observation_through":"2026-10-02T17:22:07Z",
+  "observations":[
+    {"at":"2026-10-02T16:57:38.974Z","note":"Instinct cancellation acknowledgment and evidence archive visible. Separate native delete response identifies the exact benchmark job."},
+    {"at":"2026-10-02T17:13:37.914Z","note":"After original due: no matching cancelled-reminder delivery observed."},
+    {"at":"2026-10-02T17:18:59.958Z","note":"No matching cancelled-reminder delivery observed; separate research update had arrived."},
+    {"at":"2026-10-02T17:21:08.828Z","note":"After revised due: no matching cancelled-reminder delivery observed."},
+    {"at":"2026-10-02T17:22:20.498Z","note":"After required final deadline: no matching cancelled-reminder delivery observed."},
+    {"at":"2026-10-02T17:23:17.660Z","note":"Still no matching cancelled-reminder delivery observed."}
+  ],
+  "matching_cancelled_notifications_observed":0,
+  "observation_complete":true,
+  "observation_through":"2026-10-02T17:22:20.498Z",
+  "limitations":["Periodic native UI snapshots and transcript changes, not continuous backend delivery logs.","Assignment text, acknowledgments and report quotations are excluded from notification count.","Other individual tests and incidental unrelated traffic shared the conversation; unrelated contents omitted."]
+}
