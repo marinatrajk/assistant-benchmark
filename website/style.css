@@ -71,7 +71,7 @@ main { max-width: 1136px; margin: auto; padding: 62px 40px 74px; min-height: cal
 .segmented button[aria-pressed=true] { background: white; color: #37373b; box-shadow: 0 1px 4px #0000000a; }
 .segmented button:hover { color: var(--ink); }
 .agent-list { background: white; border: 1px solid #e5e5e8; border-radius: var(--radius); overflow: hidden; box-shadow: 0 3px 12px #00000002; }
-.list-head, .agent-row { display: grid; grid-template-columns: 24px 50px minmax(150px,1fr) 94px 244px 16px; column-gap: 18px; align-items: center; }
+.list-head, .agent-row { display: grid; grid-template-columns: 24px 50px minmax(150px,1fr) 80px 88px 210px 16px; column-gap: 18px; align-items: center; }
 .list-head { padding: 15px 25px; border-bottom: 1px solid var(--line); color: #73737b; font-size: 12px; font-weight: 450; }
 .list-head .assistant-label { grid-column: 3; }
 .align-right { text-align: right; }
@@ -248,7 +248,7 @@ footer a { margin-left: auto; color: #83838b; }
   .topbar-inner { padding: 0 30px; }
   main { padding-left: 30px; padding-right: 30px; }
   footer { margin-left: 30px; margin-right: 30px; }
-  .list-head, .agent-row { grid-template-columns: 20px 46px minmax(155px,1fr) 70px 218px 12px; column-gap: 14px; }
+  .list-head, .agent-row { grid-template-columns: 20px 46px minmax(140px,1fr) 64px 78px 165px 12px; column-gap: 14px; }
   .agent-icon { width: 46px; height: 46px; border-radius: 12px; }
   .list-head, .agent-row { padding-left: 22px; padding-right: 22px; }
   .outcome-tag { font-size: 12px; padding: 3px 6px; }
@@ -264,7 +264,7 @@ footer a { margin-left: auto; color: #83838b; }
   .intro > .pilot-meta { flex-direction: column; align-items: flex-end; gap: 8px; padding-top: 4px; }
   .chip { padding: 7px 10px; font-size: 12px; }
   .chip span { margin-left: 5px; }
-  .agent-row, .list-head { grid-template-columns: 20px 46px minmax(155px,1fr) 62px 140px 12px; column-gap: 12px; }
+  .agent-row, .list-head { grid-template-columns: 20px 46px minmax(120px,1fr) 54px 70px 112px 12px; column-gap: 12px; }
   .outcome { max-width: 140px; }
   .outcome-tag { font-size: 11px; }
   .agent-list.grid { gap: 10px; }
@@ -385,4 +385,18 @@ footer a { margin-left: auto; color: #83838b; }
   .profile-hero { margin-bottom: 20px; padding-bottom: 20px; }
   .task-summary { font-size: 12px; }
   .title-period, .bar, .badge, .legend { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Manual voice results remain separate from Everyday pilot scores. */
+.manual-result { text-align: right; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.manual-inline-label { display: none; }
+.manual-note { margin-top: 18px; color: var(--muted); font-size: 12px; }
+.manual-note a { text-decoration: underline; text-underline-offset: 3px; }
+.grid .manual-result { grid-column: 1 / -1; text-align: left; }
+.grid .manual-inline-label { display: inline; margin-right: 10px; color: var(--ink); }
+@media (max-width: 680px) {
+  .list-head .manual-heading { display: none; }
+  .manual-result { grid-column: 2 / -1; grid-row: 3; text-align: left; margin-top: 12px; font-size: 11px; }
+  .manual-inline-label { display: inline; margin-right: 8px; color: var(--ink); }
+  .grid .manual-result { grid-row: auto; margin-top: 0; }
 }

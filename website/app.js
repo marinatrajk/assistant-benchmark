@@ -53,7 +53,7 @@ function leaderboard() {
   const indices = groups[filter];
   const sorted = [...names].sort((a, b) => count(b, indices) - count(a, indices));
   return `<div class="agent-list ${layout}">
-    <div class="list-head" aria-hidden="true"><span class="assistant-label">Assistant</span><span class="align-right">Passed</span><span class="align-right">Other outcomes</span></div>
+    <div class="list-head" aria-hidden="true"><span class="assistant-label">Assistant</span><span class="align-right">Passed</span><span class="align-right manual-heading">Manual</span><span class="align-right">Other outcomes</span></div>
     ${sorted.map(name => {
       const passed = count(name, indices);
       const rank = sorted.findIndex(other => count(other, indices) === passed) + 1;
@@ -63,6 +63,7 @@ function leaderboard() {
         ${icon(name)}
         <div class="agent-info"><a class="agent-name agent-profile-link" href="#assistant/${info[name].id}" aria-label="Review ${name}: ${passed} of ${indices.length} supported outcomes">${name}</a><div class="bar" role="group" aria-label="${name} test outcomes">${indices.map(i => `<button class="task-dash ${data.tasks[i].results[name].status}" type="button" data-agent="${info[name].id}" data-task="${i}" aria-label="${esc(`${name} · ${data.tasks[i].name}: ${labels[data.tasks[i].results[name].status]}`)}"></button>`).join('')}</div></div>
         <div class="metric align-right">${score(passed, indices.length)}</div>
+        <div class="manual-result" aria-label="${name}: manual voice tests not tested"><span class="manual-inline-label">Manual</span><span>Not tested</span></div>
         <div class="outcome">${statusChips(name, indices)}</div>
         <span class="open-indicator">${glyph('chevron')}</span>
       </article>`;
@@ -77,6 +78,7 @@ function renderHome() {
     </div>
     <div id="leaderboard" aria-live="polite">${leaderboard()}</div>
     <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_evaluated">Not tested</span></div><span class="key-caption">Full passes / assigned tasks</span></div>
+    <p class="manual-note">Manual: <a href="https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode">Voice-mode tests</a> · Results coming after testing.</p>
     ${note()}`;
   content.querySelectorAll('[data-filter]').forEach(button => {
     button.onclick = () => {
