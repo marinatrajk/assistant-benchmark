@@ -19,7 +19,7 @@
   },
   "environment": {
     "os": "Linux",
-    "browser": null,
+    "browser": "box desktop Chromium (computerUse)",
     "execution_location": "cloud",
     "isolation_notes": [
       "Existing conversation; the product was selected in grokbot-purchase-research-20261002-01, and Amazon blocked browser access in grokbot-checkout-handoff-20261002-01."
@@ -43,20 +43,23 @@
     "scheduled-research"
   ],
   "started_at": "2026-10-02T11:05:20-04:00",
-  "updated_at": "2026-10-02T11:26:57-04:00",
+  "updated_at": "2026-10-02T11:33:28-04:00",
   "review_status": "reviewed",
   "deviations": [
     "Minute-granularity scheduler: due 11:21:00 (15 min 40 s after the time read).",
     "Metrics are not exported and are left null.",
-    "Internal routine run logs are not visible to the assistant. fresh-execution and accurate-update are left unverified because nothing ran or was reported."
+    "Routine fired late at ~11:32 ET (after the 11:21\u201311:26 delivery window).",
+    "Amazon blocked the box browser with the unauthorized AI agent Conditions of Use page; restriction recorded as the fresh result without bypass.",
+    "Late update sent at ~11:33:28 EDT (assistant clock, not platform receipt time). fresh-execution counts the blocked page as a fresh observation after due; accurate-update is left unverified because no price or stock was observable.",
+    "Operator replaced the approximate assistant clock delivered_at with the native app message timestamp 11:33:26 EDT; the original after-send time remains in the agent-exported addendum."
   ],
   "tasks": [
     {
       "task_id": "scheduled-research",
       "status": "failed",
-      "reason": "Missed deadline: no price-check update reached the chat between 11:21:00 and 11:26:00 EDT, and no fresh source observation was recorded. The internal run history is not visible to the assistant, so the cause is unknown.",
+      "reason": "Missed deadline. Native status reported a late start at 11:32:11 EDT; the fresh browser check encountered Amazon access restriction. The actual update appeared in the native chat at 11:33:26 EDT, 746 seconds after the 11:21 due time and outside the five-minute delivery window. The cause of the late start is unknown.",
       "execution_started": true,
-      "answer": "One-time price check scheduled for 2026-10-02T11:21:00-04:00.",
+      "answer": "ACCESS RESTRICTED: Amazon blocked the box browser at 11:32:52 EDT. Price, stock, variant and seller are N/A. Source: https://www.amazon.com/dp/B0DQVHMJNC.",
       "metrics": {
         "active_duration_ms": null,
         "elapsed_duration_ms": null,
@@ -65,8 +68,11 @@
         "output_tokens": null,
         "source": null
       },
-      "tools_used": [],
-      "disclosure_note": "Hidden settings are withheld.",
+      "tools_used": [
+        "computerUse/browser",
+        "UpdateRoutine"
+      ],
+      "disclosure_note": null,
       "checks": [
         {
           "id": "scheduled",
@@ -77,8 +83,12 @@
         },
         {
           "id": "fresh-execution",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "ev-fresh-shot",
+            "ev-fresh-notes",
+            "ev-late"
+          ]
         },
         {
           "id": "accurate-update",
@@ -90,7 +100,9 @@
           "status": "failed",
           "evidence_ids": [
             "ev-runtime",
-            "ev-operator"
+            "ev-operator",
+            "ev-late",
+            "ev-operator-late"
           ]
         }
       ],
@@ -120,14 +132,50 @@
           "excerpt": "no price-check update appeared; the last messages were the earlier screen-break late-delivery addendum.",
           "observed_at": "2026-10-02T15:26:25.281Z",
           "ref": "operator-observations.json"
+        },
+        {
+          "id": "ev-fresh-shot",
+          "kind": "screenshot",
+          "summary": "Amazon restriction page on B0DQVHMJNC at fresh check time",
+          "provenance": "agent_export",
+          "ref": "evidence/fresh-check.png",
+          "observed_at": "2026-10-02T11:32:52-04:00"
+        },
+        {
+          "id": "ev-fresh-notes",
+          "kind": "observation",
+          "summary": "Fresh read-only check recorded Amazon AI-agent restriction; no price/stock observed",
+          "provenance": "agent_export",
+          "ref": "evidence/fresh-check.md",
+          "excerpt": "ACCESS RESTRICTED at 2026-10-02T11:32:52-04:00; unauthorized AI agent Conditions of Use.",
+          "observed_at": "2026-10-02T11:32:52-04:00"
+        },
+        {
+          "id": "ev-late",
+          "kind": "trace",
+          "summary": "Late routine start, blocked fresh observation, self-deletion, and the single late update in this chat.",
+          "provenance": "agent_export",
+          "ref": "evidence/late-update-addendum.md",
+          "observed_at": "2026-10-02T11:33:28-04:00"
+        },
+        {
+          "id": "ev-operator-late",
+          "kind": "operator_attestation",
+          "summary": "Actual native chat delivery at 11:33:26 EDT; screenshot of the fresh restriction reviewed; final native routine list empty.",
+          "provenance": "operator",
+          "ref": "operator-late-delivery.json",
+          "observed_at": "2026-10-02T15:35:44.134084+00:00"
         }
       ],
       "capabilities": {
         "browser": {
-          "status": "not_applicable",
-          "mode": null,
-          "label": null,
-          "evidence_ids": []
+          "status": "observed",
+          "mode": "native",
+          "label": "box browser computerUse, read-only Amazon product page",
+          "evidence_ids": [
+            "ev-fresh-shot",
+            "ev-fresh-notes"
+          ]
         },
         "computer": {
           "status": "not_applicable",
@@ -166,8 +214,8 @@
         "created_at": "2026-10-02T11:05:30-04:00",
         "original_due_at": "2026-10-02T11:21:00-04:00",
         "due_at": "2026-10-02T11:21:00-04:00",
-        "source_observed_at": null,
-        "delivered_at": null,
+        "source_observed_at": "2026-10-02T11:32:52-04:00",
+        "delivered_at": "2026-10-02T11:33:26-04:00",
         "cancelled_at": null,
         "observation_through": "2026-10-02T11:26:00-04:00",
         "timezone": "America/New_York",
@@ -176,12 +224,16 @@
         "evidence_ids": [
           "ev-create",
           "ev-runtime",
-          "ev-operator"
+          "ev-operator",
+          "ev-fresh-shot",
+          "ev-fresh-notes",
+          "ev-late",
+          "ev-operator-late"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex-assisted operator review",
-  "review_notes": "Original-chat UI observations during the window and after its end showed no research update. Native routine details were separately inspected before due; target and schedule matched. Agent-exported post-deadline transcript and file inspection found no execution evidence. Missed delivery is supported; source/accuracy checks remain unverified. Internal cause is unknown. No manual replacement check or retry was sent."
+  "review_notes": "Preserved original missed-deadline evidence and added the actual late execution. Operator observed the real update in the original chat with native app timestamp 11:33:26 EDT, 746 seconds after due; this replaces the assistant-side after-send clock 11:33:28 in delivered_at. Exported source screenshot visually confirms Amazon access restriction. Fresh-execution passes for a new after-due source observation; accurate-update remains unverified because price, stock and variant were inaccessible. Screenshot time is agent-reported: file mtime 11:32:44 and after-capture clock 11:32:52. The internal reason for the late start is unknown. Native app displayed the routine deletion and final conversation-details list had no routines."
 }

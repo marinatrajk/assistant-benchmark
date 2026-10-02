@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:28:36.519066+00:00",
+  "updated_at": "2026-10-02T15:35:44.135113+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -13,9 +13,9 @@
     "Muse"
   ],
   "methodology": [
-    "Each of the 11 tasks has its own versioned skill, inputs, limits, evidence checklist, and report. Tasks are assigned one at a time using each assistant\u2019s own existing tools.",
+    "Each of the 11 tasks has its own versioned skill, inputs, limits, evidence checklist, and report. Tasks are assigned one at a time using each assistant’s own existing tools.",
     "The score counts reviewed full passes out of the 11 tasks in the catalog. Not-started and unreviewed tasks are not failures; review coverage is shown alongside the score.",
-    "An assistant\u2019s self-score is a claim to inspect. Codex assists the operator in checking actual artifacts, browser observations, action records, and delivery evidence against the published criteria.",
+    "An assistant’s self-score is a claim to inspect. Codex assists the operator in checking actual artifacts, browser observations, action records, and delivery evidence against the published criteria.",
     "Dots and GrokBot were evaluated in existing conversations containing earlier benchmark context. Browser profile reset was not verified. These conditions limit comparability.",
     "Browser research, memory update, and Calculator require a relevant native workflow skill in addition to the benchmark assignment. Reading the assignment as a document does not satisfy that check.",
     "Reminder and cancellation checks need observed delivery or absence through the required windows. Passing the deadline alone does not establish success.",
@@ -343,7 +343,7 @@
           "sources": []
         }
       },
-      "criterion": "Load a relevant native desktop skill, enter 137 \u00d7 29 in the operating system\u2019s Calculator, observe its display, and report the displayed result.",
+      "criterion": "Load a relevant native desktop skill, enter 137 × 29 in the operating system’s Calculator, observe its display, and report the displayed result.",
       "category": "Computer"
     },
     {
@@ -526,7 +526,7 @@
           "status": "failed",
           "review_status": "reviewed",
           "run_id": "grokbot-reminder-delivery-20261002-01",
-          "summary": "Reminder arrived at 11:18:54 a.m. EDT, 8 minutes 54 seconds late\u2014outside the two-minute tolerance.",
+          "summary": "Reminder arrived at 11:18:54 a.m. EDT, 8 minutes 54 seconds late—outside the two-minute tolerance.",
           "details": [
             "Native creation set the reminder for 11:10. No notification appeared by the 11:12 deadline.",
             "The exact message later arrived through the routine; its native app timestamp was 11:18:54. Grok reported that the routine deleted itself.",
@@ -605,22 +605,28 @@
           ]
         },
         "GrokBot": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "grokbot-reminder-change-cancel-20261002-01",
-          "summary": "Created for 11:21, changed to 11:27 and cancelled; absence checks close at 11:29 a.m. EDT.",
+          "summary": "Created, changed and cancelled the same reminder; no delivery through both due times and the full grace period.",
           "details": [
-            "Separate create, change and cancel turns are recorded. Exported next-turn scheduler snapshots confirm the revised due time and subsequent deletion.",
-            "The screen-break routine was preserved. Absence through both due times is still being observed."
+            "Separate create, change and cancel turns retained the same native job identifier. Original due time 11:21 a.m.; revised due time 11:27 a.m. EDT.",
+            "Cancelled at about 11:03:16 a.m. and verified absent in subsequent listings. Other routines were preserved.",
+            "Operator inspected the original chat after both due times and at 11:29:16 a.m. EDT, after the full two-minute grace period. No matching delivery appeared.",
+            "Final native listing and agent-exported unified-history review corroborate absence. Internal scheduler logs and device push presentation were unavailable."
           ],
           "sources": [
             [
-              "Provisional report",
-              "evidence/standalone-20261002/grokbot/reminder-change-cancel/provisional-report.json"
+              "Reviewed final report",
+              "evidence/standalone-20261002/grokbot/reminder-change-cancel/reviewed-report.json"
             ],
             [
-              "Post-cancel listing evidence",
-              "evidence/standalone-20261002/grokbot/reminder-change-cancel/evidence/4-cancel-verification.md"
+              "Operator absence observations",
+              "evidence/standalone-20261002/grokbot/reminder-change-cancel/operator-observations.json"
+            ],
+            [
+              "Completed-window evidence",
+              "evidence/standalone-20261002/grokbot/reminder-change-cancel/evidence/5-absence-window.md"
             ]
           ]
         },
@@ -655,7 +661,7 @@
           "status": "partial",
           "review_status": "reviewed",
           "run_id": "dots-scheduled-research-20261002-01",
-          "summary": "Fresh price/stock check and timely update verified; the notification\u2019s approximate check time leaves accuracy unverified.",
+          "summary": "Fresh price/stock check and timely update verified; the notification’s approximate check time leaves accuracy unverified.",
           "details": [
             "Scheduled for 9:45:33 a.m. EDT. The new source capture at 9:47:09.179 a.m. EDT shows the exact Black Anker variant at USD 29.99, In Stock.",
             "The update arrived at 9:47:09.768 a.m. EDT, 96.768 seconds after due and within the five-minute limit.",
@@ -681,12 +687,13 @@
           "status": "failed",
           "review_status": "reviewed",
           "run_id": "grokbot-scheduled-research-20261002-01",
-          "summary": "No scheduled product update arrived in the 11:21\u201311:26 a.m. EDT delivery window.",
+          "summary": "Research update arrived 12m 26s late; the fresh browser check encountered Amazon access restriction.",
           "details": [
-            "Native routine details matched the selected Belkin URL and white WCH017dq variant.",
-            "Operator UI observations and the agent-exported transcript check found no update by the deadline. No fresh source artifact was available.",
-            "Source freshness and accuracy remain unverified. No earlier price was passed off as a fresh check.",
-            "No operator task was sent during this window. Internal scheduler run/error logs were unavailable, so the cause is unknown."
+            "Scheduled for 11:21 a.m. EDT with a delivery deadline of 11:26 a.m. No update arrived in that window.",
+            "Native status reported a start at 11:32:11 a.m.; the fresh check showed Amazon access restriction, with no price, stock, variant or seller visible.",
+            "The actual update arrived at 11:33:26 a.m. EDT, 746 seconds after due. It reported the restriction, target URL and check time; the earlier price was not reused.",
+            "Fresh-execution passes; accurate-update remains unverified; delivered fails its timing requirement. The routine self-deleted, and the final native routine list was empty.",
+            "No operator task was sent during the required delivery window. The internal cause of the late start is unknown."
           ],
           "sources": [
             [
@@ -694,12 +701,16 @@
               "evidence/standalone-20261002/grokbot/scheduled-research/reviewed-report.json"
             ],
             [
-              "Operator observations",
-              "evidence/standalone-20261002/grokbot/scheduled-research/operator-observations.json"
+              "Actual late delivery review",
+              "evidence/standalone-20261002/grokbot/scheduled-research/operator-late-delivery.json"
             ],
             [
-              "Runtime/history evidence",
-              "evidence/standalone-20261002/grokbot/scheduled-research/evidence/runtime-history.md"
+              "Fresh restriction screenshot",
+              "evidence/standalone-20261002/grokbot/scheduled-research/evidence/fresh-check.png"
+            ],
+            [
+              "Original deadline observations",
+              "evidence/standalone-20261002/grokbot/scheduled-research/operator-observations.json"
             ]
           ]
         },

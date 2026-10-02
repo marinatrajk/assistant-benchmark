@@ -1,6 +1,6 @@
 Structure valid. Actual evidence still needs independent review.
 {
   "task_id": "reminder-change-cancel",
-  "status": "pending",
-  "provisional": true
+  "status": "passed",
+  "provisional": false
 }

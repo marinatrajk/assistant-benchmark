@@ -1,0 +1,225 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-change-cancel",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-change-cancel"
+  },
+  "run_id": "grokbot-reminder-change-cancel-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation; the Oct 1 pilot ran this same scenario here."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces grokbot-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "cancel_original_delay_minutes": 20,
+    "cancel_revised_delay_minutes": 25,
+    "cancel_observation_grace_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-change-cancel"
+  ],
+  "started_at": "2026-10-02T11:01:15-04:00",
+  "updated_at": "2026-10-02T11:32:38-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Minute-granularity scheduler: the original due is 11:21:00, 15 s short of exactly 20 min.",
+    "Metrics are not exported and are left null.",
+    "Revised due rounded to 11:27:00 (25 min 2 s after the 11:01:58 time read) because the scheduler only takes whole minutes.",
+    "Internal scheduler run logs are not visible. The absence evidence is the current listing, the unified transcript and the operator observation."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-change-cancel",
+      "status": "passed",
+      "reason": "Created, updated in place, cancelled before both due times. Absence was confirmed in the listing, and no notification arrived through 11:29:00 EDT according to the transcript and operator observation.",
+      "execution_started": true,
+      "answer": "The same test reminder was created for 11:21 EDT, updated to 11:27 EDT, then cancelled at approximately 11:03:16 EDT. No matching notification appeared through the full observation window ending at 11:29 EDT.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Hidden settings are withheld.",
+      "checks": [
+        {
+          "id": "created",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-change",
+            "ev-cancel"
+          ]
+        },
+        {
+          "id": "cancelled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-cancel",
+            "ev-verify",
+            "ev-window"
+          ]
+        },
+        {
+          "id": "no-late-delivery",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-window",
+            "ev-operator"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-create",
+          "kind": "trace",
+          "summary": "Native scheduler creation result, original due 11:21 AM ET",
+          "provenance": "agent_export",
+          "ref": "evidence/1-create.md",
+          "excerpt": "(folder paces-test-reminder-to-cancel-grokbot-reminder-c): Once October 2 at 11:21 AM.",
+          "observed_at": "2026-10-02T11:01:22-04:00"
+        },
+        {
+          "id": "ev-change",
+          "kind": "trace",
+          "summary": "Native in-place update of the same job to 11:27 AM ET",
+          "provenance": "agent_export",
+          "ref": "evidence/2-change.md",
+          "excerpt": "Updated routine ... (folder paces-test-reminder-to-cancel-grokbot-reminder-c): Once October 2 at 11:27 AM.",
+          "observed_at": "2026-10-02T11:02:05-04:00"
+        },
+        {
+          "id": "ev-cancel",
+          "kind": "trace",
+          "summary": "Fresh pre-cancel listing (one job at 11:27, none at 11:21) and native delete result",
+          "provenance": "agent_export",
+          "ref": "evidence/3-cancel.md",
+          "excerpt": "Deleted routine \"Paces test reminder to cancel (grokbot-reminder-change-cancel-20261002-01)\" (folder paces-test-reminder-to-cancel-grokbot-reminder-c).",
+          "observed_at": "2026-10-02T11:03:16-04:00"
+        },
+        {
+          "id": "ev-verify",
+          "kind": "observation",
+          "summary": "Post-cancel platform routine listing: test reminder absent, screen-break reminder still enabled",
+          "provenance": "agent_export",
+          "ref": "evidence/4-cancel-verification.md",
+          "excerpt": "Only routine: Paces screen-break reminder (...grokbot-reminder-del): never run; test reminder line removed.",
+          "observed_at": "2026-10-02T11:04:00-04:00"
+        },
+        {
+          "id": "ev-window",
+          "kind": "trace",
+          "summary": "Post-window listing shows the test job absent. The unified transcript shows no wake or delivery of the test text through 11:32.",
+          "provenance": "agent_export",
+          "ref": "evidence/5-absence-window.md",
+          "observed_at": "2026-10-02T11:32:38-04:00"
+        },
+        {
+          "id": "ev-operator",
+          "kind": "operator_attestation",
+          "summary": "Operator inspected the original chat through 11:21 and 11:27 and after 11:29. No cancellation-test notification appeared.",
+          "provenance": "operator",
+          "excerpt": "no actual cancellation-test notification appeared",
+          "observed_at": "2026-10-02T15:29:16.495Z",
+          "ref": "operator-observations.json"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": "2026-10-02T11:01:20-04:00",
+        "original_due_at": "2026-10-02T11:21:00-04:00",
+        "due_at": "2026-10-02T11:27:00-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": "2026-10-02T11:03:16-04:00",
+        "observation_through": "2026-10-02T11:29:00-04:00",
+        "timezone": "America/New_York",
+        "job_id": "paces-test-reminder-to-cancel-grokbot-reminder-c",
+        "observation_complete": true,
+        "evidence_ids": [
+          "ev-create",
+          "ev-change",
+          "ev-cancel",
+          "ev-verify",
+          "ev-window",
+          "ev-operator"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Separate create, update and cancel turns and exported native scheduler results support the same job identity. Operator observed the native routine list with the cancelled job absent, and original-chat transcript through both due times and after the 11:29 grace deadline without a matching notification. Agent-exported final listing/history corroborates absence. Internal scheduler logs and device push presentation were not available. Corrected the final report's stale pending answer and relabelled the agent-exported platform-list excerpt with its actual export provenance. The claim of no job at 11:21/11:27 is interpreted as no matching cancelled reminder; the separate research routine had a nominal 11:21 schedule."
+}

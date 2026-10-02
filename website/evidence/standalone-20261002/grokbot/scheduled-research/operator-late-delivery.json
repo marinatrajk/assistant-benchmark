@@ -1,0 +1,16 @@
+{
+  "run_id": "grokbot-scheduled-research-20261002-01",
+  "provenance": "operator",
+  "due_at": "2026-10-02T11:21:00-04:00",
+  "deadline_at": "2026-10-02T11:26:00-04:00",
+  "native_app_message_timestamp": "2026-10-02T11:33:26-04:00",
+  "lateness_after_due_seconds": 746,
+  "lateness_after_deadline_seconds": 446,
+  "notification_summary": "Actual scheduled update reported Amazon access restriction, price/stock/variant/seller unavailable, the correct target URL and a check time of 11:32:52 EDT.",
+  "source_url": "https://www.amazon.com/dp/B0DQVHMJNC",
+  "source_review": "Visually inspected the exported fresh-check.png; it shows Amazon access restriction and no product data. The capture itself has no visible time or URL; source/time are supported by the agent-exported execution notes.",
+  "time_limitations": "Agent reports screenshot file mtime 11:32:44, with box clock 11:32:52. The actual chat receipt is 11:33:26, distinct from its after-send box clock 11:33:28.",
+  "cleanup": "Native app showed Deleted routine for this research job. Subsequent conversation-details panel showed the empty Routines explanation and no scheduled jobs.",
+  "result": "failed",
+  "reason": "Update arrived outside the required delivery window; no product data was available."
+}

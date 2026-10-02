@@ -1,0 +1,36 @@
+{
+  "run_id": "grokbot-reminder-change-cancel-20261002-01",
+  "provenance": "operator",
+  "observation_method": "Native macOS Grok Bot accessibility transcript and conversation-details routine list, inspected through UI. Times below are UTC. Private raw UI log retained locally; only task-scoped summaries published.",
+  "original_due_at": "2026-10-02T11:21:00-04:00",
+  "revised_due_at": "2026-10-02T11:27:00-04:00",
+  "required_observation_through": "2026-10-02T11:29:00-04:00",
+  "observations": [
+    {
+      "observed_at": "2026-10-02T15:09:16.680Z",
+      "observation": "Native conversation-details list contained only screen-break and scheduled-research routines; cancelled reminder absent."
+    },
+    {
+      "observed_at": "2026-10-02T15:21:23.086Z",
+      "observation": "Original chat after original due time: no cancellation-test notification."
+    },
+    {
+      "observed_at": "2026-10-02T15:27:37.245Z",
+      "observation": "Original chat after revised due time: research diagnostic report, no cancellation-test notification."
+    },
+    {
+      "observed_at": "2026-10-02T15:29:16.495Z",
+      "observation": "Original chat unchanged after full grace period: no cancellation-test notification."
+    },
+    {
+      "observed_at": "2026-10-02T15:33:12.162Z",
+      "observation": "Final agent-exported listing and unified-history review corroborate cancelled reminder absent and no matching delivery."
+    }
+  ],
+  "result": "passed",
+  "limitations": [
+    "Periodic UI observations plus persistent transcript, not continuous device-notification recording.",
+    "Final native listing/history evidence is an agent export, not independently accessible internal scheduler logs.",
+    "Quoted reminder text and earlier acknowledgments were not counted as deliveries."
+  ]
+}
