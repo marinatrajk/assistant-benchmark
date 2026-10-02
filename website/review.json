@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:53:49.441428+00:00",
+  "updated_at": "2026-10-02T17:02:55.635095+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -743,14 +743,20 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "instinct-reminder-change-cancel-20261002-01",
-          "summary": "Create-only phase assigned for the separate cancellation reminder; waiting for native creation evidence.",
+          "summary": "Same reminder updated and cancelled; absence check ends at 1:22:07 p.m. EDT.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Create, change and cancel done with evidence. The absence-observation window through 13:22:07 EDT (19:22:07 CEST, 17:22:07Z) has not elapsed, so no-late-delivery is unverified.",
+            "Native scheduler evidence received and inspected; timing checks remain open."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/instinct/reminder-change-cancel/pending-report.json"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -829,12 +835,20 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "pending",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
-          "sources": []
+          "run_id": "instinct-scheduled-research-20261002-01",
+          "summary": "Fresh Monoprice price/stock check scheduled for 1:13:48 p.m. EDT; delivery deadline 1:18:48.",
+          "details": [
+            "One-time native job scheduled; due time and delivery window have not yet elapsed.",
+            "Native scheduler evidence received and inspected; timing checks remain open."
+          ],
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/instinct/scheduled-research/pending-report.json"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",

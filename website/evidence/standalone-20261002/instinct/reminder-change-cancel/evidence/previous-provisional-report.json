@@ -1,0 +1,201 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-change-cancel",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-change-cancel"
+  },
+  "run_id": "instinct-reminder-change-cancel-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "reminder_text": "Paces instinct-reminder-change-cancel-20261002-01 — test reminder to cancel"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "cancel_original_delay_minutes": 20,
+    "cancel_revised_delay_minutes": 25,
+    "cancel_observation_grace_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-change-cancel"
+  ],
+  "started_at": "2026-10-02T18:53:19+02:00",
+  "updated_at": "2026-10-02T18:56:00+02:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Package was downloaded, SHA-256 verified (ab5f39b1...616e matched) and read after reminder creation, not before; the creation turn preceded package reading. Original creation evidence is preserved unchanged.",
+    "Change turn performed by the parent agent via native scheduler update; this report was assembled afterwards from its evidence.",
+    "Cancel phase not yet assigned or performed; no simulated user turns.",
+    "Tool-call and token counts not measurable."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-change-cancel",
+      "status": "pending",
+      "reason": "Create and change phases done with evidence. Cancel turn not yet received from the user, and the observation window through max(original, revised due)+120s is incomplete.",
+      "execution_started": true,
+      "answer": "Reminder created (due 13:13:19 EDT), then changed via native update to 13:20:07 EDT; listing after change shows exactly one matching job at the revised time and none at the original. Cancellation and no-late-delivery are pending.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Not measurable; counts and timings unavailable"
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool identifiers withheld. Native scheduler used; actions evidenced by sanitized job exports.",
+      "checks": [
+        {
+          "id": "created",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-create",
+            "ev-list-create",
+            "ev-orig-compact"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-update",
+            "ev-list-update"
+          ]
+        },
+        {
+          "id": "cancelled",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "no-late-delivery",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-create",
+          "kind": "artifact",
+          "summary": "Native create response: job id, next_fire_at 2026-10-02T17:13:19Z (19:13:19 CEST, 13:13:19 EDT), created 18:53:19+02:00.",
+          "provenance": "agent_export",
+          "ref": "evidence/creation-evidence.json",
+          "observed_at": "2026-10-02T18:53:19+02:00"
+        },
+        {
+          "id": "ev-list-create",
+          "kind": "artifact",
+          "summary": "Job listing at creation: this job plus the screen-break reminder, nothing else.",
+          "provenance": "agent_export",
+          "ref": "evidence/job-listing-at-creation.json",
+          "observed_at": "2026-10-02T18:53:32+02:00"
+        },
+        {
+          "id": "ev-update",
+          "kind": "artifact",
+          "summary": "Native update response: same job id, next_fire_at 2026-10-02T17:20:07Z (13:20:07 EDT); prompt text unchanged.",
+          "provenance": "agent_export",
+          "ref": "evidence/native-update-evidence.json",
+          "observed_at": "2026-10-02T18:55:07+02:00"
+        },
+        {
+          "id": "ev-list-update",
+          "kind": "artifact",
+          "summary": "Job listing after change: exactly one matching job at 17:20:07Z, none at 17:13:19Z; screen-break job untouched at 17:01:56Z.",
+          "provenance": "agent_export",
+          "ref": "evidence/job-listing-after-change.json",
+          "observed_at": "2026-10-02T18:55:07+02:00"
+        },
+        {
+          "id": "ev-orig-compact",
+          "kind": "artifact",
+          "summary": "Original provisional compact creation report, preserved unchanged (said package not yet read).",
+          "provenance": "agent_export",
+          "ref": "evidence/original-provisional-compact.json",
+          "observed_at": "2026-10-02T18:53:32+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-create",
+            "ev-update"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "Wait for the user's separate cancel turn; cancel the exact job, verify absence by scheduler listing, and observe the Messages channel through 2026-10-02T19:22:07+02:00 (17:22:07Z) for any delivery, then update this report.",
+        "deadline_at": "2026-10-02T19:22:07+02:00",
+        "observer": "operator/Messages"
+      },
+      "schedule": {
+        "created_at": "2026-10-02T18:53:19+02:00",
+        "original_due_at": "2026-10-02T13:13:19-04:00",
+        "due_at": "2026-10-02T13:20:07-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": null,
+        "timezone": "America/New_York",
+        "job_id": "wakeschedule-01M3YRHP61RG8NJ551ADEX4MAE",
+        "observation_complete": false,
+        "evidence_ids": [
+          "ev-create",
+          "ev-update",
+          "ev-list-update"
+        ]
+      },
+      "memory": null
+    }
+  ]
+}

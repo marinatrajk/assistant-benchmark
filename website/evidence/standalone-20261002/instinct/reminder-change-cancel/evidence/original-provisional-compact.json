@@ -1,0 +1,19 @@
+{
+ "run_id":"instinct-reminder-change-cancel-20261002-01",
+ "operator_label":"Instinct",
+ "task":"reminder-change-cancel",
+ "status":"pending",
+ "phase":"create_only",
+ "review_status":"unreviewed",
+ "created_at":"2026-10-02T18:53:19+02:00",
+ "created_at_utc":"2026-10-02T16:53:19Z",
+ "original_due_local":"2026-10-02T19:13:19+02:00",
+ "original_due_utc":"2026-10-02T17:13:19Z",
+ "original_due_america_new_york":"2026-10-02T13:13:19-04:00",
+ "native_job_identifier":"wakeschedule-01M3YRHP61RG8NJ551ADEX4MAE",
+ "stored_text":"Paces instinct-reminder-change-cancel-20261002-01 — test reminder to cancel",
+ "change_phase":{"performed":false},
+ "cancel_phase":{"performed":false},
+ "package_verification":{"sha256_checked":false,"note":"Package not yet downloaded/read in this provisional report."},
+ "metrics":{"tool_calls":null,"tokens":null}
+}
