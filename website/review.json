@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:52:43.432246+00:00",
+  "updated_at": "2026-10-02T13:58:46.532120+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -448,19 +448,27 @@
       "package_sha256": "ab5f39b1b4dbbab65d10845901b3768dd165328b4f8a92fb8252b35e5680616e",
       "results": {
         "ChatGPT Dots": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "dots-reminder-change-cancel-20261002-01",
-          "summary": "Updated and cancelled; no-late-delivery observation ends at 9:54:47 a.m. EDT.",
+          "summary": "Created, changed and cancelled the same reminder; no notification through both due times and the full grace period.",
           "details": [
-            "Original due time: 9:46:20 a.m. EDT. Revised due time: 9:52:47 a.m. EDT.",
-            "Separate create, change and cancel turns were acknowledged. Cancellation was confirmed inactive by a subsequent scheduler inspection.",
-            "Absence of a reminder at both due times still needs observation; cancellation acknowledgment alone is not a pass."
+            "Original due time 9:46:20 a.m. EDT; revised due time 9:52:47 a.m. EDT. Separate update/cancel requests and subsequent scheduler inspections verified.",
+            "Complete scoped chat-history search covers creation through 9:54:47 a.m. EDT. Zero matching messages, no remaining pagination and no partial result.",
+            "Final scheduler inspection at 9:55:49 a.m. EDT confirms the same job inactive with no execution. Device push presentation was not observed."
           ],
           "sources": [
             [
-              "Provisional report",
+              "Reviewed final report",
               "evidence/standalone-20261002/dots/reminder-change-cancel/reviewed-report.json"
+            ],
+            [
+              "Complete absence observation",
+              "evidence/standalone-20261002/dots/reminder-change-cancel/evidence/final-channel-observation.json"
+            ],
+            [
+              "Final scheduler inspection",
+              "evidence/standalone-20261002/dots/reminder-change-cancel/evidence/final-scheduler-observation.json"
             ]
           ]
         },

@@ -27,7 +27,7 @@
     ]
   },
   "task_inputs": {
-    "reminder_text": "Paces dots-reminder-change-cancel-20261002-01 — test reminder to cancel"
+    "reminder_text": "Paces dots-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel"
   },
   "run_config": {
     "active_timeout_seconds_per_task": 600,
@@ -44,23 +44,23 @@
     "reminder-change-cancel"
   ],
   "started_at": "2026-10-02T13:26:10+00:00",
-  "updated_at": "2026-10-02T13:30:35.773510+00:00",
+  "updated_at": "2026-10-02T13:57:23.328733+00:00",
   "review_status": "reviewed",
   "deviations": [
-    "Provisional phase 3 report: creation, separately requested update, and separately requested cancellation are observed. The no-late-delivery observation window is incomplete.",
     "All metric values are null because complete task timing, tool counts and token usage were not available to the report preparer. Setup, report writing and user/event waiting are excluded from active-time accounting; waiting belongs in elapsed time. Budget enforcement is unverified.",
     "The scheduler creation receipt exposes updated_at, not a separate created_at. The initial receipt timestamp is retained as the creation confirmation time.",
     "The pre-creation clock was 13:26:10 UTC; the native relative 20-minute schedule resolved to 13:46:20 UTC at creation, about 10 seconds after that clock reading.",
     "Private scheduler and conversation identifiers are redacted from this export.",
-    "The update request arrived at 13:27:33 UTC, the pre-update clock was 13:27:36 UTC, and native relative scheduling resolved 25 minutes from update execution to 13:52:47 UTC. The resulting due time is 14 seconds later than request-arrival time plus 25 minutes."
+    "The update request arrived at 13:27:33 UTC, the pre-update clock was 13:27:36 UTC, and native relative scheduling resolved 25 minutes from update execution to 13:52:47 UTC. The resulting due time is 14 seconds later than request-arrival time plus 25 minutes.",
+    "No-late-delivery is verified within the requested existing ChatGPT room, using a complete non-partial search for the unique run marker through the deadline. Device-level push receipt or absence was not observed."
   ],
   "tasks": [
     {
       "task_id": "reminder-change-cancel",
-      "status": "pending",
-      "reason": "The separately requested cancellation is confirmed by a subsequent scheduler inspection showing the same benchmark job inactive. A full pass requires complete platform/operator evidence of no delivery at both due times through 2026-10-02T13:54:47+00:00.",
+      "status": "passed",
+      "reason": "All four checks are supported: the reminder was created, updated on the same job with exactly one matching enabled reminder, cancelled and verified inactive, and no matching reminder delivery appeared in the requested ChatGPT room through both due times plus the 120-second grace period.",
       "execution_started": true,
-      "answer": "Cancelled at 9:28:57 am EDT and confirmed inactive in a fresh scheduler inspection. The report stays Pending until 9:54:47 am EDT, when the no-late-delivery window ends",
+      "answer": "The same reminder was created, rescheduled and cancelled on separate operator turns. Complete scoped chat history through 9:54:47 a.m. EDT shows no delivery at either due time or during the grace period. The final scheduler inspection confirms the job remains inactive.",
       "metrics": {
         "active_duration_ms": null,
         "elapsed_duration_ms": null,
@@ -73,9 +73,9 @@
         "automations.create_for_aeon",
         "automations.update",
         "automations.list",
-        "user_message.send_message"
+        "user_message.search_messages"
       ],
-      "disclosure_note": "Native tool calls verified in the coordinating thread. Only this synthetic job is included in public evidence; no full unrelated-job inventory is published.",
+      "disclosure_note": "Exact native tool names were supplied by the parent. Evidence is sanitized to the benchmark reminder; private IDs and unrelated scheduler entries are omitted. Native scheduling is observed; no separate native workflow-skill load is claimed. No-late-delivery covers the requested ChatGPT room, not device push visibility.",
       "checks": [
         {
           "id": "created",
@@ -105,8 +105,11 @@
         },
         {
           "id": "no-late-delivery",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "final-channel-observation",
+            "final-scheduler-observation"
+          ]
         }
       ],
       "evidence": [
@@ -125,7 +128,7 @@
           "summary": "Parent-provided creation acknowledgment sent to the existing user conversation; explicitly awaits the separate change turn.",
           "provenance": "agent_export",
           "ref": "evidence/phase1-safe-evidence.json",
-          "excerpt": "The cancellation-test reminder is due October 2 at 9:46:20 am EDT (America/New_York, UTC−04:00). Creation was confirmed at 9:26:20.580141 am EDT. It’s ready for your separate change message; the screen-break reminder is unchanged.",
+          "excerpt": "The cancellation-test reminder is due October 2 at 9:46:20 am EDT (America/New_York, UTC\u221204:00). Creation was confirmed at 9:26:20.580141 am EDT. It\u2019s ready for your separate change message; the screen-break reminder is unchanged.",
           "observed_at": "2026-10-02T13:26:28.021391+00:00"
         },
         {
@@ -152,7 +155,7 @@
           "summary": "Parent-provided update acknowledgment awaits the separate cancel message.",
           "provenance": "agent_export",
           "ref": "evidence/phase2-safe-evidence.json",
-          "excerpt": "Updated to October 2 at 9:52:47 am EDT (America/New_York, UTC−04:00). Verified exactly one active matching reminder; its original 9:46:20 am time is no longer active. Ready for your separate cancel message",
+          "excerpt": "Updated to October 2 at 9:52:47 am EDT (America/New_York, UTC\u221204:00). Verified exactly one active matching reminder; its original 9:46:20 am time is no longer active. Ready for your separate cancel message",
           "observed_at": "2026-10-02T13:28:04.474339+00:00"
         },
         {
@@ -181,6 +184,22 @@
           "ref": "evidence/phase3-safe-evidence.json",
           "excerpt": "Cancelled at 9:28:57 am EDT and confirmed inactive in a fresh scheduler inspection. The report stays Pending until 9:54:47 am EDT, when the no-late-delivery window ends",
           "observed_at": "2026-10-02T13:29:07.243705+00:00"
+        },
+        {
+          "id": "final-channel-observation",
+          "kind": "observation",
+          "summary": "Complete platform search of dot-authored messages containing the unique run marker in the requested ChatGPT room returned zero messages across the whole observation window.",
+          "provenance": "platform",
+          "ref": "evidence/final-channel-observation.json",
+          "observed_at": "2026-10-02T13:55:19+00:00"
+        },
+        {
+          "id": "final-scheduler-observation",
+          "kind": "observation",
+          "summary": "After the deadline, the original job remains inactive with null last_run_time and the revised due time unchanged.",
+          "provenance": "platform",
+          "ref": "evidence/final-scheduler-observation.json",
+          "observed_at": "2026-10-02T13:55:49+00:00"
         }
       ],
       "capabilities": {
@@ -218,22 +237,22 @@
         }
       },
       "follow_up": {
-        "required": true,
-        "next_action": "Collect complete platform/operator observation evidence that no benchmark reminder notification arrives at either the original 13:46:20 UTC or revised 13:52:47 UTC due time, continuing through 13:54:47 UTC on October 2, 2026. Update this same report after the window completes; keep no-late-delivery unverified without complete evidence.",
+        "required": false,
+        "next_action": null,
         "deadline_at": "2026-10-02T13:54:47+00:00",
-        "observer": "Parent assistant and operator/platform evidence in the existing user conversation"
+        "observer": "Complete platform message search in the requested ChatGPT room, plus native scheduler inspection"
       },
       "schedule": {
         "created_at": "2026-10-02T13:26:20.580141+00:00",
         "original_due_at": "2026-10-02T09:46:20-04:00",
         "due_at": "2026-10-02T09:52:47-04:00",
-        "source_observed_at": "2026-10-02T13:28:58+00:00",
+        "source_observed_at": "2026-10-02T13:55:49+00:00",
         "delivered_at": null,
         "cancelled_at": "2026-10-02T13:28:57.164662+00:00",
-        "observation_through": null,
+        "observation_through": "2026-10-02T13:54:47+00:00",
         "timezone": "America/New_York",
         "job_id": null,
-        "observation_complete": false,
+        "observation_complete": true,
         "evidence_ids": [
           "creation-receipt",
           "creation-ack",
@@ -242,12 +261,14 @@
           "update-ack",
           "cancel-receipt",
           "cancel-list",
-          "cancel-ack"
+          "cancel-ack",
+          "final-channel-observation",
+          "final-scheduler-observation"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex operator-assisted evidence review",
-  "review_notes": "Reviewed separate operator turns, native create/update/list calls and safe receipts for the same reminder. Creation, reschedule uniqueness and subsequent inactive-state inspection are supported. Complete no-late-delivery observation remains outstanding."
+  "review_notes": "Reviewed all three separate operator turns and native mutation/list calls, then verified the complete nonpartial message-history search spanning creation through both due times plus grace. Zero matching notifications, no remaining cursor, and the same job inactive with no run. Public answer is the final reviewer summary; the original cancellation acknowledgment remains in phase 3 evidence. Device push visibility is outside observed scope."
 }

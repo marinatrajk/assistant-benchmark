@@ -1,0 +1,29 @@
+{
+  "run_id": "dots-reminder-change-cancel-20261002-01",
+  "observed_at": "2026-10-02T13:55:49+00:00",
+  "matching_entries": [
+    {
+      "id": null,
+      "team_id": null,
+      "title": "Paces cancellation test",
+      "prompt": "Send exactly one message only to me in this existing ChatGPT conversation with exactly this text: Paces dots-reminder-change-cancel-20261002-01 \u2014 test reminder to cancel\nRecord actual send timestamp and receipt for benchmark evidence. Do not change any other jobs.",
+      "schedule": "BEGIN:VEVENT\nDTSTART:20261002T135247Z\nEND:VEVENT",
+      "timing_mode": "exact_schedule",
+      "display_schedule": null,
+      "is_enabled": false,
+      "conversation_id": null,
+      "thread_id": null,
+      "default_timezone": "America/New_York",
+      "next_run_time": null,
+      "last_run_time": null,
+      "updated_at": "2026-10-02T13:30:00.505074+00:00"
+    }
+  ],
+  "active_matching_count": 0,
+  "same_job_as_original": true,
+  "notes": [
+    "The job remains disabled after both due times and the grace period; last_run_time is null.",
+    "The platform returned updated_at 13:30:00.505074 UTC; the parent reports no additional mutation. This metadata timestamp does not replace the observed cancellation time.",
+    "Only the matching job is exported; private IDs are null."
+  ]
+}

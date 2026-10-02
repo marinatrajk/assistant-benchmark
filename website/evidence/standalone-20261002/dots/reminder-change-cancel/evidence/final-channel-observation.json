@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-10-02T13:55:19+00:00",
+  "scope": "Existing user ChatGPT room; all dot-authored messages with exact unique run marker",
+  "query": {
+    "query": "dots-reminder-change-cancel-20261002-01",
+    "author": "aeon",
+    "channels": [
+      "chatgpt"
+    ],
+    "sent_after": "2026-10-02T13:26:20+00:00",
+    "sent_before": "2026-10-02T13:54:48+00:00",
+    "limit": 50
+  },
+  "result": {
+    "messages": [],
+    "cursor": null,
+    "partial": false
+  },
+  "classification": {
+    "matching_messages": 0,
+    "actual_reminder_deliveries": 0,
+    "matching_acknowledgments_or_reports": 0
+  },
+  "coverage": "The search begins immediately before creation at 13:26:20.580141 UTC and includes the observation deadline at 13:54:47 UTC. The exclusive search end is 13:54:48 UTC. No pagination remains. Device push visibility was not observed."
+}
