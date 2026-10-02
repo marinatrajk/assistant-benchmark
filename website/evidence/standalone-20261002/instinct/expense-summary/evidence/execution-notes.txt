@@ -1,0 +1,4 @@
+One assigned expense-summary attempt only. Archive verified and task/template/contract read before cleanup. A preparation command was interrupted before the cleanup script ran; checked twice for output before proceeding, and no output files existed. Recovery remained in the same attempt. Delivered data was subsequently read in full and independently reconciled.
+Native file creation and CSV parsing used existing capabilities; no added adapter, integration or external harness. No desktop UI used. No job, memory, account, or checkout operation performed.
+Timing and token counters for the full active attempt are unavailable. The interrupted command prevents a reliable complete action count; budget enforcement beyond the configured limits is unverified. All aggregate metrics remain null.
+Operational identifiers and implementation internals withheld. Evidence is limited to this synthetic benchmark.

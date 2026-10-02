@@ -1,0 +1,5 @@
+category,currency,net_total,numeric_receipts,missing_amount_receipts
+Lodging,USD,120.00,1,0
+Meals,USD,41.90,3,1
+Office,USD,3.00,2,0
+Transport,USD,24.90,2,0

@@ -1,0 +1,8 @@
+Content verification at 2026-10-02T17:14:24.355500+00:00
+PASS: original source byte identity and SHA-256.
+PASS: all 9 distinct receipts retained once with original field values.
+PASS: A103 duplicate r005 removed, r003 retained.
+PASS: A107 refund -5.00 retained; A110 missing amount remains blank and flagged.
+PASS: independently recomputed category totals: Lodging 120.00; Meals 41.90; Office 3.00; Transport 24.90 USD.
+PASS: 8 numeric receipts sum to 189.80 USD.
+PASS: CSV headers and all rows inspected as text; no visual/spatial artifact created.

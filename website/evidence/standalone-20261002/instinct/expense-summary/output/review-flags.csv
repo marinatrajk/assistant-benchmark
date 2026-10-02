@@ -1,0 +1,4 @@
+record_id,receipt_id,flag,severity,action,amount
+r005,A103,duplicate_removed,info,Removed duplicate; retained r003,12.80
+r007,A107,refund_retained,info,Negative amount retained and included in totals,-5.00
+r010,A110,missing_amount,review,Find receipt amount; left blank and excluded from numeric totals,

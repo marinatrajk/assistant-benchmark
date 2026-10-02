@@ -1,0 +1,2 @@
+currency,net_total,input_rows,retained_receipts,numeric_receipts,duplicates_removed,missing_amount_receipts,refund_receipts,total_is_complete
+USD,189.80,10,9,8,1,1,1,false

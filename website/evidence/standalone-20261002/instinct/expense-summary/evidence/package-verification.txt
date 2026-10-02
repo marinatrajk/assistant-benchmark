@@ -1,0 +1,4 @@
+Assigned package URL: https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-expense-summary.zip
+Expected and observed archive SHA-256: 62d320275f9bb9d81b711177d76c8c56fadb66689c9f08bb6aaae079096a5d8d
+Original input SHA-256: 401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f
+Package task, full template and report contract read before cleanup. Original input copied byte-for-byte.

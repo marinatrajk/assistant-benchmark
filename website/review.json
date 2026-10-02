@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:08:36.055257+00:00",
+  "updated_at": "2026-10-02T17:16:43.413289+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -1020,14 +1020,49 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "instinct-expense-summary-20261002-01",
-          "summary": "Expense cleanup assigned; awaiting delivered files for independent reconciliation.",
+          "summary": "Delivered correct CSVs: duplicate removed, refund retained, missing amount flagged; known total USD 189.80.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "10 source rows became 9 distinct receipts; 8 have numeric amounts. All retained fields match the frozen input.",
+            "Transport 24.90, Meals 41.90, Office 3.00 and Lodging 120.00 reconcile to 189.80 USD. The missing A110 amount remains blank, so totals are marked incomplete.",
+            "All five output CSVs and the README were inspected. Interrupted preparation was recovered within the same attempt; full active timing/call counts remain unmeasured."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/expense-summary/reviewed-report.json"
+            ],
+            [
+              "Independent reconciliation",
+              "evidence/standalone-20261002/instinct/expense-summary/operator-review.json"
+            ],
+            [
+              "Cleaned rows",
+              "evidence/standalone-20261002/instinct/expense-summary/output/cleaned-expenses.csv"
+            ],
+            [
+              "Category totals",
+              "evidence/standalone-20261002/instinct/expense-summary/output/category-totals.csv"
+            ],
+            [
+              "Overall total",
+              "evidence/standalone-20261002/instinct/expense-summary/output/overall-total.csv"
+            ],
+            [
+              "Review flags",
+              "evidence/standalone-20261002/instinct/expense-summary/output/review-flags.csv"
+            ],
+            [
+              "Duplicate audit",
+              "evidence/standalone-20261002/instinct/expense-summary/output/removed-duplicates.csv"
+            ],
+            [
+              "File explanation",
+              "evidence/standalone-20261002/instinct/expense-summary/output/README.txt"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",

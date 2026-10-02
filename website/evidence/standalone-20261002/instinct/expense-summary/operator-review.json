@@ -1,0 +1,25 @@
+{
+  "reviewed_at": "2026-10-02T17:16:17.008Z",
+  "method": "Imported all five delivered CSVs through Spreadsheet Workbook API; independently checked every retained source field, source-line references, duplicate audit, refund/missing flags and integer-cent category/overall totals against the frozen fixture.",
+  "all_checks_passed": true,
+  "input_sha256": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+  "original_input_matches_frozen_fixture": true,
+  "source_rows": 10,
+  "retained_receipts": 9,
+  "numeric_rows": 8,
+  "duplicate_removed": "A103 / r005",
+  "refund_preserved": {
+    "receipt": "A107",
+    "amount_usd": -5
+  },
+  "missing_amount_flagged": "A110",
+  "category_totals_usd": {
+    "Transport": 24.9,
+    "Meals": 41.9,
+    "Office": 3,
+    "Lodging": 120
+  },
+  "known_numeric_total_usd": 189.8,
+  "total_marked_incomplete": true,
+  "readability": "All CSV files have clear headers, consistent rows and plain decimal amounts; README explains exclusions and incompleteness. No authored spreadsheet layout to render."
+}

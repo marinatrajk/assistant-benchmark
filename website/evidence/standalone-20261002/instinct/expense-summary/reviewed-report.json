@@ -1,0 +1,251 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "run_id": "instinct-expense-summary-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Only the assigned synthetic expense source and benchmark-specific outputs were used. Unrelated jobs and checkout were untouched."
+    ]
+  },
+  "task_inputs": {
+    "input_file": "input/sample-expenses.csv",
+    "input_sha256": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "expense-summary"
+  ],
+  "started_at": "2026-10-02T17:08:27+00:00",
+  "updated_at": "2026-10-02T17:14:24.355500+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "The preparation command was interrupted before cleanup execution. Output absence was checked twice; recovery remained in the same attempt.",
+    "Full active duration, elapsed duration, complete action count and token metrics are unavailable and null; enforcement of the 600-second/80-call limits is unverified.",
+    "Operational identifiers are withheld. CSV bundle selected from the authorized workbook-or-CSV formats."
+  ],
+  "tasks": [
+    {
+      "task_id": "expense-summary",
+      "status": "passed",
+      "reason": "All required file-outcome checks supported by delivered CSV files and independent content reconciliation.",
+      "execution_started": true,
+      "answer": "Delivered the original input, cleaned rows, category and overall totals, removed-duplicate audit and review flags. Known-amount net total is $189.80 USD: Transport $24.90, Meals $41.90, Office $3.00, Lodging $120.00. 10 input rows became 9 distinct receipts. Removed exact duplicate A103/r005, retained r003; kept the -$5.00 A107 refund. A110/r010 (Station Kiosk) has no amount, remains blank and is excluded from numeric totals. The total is incomplete until that amount is confirmed.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Full-attempt active/elapsed clocks, complete action counters and token counters unavailable. Setup and report writing cannot be separated reliably; no aggregate metrics inferred."
+      },
+      "tools_used": [],
+      "disclosure_note": "Operational identifiers withheld; sanitized file and content evidence supplied. Existing native file capabilities used without adapters. No desktop interaction.",
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "passed",
+          "evidence_ids": [
+            "e-source",
+            "e-clean",
+            "e-duplicate",
+            "e-flags",
+            "e-verify",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "correct-totals",
+          "status": "passed",
+          "evidence_ids": [
+            "e-category",
+            "e-overall",
+            "e-verify",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "usable-artifact",
+          "status": "passed",
+          "evidence_ids": [
+            "e-clean",
+            "e-category",
+            "e-overall",
+            "e-flags",
+            "e-explanation",
+            "e-verify",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "explanation",
+          "status": "passed",
+          "evidence_ids": [
+            "e-explanation",
+            "e-flags",
+            "e-duplicate",
+            "operator-reconciliation"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "e-package",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "ref": "evidence/package-verification.txt",
+          "summary": "Assigned package hash matched; task, template and contract read before cleanup; input hash identified.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-source",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "input/sample-expenses.csv",
+          "summary": "Preserved immutable synthetic input, byte-identical to assigned asset.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-clean",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/cleaned-expenses.csv",
+          "summary": "Nine distinct receipts, refund retained, missing amount blank and flagged.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-category",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/category-totals.csv",
+          "summary": "Category numeric totals and missing-amount counts.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-overall",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/overall-total.csv",
+          "summary": "189.80 USD numeric net total, explicitly incomplete.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-flags",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/review-flags.csv",
+          "summary": "One amount requiring review, plus duplicate and refund informational flags.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-duplicate",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/removed-duplicates.csv",
+          "summary": "Removed exact duplicate recorded with retained source row.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-explanation",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "output/README.txt",
+          "summary": "Readable file guide and duplicate/exclusion/refund/review explanation.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-verify",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "ref": "evidence/content-verification.txt",
+          "summary": "All delivered rows read and independently reconciled to original input.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "e-notes",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "ref": "evidence/execution-notes.txt",
+          "summary": "Sanitized recovery, capability and measurement disclosures.",
+          "observed_at": "2026-10-02T17:14:24.355500+00:00"
+        },
+        {
+          "id": "operator-reconciliation",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Independent operator import and row-by-row reconciliation of all five delivered CSVs against the immutable fixture.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-02T17:16:17.008Z"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "e-notes"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Passed all four checks after independently importing all five actual delivered CSVs via Spreadsheet Workbook API. Every retained source field and source-line reference matches the frozen fixture. Exact duplicate A103/r005 is documented; A107 -5.00 refund retained; A110 amount remains blank and flagged. Four category totals reconcile in integer cents to 189.80 across 8 numeric rows, and overall total is explicitly incomplete. Original input is byte-identical. CSV headers, rows and README are readable; no desktop or spreadsheet-layout result is claimed. Same-attempt interrupted preparation and unavailable full-attempt metrics remain disclosed."
+}
