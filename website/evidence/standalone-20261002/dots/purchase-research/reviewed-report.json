@@ -1,0 +1,308 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "run_id": "dots-purchase-research-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": "Chrome cloud browser (cdp)",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing chat sequence; prior exposure disclosed by operator. Fresh sources gathered in this attempt; no previous candidate facts used as evidence. Existing carts were not opened or changed."
+    ]
+  },
+  "task_inputs": {
+    "product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff."
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "purchase-research"
+  ],
+  "started_at": "2026-10-02T13:02:06+00:00",
+  "updated_at": "2026-10-02T13:24:58.200081+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "No product-brief or run-config override. Default benchmark timezone America/New_York retained; evidence timestamps use UTC.",
+    "Package release v0.2.0 downloaded and SHA256 verified; internal skill version 1.0.0. Operator-pinned commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817 is recorded as operator-provided provenance, not independently checked against the release.",
+    "Setup and report writing excluded conceptually from active budget. Setup reading and research were interleaved, so exact active milliseconds remain null. Conservative research wall interval 13:02:24\u201313:08:13 UTC was 349 seconds, below 600 seconds even including interleaved setup. No user/event waiting.",
+    "Exact aggregate tool-call counter and token telemetry unavailable across composed tools and browser API operations; these metrics remain null rather than equating API operations with tool invocations. Attempt was manually bounded, including one media-download recovery.",
+    "Search results were used for discovery only for current offers; final price/stock observations use live browser pages. Advertised coupon prices were not checkout-validated. No cart, checkout, purchase, or scheduling actions performed."
+  ],
+  "tasks": [
+    {
+      "task_id": "purchase-research",
+      "status": "passed",
+      "reason": "All four required checks supported by recovered source captures and independent visual corroboration; coupon and address limitations explicitly retained.",
+      "execution_started": true,
+      "answer": "Three qualifying 65W chargers with two USB-C ports and one USB-A: Anker 735 A2667 Black at USD 29.99; UGREEN Nexode standard at USD 39.99; UGREEN Nexode travel SKU 90409 at USD 49.99. Advertised UGREEN coupons imply USD 27.99 and USD 42.99 respectively, but were not tested. Recommend the Anker for its unconditional observed price and explicit in-stock indication. All provide less power per device when sharing ports; the source review lists allocations. UGREEN travel adds US/UK/EU plugs. Return windows and buyer-paid non-quality shipping are recorded in the source review. Shipping eligibility, taxes and final totals need an address. Anker PD support is inferred from two official sources; its PD revision is unknown.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 367000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Whole-attempt elapsed: assignment/start timestamp 2026-10-02T13:02:06Z through final research observation terminal timestamp 2026-10-02T13:08:13Z, excluding later report writing. Active research wall upper bound349000ms; exact active duration and aggregate call/token telemetry unavailable. Recovery included."
+      },
+      "tools_used": [
+        "functions.exec",
+        "skills__read",
+        "exec_command",
+        "write_stdin",
+        "web__run",
+        "apply_patch",
+        "view_image",
+        "mcp__cua_repl.js",
+        "collaboration.send_message"
+      ],
+      "disclosure_note": "Actual visible tool names only; hidden model, harness and settings remain null. Native shopping skill loaded through skills__read; benchmark package read as document, not counted as native skill loading. Browser mode mixed DOM/visual.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "ug65",
+            "a735",
+            "travel",
+            "apd",
+            "ugplug",
+            "aplug",
+            "ugship",
+            "aship"
+          ]
+        },
+        {
+          "id": "current-sources",
+          "status": "passed",
+          "evidence_ids": [
+            "ug65",
+            "a735",
+            "travel"
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "status": "passed",
+          "evidence_ids": [
+            "ugdual",
+            "ugtriple",
+            "travelshare",
+            "a735",
+            "ugreturn",
+            "areturn",
+            "ugship",
+            "aship",
+            "comparison"
+          ]
+        },
+        {
+          "id": "recommendation",
+          "status": "passed",
+          "evidence_ids": [
+            "comparison",
+            "a735"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ug65",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ug65",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:03:33.909Z"
+        },
+        {
+          "id": "a735",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: a735",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:04:32.641Z"
+        },
+        {
+          "id": "travel",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: travel",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:05:27.981Z"
+        },
+        {
+          "id": "ugreturn",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ugreturn",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:06:30.311Z"
+        },
+        {
+          "id": "ugship",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ugship",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:06:40.977Z"
+        },
+        {
+          "id": "areturn",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: areturn",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:07:05.192Z"
+        },
+        {
+          "id": "aship",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: aship",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:07:47.303Z"
+        },
+        {
+          "id": "apd",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: apd",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:08:12.867Z"
+        },
+        {
+          "id": "ugdual",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ugdual",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:06:44+00:00"
+        },
+        {
+          "id": "ugtriple",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ugtriple",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:06:04+00:00"
+        },
+        {
+          "id": "travelshare",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: travelshare",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:05:38+00:00"
+        },
+        {
+          "id": "ugplug",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: ugplug",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:04:10+00:00"
+        },
+        {
+          "id": "aplug",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: aplug",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:07:49+00:00"
+        },
+        {
+          "id": "skill",
+          "kind": "observation",
+          "summary": "Native shopping workflow skill loaded and used for exact-variant verification, stock, delivery and return comparison.",
+          "provenance": "agent_export",
+          "excerpt": "skills__read successfully loaded shopping workflow before research; content intentionally excluded from export.",
+          "observed_at": "2026-10-02T13:02:24+00:00"
+        },
+        {
+          "id": "comparison",
+          "kind": "observation",
+          "summary": "Reviewed source facts or public-image corroboration: comparison",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": null
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": "Chrome cloud browser",
+          "evidence_ids": [
+            "ug65",
+            "a735",
+            "travel",
+            "aplug"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "observed",
+          "mode": "native",
+          "label": "shopping workflow",
+          "evidence_ids": [
+            "skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "selected_purchase": {
+    "merchant": "Anker US",
+    "product_url": "https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254",
+    "variant": "Anker 735 Charger (Nano II 65W), A2667, Black, variant41581366575254, quantity1, no membership/add-ons",
+    "item_price_usd": 29.99,
+    "checkout_input_only": true,
+    "scheduled_research_input_only": true
+  },
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Reviewed all eight original browser capture files, exact product identities, current prices/availability, shared-port allocations, returns and shipping. Public manufacturer image inspection corroborated plug and power details. The public review condenses factual observations instead of republishing full store pages. Runner screenshots were not retrieved; unknown usage metrics remain unknown."
+}

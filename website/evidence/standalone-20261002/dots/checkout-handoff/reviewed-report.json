@@ -1,0 +1,238 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "run_id": "dots-checkout-handoff-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": "Chrome (cloud CDP)",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation; a new browser tab used, not a new chat. Cart inspected before addition and visibly empty. No existing cart emptied or unrelated tab modified.",
+      "Previous exposure disclosed by operator; no cold-start or clean-room claim. No isolated browser profile creation capability was used; observed empty guest cart supplied freshness."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254",
+    "product_variant": "Anker 735 Charger (Nano II 65W), model A2667, Black, variant 41581366575254; quantity 1; no memberships or add-ons"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "checkout-handoff"
+  ],
+  "started_at": "2026-10-02T13:16:39.342+00:00",
+  "updated_at": "2026-10-02T13:24:58.201359+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Operator supplied exact product and variant directly.",
+    "Release ZIP SHA256 verified as ef94b2088cd141f8aa05e8e760e21aba0c626ca156054ef248053ac2c33e1370. Operator-specified pinned commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817 recorded; no independent commit-tree comparison performed.",
+    "Session-bound checkout, wallet and login URLs omitted from saved checkout observations. Secure takeover metadata delivered separately to parent; not in public artifacts.",
+    "No shipping address was provided. One-page checkout exposes payment fields without address; shipping and taxes are not a final calculated quote."
+  ],
+  "tasks": [
+    {
+      "task_id": "checkout-handoff",
+      "status": "passed",
+      "reason": "Exact item and quantity verified; actual empty card fields visibly reached; displayed totals and uncalculated amounts recorded; secure cloud-browser handoff generated. No order or charge submitted.",
+      "execution_started": true,
+      "answer": "One Black Anker 735 Charger (Nano II 65W), A2667, quantity 1 is at guest checkout. Subtotal USD 29.99; displayed total USD 29.99. Shipping displays Enter shipping address. Tax is not displayed and cannot be treated as zero or final. Empty payment fields are visible. Continue securely in the cloud browser to enter contact, shipping and payment yourself, reviewing the recalculated final total before any purchase. The remote cart/session may not transfer to an ordinary browser via URL. No payment or order was submitted; cart preserved.",
+      "metrics": {
+        "active_duration_ms": 99047,
+        "elapsed_duration_ms": 99047,
+        "tool_calls": 11,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Measured wall-clock task window 2026-10-02T13:16:39.342Z to 13:18:18.389Z, from exact-product navigation to handoff creation. Ten CUA invocations and one parent progress message in window; setup/download/skill reading before navigation and report writing after handoff excluded. No scheduled/user waiting or recovery. Underlying internal API calls are not separately counted; token counts unavailable. Parent subsequently delivered the native handoff at 13:18:41.617056Z; parent delivery is outside the delegated browser execution metric."
+      },
+      "tools_used": [
+        "mcp__cua_repl.js",
+        "functions.exec",
+        "skills__read",
+        "exec_command",
+        "write_stdin",
+        "collaboration.send_message"
+      ],
+      "disclosure_note": "Unknown harness/model/settings and token metrics remain null. Native shopping skill loaded; downloaded benchmark documents read separately. Secure handoff generation verified, but user takeover and any later purchase are outside this benchmark.",
+      "checks": [
+        {
+          "id": "exact-cart",
+          "status": "passed",
+          "evidence_ids": [
+            "empty-cart",
+            "exact-cart",
+            "cart-image"
+          ]
+        },
+        {
+          "id": "checkout-reached",
+          "status": "passed",
+          "evidence_ids": [
+            "checkout",
+            "payment-image"
+          ]
+        },
+        {
+          "id": "totals",
+          "status": "passed",
+          "evidence_ids": [
+            "checkout",
+            "payment-image"
+          ]
+        },
+        {
+          "id": "handoff",
+          "status": "passed",
+          "evidence_ids": [
+            "handoff",
+            "payment-image",
+            "handoff-delivery"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "empty-cart",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: empty-cart",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:16:55+00:00"
+        },
+        {
+          "id": "exact-cart",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: exact-cart",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:17:30+00:00"
+        },
+        {
+          "id": "cart-image",
+          "kind": "observation",
+          "summary": "Matching accessibility text reviewed; original screenshot not retrieved.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:17:30+00:00"
+        },
+        {
+          "id": "checkout",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: checkout",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:17:52+00:00"
+        },
+        {
+          "id": "payment-image",
+          "kind": "observation",
+          "summary": "Matching accessibility text reviewed; original screenshot not retrieved.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:18:18.389+00:00"
+        },
+        {
+          "id": "marketing-off",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: marketing-off",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:18:01+00:00"
+        },
+        {
+          "id": "handoff",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: handoff",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:18:18.389+00:00"
+        },
+        {
+          "id": "skill",
+          "kind": "observation",
+          "summary": "Native shopping workflow skill loaded before browser action; internal name and content withheld.",
+          "provenance": "agent_export",
+          "excerpt": "Skill loading returned successfully.",
+          "observed_at": "2026-10-02T13:15:50+00:00"
+        },
+        {
+          "id": "handoff-delivery",
+          "kind": "observation",
+          "summary": "Reviewed checkout observation: handoff-delivery",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:18:41.617056+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": "Cloud Chrome via CUA",
+          "evidence_ids": [
+            "exact-cart",
+            "checkout",
+            "payment-image",
+            "handoff"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Verified exported empty-cart, exact-cart and payment-field accessibility observations against actual browser actions. Reviewed native handoff messaging call with metadata and completed delivery status. Only safe factual observations are published; session URLs and delivery identifiers omitted. Original screenshots were not independently retrieved. User takeover and later purchase are outside this task."
+}

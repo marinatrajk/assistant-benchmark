@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:13:55+00:00",
+  "updated_at": "2026-10-02T13:24:58.201731+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -275,15 +275,25 @@
       "package_sha256": "d0c5f876295ecf24b073d2e28cb3c75f35110d5e6d291fa338822f06135e2634",
       "results": {
         "ChatGPT Dots": {
-          "status": "awaiting_review",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "dots-purchase-research-20261002-01",
-          "summary": "Report received with three charger comparisons and an exact recommendation. Underlying source evidence is being reviewed.",
+          "summary": "Compared three qualifying chargers and recommended the exact Anker 735 Black variant at the observed USD 29.99 price.",
           "details": [
-            "The assistant self-reported a pass; this is not yet included in reviewed pass counts.",
-            "Recommended Anker 735 Nano II 65W, A2667 Black, variant 41581366575254 at an observed $29.99."
+            "Original source captures support product identity, ports, current price and availability; public manufacturer images corroborate US plugs and power sharing.",
+            "Returns, shipping conditions, reduced shared-port power and untested coupon prices are disclosed. Address-dependent eligibility, taxes and final totals remain unknown.",
+            "Research wall time was bounded at 349 seconds; exact active time, aggregate calls and tokens were unavailable. Existing conversation reused."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/dots/purchase-research/reviewed-report.json"
+            ],
+            [
+              "Reviewed source observations",
+              "evidence/standalone-20261002/dots/purchase-research/source-review.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -321,15 +331,26 @@
       "package_sha256": "ef94b2088cd141f8aa05e8e760e21aba0c626ca156054ef248053ac2c33e1370",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "dots-checkout-handoff-20261002-01",
-          "summary": "Assigned next: prepare a fresh guest checkout for the exact recommended Anker charger.",
+          "summary": "Verified one exact charger at guest checkout, reached empty payment fields, and delivered a secure browser handoff without buying.",
           "details": [
-            "Quantity one; no membership or add-ons. Stop at payment without ordering.",
-            "Address, login, CAPTCHA or session-transfer blockers must be recorded."
+            "Cart: one Black Anker 735 Nano II 65W, A2667, variant 41581366575254, USD 29.99; no add-ons.",
+            "Shipping awaits an address and tax is not displayed. USD 29.99 is a displayed subtotal/total, not a final payable quote.",
+            "Actual payment fields and completed native handoff messaging were reviewed. User opening the handoff is outside this benchmark. Cart preserved.",
+            "Browser execution took 99.047 seconds with 11 disclosed tool invocations; setup and later report writing excluded. Original screenshot bytes were not retrieved."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/dots/checkout-handoff/reviewed-report.json"
+            ],
+            [
+              "Reviewed source observations",
+              "evidence/standalone-20261002/dots/checkout-handoff/source-review.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",
@@ -367,11 +388,13 @@
       "package_sha256": "a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "dots-reminder-delivery-20261002-01",
+          "summary": "Assigned: create a native one-time reminder, then observe delivery and duplicates through the required window.",
+          "details": [
+            "Default ten-minute delay and two-minute delivery/duplicate observation window retained."
+          ],
           "sources": []
         },
         "GrokBot": {

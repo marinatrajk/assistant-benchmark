@@ -1,0 +1,61 @@
+{
+  "observed_at": "2026-10-02T13:18:18.389+00:00",
+  "method": "Reviewer read exported accessibility observations and matching platform browser call records. Original screenshots were not retrieved. Only necessary factual UI excerpts retained here.",
+  "cart_before_excerpt": "My Cart; Your Cart is Ready!; guest login option; no line item.",
+  "cart": {
+    "model": "Anker 735 Charger (Nano II 65W), A2667",
+    "variant": "41581366575254",
+    "color": "Black",
+    "quantity": 1,
+    "subtotal_usd": 29.99
+  },
+  "payment_fields_observed_empty": [
+    "Card number",
+    "Expiration date (MM / YY)",
+    "Security code",
+    "Name on card"
+  ],
+  "totals": {
+    "subtotal_usd": 29.99,
+    "displayed_total_usd": 29.99,
+    "shipping": "Enter shipping address",
+    "tax": "Not displayed; unknown",
+    "final_payable_total_known": false
+  },
+  "optional_protection_selected": false,
+  "email_marketing_selected": false,
+  "handoff": {
+    "observed_at": "2026-10-02T13:18:18.389+00:00",
+    "method": "tab.requestManualHandoff",
+    "returned_secure_handoff": true,
+    "returned_metadata_keys": [
+      "tab_id",
+      "browser_conversation_id",
+      "connection_thread_id"
+    ],
+    "private_values_in_public_bundle": false,
+    "handoff_delivered_to_parent": true,
+    "user_takeover_observed": false,
+    "last_checkpoint": "Visible empty credit-card payment fields at guest checkout",
+    "subtotal": "USD 29.99",
+    "shipping": "Enter shipping address; not calculated",
+    "tax": "Not displayed; unverified, not zero",
+    "displayed_total": "USD 29.99; not final payable total",
+    "session_limit": "Remote browser cart may not transfer by ordinary URL; use supported secure takeover",
+    "no_order_submitted": true,
+    "handoff_delivery_accepted_at": "2026-10-02T13:18:41.617056+00:00",
+    "handoff_delivery_source": "Parent confirmation of native messaging tool acceptance; does not prove user opened takeover"
+  },
+  "platform_delivery_review": {
+    "tool": "user_message.send_message",
+    "status": "completed",
+    "metadata_present": true,
+    "message_described_checkout_and_nonfinal_totals": true,
+    "private_values_published": false
+  },
+  "limits": [
+    "User opening the secure takeover is unobserved and outside the task.",
+    "Cart preserved. No order or payment submitted.",
+    "No shipping address, contact or card data entered."
+  ]
+}
