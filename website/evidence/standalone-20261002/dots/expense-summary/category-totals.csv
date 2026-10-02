@@ -1,0 +1,5 @@
+category,currency,numeric_total,included_numeric_rows,missing_amount_rows,total_status
+Lodging,USD,120.00,1,0,complete
+Meals,USD,41.90,3,1,incomplete_missing_amount
+Office,USD,3.00,2,0,complete
+Transport,USD,24.90,2,0,complete

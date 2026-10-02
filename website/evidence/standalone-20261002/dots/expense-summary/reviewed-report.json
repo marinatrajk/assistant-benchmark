@@ -1,0 +1,240 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "run_id": "dots-expense-summary-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Executed in an existing user conversation, not a new user chat or clean-room run.",
+      "Parent disclosed a prior full everyday benchmark in the same conversation using the same fixture. This freshly scoped worker did not read previous output files or prior numeric results; it independently downloaded and computed the bundled input.",
+      "Only local task files, the authorized archive download, and the existing spreadsheet skill were used. No browser, native desktop, memory, scheduler, cart, account, installation, benchmark harness or benchmark API was used."
+    ]
+  },
+  "task_inputs": {
+    "input_file": "assets/sample-expenses.csv"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "expense-summary"
+  ],
+  "started_at": "2026-10-02T13:39:39+00:00",
+  "updated_at": "2026-10-02T13:44:00.232210+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "CSV-only deliverables were requested. No workbook was created; CSV parsing and exact decimal/integer-cent processing used the existing Python runtime and standard library.",
+    "The source ZIP SHA256 and all nine manifest file hashes were verified. The operator supplied pinned commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817; the release archive contains no commit attestation, so correspondence of that commit to the archive was not independently verified.",
+    "Host clock uses UTC; benchmark run_config retains America/New_York. Source dates were preserved unchanged and no date-sensitive scheduling was performed.",
+    "Duration measurements use observed UTC wall-clock boundaries at one-second precision, not a CPU timer. The conservative active interval includes relevant reading after source inspection, but excludes initial download/setup and subsequent report writing. Tool count covers disclosed worker tool operations through artifact verification, including setup, and excludes orchestration wrappers, coordination messages and reporting/delivery operations. Backend and parent-conversation totals and token counts are unavailable."
+  ],
+  "tasks": [
+    {
+      "task_id": "expense-summary",
+      "status": "passed",
+      "reason": "Every retained value, deduplication, refund, missing amount, total and usable CSV artifact independently verified.",
+      "execution_started": true,
+      "answer": "Created four readable CSVs and a short explanation. Nine distinct receipts remain after removing duplicate r005/A103 and retaining r003. Known numeric total: USD 189.80, including the -5.00 refund. Category totals: Lodging 120.00; Meals 41.90; Office 3.00; Transport 24.90. A110/r010 at Station Kiosk needs its missing amount reviewed. It remains blank, is excluded from numeric totals, and makes Meals and the overall total incomplete. No amount was invented; the source is unchanged.",
+      "metrics": {
+        "active_duration_ms": 121000,
+        "elapsed_duration_ms": 152000,
+        "tool_calls": 11,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Observed worker setup start 2026-10-02T13:39:39+00:00; first source inspection interval begins 2026-10-02T13:40:10+00:00; artifact verification completed 2026-10-02T13:42:11+00:00. Rounded to whole seconds. Eleven disclosed file/skill operations through that completion: 2 skills__read, 7 exec_command, 1 write_stdin and 1 apply_patch. functions.exec wrappers and coordination are not double-counted. Report writing, report validation, packaging and delivery are outside these outcome-execution metrics. No backend token telemetry available."
+      },
+      "tools_used": [
+        "functions.exec",
+        "tools.skills__read",
+        "tools.exec_command",
+        "tools.write_stdin",
+        "tools.apply_patch"
+      ],
+      "disclosure_note": "Operator label is not a harness or model identity. Hidden harness/model/reasoning metadata stays null. Native spreadsheet skill was loaded using skills__read; benchmark SKILL.md and report contract were ordinary file reads. No native desktop input occurred. Existing-conversation and prior-exposure disclosure is recorded in environment.isolation_notes.",
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "passed",
+          "evidence_ids": [
+            "cleaned",
+            "flags",
+            "verification",
+            "source",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "correct-totals",
+          "status": "passed",
+          "evidence_ids": [
+            "categories",
+            "overall",
+            "verification",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "usable-artifact",
+          "status": "passed",
+          "evidence_ids": [
+            "cleaned",
+            "categories",
+            "overall",
+            "flags",
+            "verification",
+            "operator-reconciliation"
+          ]
+        },
+        {
+          "id": "explanation",
+          "status": "passed",
+          "evidence_ids": [
+            "explanation",
+            "flags",
+            "operator-reconciliation"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "source",
+          "kind": "artifact",
+          "summary": "Immutable source copied byte-for-byte from authenticated release archive.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "assets/sample-expenses.csv"
+        },
+        {
+          "id": "cleaned",
+          "kind": "artifact",
+          "summary": "Nine unique receipts with preserved source values, refund and blank amount.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "cleaned-rows.csv"
+        },
+        {
+          "id": "categories",
+          "kind": "artifact",
+          "summary": "Known numeric totals by category, with row counts and missing-data status.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "category-totals.csv"
+        },
+        {
+          "id": "overall",
+          "kind": "artifact",
+          "summary": "Known numeric overall total and reconciliation counts.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "overall-total.csv"
+        },
+        {
+          "id": "flags",
+          "kind": "artifact",
+          "summary": "Duplicate removal and missing-amount review trail.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "review-flags.csv"
+        },
+        {
+          "id": "explanation",
+          "kind": "artifact",
+          "summary": "Short explanation of rules, exclusions, refunds and outstanding review.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "explanation.txt"
+        },
+        {
+          "id": "verification",
+          "kind": "observation",
+          "summary": "Exported CSVs reopened and independently checked in integer cents; source and package hashes verified.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:42:11.130283+00:00",
+          "ref": "verification-evidence.json"
+        },
+        {
+          "id": "skill",
+          "kind": "observation",
+          "summary": "Existing spreadsheet skill loaded through the native skill tool.",
+          "provenance": "agent_export",
+          "observed_at": "2026-10-02T13:40:27+00:00",
+          "excerpt": "tools.skills__read({package:\"e0/builtins/spreadsheets\"}) returned the Spreadsheets skill instructions. Used source preservation, blank-versus-zero, provenance and independent reconciliation guidance. No XLSX was requested."
+        },
+        {
+          "id": "operator-reconciliation",
+          "kind": "observation",
+          "summary": "Independent import and integer-cent reconciliation of actual CSV artifacts against the frozen source.",
+          "provenance": "operator",
+          "ref": "operator-reconciliation.json",
+          "observed_at": "2026-10-02T13:45:28.662Z"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "observed",
+          "mode": "native",
+          "label": "Spreadsheets",
+          "evidence_ids": [
+            "skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex operator-assisted evidence review",
+  "review_notes": "Retrieved all four actual CSVs and explanation byte-for-byte, verified their SHA-256 hashes against the runner export, then imported CSVs through the Spreadsheet Workbook API. Independently compared every retained source field, category/overall totals, refund, duplicate and missing-value flags against the frozen input. Full pass supported. Public ZIP was assembled by the reviewer from those exact files; runner implementation source was not retrieved."
+}

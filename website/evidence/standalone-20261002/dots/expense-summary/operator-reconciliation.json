@@ -1,0 +1,22 @@
+{
+  "reviewed_at": "2026-10-02T13:45:28.662Z",
+  "method": "Imported actual CSV artifacts with Spreadsheet Workbook API; compared every retained field and integer-cent totals against an independently prepared reference from the frozen source.",
+  "all_checks_passed": true,
+  "source_rows": 10,
+  "retained_receipts": 9,
+  "numeric_rows": 8,
+  "duplicate_removed": "A103",
+  "refund_preserved": {
+    "receipt": "A107",
+    "amount_usd": -5
+  },
+  "missing_amount_flagged": "A110",
+  "category_totals_usd": {
+    "Transport": 24.9,
+    "Meals": 41.9,
+    "Office": 3,
+    "Lodging": 120
+  },
+  "known_numeric_total_usd": 189.8,
+  "total_is_incomplete_until_missing_amount_resolved": true
+}

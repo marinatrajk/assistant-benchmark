@@ -1,0 +1,7 @@
+Known numeric expenses total USD 189.80 after deduplication, including the USD -5.00 Office refund. Category totals: Lodging 120.00, Meals 41.90, Office 3.00, Transport 24.90.
+
+Kept the first occurrence of each receipt_id in source order. Removed r005 (A103), whose expense fields match retained r003. Nine distinct receipts remain from ten input rows.
+
+Review needed: r010 (A110), Station Kiosk, has no amount. Its amount remains blank and it is excluded from numeric totals. Meals and the overall total are incomplete until that amount is known. No values were invented. The duplicate removal is recorded in review-flags.csv for audit.
+
+The source asset is preserved byte-for-byte in assets/sample-expenses.csv and in the downloaded package. CSV files are UTF-8 with header rows; amounts are USD.

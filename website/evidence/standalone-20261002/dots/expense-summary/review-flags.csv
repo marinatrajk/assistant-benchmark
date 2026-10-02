@@ -1,0 +1,3 @@
+record_id,receipt_id,flag,retained_record_id,explanation
+r005,A103,duplicate_removed,r003,Removed repeated receipt; all expense fields match retained row
+r010,A110,missing_amount,,Retained blank amount; excluded from numeric totals; obtain receipt amount

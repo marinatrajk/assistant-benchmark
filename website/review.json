@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:39:32.888997+00:00",
+  "updated_at": "2026-10-02T13:46:06.864087+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -607,14 +607,30 @@
       "package_sha256": "62d320275f9bb9d81b711177d76c8c56fadb66689c9f08bb6aaae079096a5d8d",
       "results": {
         "ChatGPT Dots": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "dots-expense-summary-20261002-01",
-          "summary": "Assigned: clean the bundled synthetic expenses and deliver a CSV bundle with totals and review flags.",
+          "summary": "Delivered verified CSV files: nine distinct receipts, preserved refund, flagged missing amount, and USD 189.80 in known expenses.",
           "details": [
-            "Actual output files will be independently reconciled against the unchanged input."
+            "Removed duplicate A103 once and preserved the USD -5.00 refund. A110 remains blank and flagged; no amount was invented.",
+            "Category totals: Transport USD 24.90, Meals USD 41.90, Office USD 3.00, Lodging USD 120.00. Meals and overall totals remain incomplete until the missing amount is supplied.",
+            "Actual CSV bytes match exported hashes. Every retained field and integer-cent total was independently reconciled against the unchanged source.",
+            "Reported active interval 121 seconds; eleven disclosed file/skill operations. Existing conversation and prior fixture exposure disclosed."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/dots/expense-summary/reviewed-report.json"
+            ],
+            [
+              "Download actual CSV outputs",
+              "evidence/standalone-20261002/dots/expense-summary/reviewed-csv-bundle.zip"
+            ],
+            [
+              "Independent reconciliation",
+              "evidence/standalone-20261002/dots/expense-summary/operator-reconciliation.json"
+            ]
+          ]
         },
         "GrokBot": {
           "status": "not_run",

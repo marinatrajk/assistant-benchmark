@@ -1,0 +1,2 @@
+currency,numeric_total,input_rows,cleaned_rows,included_numeric_rows,duplicate_rows_removed,missing_amount_rows,total_status
+USD,189.80,10,9,8,1,1,incomplete_missing_amount
