@@ -2,7 +2,7 @@
 
 Real tasks. Each assistant's own tools. Evidence you can question.
 
-[Live results](https://paces-beta.vercel.app/) · [Methodology](docs/METHODOLOGY.md) · [Run a benchmark](docs/RUNNING.md) · [Release provenance](docs/PROVENANCE.md) · [Contribute](CONTRIBUTING.md)
+[Live results](https://www.assistant-benchmark.com/) · [Methodology](docs/METHODOLOGY.md) · [Run a benchmark](docs/RUNNING.md) · [Release provenance](docs/PROVENANCE.md) · [Contribute](CONTRIBUTING.md)
 
 Assistant Benchmark is an open-source project for testing what AI assistants can actually do: use a browser, prepare checkout, deliver reminders, research later, work with files, use skills, and remember preferences. It began as **Paces**; historical suite IDs, filenames, and skill names retain that name so existing reports remain compatible.
 

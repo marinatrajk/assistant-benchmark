@@ -15,7 +15,7 @@ npx vercel deploy --prod
 
 Link your own account/project. No Vercel project IDs, credentials, or account environment files are included. Custom domains are configured in the Vercel project's domain settings.
 
-The historical public site is <https://paces-beta.vercel.app/>. Its domain retains the earlier Paces project name.
+The public site is <https://www.assistant-benchmark.com/>. The Vercel alias <https://paces-beta.vercel.app/> remains available and retains the earlier Paces project name.
 
 ## Static hosting elsewhere
 
