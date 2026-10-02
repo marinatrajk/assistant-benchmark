@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:20:58.180013+00:00",
+  "updated_at": "2026-10-02T15:22:53.121282+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -19,6 +19,7 @@
     "Dots and GrokBot were evaluated in existing conversations containing earlier benchmark context. Browser profile reset was not verified. These conditions limit comparability.",
     "Browser research, memory update, and Calculator require a relevant native workflow skill in addition to the benchmark assignment. Reading the assignment as a document does not satisfy that check.",
     "Reminder and cancellation checks need observed delivery or absence through the required windows. Passing the deadline alone does not establish success.",
+    "Timed tasks return control while awaiting events. Other tasks may run during those waits; overlapping activity is disclosed in the affected run rather than assumed to explain an outcome.",
     "Cross-conversation memory requires a genuinely separate conversation without the seed or update transcript. Same-conversation recall cannot pass.",
     "Checks are AI-assisted, not blinded or independently replicated. One attempt and different tool environments do not establish an overall assistant ranking. Unknown model identities and usage remain undisclosed."
   ],
