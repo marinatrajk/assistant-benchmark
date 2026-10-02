@@ -1,0 +1,13 @@
+{
+  "evidence_type": "parent_exported_platform_send_and_readback",
+  "provenance": "agent_export",
+  "channel": "chatgpt",
+  "message_id": null,
+  "sent_at": "2026-10-02T13:47:09.768440+00:00",
+  "readback_at": "2026-10-02T13:47:14+00:00",
+  "readback_partial": false,
+  "text": "Paces dots-scheduled-research-20261002-01: Checked October 2 at 9:46:44 am EDT. [Anker 735 Nano II 65W, A2667 Black, variant 41581366575254](https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254), quantity 1: $29.99 USD, In Stock; estimated delivery 3\u20137 business days. No product-specific coupon shown. The page advertises 15% off a first purchase with signup and an extra 5% for Plus members; neither was applied",
+  "scheduled_wake_at": "2026-10-02T13:46:02+00:00",
+  "delivery_latency_seconds": 96.76844,
+  "note": "Exact notification text and timestamps retained from the exported platform send/read records. Private message identifier omitted."
+}

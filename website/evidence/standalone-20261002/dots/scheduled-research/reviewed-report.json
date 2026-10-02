@@ -19,10 +19,10 @@
   },
   "environment": {
     "os": "Linux",
-    "browser": null,
+    "browser": "Cloud browser (cdp)",
     "execution_location": "cloud",
     "isolation_notes": [
-      "Existing conversation with prior product-research exposure; no fresh product observation has occurred for this scheduled run at the provisional-report stage."
+      "Existing conversation with prior product-research exposure. The scheduled wake was followed by new live browser observations of the exact target; earlier research was not reused as current."
     ]
   },
   "task_inputs": {
@@ -43,21 +43,22 @@
     "scheduled-research"
   ],
   "started_at": "2026-10-02T13:30:17+00:00",
-  "updated_at": "2026-10-02T13:32:30.567904+00:00",
+  "updated_at": "2026-10-02T13:51:09.257953+00:00",
   "review_status": "reviewed",
   "deviations": [
     "No configuration overrides. The native relative 15-minute request resolved to 2026-10-02T13:45:33Z; the pre-creation clock reading was 2026-10-02T13:30:17Z.",
     "Exact action-start and creation timestamps were not separately exposed. started_at uses the pre-creation clock; schedule.created_at uses the successful creation receipt updated_at.",
     "Active duration, elapsed duration, total task tool calls and token counts are not measured; configured budget enforcement cannot be independently established. Setup, report writing, and event waiting are excluded from active time.",
-    "Private platform identifiers are omitted. The creation receipt confirms setup only, not a source observation or delivered research update."
+    "Private platform identifiers are omitted except the expressly requested notification message ID. Receipt export retains creation, source observation, and delivery as separate events.",
+    "The notification reports 09:46:44 EDT as the check time. The worker identifies this as an approximate first-result receipt time from a current-time reminder, not an exact browser capture timestamp. A second source observation was recorded at 09:47:09.179 EDT. Original notification and full observation remain unchanged; timing reconciliation is preserved separately."
   ],
   "tasks": [
     {
       "task_id": "scheduled-research",
-      "status": "pending",
-      "reason": "The native one-time job was created successfully. Its due time and notification observation window are still in the future; fresh research, update accuracy and actual delivery are unverified.",
+      "status": "partial",
+      "reason": "Fresh source evidence confirms the reported exact variant, price and stock, and actual delivery was within 5 minutes of due time. The notification check time is only supported as an approximate first-result receipt time, so accurate-update remains unverified rather than claiming an exact-time match.",
       "execution_started": true,
-      "answer": "The fresh Anker price-and-stock check is scheduled for October 2 at 9:45:33 am EDT (America/New_York, UTC−04:00), with creation confirmed at 9:30:33.383071 am EDT. The report stays Pending through its 9:50:33 am EDT delivery deadline",
+      "answer": "Paces dots-scheduled-research-20261002-01: Checked October 2 at 9:46:44 am EDT. [Anker 735 Nano II 65W, A2667 Black, variant 41581366575254](https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254), quantity 1: $29.99 USD, In Stock; estimated delivery 3\u20137 business days. No product-specific coupon shown. The page advertises 15% off a first purchase with signup and an extra 5% for Plus members; neither was applied",
       "metrics": {
         "active_duration_ms": null,
         "elapsed_duration_ms": null,
@@ -67,9 +68,13 @@
         "source": "Unmeasured. Task begins with native scheduling and ends with actual notification/deadline evidence; active timing excludes setup, report preparation and waiting. No complete counter or action timer was supplied."
       },
       "tools_used": [
-        "automations.create_for_aeon"
+        "automations.create_for_aeon",
+        "mcp__cua_repl.js",
+        "clock.curr_time",
+        "user_message.send_message",
+        "user_message.read_messages"
       ],
-      "disclosure_note": "Native scheduler creation observed from a sanitized platform receipt; the actual tool name and acknowledgment were disclosed by the parent assistant. Reading the packaged skill document is not claimed as native workflow skill loading. Report preparation used exec_command and the packaged Python validator outside task-action metrics.",
+      "disclosure_note": "Native scheduling, fresh cloud-browser observations, and notification send/readback were disclosed by the parent and research worker. The notification evidence is a parent-exported sanitized platform receipt. The first source observation survives as worker-exported verbatim excerpts with a timestamp-basis sidecar; the second is a full original saved accessibility observation. Reading packaged skill documents is not native workflow skill loading. Report preparation is outside task-action metrics.",
       "checks": [
         {
           "id": "scheduled",
@@ -80,18 +85,28 @@
         },
         {
           "id": "fresh-execution",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "live-source",
+            "timestamp-reconciliation"
+          ]
         },
         {
           "id": "accurate-update",
           "status": "unverified",
-          "evidence_ids": []
+          "evidence_ids": [
+            "live-source",
+            "timestamp-reconciliation",
+            "research-notification"
+          ]
         },
         {
           "id": "delivered",
-          "status": "unverified",
-          "evidence_ids": []
+          "status": "passed",
+          "evidence_ids": [
+            "research-notification",
+            "schedule-created"
+          ]
         }
       ],
       "evidence": [
@@ -110,14 +125,40 @@
           "summary": "Parent-exported scheduling acknowledgment states the native due time and pending delivery deadline; it is not the research notification.",
           "ref": "evidence/acknowledgment-sanitized.json",
           "observed_at": "2026-10-02T13:30:40.387634+00:00"
+        },
+        {
+          "id": "live-source",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Original full fresh browser accessibility observation for exact Anker A2667 Black variant 41581366575254, quantity 1: $29.99, In Stock, estimated delivery 3\u20137 business days. Includes conditional signup and membership promotions. Timestamp recorded immediately after the second source observation returned.",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T13:47:09.179+00:00"
+        },
+        {
+          "id": "timestamp-reconciliation",
+          "kind": "trace",
+          "provenance": "operator",
+          "summary": "Worker preserves excerpts from the initial fresh observation and explains approximate initial result-receipt time of 13:46:44Z versus exact recorded post-observation timestamp 13:47:09.179Z for the saved second observation. No source or notification history rewritten.",
+          "ref": "source-review.json"
+        },
+        {
+          "id": "research-notification",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "Original delivered notification and successful non-partial readback; private message identifier omitted.",
+          "ref": "evidence/notification-sanitized.json",
+          "observed_at": "2026-10-02T13:47:14+00:00"
         }
       ],
       "capabilities": {
         "browser": {
-          "status": "unverified",
-          "mode": null,
-          "label": null,
-          "evidence_ids": []
+          "status": "observed",
+          "mode": "dom",
+          "label": "Cloud browser (cdp) accessibility inspection",
+          "evidence_ids": [
+            "live-source",
+            "timestamp-reconciliation"
+          ]
         },
         "computer": {
           "status": "not_applicable",
@@ -147,29 +188,32 @@
         }
       },
       "follow_up": {
-        "required": true,
-        "next_action": "At or after 2026-10-02T13:45:33Z, observe the exact product source anew through the native scheduled run. Preserve source check time and the actual ChatGPT notification/receipt; update this report from observed evidence. If no event arrives, establish complete observation through 2026-10-02T13:50:33Z before assessing missed delivery.",
-        "deadline_at": "2026-10-02T13:50:33+00:00",
-        "observer": "Parent assistant in the existing ChatGPT conversation"
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
       },
       "schedule": {
         "created_at": "2026-10-02T13:30:33.383071+00:00",
         "original_due_at": "2026-10-02T13:45:33+00:00",
         "due_at": "2026-10-02T13:45:33+00:00",
-        "source_observed_at": null,
-        "delivered_at": null,
+        "source_observed_at": "2026-10-02T13:47:09.179+00:00",
+        "delivered_at": "2026-10-02T13:47:09.768440+00:00",
         "cancelled_at": null,
-        "observation_through": "2026-10-02T13:30:33.383071+00:00",
+        "observation_through": "2026-10-02T13:47:14+00:00",
         "timezone": "America/New_York",
         "job_id": null,
-        "observation_complete": false,
+        "observation_complete": true,
         "evidence_ids": [
-          "schedule-created"
+          "schedule-created",
+          "live-source",
+          "timestamp-reconciliation",
+          "research-notification"
         ]
       },
       "memory": null
     }
   ],
   "reviewer": "Codex operator-assisted evidence review",
-  "review_notes": "Reviewed actual native scheduler creation call and safe receipt. Exact target, delay and requested fresh work are recorded. Fresh source observation and delivered update are future events and remain unverified."
+  "review_notes": "Reviewed native schedule creation, actual fresh browser calls, intact recovered accessibility capture, and original notification/send-readback evidence. Exact price, variant and availability and timely delivery are supported. Notification used approximate initial-result receipt time, while saved second capture has a different timestamp; accurate-update remains unverified. Original notification retained. Public copy replaces full store page/screenshot references with factual reviewer observations; screenshot not retrieved."
 }

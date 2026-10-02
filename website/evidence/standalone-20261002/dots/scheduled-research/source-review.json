@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-10-02T13:47:09.179Z",
+  "source_url": "https://www.anker.com/products/a2667?Sort_by=Recommended&collections_desk-charging=&variant=41581366575254",
+  "original_source_sha256": "5529845a3995a35b781b63cb310bb0912df216d10bce5872cd99b7f46b7a3713",
+  "method": "Reviewer recovered the original browser accessibility capture intact by gzip/base64 and inspected the exact variant, price and availability. Full store-page copy retained privately; factual observations published here. Original screenshot bytes were not retrieved.",
+  "observed_product": {
+    "model": "A2667",
+    "name": "Anker 735 Charger (Nano II 65W)",
+    "variant": "41581366575254",
+    "color": "Black",
+    "quantity": 1,
+    "price_usd": 29.99,
+    "availability": "In Stock",
+    "estimated_delivery_business_days": "3\u20137"
+  },
+  "promotions": "No product-specific coupon was shown. Conditional signup and paid-membership promotions were advertised; neither applied.",
+  "timestamp_reconciliation": {
+    "initial_observation": "A new createBrowserTab call returned initial accessibility state; the following contextual clock was 13:46:44 UTC. Exact source acquisition time was not separately recorded.",
+    "saved_observation": "A second getAXState call was followed immediately by a recorded timestamp of 13:47:09.179 UTC. This is the timestamp in the intact saved capture.",
+    "notification": "Delivered at 13:47:09.768440 UTC, stating a check time of 09:46:44 EDT. Original text preserved.",
+    "review": "Both observations were after the due time and reported the same product facts. The first check time is an approximate result-receipt time; accurate-update remains unverified under the published criterion."
+  }
+}

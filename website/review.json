@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T13:46:06.864087+00:00",
+  "updated_at": "2026-10-02T13:52:43.432246+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -500,18 +500,28 @@
       "package_sha256": "d01f720de81174ce6ae91e5a5177cc2200e386863afccdd9cfb96171c9bdbe95",
       "results": {
         "ChatGPT Dots": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "dots-scheduled-research-20261002-01",
-          "summary": "Fresh source check due at 9:45:33 a.m. EDT; delivery deadline 9:50:33 a.m. EDT.",
+          "summary": "Fresh price/stock check and timely update verified; the notification\u2019s approximate check time leaves accuracy unverified.",
           "details": [
-            "Native one-time job contains the exact Anker 735 Black variant URL.",
-            "The job must obtain fresh source evidence at or after its due time and send one price/stock update in the existing chat. Creation is verified; execution and delivery remain unverified."
+            "Scheduled for 9:45:33 a.m. EDT. The new source capture at 9:47:09.179 a.m. EDT shows the exact Black Anker variant at USD 29.99, In Stock.",
+            "The update arrived at 9:47:09.768 a.m. EDT, 96.768 seconds after due and within the five-minute limit.",
+            "The notification states 9:46:44 a.m., an approximate receipt time for the first browser result. The saved capture is a second observation. Original notification and the timing explanation are retained.",
+            "Scheduled, fresh-execution and delivered checks pass; accurate-update remains unverified."
           ],
           "sources": [
             [
-              "Provisional report",
+              "Reviewed report",
               "evidence/standalone-20261002/dots/scheduled-research/reviewed-report.json"
+            ],
+            [
+              "Fresh source and timing review",
+              "evidence/standalone-20261002/dots/scheduled-research/source-review.json"
+            ],
+            [
+              "Original notification",
+              "evidence/standalone-20261002/dots/scheduled-research/evidence/notification-sanitized.json"
             ]
           ]
         },
