@@ -1,0 +1,214 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-purchase-research",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "purchase-research"
+  },
+  "run_id": "grokbot-purchase-research-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Cloud Linux box shared by the user's agents; sources fetched with curl (not logged in, Amazon default location Ashburn 20149).",
+      "Existing anker.com pilot cart not opened or modified; no cart/checkout actions."
+    ]
+  },
+  "task_inputs": {
+    "product_brief": "Find three USB-C wall chargers sold online for delivery in the US. I need a US plug, USB Power Delivery, at least two USB-C ports, and at least 65 W advertised total output. My item-price budget is $50 before shipping and tax. Compare current price, availability, output when sharing ports, and the return policy. Recommend one and explain the tradeoff."
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "purchase-research"
+  ],
+  "started_at": "2026-10-02T10:50:55-04:00",
+  "updated_at": "2026-10-02T10:54:40-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Metrics (active time, tool calls, tokens) are not exported by the harness and are null. Executor estimate (not measured): source research 10:50:55 to about 10:54:16 ET; about 33 executor tool calls in total, including report writing.",
+    "Prior exposure: this same conversation contained an Oct 1 pilot on the same brief (Anker 735, Anker Prime 67W, UGREEN 10334). Its saved files were not opened or reused. All sources were freshly fetched on 2026-10-02.",
+    "No desktop browser or screenshots were used. Evidence is raw HTML captured with curl, plus tag-stripped text.",
+    "The 10-minute and 80-call limits were not enforced by the platform. They were self-monitored."
+  ],
+  "tasks": [
+    {
+      "task_id": "purchase-research",
+      "status": "passed",
+      "reason": "Three distinct chargers were verified from fresh exact-listing captures: plug, PD, USB-C port count, total watts, price and sharing split. Tax and address-specific shipping are disclosed as unknowns.",
+      "execution_started": true,
+      "answer": "Recommend Belkin 112W 3C1A GaN USB-C charger, model WCH017dq, White, $38.99, In Stock, sold by Amazon.com (2026-10-02 10:52:39 ET): https://www.amazon.com/dp/B0DQVHMJNC. Tradeoff: 70W+30W two-port split and 4 ports for the same price as the Belkin 67W WCC002dq (25/20/20W shared), but $7.20 more than the Belkin 68W Dual WCH003dq ($31.79, 50W+18W, third-party seller, 7 left). Size not verified, and the listing does not name which ports give 70/30. Tax and address-specific shipping unknown.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Not exported by the harness. Executor estimate only: research about 10:50:55 to 10:54:16 ET, about 33 executor calls. Boundaries: research only; report writing excluded."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names are not disclosed for the report. Actions: curl fetches of Amazon, anker.com and us.ugreen.com pages, plus local text extraction. No browser, cart or checkout.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "e-c1",
+            "e-c2",
+            "e-c3",
+            "e-log"
+          ]
+        },
+        {
+          "id": "current-sources",
+          "status": "passed",
+          "evidence_ids": [
+            "e-c1",
+            "e-c2",
+            "e-c3",
+            "e-log"
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "status": "passed",
+          "evidence_ids": [
+            "e-c1",
+            "e-c2",
+            "e-c3",
+            "e-returns",
+            "e-comparison"
+          ]
+        },
+        {
+          "id": "recommendation",
+          "status": "passed",
+          "evidence_ids": [
+            "e-c1",
+            "e-comparison"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "e-c1",
+          "kind": "observation",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:52:39-04:00"
+        },
+        {
+          "id": "e-c2",
+          "kind": "observation",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:52:36-04:00"
+        },
+        {
+          "id": "e-c3",
+          "kind": "observation",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:53:26-04:00"
+        },
+        {
+          "id": "e-returns",
+          "kind": "observation",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:53:45-04:00"
+        },
+        {
+          "id": "e-log",
+          "kind": "artifact",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:54:16-04:00"
+        },
+        {
+          "id": "e-comparison",
+          "kind": "artifact",
+          "summary": "Independent review of downloaded agent source material; see candidate facts, limitations and source hashes.",
+          "provenance": "operator",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:54:20-04:00"
+        },
+        {
+          "id": "e-skill",
+          "kind": "observation",
+          "summary": "Self-attested shopping skill load; not a required check and actual load record was not exported.",
+          "provenance": "agent_export",
+          "ref": "source-review.json",
+          "observed_at": "2026-10-02T10:54:00-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": "native",
+          "label": "shopping",
+          "evidence_ids": [
+            "e-skill"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Downloaded exact-product HTML captures were independently inspected against plug, PD, ports, power, current price/stock, returns and recommendation claims. C1 plug conflict is corroborated by its linked primary image in an independent reviewer browser observation. Passed retained. Public evidence replaces full copyrighted page captures with a paraphrased review and original hashes; raw originals retained privately. Native shopping skill load is self-attested and unverified, but not required for this task."
+}

@@ -1,0 +1,80 @@
+{
+  "reviewer": "Codex-assisted operator review",
+  "reviewed_at": "2026-10-02T14:58:44.048479+00:00",
+  "candidates": [
+    {
+      "model": "WCH017dq",
+      "color": "White",
+      "url": "https://www.amazon.com/dp/B0DQVHMJNC",
+      "observed_at": "2026-10-02T10:52:39-04:00",
+      "original_capture_sha256": "da5a4ec313359188a0c63075b5ee54b28b37ef3d1de9a6b9a1cd0d53a67ea6b4",
+      "capture_method": "Agent HTTP fetch; raw HTML independently inspected and retained privately.",
+      "item_price_usd": "38.99",
+      "availability": "In stock; sold and shipped by Amazon.com",
+      "plug": "Listing identifies North American Type A; C1 also has inconsistent fields noted below.",
+      "usb_pd": true,
+      "usb_c_ports": 3,
+      "advertised_total_watts": 112,
+      "shared_output": "Single USB-C 100 W; two ports 70 + 30 W; three 60 + 20 + 20 W; four 60 + 20 + 20 + 12 W.",
+      "returns": "Listing offers free refund/replacement within 30 days, with conditions and exceptions.",
+      "shipping_and_tax": "Free delivery shown only for the anonymous default delivery location; actual-address shipping and tax unverified."
+    },
+    {
+      "model": "WCC002dq",
+      "color": "White",
+      "url": "https://www.amazon.com/dp/B0D4G8VYVR",
+      "observed_at": "2026-10-02T10:52:36-04:00",
+      "original_capture_sha256": "403f151983b714cef5b0f3711cf01918bb44013c48a5ae640eaa066d8bfcde36",
+      "capture_method": "Agent HTTP fetch; raw HTML independently inspected and retained privately.",
+      "item_price_usd": "38.99",
+      "availability": "In stock; sold and shipped by Amazon.com",
+      "plug": "Listing identifies North American Type A; C1 also has inconsistent fields noted below.",
+      "usb_pd": true,
+      "usb_c_ports": 3,
+      "advertised_total_watts": 67,
+      "shared_output": "Single port 67 W; shared total 65 W, C1 25 W and C2/C3 20 W each.",
+      "returns": "Listing offers free refund/replacement within 30 days, with conditions and exceptions.",
+      "shipping_and_tax": "Free delivery shown only for the anonymous default delivery location; actual-address shipping and tax unverified."
+    },
+    {
+      "model": "WCH003dq",
+      "color": "White",
+      "url": "https://www.amazon.com/dp/B088T4HX7F",
+      "observed_at": "2026-10-02T10:53:26-04:00",
+      "original_capture_sha256": "02eb9b25ab363921cf2fc31a4e880113bec37bac64e98c29aea0bfd4034d36a7",
+      "capture_method": "Agent HTTP fetch; raw HTML independently inspected and retained privately.",
+      "item_price_usd": "31.79",
+      "availability": "Seven left; sold and shipped by TopNotchSupplier",
+      "plug": "Listing identifies North American Type A; C1 also has inconsistent fields noted below.",
+      "usb_pd": true,
+      "usb_c_ports": 2,
+      "advertised_total_watts": 68,
+      "shared_output": "Single port 60 W; simultaneous 50 + 18 W.",
+      "returns": "Listing offers free refund/replacement within 30 days, with conditions and exceptions.",
+      "shipping_and_tax": "Free delivery shown only for the anonymous default delivery location; actual-address shipping and tax unverified."
+    }
+  ],
+  "source_limitations": [
+    "C1 also lists a three-pin connector and a no-plug field. Its linked primary product image was opened separately by the reviewer and visibly shows folding US flat blades, corroborating Type A.",
+    "C2 listing specifies the per-port maximum under shared use; the comparison follows those stated limits.",
+    "No belkin.com specification or manual was retrieved by Grok. No physical dimensions were verified.",
+    "Source capture timestamps and full task metrics are agent-reported; no native browser was used for this research."
+  ],
+  "image_corroboration": {
+    "url": "https://m.media-amazon.com/images/I/51-yR8YmkNL._AC_SL1500_.jpg",
+    "provenance": "Operator browser observation of primary image URL present in downloaded C1 HTML; supplementary review, not Grok interaction."
+  },
+  "return_policy": {
+    "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GKM69DUUYKQWKWX7",
+    "capture_sha256": "b39c78b289818d6f50af8746416c79a8f88bcccad2573b8e977b5a4e153f0a81",
+    "observed_at": "2026-10-02T10:53:45-04:00",
+    "summary": "Most products can be returned within 30 days of delivery in original or unused condition; exceptions and order-specific eligibility apply."
+  },
+  "recommendation": {
+    "model": "WCH017dq",
+    "variant": "White",
+    "url": "https://www.amazon.com/dp/B0DQVHMJNC",
+    "rationale": "More shared power and an additional USB-A port for the same observed price as C2; costs USD 7.20 more than C3. Port pair assignment and physical size were not verified."
+  },
+  "publication_note": "Raw merchant HTML, extracted full pages and extensive quoted source log remain private. This public artifact paraphrases the inspected evidence and preserves source hashes."
+}

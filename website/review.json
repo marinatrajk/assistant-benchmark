@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:51:43.945429+00:00",
+  "updated_at": "2026-10-02T14:58:44.050338+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -374,14 +374,26 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "grokbot-purchase-research-20261002-01",
-          "summary": "Assigned: compare three current US-plug chargers against the full product brief.",
+          "summary": "Compared three qualifying chargers and recommended the exact white Belkin WCH017dq at the observed USD 38.99 price.",
           "details": [
-            "Exact variant, current price/stock, shared-port output and returns must be supported by sources."
+            "Downloaded product captures support the three distinct models, current price/stock, US plugs, PD, USB-C ports and shared power.",
+            "A conflicting plug field for the recommendation was flagged; the linked product image independently corroborates a US plug.",
+            "Returns and address-dependent shipping/tax limitations are explicit. Research used fresh HTTP captures, not native browser interaction.",
+            "Prior pilot exposure is disclosed. Actual timing/call telemetry is unavailable; the agent estimates about 33 calls."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/purchase-research/reviewed-report.json"
+            ],
+            [
+              "Source review and original capture hashes",
+              "evidence/standalone-20261002/grokbot/purchase-research/source-review.json"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -433,11 +445,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-checkout-handoff-20261002-01",
+          "summary": "Assigned: prepare the exact selected Belkin in a fresh guest cart and stop at payment.",
+          "details": [
+            "Existing cart must be preserved; login, address and session blockers must be reported."
+          ],
           "sources": []
         },
         "Instinct": {
