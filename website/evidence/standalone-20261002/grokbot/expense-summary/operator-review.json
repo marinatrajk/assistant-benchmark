@@ -1,0 +1,24 @@
+{
+  "reviewed_at": "2026-10-02T15:15:54.394Z",
+  "method": "Imported all four delivered CSVs through Spreadsheet Workbook API; compared every retained source field and integer-cent totals with an independent frozen-fixture reference.",
+  "all_checks_passed": true,
+  "input_sha256": "401fd06a92c4961136c7e9c3f61f19f68bd00f8bbddc8e3ac52d5abe3666bc3f",
+  "original_input_matches_frozen_fixture": true,
+  "source_rows": 10,
+  "retained_receipts": 9,
+  "numeric_rows": 8,
+  "duplicate_removed": "A103 / r005",
+  "refund_preserved": {
+    "receipt": "A107",
+    "amount_usd": -5
+  },
+  "missing_amount_flagged": "A110",
+  "category_totals_usd": {
+    "Transport": 24.9,
+    "Meals": 41.9,
+    "Office": 3,
+    "Lodging": 120
+  },
+  "known_numeric_total_usd": 189.8,
+  "total_marked_incomplete": true
+}

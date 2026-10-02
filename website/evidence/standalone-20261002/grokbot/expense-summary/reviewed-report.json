@@ -1,0 +1,219 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-expense-summary",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "expense-summary"
+  },
+  "run_id": "grokbot-expense-summary-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Debian 13 (assistant box)",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Run in an existing chat containing earlier benchmark runs, including an Oct 1 pilot that also ran expense-summary; that earlier output was not opened or reused."
+    ]
+  },
+  "task_inputs": {
+    "input_file": "assets/sample-expenses.csv"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "expense-summary"
+  ],
+  "started_at": "2026-10-02T11:14:20-04:00",
+  "updated_at": "2026-10-02T11:14:33-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Package SHA-256 62d32027... verified at 11:14:20 ET; source commit 49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817 per operator.",
+    "Metrics not exposed; left null."
+  ],
+  "tasks": [
+    {
+      "task_id": "expense-summary",
+      "status": "passed",
+      "reason": "All checks supported by output files and an independent recomputation.",
+      "execution_started": true,
+      "answer": "Cleaned 9 distinct receipts (excluded duplicate r005/A103), kept refund A107 -5.00, flagged A110 missing amount (left blank). Totals USD: Transport 24.90, Meals 41.90 (incomplete), Office 3.00, Lodging 120.00; overall 189.80 (incomplete, excludes A110).",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Not measurable; left null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names withheld; done with a shell and Python on the assistant box. No desktop or skill used.",
+      "checks": [
+        {
+          "id": "cleaned-data",
+          "status": "passed",
+          "evidence_ids": [
+            "cleaned",
+            "flags",
+            "verify",
+            "input-hash",
+            "operator-recheck"
+          ]
+        },
+        {
+          "id": "correct-totals",
+          "status": "passed",
+          "evidence_ids": [
+            "cat",
+            "overall",
+            "verify",
+            "operator-recheck"
+          ]
+        },
+        {
+          "id": "usable-artifact",
+          "status": "passed",
+          "evidence_ids": [
+            "cleaned",
+            "cat",
+            "overall",
+            "flags",
+            "operator-recheck"
+          ]
+        },
+        {
+          "id": "explanation",
+          "status": "passed",
+          "evidence_ids": [
+            "readme",
+            "flags",
+            "operator-recheck"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "cleaned",
+          "kind": "artifact",
+          "summary": "Cleaned rows CSV with row_status and is_refund",
+          "provenance": "agent_export",
+          "ref": "output/cleaned-expenses.csv",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "cat",
+          "kind": "artifact",
+          "summary": "Category totals CSV with completeness flags",
+          "provenance": "agent_export",
+          "ref": "output/category-totals.csv",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "overall",
+          "kind": "artifact",
+          "summary": "Overall total CSV marked incomplete",
+          "provenance": "agent_export",
+          "ref": "output/overall-total.csv",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "flags",
+          "kind": "artifact",
+          "summary": "Review flags CSV",
+          "provenance": "agent_export",
+          "ref": "output/review-flags.csv",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "readme",
+          "kind": "artifact",
+          "summary": "Explanation of duplicates, refund, missing amount and review items",
+          "provenance": "agent_export",
+          "ref": "output/README.md",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "verify",
+          "kind": "observation",
+          "summary": "Independent recomputation: unique receipts, reconciliation 189.80, refund kept, A110 blank",
+          "provenance": "agent_export",
+          "ref": "evidence/verification.txt",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "input-hash",
+          "kind": "observation",
+          "summary": "Input SHA-256 identical before and after",
+          "provenance": "agent_export",
+          "ref": "evidence/input-sha256-after.txt",
+          "observed_at": "2026-10-02T11:14:33-04:00"
+        },
+        {
+          "id": "operator-recheck",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Independent import, source comparison and arithmetic reconciliation of all delivered CSV files.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-02T11:15:54.394-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Downloaded actual CSVs were imported with the Spreadsheet Workbook API and independently compared against the frozen fixture. Every retained source field, unique receipt, refund, missing amount, category total and incomplete overall total matched. Original input hash matches the frozen task input. All four checks passed. Prior pilot exposure and unavailable metrics remain disclosed."
+}

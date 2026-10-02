@@ -1,0 +1,7 @@
+unique receipt_ids in cleaned: True 9 of 9 distinct in input
+sum of included numeric rows: 189.80
+sum of category totals: 189.80
+overall file: 189.80 complete= no
+reconciles: True
+refund kept: True
+A110 amount left blank: True

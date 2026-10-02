@@ -1,0 +1,2 @@
+total_usd,currency,input_rows,duplicates_excluded,retained_receipts,included_numeric_rows,missing_amount_rows,refund_rows,complete,note
+189.80,USD,10,1,9,8,1,1,no,"Incomplete: excludes receipt A110 (record r010, Meals, Station Kiosk) whose amount is missing"

@@ -1,0 +1,5 @@
+category,total_usd,included_rows,refund_rows,missing_amount_rows,complete
+Transport,24.90,2,0,0,yes
+Meals,41.90,3,0,1,no
+Office,3.00,2,1,0,yes
+Lodging,120.00,1,0,0,yes

@@ -1,0 +1,4 @@
+record_id,receipt_id,flag,detail
+r005,A103,duplicate_receipt_id_excluded,Duplicate of r003 (identical fields); excluded from totals
+r007,A107,refund_retained,"Negative amount -5.00 kept as a refund (FYI, no action needed)"
+r010,A110,missing_amount,"Amount blank; not filled in; excluded from numeric totals, so Meals and overall totals are incomplete"

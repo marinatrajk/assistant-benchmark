@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:15:07.556542+00:00",
+  "updated_at": "2026-10-02T15:16:21.471544+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -815,14 +815,30 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "passed",
+          "review_status": "reviewed",
           "run_id": "grokbot-expense-summary-20261002-01",
-          "summary": "Assigned: clean the frozen synthetic expense CSV and reconcile outputs.",
+          "summary": "Delivered reconciled CSVs: nine distinct receipts, refund retained, missing amount flagged, known total USD 189.80.",
           "details": [
-            "Actual CSV files will be checked for duplicate removal, retained refund, missing-value flags and totals."
+            "All four actual CSV files were imported and every retained source field compared against the frozen input.",
+            "Duplicate r005/A103 is removed, A107 remains a USD -5 refund, and A110 stays blank and flagged.",
+            "Meals and overall totals are correctly marked incomplete. Numeric rows, category totals and overall total reconcile to USD 189.80.",
+            "Input bytes match the frozen fixture. Prior exposure is disclosed; task-wide telemetry remains unavailable."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/expense-summary/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261002/grokbot/expense-summary/operator-review.json"
+            ],
+            [
+              "Download CSV bundle",
+              "evidence/standalone-20261002/grokbot/expense-summary/expense-csv-bundle.zip"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
