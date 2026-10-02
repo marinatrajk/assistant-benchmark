@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:13:17.585964+00:00",
+  "updated_at": "2026-10-02T15:15:07.556542+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -522,22 +522,28 @@
           ]
         },
         "GrokBot": {
-          "status": "pending",
-          "review_status": "unreviewed",
+          "status": "failed",
+          "review_status": "reviewed",
           "run_id": "grokbot-reminder-delivery-20261002-01",
-          "summary": "Scheduled for 11:10 a.m. EDT; delivery and duplicate checks close at 11:12.",
+          "summary": "No reminder reached the requested chat by the 11:12 a.m. EDT deadline.",
           "details": [
-            "Native routine creation was observed in the app; downloaded scheduler evidence confirms the message and due time.",
-            "The scheduler uses whole minutes, giving a four-second rounding difference from the clock read. Actual delivery is not yet established."
+            "The native reminder was scheduled for 11:10. Operator observations after due and after the deadline show no notification in the persistent chat history.",
+            "A separate agent-exported transcript check found no reminder send. Internal scheduler run/error history was unavailable, so the cause is unknown.",
+            "A recall task was active in another room with the same bot at 11:10:16; this is a recorded condition, not an asserted cause.",
+            "No manual reminder or retry was used to replace the missed delivery."
           ],
           "sources": [
             [
-              "Provisional report",
-              "evidence/standalone-20261002/grokbot/reminder-delivery/provisional-report.json"
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/reviewed-report.json"
             ],
             [
-              "Creation evidence",
-              "evidence/standalone-20261002/grokbot/reminder-delivery/evidence/scheduler-creation.md"
+              "Operator observations",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/operator-observations.json"
+            ],
+            [
+              "Exported history check",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/evidence/delivery-history.md"
             ]
           ]
         },
@@ -809,11 +815,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-expense-summary-20261002-01",
+          "summary": "Assigned: clean the frozen synthetic expense CSV and reconcile outputs.",
+          "details": [
+            "Actual CSV files will be checked for duplicate removal, retained refund, missing-value flags and totals."
+          ],
           "sources": []
         },
         "Instinct": {

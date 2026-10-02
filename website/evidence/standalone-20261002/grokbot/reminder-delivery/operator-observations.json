@@ -1,0 +1,26 @@
+{
+  "channel": "Original Grok New Bot chat",
+  "due_at": "2026-10-02T11:10:00-04:00",
+  "deadline_at": "2026-10-02T11:12:00-04:00",
+  "observations": [
+    {
+      "at": "2026-10-02T15:10:32.032Z",
+      "result": "Original transcript last message was the 11:08:24 memory update ZIP; no reminder notification."
+    },
+    {
+      "at": "2026-10-02T15:10:48.230Z",
+      "result": "No new original-chat message; UI reported New Bot stopped without replying."
+    },
+    {
+      "at": "2026-10-02T15:11:25.307Z",
+      "result": "Original transcript still ended with 11:08:24 message."
+    },
+    {
+      "at": "2026-10-02T15:12:13.589Z",
+      "result": "After deadline, original transcript unchanged; no reminder in completed delivery window."
+    }
+  ],
+  "coverage": "Persistent chat history was inspected after due and after deadline. No intervening delivery message appeared. Agent separately exported a native unified-transcript check. Scheduler internal execution logs were unavailable.",
+  "concurrent_condition": "A recall request was sent in a separate room with the same bot at 11:10:16 EDT. No causal conclusion is drawn.",
+  "no_manual_delivery_or_retry": true
+}

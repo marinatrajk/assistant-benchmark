@@ -1,6 +1,6 @@
 Structure valid. Actual evidence still needs independent review.
 {
   "task_id": "reminder-delivery",
-  "status": "pending",
-  "provisional": true
+  "status": "failed",
+  "provisional": false
 }

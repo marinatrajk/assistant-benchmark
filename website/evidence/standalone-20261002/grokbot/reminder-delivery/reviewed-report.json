@@ -1,0 +1,190 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-reminder-delivery",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "reminder-delivery"
+  },
+  "run_id": "grokbot-reminder-delivery-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Existing conversation; the Oct 1 pilot ran a similar reminder here (delivered 238 s late)."
+    ]
+  },
+  "task_inputs": {
+    "reminder_text": "Paces grokbot-reminder-delivery-20261002-01 \u2014 take a screen break"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD",
+    "reminder_delay_minutes": 10,
+    "reminder_delivery_tolerance_seconds": 120
+  },
+  "task_ids_requested": [
+    "reminder-delivery"
+  ],
+  "started_at": "2026-10-02T10:59:56-04:00",
+  "updated_at": "2026-10-02T11:12:37-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "The scheduler has minute granularity, so it is due 11:10:00, 10 min 4 s after the current-time read at 10:59:56.",
+    "Metrics are not exported and are left null.",
+    "Concurrent condition: a memory-followup recall turn was sent to another chat with the same bot at 11:10:16 EDT; recorded as a condition, not a cause.",
+    "Platform routine run history is not exposed to the assistant; the once check is left unverified because zero deliveries were observed, so exactly-once is not established."
+  ],
+  "tasks": [
+    {
+      "task_id": "reminder-delivery",
+      "status": "failed",
+      "reason": "Missed deadline: no reminder notification was delivered in the requested chat by 11:12:00 EDT (due 11:10:00 + 2 min). Operator saw none; the assistant transcript shows no reminder send and no routine wake. Platform run history (fired/errored/interrupted) was not exposed, so the internal cause is unknown.",
+      "execution_started": true,
+      "answer": "No reminder notification was observed in the requested chat by the 11:12:00 EDT deadline.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Hidden settings are withheld.",
+      "checks": [
+        {
+          "id": "scheduled",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        {
+          "id": "delivered",
+          "status": "failed",
+          "evidence_ids": [
+            "ev-history",
+            "ev-operator"
+          ]
+        },
+        {
+          "id": "on-time",
+          "status": "failed",
+          "evidence_ids": [
+            "ev-history",
+            "ev-operator"
+          ]
+        },
+        {
+          "id": "once",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-create",
+          "kind": "trace",
+          "summary": "Native scheduler creation result: one-time job due 11:10 AM ET",
+          "provenance": "agent_export",
+          "ref": "evidence/scheduler-creation.md",
+          "excerpt": "Saved routine ... (folder paces-screen-break-reminder-grokbot-reminder-del): Once October 2 at 11:10 AM.",
+          "observed_at": "2026-10-02T11:00:05-04:00"
+        },
+        {
+          "id": "ev-history",
+          "kind": "trace",
+          "summary": "Post-deadline inspection of native routine status exposed to the assistant and of all sent messages in the unified transcript; no reminder send or routine wake.",
+          "provenance": "agent_export",
+          "ref": "evidence/delivery-history.md",
+          "observed_at": "2026-10-02T11:12:37-04:00"
+        },
+        {
+          "id": "ev-operator",
+          "kind": "operator_attestation",
+          "summary": "Operator inspected the original chat after due and after 11:12:00 EDT: no screen-break notification visible; app briefly showed New Bot working, then stopped without replying.",
+          "provenance": "operator",
+          "excerpt": "no screen-break notification is visible; the app briefly showed New Bot working then stopped without replying.",
+          "observed_at": "2026-10-02T11:12:13.589-04:00",
+          "ref": "operator-observations.json"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-create"
+          ]
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": {
+        "created_at": "2026-10-02T11:00:00-04:00",
+        "original_due_at": "2026-10-02T11:10:00-04:00",
+        "due_at": "2026-10-02T11:10:00-04:00",
+        "source_observed_at": null,
+        "delivered_at": null,
+        "cancelled_at": null,
+        "observation_through": "2026-10-02T11:12:00-04:00",
+        "timezone": "America/New_York",
+        "job_id": "paces-screen-break-reminder-grokbot-reminder-del",
+        "observation_complete": true,
+        "evidence_ids": [
+          "ev-create",
+          "ev-history",
+          "ev-operator"
+        ]
+      },
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "The operator observed the original persistent chat after due, during the window and at 11:12:13.589 EDT after the deadline; it remained at its 11:08:24 message. The agent separately exported a native transcript search with no reminder send. Missed delivery is supported, while scheduler execution/cause remains unknown. Concurrent recall activity is disclosed. The original rounded operator-evidence timestamp was replaced with the actual post-deadline observation time."
+}
