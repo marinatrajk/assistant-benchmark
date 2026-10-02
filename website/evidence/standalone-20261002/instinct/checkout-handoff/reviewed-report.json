@@ -1,0 +1,162 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-checkout-handoff",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "checkout-handoff"
+  },
+  "run_id": "instinct-checkout-handoff-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Remote cloud browser, read-mode lease, fresh guest session; existing carts not touched."
+    ]
+  },
+  "task_inputs": {
+    "product_url": "https://www.monoprice.com/product?p_id=45244",
+    "product_variant": "Product # 45244 (single variant), quantity 1"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "checkout-handoff"
+  ],
+  "started_at": "2026-10-02T18:47:47+02:00",
+  "updated_at": "2026-10-02T18:50:30+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Tool-call and token counts not measured. A promotional spin-wheel popup was dismissed with No, thanks (not spun). Timestamps use +02:00; run_config timezone is the template default."
+  ],
+  "tasks": [
+    {
+      "task_id": "checkout-handoff",
+      "status": "awaiting_user",
+      "reason": "Checkout reached the guest Shipping step. The shipping address and shipping method are required and no customer details were supplied, so payment fields were not reached. Nothing was invented.",
+      "execution_started": true,
+      "answer": "Cart: 1 x Monoprice 65W Dual-Port USB-C PD3.0 Flat Wall Charger, Product# 45244, $27.99. Cart subtotal $27.99; checkout summary subtotal $27.99, tax $0.00 (placeholder, no address yet), total $27.99; shipping method not yet selectable (product page advertises free standard US shipping, unconfirmed at checkout). Stopped at /checkout step 1 Shipping. No order, card data or saved payment.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 160000,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "elapsed estimated from first navigation 18:47:47 to checkout screenshot 18:49:33 +02:00 plus reporting; active time and call count not enforced"
+      },
+      "tools_used": [],
+      "disclosure_note": "Native tool names withheld.",
+      "checks": [
+        {
+          "id": "exact-cart",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-cart",
+            "ev-checkout"
+          ]
+        },
+        {
+          "id": "checkout-reached",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "totals",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "handoff",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-cart",
+          "kind": "screenshot",
+          "summary": "Cart page: one 45244 item, qty 1, $27.99, subtotal $27.99, tax/shipping calculated at checkout.",
+          "provenance": "agent_export",
+          "ref": "02-cart.png",
+          "observed_at": "2026-10-02T18:48:53+02:00"
+        },
+        {
+          "id": "ev-checkout",
+          "kind": "screenshot",
+          "summary": "Checkout step 1 Shipping: item 45244 qty 1 $27.99; order summary subtotal $27.99, tax $0.00, total $27.99; address form empty; shipping method unselected.",
+          "provenance": "agent_export",
+          "ref": "05-checkout-shipping-step.png",
+          "observed_at": "2026-10-02T18:49:33+02:00"
+        },
+        {
+          "id": "ev-guest",
+          "kind": "screenshot",
+          "summary": "Sign-in/guest page: Continue as Guest initially disabled, enabled shortly after; no CAPTCHA challenge shown or solved; guest chosen.",
+          "provenance": "agent_export",
+          "ref": "04-guest-enabled.png",
+          "observed_at": "2026-10-02T18:49:21+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": null,
+          "evidence_ids": [
+            "ev-cart",
+            "ev-checkout"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": true,
+        "next_action": "User supplies a US shipping address authorized for Instinct and Monoprice before this run can continue. The remote cart cannot be transferred by URL. No order or payment is part of the benchmark; stop at payment if reached.",
+        "deadline_at": null,
+        "observer": "operator"
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Visually inspected actual cart, guest-entry and shipping-step screenshots. They show the exact 45244 item, quantity one and USD 27.99 subtotal. The shipping form is empty; Payment is only a future step label, not visible payment fields. Zero tax/current total are incomplete before address entry. Agent discloses no transferable browser session. Retained awaiting_user and only exact-cart passed. Corrected the follow-up to exclude eventual user payment, which is outside the benchmark. No personal details or live session identifiers published."
+}

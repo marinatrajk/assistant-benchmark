@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:48:39.692763+00:00",
+  "updated_at": "2026-10-02T16:52:30.646607+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -556,14 +556,30 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "awaiting_user",
+          "review_status": "reviewed",
           "run_id": "instinct-checkout-handoff-20261002-01",
-          "summary": "Guest checkout assigned for Monoprice product 45244, quantity one; stop before payment or order.",
+          "summary": "Correct guest cart prepared; checkout stopped at the shipping-address step before payment.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Verified Monoprice product 45244, quantity one, USD 27.99.",
+            "Shipping details were absent. Displayed USD 0.00 tax and USD 27.99 total are provisional; payment fields were not reached.",
+            "Instinct reports the cart is confined to its remote session and cannot be transferred by a link. A user-provided US shipping address is required to continue.",
+            "No order, card data, saved payment or invented customer details were used."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/checkout-handoff/reviewed-report.json"
+            ],
+            [
+              "Verified cart",
+              "evidence/standalone-20261002/instinct/checkout-handoff/02-cart.png"
+            ],
+            [
+              "Actual shipping checkpoint",
+              "evidence/standalone-20261002/instinct/checkout-handoff/05-checkout-shipping-step.png"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -640,11 +656,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-reminder-delivery-20261002-01",
+          "summary": "Ten-minute reminder assigned in Messages; waiting for exact due time and native creation evidence.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {
