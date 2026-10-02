@@ -1,0 +1,190 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-update",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "memory-update"
+  },
+  "run_id": "grokbot-memory-update-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Synthetic persona is stored in the assistant's native durable memory in conversation scope, labeled with the persona id. It is kept out of agent-wide and shared user scopes.",
+      "Existing conversation that also contains earlier benchmark runs (the Paces pilot, browser-form, browser-research). The seed was visible in the conversation context during the measured phase; retrieval evidence comes from actual memory searches, not conversation recall.",
+      "Seed setup at ~10:40:25 ET is outside active time."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-grokbot-memory-update-20261002-01"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "memory-update"
+  ],
+  "started_at": "2026-10-02T10:42:27-04:00",
+  "updated_at": "2026-10-02T10:42:58-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "No memory/preference skill exists in the assistant's library, so no native skill load happened.",
+    "The memory API has no in-place update or entry IDs, so the update was forget+write of the same logical entry, identified by exact text and scope.",
+    "Tool-call count, active duration and tokens are not exported by the harness and are left null (the agent counted ~17 calls in the measured phase, roughly 1-2 minutes wall clock)."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-update",
+      "status": "partial",
+      "reason": "Memory excerpts support retrieving Python, replacing the logical entry with TypeScript and reading it back. No memory skill was loaded, so the required skill check remains unverified; audit coverage relies on the agent export.",
+      "execution_started": true,
+      "answer": "The benchmark persona's preferred language was Python; it is now recorded as TypeScript (previously Python).",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names and hidden model/harness/settings are withheld. Actions are described as memory search, forget and write in the evidence files.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "prior-retrieved",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-before"
+          ]
+        },
+        {
+          "id": "current-updated",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-write",
+            "ev-readback"
+          ]
+        },
+        {
+          "id": "readback-verified",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-readback",
+            "ev-write"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-seed",
+          "kind": "trace",
+          "summary": "Seed write and readback (setup phase)",
+          "provenance": "agent_export",
+          "ref": "evidence/seed.md",
+          "excerpt": "[persona paces-test-grokbot-memory-update-20261002-01, synthetic benchmark data, not the real user] The benchmark persona prefers Python as their programming language.",
+          "observed_at": "2026-10-02T10:40:27-04:00"
+        },
+        {
+          "id": "ev-before",
+          "kind": "trace",
+          "summary": "Memory search before update retrieves the Python seed",
+          "provenance": "agent_export",
+          "ref": "evidence/before.md",
+          "excerpt": "[persona paces-test-grokbot-memory-update-20261002-01, synthetic benchmark data, not the real user] The benchmark persona prefers Python as their programming language.",
+          "observed_at": "2026-10-02T10:42:27-04:00"
+        },
+        {
+          "id": "ev-write",
+          "kind": "trace",
+          "summary": "Forget old + write TypeScript entry in same scope/tier",
+          "provenance": "agent_export",
+          "ref": "evidence/write.md",
+          "excerpt": "[persona paces-test-grokbot-memory-update-20261002-01, synthetic benchmark data, not the real user] The benchmark persona prefers TypeScript as their programming language (previously Python).",
+          "observed_at": "2026-10-02T10:42:35-04:00"
+        },
+        {
+          "id": "ev-readback",
+          "kind": "trace",
+          "summary": "Agent-exported readback and reported 11-fact search audit",
+          "provenance": "agent_export",
+          "ref": "evidence/readback-and-audit.md",
+          "excerpt": "[persona paces-test-grokbot-memory-update-20261002-01, synthetic benchmark data, not the real user] The benchmark persona prefers TypeScript as their programming language (previously Python).",
+          "observed_at": "2026-10-02T10:42:37-04:00"
+        },
+        {
+          "id": "ev-skill",
+          "kind": "observation",
+          "summary": "No memory skill available; none loaded",
+          "provenance": "agent_export",
+          "ref": "evidence/skill-load.md"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "ev-seed",
+            "ev-write",
+            "ev-readback"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed downloaded agent-exported before, forget/write and readback excerpts. Same logical persona/scope/tier updated; no entry IDs exist. Conflict audit is an agent reconstruction of three searches covering the reported 11-fact total, not an independently retrieved raw inventory. No native memory skill was available. Partial retained; no cross-conversation claim. Original unreviewed report retained privately."
+}

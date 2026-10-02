@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T14:41:52.235755+00:00",
+  "updated_at": "2026-10-02T14:47:49.507491+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -214,14 +214,33 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "grokbot-memory-update-20261002-01",
-          "summary": "Assigned: seed a synthetic persona in existing isolated durable memory, then update and read it back.",
+          "summary": "Updated the synthetic preference from Python to TypeScript and read it back; no native memory skill was available.",
           "details": [
-            "Only the synthetic namespace may be modified. A separate update request follows the seed acknowledgment."
+            "Downloaded memory excerpts identify the original and replacement by exact text, persona, conversation scope and tier; the platform exposes no entry IDs.",
+            "The reported audit covered all 11 facts across three searches. One TypeScript preference and a historical Python seed note remained; full raw inventory was not exported.",
+            "Same-conversation seed exposure and agent-exported evidence limit verification. Active duration and tool telemetry remain unavailable."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/grokbot/memory-update/reviewed-report.json"
+            ],
+            [
+              "Before update",
+              "evidence/standalone-20261002/grokbot/memory-update/evidence/before.md"
+            ],
+            [
+              "Write evidence",
+              "evidence/standalone-20261002/grokbot/memory-update/evidence/write.md"
+            ],
+            [
+              "Readback and audit limitations",
+              "evidence/standalone-20261002/grokbot/memory-update/evidence/readback-and-audit.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -277,11 +296,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-computer-calculator-20261002-01",
+          "summary": "Assigned: use the operating system Calculator through native desktop input.",
+          "details": [
+            "One attempt with a five-minute active limit and 50 calls where measurable."
+          ],
           "sources": []
         },
         "Instinct": {
