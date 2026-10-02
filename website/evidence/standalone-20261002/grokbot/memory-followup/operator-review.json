@@ -1,0 +1,14 @@
+{
+  "method": "Native macOS app UI observation",
+  "fresh_ui": "New chat \u2192 existing New Bot recipient \u2192 No messages yet",
+  "recall_request_at": "2026-10-02T11:10:16-04:00",
+  "input": "Persona identifier, recall/application request and answer-free task package; no seed/update values or artifacts were copied.",
+  "response_at": "2026-10-02T11:10:40-04:00",
+  "result": "Correct current preferences and a fitting 10-minute pencil-and-paper drawing activity.",
+  "limitation": "Grok explicitly disclosed that its unified history already supplied the earlier seed/update turns, despite the empty new room. Fresh context was therefore not established.",
+  "session_aliases": {
+    "initial": "New Bot original conversation",
+    "recall": "New Bot new UI room [recall-room]"
+  },
+  "audit_limit": "Update/readback succeeded, but the agent exported ranked searches rather than an exhaustive current-entry inventory."
+}

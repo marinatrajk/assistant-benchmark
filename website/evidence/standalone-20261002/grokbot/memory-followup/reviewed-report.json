@@ -1,0 +1,202 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "run_id": "grokbot-memory-followup-20261002-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Debian 13 (assistant box)",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Synthetic entries used native agent-wide memory with an explicit persona label.",
+      "A separate empty UI room was opened for the same bot. Grok disclosed shared transcript history across rooms."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-grokbot-followup-20261002-01"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "memory-followup"
+  ],
+  "started_at": "2026-10-02T11:06:23-04:00",
+  "updated_at": "2026-10-02T11:10:40-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Operator joined separate phase exports outside the recall context.",
+    "The new UI room had no messages, but Grok reported unified seed/update history in its context.",
+    "No exhaustive memory enumeration is exposed; conflict audit coverage cannot be fully verified.",
+    "Recall-only report start was rounded to 11:10:00; operator observed sending the recall request at 11:10:16. Overall start uses the seed phase."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-followup",
+      "status": "partial",
+      "reason": "Synthetic preferences were stored, updated and explicitly retrieved, and the suggestion fits. Full update audit and fresh-context recall remain unverified because search is non-exhaustive and prior transcript history was supplied automatically.",
+      "execution_started": true,
+      "answer": "Remembered current preferences: quiet indoor creative activity; pencil and paper only; maximum 10 minutes. Suggestion: a 10-minute blind contour drawing of one object in the room, with pencil on paper.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Not measurable; left null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool names withheld; native memory search recorded as a sanitized result.",
+      "checks": [
+        {
+          "id": "stored",
+          "status": "passed",
+          "evidence_ids": [
+            "seed-storage"
+          ]
+        },
+        {
+          "id": "updated",
+          "status": "unverified",
+          "evidence_ids": [
+            "update-audit"
+          ]
+        },
+        {
+          "id": "new-session-recall",
+          "status": "unverified",
+          "evidence_ids": [
+            "recall-retrieval",
+            "operator-context"
+          ]
+        },
+        {
+          "id": "applied",
+          "status": "passed",
+          "evidence_ids": [
+            "recall-retrieval",
+            "recall-answer"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "seed-storage",
+          "kind": "trace",
+          "summary": "Native agent-scope memory writes for three synthetic preferences and readback by persona ID.",
+          "provenance": "agent_export",
+          "ref": "evidence/seed-storage.md",
+          "observed_at": "2026-10-02T11:06:39-04:00"
+        },
+        {
+          "id": "update-audit",
+          "kind": "trace",
+          "summary": "Before listing, forget/write update of duration from 30 to 10 minutes, readback of all three entries, and conflict audit with ranked-search limits.",
+          "provenance": "agent_export",
+          "ref": "evidence/update-and-audit.md",
+          "observed_at": "2026-10-02T11:08:04-04:00"
+        },
+        {
+          "id": "recall-retrieval",
+          "kind": "trace",
+          "summary": "Native agent-scope memory search by persona ID in the recall chat, plus a freshness disclosure.",
+          "provenance": "agent_export",
+          "ref": "evidence/recall-retrieval.md",
+          "observed_at": "2026-10-02T11:10:28-04:00"
+        },
+        {
+          "id": "recall-answer",
+          "kind": "observation",
+          "summary": "Final suggestion given in the recall chat.",
+          "provenance": "agent_export",
+          "excerpt": "Remembered current preferences: quiet indoor creative activity; pencil and paper only; maximum 10 minutes. Suggestion: a 10-minute blind contour drawing of one object in the room, with pencil on paper.",
+          "observed_at": "2026-10-02T11:10:28-04:00"
+        },
+        {
+          "id": "operator-context",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Empty new-room UI and answer-free prompt observed; response disclosed shared transcript history.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-02T11:10:40-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "observed",
+          "mode": "native",
+          "label": null,
+          "evidence_ids": [
+            "seed-storage",
+            "update-audit",
+            "recall-retrieval"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "initial_session": "New Bot original conversation",
+        "recall_session": "New Bot new UI room [recall-room]",
+        "same_environment": true,
+        "isolated": false,
+        "evidence_ids": [
+          "seed-storage",
+          "update-audit",
+          "recall-retrieval",
+          "operator-context"
+        ]
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Joined downloaded seed/update and recall evidence outside the evaluated context. The operator observed an empty new room and supplied no answer values. Grok disclosed unified prior-chat history, so fresh-context recall remains unverified. Stored and applied are supported. The update was performed and read back, but the required conflict audit was ranked/non-exhaustive, so the full updated check is unverified. Private room ID replaced with an alias; original exports retained privately."
+}

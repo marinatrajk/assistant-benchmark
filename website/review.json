@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:06:35.523679+00:00",
+  "updated_at": "2026-10-02T15:13:17.585964+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -731,14 +731,29 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
-          "review_status": "unreviewed",
+          "status": "partial",
+          "review_status": "reviewed",
           "run_id": "grokbot-memory-followup-20261002-01",
-          "summary": "Assigned: store a synthetic persona, update it separately, then test recall in a fresh conversation.",
+          "summary": "Recalled the updated preferences and applied them, but the new chat also received the earlier seed/update history.",
           "details": [
-            "Preference values and seed reports will not be copied into the recall conversation."
+            "The operator opened a new empty room with the existing bot and sent only the persona ID and answer-free recall task.",
+            "Native retrieval returned the 10-minute limit and a suitable pencil-and-paper activity. Grok disclosed unified history across chats, preventing a fresh-context claim.",
+            "Seed, replacement write and readback evidence were reviewed. The conflict search is ranked and non-exhaustive, so the full update check also remains unverified."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Joined reviewed report",
+              "evidence/standalone-20261002/grokbot/memory-followup/reviewed-report.json"
+            ],
+            [
+              "Fresh-context review",
+              "evidence/standalone-20261002/grokbot/memory-followup/operator-review.json"
+            ],
+            [
+              "Recall evidence and history disclosure",
+              "evidence/standalone-20261002/grokbot/memory-followup/evidence/recall-retrieval.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
