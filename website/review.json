@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T16:42:34.488600+00:00",
+  "updated_at": "2026-10-02T16:44:46.944946+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -378,14 +378,29 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "unsupported",
+          "review_status": "reviewed",
           "run_id": "instinct-computer-calculator-20261002-01",
-          "summary": "Calculator desktop task assigned; waiting for capability and display evidence.",
+          "summary": "No native desktop controls were available, so the OS Calculator task was unsupported.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Instinct reported no desktop observation/input tools or relevant desktop skill.",
+            "No Calculator, screenshot, displayed result or substitute arithmetic was used. execution_started is false.",
+            "Capability findings are agent-exported summaries; OS, app, tools and metrics remain undisclosed or unknown."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/computer-calculator/reviewed-report.json"
+            ],
+            [
+              "Capability evidence",
+              "evidence/standalone-20261002/instinct/computer-calculator/evidence/capability-inspection.txt"
+            ],
+            [
+              "Inspection trace",
+              "evidence/standalone-20261002/instinct/computer-calculator/evidence/action-trace.txt"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -450,11 +465,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-purchase-research-20261002-01",
+          "summary": "Three-charger research assigned with the standard US plug, USB PD, port, wattage and USD 50 constraints.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {

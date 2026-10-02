@@ -1,0 +1,169 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-computer-calculator",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "computer-calculator"
+  },
+  "run_id": "instinct-computer-calculator-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "Only the assigned benchmark package and report artifacts were created. No Calculator, other application, or unrelated file was changed."
+    ]
+  },
+  "task_inputs": {
+    "expression": "137 \u00d7 29"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "computer-calculator"
+  ],
+  "started_at": "2026-10-02T12:42:15-04:00",
+  "updated_at": "2026-10-02T12:42:55-04:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Native desktop observation and input are unavailable in this run. The task was not executed.",
+    "No relevant existing desktop workflow skill or native load evidence was available. The assigned desktop workflow reference was read as document-only guidance; it does not satisfy playbook-loaded.",
+    "Native tool identifiers and private implementation details are withheld; evidence is a sanitized capability-inspection summary, not a raw transcript."
+  ],
+  "tasks": [
+    {
+      "task_id": "computer-calculator",
+      "status": "unsupported",
+      "reason": "Native desktop observation/input capability is absent. Cannot open the OS Calculator, enter the expression, or observe its displayed result. No substitute calculation was performed.",
+      "execution_started": false,
+      "answer": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "No task execution occurred. Setup/capability inspection and report writing are excluded from active timing. Task clocks, call counts, and token counts are left null rather than inferred."
+      },
+      "tools_used": [],
+      "disclosure_note": "Native tool names and private implementation details are withheld. No desktop action or display evidence exists; the exported inspection trace is sanitized.",
+      "checks": [
+        {
+          "id": "playbook-loaded",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "desktop-input",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "display-observed",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "answer-matches",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "capability-inspection",
+          "kind": "observation",
+          "summary": "Native desktop controls were unavailable.",
+          "ref": "evidence/capability-inspection.txt",
+          "observed_at": "2026-10-02T12:42:15-04:00",
+          "provenance": "agent_export"
+        },
+        {
+          "id": "skill-inspection",
+          "kind": "observation",
+          "summary": "No relevant existing desktop workflow skill or native load evidence was available.",
+          "ref": "evidence/skill-inspection.txt",
+          "observed_at": "2026-10-02T12:42:33-04:00",
+          "provenance": "agent_export"
+        },
+        {
+          "id": "action-trace",
+          "kind": "trace",
+          "summary": "Capability/setup inspection only; no desktop task action.",
+          "ref": "evidence/action-trace.txt",
+          "observed_at": "2026-10-02T12:42:55-04:00",
+          "provenance": "agent_export"
+        },
+        {
+          "id": "package-verification",
+          "kind": "artifact",
+          "summary": "Assigned package SHA-256 matched.",
+          "ref": "evidence/package-verification.txt",
+          "observed_at": "2026-10-02T12:42:15-04:00",
+          "provenance": "agent_export"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "capability-inspection"
+          ]
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "skill-inspection"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed Messages response and sanitized capability/skill inspection exports. Instinct reports no native desktop observation/input capability or desktop workflow skill. No Calculator was opened and no substitute calculation supplied. Unsupported records this disclosed capability absence, not an incorrect arithmetic result. Internal capability inventory is not independently inspectable; all actual task checks remain unverified."
+}

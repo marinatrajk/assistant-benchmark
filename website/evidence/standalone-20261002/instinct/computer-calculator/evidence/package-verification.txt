@@ -1,0 +1,5 @@
+Source: https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-computer-calculator.zip
+Observed SHA-256: d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95
+Expected SHA-256: d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95
+Match: true
+Package read for the assigned task and report contract only.
