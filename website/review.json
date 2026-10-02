@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:50:02.776440+00:00",
+  "updated_at": "2026-10-02T17:51:07.644669+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -357,11 +357,11 @@
           "status": "partial",
           "review_status": "reviewed",
           "run_id": "muse-memory-update-20261002-01",
-          "summary": "TypeScript update reported; native skill and durable entry verification incomplete.",
+          "summary": "Python changed to TypeScript in isolated native memory; applicable skill not verified.",
           "details": [
-            "Separate setup and update operator turns were observed.",
-            "Muse reports an in-place update after indexed-search lag, using direct native file read.",
-            "Awaiting actual saved persona export; agent-authored notes are not independent storage evidence."
+            "Actual saved persona file independently checked against its exported SHA-256.",
+            "TypeScript is the sole current preference; Python appears only as labeled history.",
+            "Indexed search lag required direct read; native skill missing, so overall partial."
           ],
           "sources": [
             [
@@ -369,20 +369,20 @@
               "evidence/standalone-20261002/muse/memory-update/reviewed-report.json"
             ],
             [
+              "Saved persona",
+              "evidence/standalone-20261002/muse/memory-update/supplement/persona-file-copy/paces-test-muse-memory-update-20261002-01.md"
+            ],
+            [
+              "Native readback",
+              "evidence/standalone-20261002/muse/memory-update/supplement/read-verbatim.txt"
+            ],
+            [
+              "Namespace and hash",
+              "evidence/standalone-20261002/muse/memory-update/supplement/namespace-listing-and-hash.txt"
+            ],
+            [
               "Seed before",
               "evidence/standalone-20261002/muse/memory-update/evidence/seed-before.md"
-            ],
-            [
-              "Update notes",
-              "evidence/standalone-20261002/muse/memory-update/evidence/update-observation.md"
-            ],
-            [
-              "Readback notes",
-              "evidence/standalone-20261002/muse/memory-update/evidence/readback-and-namespace.md"
-            ],
-            [
-              "Native memory disclosure",
-              "evidence/standalone-20261002/muse/memory-update/evidence/native-memory-note.md"
             ]
           ]
         }
@@ -583,11 +583,13 @@
           ]
         },
         "Muse": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "muse-purchase-research-20261002-01",
+          "summary": "Fresh three-charger research assigned with current source and exact variant evidence.",
+          "details": [
+            "Assigned through the existing Muse benchmark side chat in the macOS Muse app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         }
       },

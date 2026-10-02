@@ -1,0 +1,22 @@
+Publication note: home-directory prefix normalized to ~/; private original retained.
+
+# Namespace listing and hash — captured verbatim 2026-10-02 ~13:50 EDT
+
+Command: ls -la ~/memory/benchmark-personas/ && sha256sum <persona file> && stat -c '%y' <persona file>
+stdout reproduced exactly:
+
+---
+total 4
+drwxrws--- 1 root nogroup  88 Oct  2 13:44 .
+drwxrws--- 1 root nogroup 302 Oct  2 13:44 ..
+-rw-rw---- 1 root nogroup 908 Oct  2 13:45 paces-test-muse-memory-update-20261002-01.md
+===SHA256===
+a2872b07810cf47bb6ca7fca3ffb9ccbfaa5a1aa9db90b005a83bd79be40a73f  ~/memory/benchmark-personas/paces-test-muse-memory-update-20261002-01.md
+===MTIME===
+2026-10-02 13:45:50.293280645 -0400
+---
+
+Reading: the namespace directory contains exactly one file (this persona's
+entry). The SHA-256 matches the byte-identical copy in persona-file-copy/.
+The mtime predates this review, confirming the preference was not modified
+by the supplement.
