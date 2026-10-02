@@ -1,16 +1,14 @@
 # Methodology and limitations
 
-## Three distinct evaluations
+## Individual tasks are the current format
 
-| Evaluation | What it tests | How it is judged |
-| --- | --- | --- |
-| Local harness starter tasks | Configured LLMs using this harness's shared tools | Instrumented checks plus human review; checks are intentionally simple |
-| `paces-portable-v1` | Existing assistant browser, desktop, memory, and native skill capabilities | Four task sheets, evidence requirements, independent assessment of self-reports |
-| `paces-everyday-v1` | Whole assistants performing everyday work with their own tools | Six assigned scenarios in this pilot; a seventh memory scenario is run separately |
+The website uses `assistant-benchmark-tasks-v1`, version `1.0.0`: 11 individual tests, each with its own skill, task sheet, inputs, limits, evidence checklist and report. Assistants use their own existing capabilities. The operator assigns one task at a time and records the exact package hash, session conditions and any overrides.
 
-These suites are not interchangeable. Their native-skill requirements differ: the portable suite explicitly requires skill evidence for certain full passes; Everyday task success and observed native skill use are separate fields.
+The catalog covers browser form, browser research, memory update, desktop Calculator, purchase research, checkout handoff, reminder delivery, reminder change/cancel, scheduled research, cross-conversation memory and expense cleanup. Native workflow skill evidence is required for the browser research, memory update and Calculator tasks; receiving the benchmark assignment alone does not satisfy that requirement.
 
-The exact task criteria and budgets live in the versioned skill packages. The repository preserves the original files and SHA-256 manifests used for this pilot. The Everyday manifest's `pilot-not-yet-agent-tested` stage is historical package metadata from creation, not the current evaluation status.
+Current results live in `website/review.json`. The same data drives every main website view and export. The old four-task portable and six-task Everyday suites are historical protocols, preserved under `benchmarks/legacy/`. Their scores are not carried into new individual runs. The local harness is a separate tool for testing configured models with shared capabilities.
+
+The current Dots sequence reuses an existing conversation at the operator’s request. Prior benchmark context is present. Cross-conversation memory still needs a genuinely separate recall conversation without the seed/update transcript; it cannot pass through ordinary recall in the reused chat.
 
 ## Evidence and grading
 
@@ -22,12 +20,15 @@ An agent report is a claim to inspect. Reviewers should check the actual artifac
 | Partial | Some progress is supported, but one or more criteria or evidence requirements remain unresolved |
 | Needs user | A prerequisite such as delivery details or an access challenge requires user involvement |
 | Pending | A required observation or verification is unfinished |
-| Not tested | The scenario could not be evaluated, including missing operator follow-up steps |
+| Not started | No attempt has been made for this individual task |
+| Awaiting review | An assistant report exists but the required evidence has not been fully reviewed |
+| Awaiting response | The assignment was sent but no usable result is visible to the operator |
+| Blocked / Unsupported | Access prevents an existing capability, or the required capability is absent |
 | Failed | Evidence establishes an unmet criterion, such as a missed delivery window |
 
-Portable reports additionally distinguish unsupported tools and blocked access. `not_evaluated` is a **website review status**; it is not a new value in the unchanged agent-report contracts. Preserve the original submitted status and record reviewer interpretation separately when collecting new results.
+Website progress states such as `awaiting_review`, `awaiting_response` and `running` describe operator workflow; they are not additional outcomes in the unchanged agent-report contract. Keep the submitted self-score separate from the reviewed result.
 
-The website numerator counts full passes, and its denominator is the number of assigned tasks. It does not award fractional credit. A missing operator sequence is displayed separately and must not be described as an assistant failure. Sort order reflects these counts, not a claim of universal superiority.
+The website numerator counts reviewed full passes, and its denominator is the 11 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
 
 ## Timing
 
@@ -47,7 +48,7 @@ The initial reviews were assembled with Codex using submitted files, available s
 
 Muse was added after a separate audit. The prior three assessments were retained rather than regraded anonymously alongside it. This is a documented fairness limitation. An independent, anonymized regrade against one evidence standard is a useful next step, not something this release claims to have completed.
 
-Known open issues include incomplete original research sources, different checkout prerequisites, and unverified cancellation absence checks. Muse's change/cancel prompts were never sent; that task is not evaluated. Some freshness evidence is a sanitized agent observation rather than a raw source capture. These limitations are attached to individual results in `website/review.json`.
+Known open issues include incomplete original research sources, different checkout prerequisites, and unverified cancellation absence checks. Muse's change/cancel prompts were never sent; that task is not evaluated. Some freshness evidence is a sanitized agent observation rather than a raw source capture. These historical limitations are retained in `benchmarks/legacy/reviews/everyday-pilot-20261002.json`. The current website does not display those pilot scores.
 
 ## Public and private evidence
 

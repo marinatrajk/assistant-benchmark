@@ -1,0 +1,174 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-browser-form",
+  "source_protocol": {
+    "suite_id": "paces-portable-v1",
+    "suite_version": "1.0.1",
+    "task_id": "browser-form"
+  },
+  "run_id": "dots-browser-form-20261002-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": "Chrome cloud browser via CDP; version unmeasured",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "New tab for this attempt; existing conversation reused. Cookie/profile reset unavailable and not claimed."
+    ],
+    "fixture_mode": "public_static"
+  },
+  "task_inputs": {
+    "fixture_base_url": "https://paces-agent-tests-20261001.marinatrajk.chatgpt.site"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 300,
+    "max_tool_calls_per_task": 50,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "browser-form"
+  ],
+  "started_at": "2026-10-02T11:25:32.944Z",
+  "updated_at": "2026-10-02T12:03:15.778Z",
+  "review_status": "reviewed",
+  "deviations": [
+    "Existing conversation reused, with prior browser-form benchmark exposure. All actions, observations, confirmation code and evidence in this report are newly generated for this attempt.",
+    "Assignment package read as documents; not installed or loaded as a native skill. No other skill or task was started.",
+    "A fresh tab was used; a fresh browser profile/context reset was not verified.",
+    "Post-completion operator status intervention reported no visible response/activity. Receipt acknowledged and previously completed result reattached at 2026-10-02T11:32:46.134235+00:00; no restart or additional form submission. Exact operator-message receipt timestamp unavailable."
+  ],
+  "tasks": [
+    {
+      "task_id": "browser-form",
+      "status": "passed",
+      "reason": null,
+      "execution_started": true,
+      "answer": "Submitted Ada Lovelace, ada@example.com, Research. Confirmation code PACES-00C20DF7DEEC0E9A.",
+      "metrics": {
+        "active_duration_ms": 31688,
+        "elapsed_duration_ms": 31688,
+        "tool_calls": 3,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Date.now immediately before fresh navigation through final confirmation observation/screenshot and answer. Three mcp__cua_repl.js invocations during task. Setup, package reading, browser documentation, artifact persistence and reporting excluded; no waits, recovery or delegation during attempt. Token telemetry unavailable."
+      },
+      "tools_used": [
+        "mcp__cua_repl.js"
+      ],
+      "disclosure_note": "Backend model, settings and harness identity undisclosed; left null. Browser interaction tool name is disclosed.",
+      "checks": [
+        {
+          "id": "form-values",
+          "status": "passed",
+          "evidence_ids": [
+            "trace"
+          ]
+        },
+        {
+          "id": "browser-interaction",
+          "status": "passed",
+          "evidence_ids": [
+            "platform-actions",
+            "trace"
+          ]
+        },
+        {
+          "id": "receipt-observed",
+          "status": "passed",
+          "evidence_ids": [
+            "trace"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "trace",
+          "kind": "trace",
+          "summary": "Original saved field and confirmation accessibility observations",
+          "ref": "action-trace.json",
+          "observed_at": "2026-10-02T11:26:04.632Z",
+          "provenance": "agent_export"
+        },
+        {
+          "id": "platform-actions",
+          "kind": "trace",
+          "summary": "Operator-observed successful browser tool calls for navigation, field entry and one submission",
+          "ref": "browser-actions.json",
+          "provenance": "platform"
+        },
+        {
+          "id": "assignment",
+          "kind": "trace",
+          "summary": "Assignment package hash verified by the runner; document mode",
+          "excerpt": "SHA-256 1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1; assignment read as documents.",
+          "provenance": "agent_export"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": "Cloud browser",
+          "evidence_ids": [
+            "trace",
+            "platform-actions"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": "document",
+          "label": "benchmark-browser-form assignment read only",
+          "evidence_ids": [
+            "assignment"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "assignment_package": {
+    "skill_version": "1.0.0",
+    "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+    "release_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-browser-form.zip",
+    "sha256": "1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1",
+    "sha256_verified": true,
+    "mode": "document"
+  },
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reviewed the original saved browser accessibility trace and matching successful browser tool calls recovered from platform history. These show the exact three submitted values, one submission and receipt PACES-00C20DF7DEEC0E9A. Screenshots were created by the runner but were not independently retrieved for this review; the observed text trace satisfies the task's confirmation requirement. Timing is runner-measured; reused conversation and unverified profile reset are disclosed. This public review retains only the evidence actually retrieved; the original unreviewed report and screenshots remain with the runner."
+}

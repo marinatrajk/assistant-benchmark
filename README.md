@@ -6,7 +6,7 @@ Real tasks. Each assistant's own tools. Evidence you can question.
 
 Assistant Benchmark is an open-source project that tests how well AI assistants handle everyday tasks. Can they research a purchase, get to checkout, deliver a reminder on time, or come back later with an update?
 
-Each assistant uses its **own tools and capabilities**. The public pilot evaluates the complete assistant experience: the model, its tools, and how reliably they work together.
+Each assistant uses its **own tools and capabilities**. The project evaluates the complete assistant experience: the model, its tools, and how reliably they work together.
 
 ## What we test
 
@@ -14,16 +14,19 @@ Each assistant uses its **own tools and capabilities**. The public pilot evaluat
 - **Shopping:** Prepare a checkout and hand it back to the user before payment.
 - **Scheduling:** Deliver reminders, handle changes and cancellations, and do work at a later time.
 - **Files:** Turn messy information into usable files with accurate calculations.
+- **Browser, computer, and memory:** Complete browser forms, operate a desktop app, and retrieve and update durable preferences.
 
-Each task has its own [standalone benchmark skill](docs/SKILLS.md), including browser use, computer use, and memory. The project also includes a local harness for comparing models with a shared set of tools. Cross-session memory was not evaluated in the initial Everyday pilot.
+The website now uses **11 individual tests**, each with its own [standalone benchmark skill](docs/SKILLS.md), evidence checklist and report. Tasks run one at a time. The project also includes a local harness for comparing models with a shared set of tools.
 
 Human-operated [voice-mode tests](manual-testing/voice-mode/README.md) cover interruptions, spoken corrections, noisy speech, screen awareness, reminders, and continuity between voice and text. They include shared test pages, scoring criteria, and a results template.
 
-## The first pilot
+## Current results
 
-The October 1–2, 2026 pilot covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, with one attempt per assistant. Results distinguish passes, partial completion, required user input, failures, pending checks, and tasks that were not tested.
+The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 11 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
 
-These are provisional observations from a small pilot, not a definitive ranking. Different environments and timing affect the results. Initial reviews were AI-assisted with Codex, were not blinded or independently replicated, and did not receive identical review depth. [Read the methodology and limitations.](docs/METHODOLOGY.md)
+Results are provisional observations, not a definitive ranking. Different environments and timing affect outcomes. Reviews are AI-assisted with Codex and are not blinded or independently replicated. [Read the methodology and limitations.](docs/METHODOLOGY.md)
+
+The earlier multi-task pilot is retained as [historical data](benchmarks/legacy/reviews/everyday-pilot-20261002.json); its scores are not mixed into the current website.
 
 ## An open process
 

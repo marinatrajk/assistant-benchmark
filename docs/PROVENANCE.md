@@ -1,4 +1,12 @@
-# Initial open-source release
+# Release provenance
+
+## Current website format
+
+On October 2, 2026, the website switched to the 11 individual tasks across its main list, profiles, comparison, methodology and JSON export. `website/review.json` is the current dataset. The previous six-task review was preserved unchanged at `benchmarks/legacy/reviews/everyday-pilot-20261002.json`; its scores are not carried forward into individual attempts. Old individual-run bookmarks resolve to the main views.
+
+New individual attempts have their own run IDs, package hashes, execution conditions and reviewed evidence. Software and package test counts are separate from the number of assistant benchmark attempts completed.
+
+## Initial open-source release
 
 This repository begins with a clean source snapshot on October 2, 2026. It is not the complete development or conversation history. The project was developed with assistance from Codex before this repository was created.
 

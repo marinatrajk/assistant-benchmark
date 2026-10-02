@@ -25,6 +25,6 @@ Serve `fixtures/` as a **separate site root** if agents need publicly accessible
 
 ## Result updates
 
-Edit `website/review.json` with evidence-backed changes. Adding an assistant currently also requires updating the `names` and `info` registry in `website/app.js` and providing its icon. Run repository checks and inspect list, grid, profile, comparison and tooltip views before deploying. Check that new public evidence contains no personal or session data.
+Edit `website/review.json` with evidence-backed individual task results. It is the single dataset for the main list, grid, profiles, comparison, exports and methodology. Its 11 task IDs and order match `benchmarks/task-catalog.json`. Adding an assistant also requires updating the `names` and `info` registry in `website/app.js` and providing its icon. Run repository checks and inspect list, grid, profile, comparison and tooltip views before deploying. Check that new public evidence contains no personal or session data.
 
-The downloadable results graphic is explicitly labeled October 1; it is a historical snapshot of the first three assistants. Current results are in the interactive site and reviewed JSON.
+The six-task pilot is archived at `benchmarks/legacy/reviews/everyday-pilot-20261002.json`. It is no longer displayed or exported by the website. The previous `#skill-runs` routes resolve to the main individual-task views, and `/skill-runs.json` redirects to `/review.json` on Vercel. Package checks do not execute assistant tests.

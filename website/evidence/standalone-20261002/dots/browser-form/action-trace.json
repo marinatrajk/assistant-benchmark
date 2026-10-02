@@ -1,0 +1,26 @@
+{
+  "run_id": "dots-browser-form-20261002-01",
+  "started_at": "2026-10-02T11:25:32.944Z",
+  "ended_at": "2026-10-02T11:26:04.632Z",
+  "duration_ms": 31688,
+  "tool_calls": 3,
+  "source": "Runner-curated actual browser actions and returned accessibility observations; not independently signed.",
+  "actions": [
+    {
+      "at": "2026-10-02T11:25:39.747Z",
+      "action": "Create fresh tab and navigate to fixture /form",
+      "result": "Contact form observed"
+    },
+    {
+      "at": "2026-10-02T11:25:50.879Z",
+      "action": "Fill Name Ada Lovelace; Email ada@example.com; select topic Research",
+      "result": "Browser tab: 2, Title: \"Contact form · Paces test pages\", URL: \"https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\".\n0 AXWebArea Contact form · Paces test pages, URL: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t1 container\n\t\t2 link Description: Paces., Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t\t3 container Test pages\n\t\t\t4 link Description: Contact form, Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t\t\t5 link Description: Plans, Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/\n\t6 container\n\t\t7 text BROWSER EVALUATION / FORM\n\t\t8 heading Get in touch., Value: 1\n\t\t\t9 text Get in touch.\n\t\t10 text Complete the contact form using the details in your benchmark task.\n\t\t11 container form-panel\n\t\t\t12 container contact-form\n\t\t\t\t13 container\n\t\t\t\t\t14 text Name\n\t\t\t\t\t15 text field (settable) Name, Value: Ada Lovelace, ID: name\n\t\t\t\t16 container\n\t\t\t\t\t17 text Email\n\t\t\t\t\t18 text field (settable) Email, Value: <redacted>\n\t\t\t\t19 container\n\t\t\t\t\t20 text Topic\n\t\t\t\t\t21 pop up button (collapsed, settable) Topic, Value: Research, ID: topic, Secondary Actions: Expand\n\t\t\t\t\t\t22 menu\n\t\t\t\t\t\t\t23 Select a topic\n\t\t\t\t\t\t\t24 Support\n\t\t\t\t\t\t\t25 (selected) Research\n\t\t\t\t\t\t\t26 Sales\n\t\t\t\t27 button Send request\n\t\t\t28 text Use synthetic task details only. This is a test form.\n\t29 text Synthetic test pages · No real purchases or messages.\n\nThe focused UI element is 18 text field (settable) Email, Value: <redacted>"
+    },
+    {
+      "at": "2026-10-02T11:26:04.632Z",
+      "action": "Click Send request; observe confirmation; capture screenshot",
+      "result": "Browser tab: 2, Title: \"Contact form · Paces test pages\", URL: \"https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\".\n0 AXWebArea Contact form · Paces test pages, URL: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t1 container\n\t\t2 link Description: Paces., Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t\t3 container Test pages\n\t\t\t4 link Description: Contact form, Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t\t\t5 link Description: Plans, Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/plans/\n\t6 container\n\t\t7 text BROWSER EVALUATION / FORM\n\t\t8 heading Get in touch., Value: 1\n\t\t\t9 text Get in touch.\n\t\t10 text Complete the contact form using the details in your benchmark task.\n\t\t30 container Request received, ID: confirmation\n\t\t\t31 heading Request received, Value: 2, ID: confirmation-title\n\t\t\t\t32 text Request received\n\t\t\t33 text Your confirmation code:\n\t\t\t34 text PACES-00C20DF7DEEC0E9A\n\t\t\t35 definition list\n\t\t\t\t36 container Name\n\t\t\t\t\t37 text Name\n\t\t\t\t38 text Ada Lovelace\n\t\t\t\t39 container Email\n\t\t\t\t\t40 text Email\n\t\t\t\t41 text ada@example.com\n\t\t\t\t42 container Topic\n\t\t\t\t\t43 text Topic\n\t\t\t\t44 text Research\n\t\t\t45 text Keep this confirmation as evidence for your report.\n\t\t\t46 link Description: Start a new attempt, Value: paces-agent-tests-20261001.marinatrajk.chatgpt.site/form/\n\t29 text Synthetic test pages · No real purchases or messages.\n\nThe focused UI element is 31 heading Request received, Value: 2, ID: confirmation-title"
+    }
+  ],
+  "answer": "Submitted Ada Lovelace, ada@example.com, Research. Confirmation code PACES-00C20DF7DEEC0E9A."
+}

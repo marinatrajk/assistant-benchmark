@@ -1,393 +1,528 @@
 {
-  "review_state": "Provisional review",
-  "reviewed_at": "October 2, 2026 (Muse added; October 1 assessments retained)",
+  "round_id": "standalone-20261002",
+  "title": "Individual task results",
+  "started_on": "2026-10-02",
+  "updated_at": "2026-10-02T12:04:43+00:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
   "agents": [
     "ChatGPT Dots",
     "GrokBot",
     "Instinct",
     "Muse"
   ],
-  "takeaway": "Provisional evidence review of four assistants using their own tools. Muse has three supported passes, incomplete research evidence, checkout awaiting user details, and an untested change/cancel sequence. Counts describe supported outcomes in these runs, not a general assistant ranking.",
-  "notice": "Cancellation verification remains pending for the October 1 runs. Muse did not receive the separate change and cancel prompts, so that scenario is not tested. Cross-conversation memory was excluded.",
+  "methodology": [
+    "Each of the 11 tasks has its own versioned skill, inputs, limits, evidence checklist, and report. Tasks are assigned one at a time using each assistant\u2019s own existing tools.",
+    "The score counts reviewed full passes out of the 11 tasks in the catalog. Not-started and unreviewed tasks are not failures; review coverage is shown alongside the score.",
+    "An assistant\u2019s self-score is a claim to inspect. Codex assists the operator in checking actual artifacts, browser observations, action records, and delivery evidence against the published criteria.",
+    "The operator requested reuse of an existing Dots conversation. Earlier benchmark context is present, and browser profile reset was not verified. These conditions limit comparability.",
+    "Browser research, memory update, and Calculator require a relevant native workflow skill in addition to the benchmark assignment. Reading the assignment as a document does not satisfy that check.",
+    "Reminder and cancellation checks need observed delivery or absence through the required windows. Passing the deadline alone does not establish success.",
+    "Cross-conversation memory requires a genuinely separate conversation without the seed or update transcript. Same-conversation recall cannot pass.",
+    "Checks are AI-assisted, not blinded or independently replicated. One attempt and different tool environments do not establish an overall assistant ranking. Unknown model identities and usage remain undisclosed."
+  ],
   "tasks": [
     {
-      "name": "Research a purchase",
-      "criterion": "Three verified chargers meeting every constraint, with current sources and a justified recommendation.",
+      "task_id": "browser-form",
+      "name": "Browser form",
+      "skill": "benchmark-browser-form",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-browser-form.zip",
+      "package_sha256": "1038f13f36062d281e556ea5dc17c51312c498d67beb2148ae2302a101240ef1",
       "results": {
-        "GrokBot": {
-          "status": "partial",
-          "summary": "Useful comparison, but US plug verification and exact-variant power sharing have evidence gaps.",
-          "details": [
-            "All three prices and stock states have saved source extracts. Anker 735 is a defensible recommendation at $29.99.",
-            "The comparison infers US plugs from US storefronts/voltage. That alone does not verify plug shape.",
-            "At 3:31 p.m., GrokBot confirmed the original pages did not verify any US plug type and no exact-model official UGREEN sharing evidence was collected. It downgraded research to partial without rerunning."
-          ],
-          "sources": [
-            [
-              "Original comparison",
-              "evidence/grokbot/output/charger-research.md"
-            ]
-          ]
-        },
-        "Instinct": {
-          "status": "partial",
-          "summary": "Three candidates supplied, but only Monoprice is verified against all constraints.",
-          "details": [
-            "The follow-up supplied its original comparison: Monoprice, VisionTek and Ventev. Price and stock observations are recorded.",
-            "Instinct confirmed at 3:30 p.m. that neither VisionTek nor Ventev had US plug verification; VisionTek’s exact variant was also unverified. Port-sharing and return-policy notes are included. It agrees the three-qualifying-products requirement is partial."
-          ],
-          "sources": [
-            [
-              "Original three-candidate comparison",
-              "evidence/instinct/evidence/charger-candidates-evidence.md"
-            ]
-          ]
-        },
         "ChatGPT Dots": {
           "status": "passed",
-          "summary": "Three candidates with product screenshots, sharing graphics, explicit discounts and caveats.",
+          "review_status": "reviewed",
+          "run_id": "dots-browser-form-20261002-01",
+          "summary": "Entered all three requested values, submitted once, and captured confirmation PACES-00C20DF7DEEC0E9A.",
           "details": [
-            "Reviewed product screenshots show US-style folding plugs, port counts and current advertised prices. Exact variants and official return sources are recorded.",
-            "UGREEN 100W qualifies under $50 only with the displayed discount; that coupon was not tested in checkout. The recommended 65W coupon was tested.",
-            "Anker PD support is explicitly identified as an inference from PowerIQ 3.0 and a manufacturer explanation. These limitations were disclosed rather than hidden."
+            "Saved confirmation observation contains Ada Lovelace, ada@example.com, and Research.",
+            "Platform browser calls show navigation, field entry, topic selection, and one submission.",
+            "Runner measured 31.688 seconds and three browser tool calls. The five-minute and 50-call limits were met on the disclosed timing boundary.",
+            "Existing conversation reused; browser profile reset was not verified. The assignment was read as documents, which is allowed for this task.",
+            "The operator reviewed saved accessibility observations and matching tool calls. Runner screenshots were not independently retrieved.",
+            "An earlier Awaiting response label reflected incomplete status-tool visibility; the completed result was subsequently recovered."
           ],
           "sources": [
             [
-              "Detailed shortlist",
-              "evidence/dots/purchase-shortlist.json"
+              "Reviewed Browser form report",
+              "evidence/standalone-20261002/dots/browser-form/reviewed-report.json"
             ],
             [
-              "UGREEN 100W product screenshot",
-              "evidence/dots/purchase-ugreen100.jpg"
-            ]
-          ]
-        },
-        "Muse": {
-          "status": "partial",
-          "summary": "Three chargers compared; exact source links and constraint evidence remain incomplete.",
-          "details": [
-            "Muse supplied Insignia 65W at $19.99, Esoulk 65W at $24.99 and Belkin Gaming Dual USB-C 65W at $39.99, recommending the Belkin black variant, SKU 6633264.",
-            "Its downloaded report includes the exact Belkin link, but not exact links and original source captures establishing every required constraint for the other two candidates. Native activity confirms browser research and a saved shortlist; the inspected activity details are summaries.",
-            "Muse self-reported a pass. The reviewed result is partial because the evidence is incomplete, not because the products were proved unsuitable. Original source evidence could resolve this gap without rerunning research."
-          ],
-          "sources": []
-        }
-      }
-    },
-    {
-      "name": "Prepare checkout",
-      "criterion": "Correct item, variant and quantity; payment visible; costs explained; stop before purchase.",
-      "results": {
-        "GrokBot": {
-          "status": "passed",
-          "summary": "Anker 735, quantity 1, with empty payment fields visible. No order placed.",
-          "details": [
-            "Reviewed screenshot shows $29.99 item, $1.20 estimated tax and $31.19 estimated total. Shipping/address limitations were disclosed.",
-            "A payment boundary was reached; this is not proof that the checkout could be completed without further user input."
-          ],
-          "sources": [
-            [
-              "Payment screenshot",
-              "evidence/grokbot/evidence/checkout-4-payment.png"
-            ]
-          ]
-        },
-        "Instinct": {
-          "status": "awaiting_user",
-          "summary": "Correct Monoprice cart, quantity 1, but CAPTCHA blocked the route to payment.",
-          "details": [
-            "Reviewed screenshots show $27.99 cart and a guest-checkout CAPTCHA. Payment fields were not reached.",
-            "Stopping was appropriate. This is an access barrier, not a completed payment handoff. The remote cart cannot be transferred by a generic URL."
-          ],
-          "sources": [
-            [
-              "CAPTCHA checkpoint",
-              "evidence/instinct/evidence/guest-checkout-captcha.png"
+              "Original browser observations",
+              "evidence/standalone-20261002/dots/browser-form/action-trace.json"
             ],
             [
-              "Prepared cart",
-              "evidence/instinct/evidence/cart-page.png"
+              "Observed browser actions",
+              "evidence/standalone-20261002/dots/browser-form/browser-actions.json"
             ]
           ]
         },
-        "ChatGPT Dots": {
-          "status": "passed",
-          "summary": "UGREEN 65W, quantity 1, coupon applied and payment visible; native browser handoff supplied.",
-          "details": [
-            "Reviewed screenshot shows $39.99 less $12 discount, subtotal $27.99. Shipping needs an address; tax was not yet calculated.",
-            "Optional delivery protection remained unchecked. Native same-session handoff receipt was exported; no payment data or order."
-          ],
-          "sources": [
-            [
-              "Payment screenshot",
-              "evidence/dots/checkout-payment.jpg"
-            ]
-          ]
-        },
-        "Muse": {
-          "status": "awaiting_user",
-          "summary": "Guest cart prepared; contact and shipping details were needed before payment.",
-          "details": [
-            "Report and native task activity identify one Belkin Gaming Dual USB-C 65W charger, Black, SKU 6633264. Reported costs: $39.99 item, free shipping, $3.55 estimated tax, $43.54 total.",
-            "The recorded checkpoint is Contact info. Shipping address, shipping details and payment remained ahead. These costs come from the submitted report and task summary, not an independently reviewed screenshot of all totals.",
-            "Muse asked for user details or browser takeover and stopped. That is appropriate behavior, but the task requires visible payment fields for a full pass. No order was placed."
-          ],
-          "sources": []
-        }
-      }
-    },
-    {
-      "name": "Deliver a reminder",
-      "criterion": "Exactly once, not early, no more than 120 seconds late.",
-      "results": {
         "GrokBot": {
-          "status": "failed",
-          "summary": "Arrived 238 seconds late, outside the 120-second allowance.",
-          "details": [
-            "Due 3:15:00 p.m. EDT; Grok Bot app message timestamp 3:18:58 p.m. Independently read from the app.",
-            "The bot’s own approximate send log differs by one second; this does not affect the outcome."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Instinct": {
-          "status": "passed",
-          "summary": "Receipt in the expected minute; precise send log supports an on-time delivery.",
-          "details": [
-            "Due 3:15:06 p.m. EDT. The existing native message log records the send at 3:15:13, with the call at 3:15:12; independently, Messages shows the matching notification in the 3:15 minute.",
-            "Combined sender and receiver evidence supports delivery after due and before the end of that minute, within the 120-second limit. Exactly one matching reminder was observed. The precise receipt second is unavailable; +7 seconds is the send-log delay, not measured delivery latency."
-          ],
-          "sources": []
-        },
-        "ChatGPT Dots": {
-          "status": "passed",
-          "summary": "Arrived about 119 seconds late—only 1.1 seconds inside the limit.",
-          "details": [
-            "Due 3:16:37 p.m. EDT; exported platform conversation readback gives sent_at 3:18:35.871716 p.m., a 118.871716-second delay.",
-            "The parent task shows successful sending and conversation readback. Export describes a complete duplicate-free window through 3:18:47. This verifies chat delivery, not device push receipt or user attention."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Muse": {
-          "status": "passed",
-          "summary": "One reminder arrived within the two-minute allowance; exact receipt seconds are unavailable.",
-          "details": [
-            "Reported due time: October 2, 5:32:30 a.m. EDT. The Muse desktop app independently shows the matching message at 5:33 a.m., placing receipt 30 to under 90 seconds after due.",
-            "Muse reports a worker timestamp 52 seconds after due. That is not an independently measured receipt second. The matching reminder appeared once in the conversation inspected after the duplicate-check window."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         }
-      }
+      },
+      "criterion": "Enter the requested values through the browser, submit once, and observe the confirmation receipt.",
+      "category": "Browser"
     },
     {
-      "name": "Change and cancel",
-      "criterion": "One updated job, cancellation verified, no notification through both deadlines plus two minutes.",
+      "task_id": "browser-research",
+      "name": "Browser research and skill use",
+      "skill": "benchmark-browser-research",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-browser-research.zip",
+      "package_sha256": "68e1d9e53b967c0657ac10a6e573e905e732f38c584085043d4b9f90abd38ffa",
       "results": {
-        "GrokBot": {
-          "status": "pending",
-          "summary": "Existing reminder updated and deleted; absence check ends at 3:50 p.m.",
+        "ChatGPT Dots": {
+          "status": "running",
+          "review_status": "unreviewed",
+          "run_id": "dots-browser-research-20261002-01",
+          "summary": "Assigned after Browser form. Awaiting the new plan comparison and native skill evidence.",
           "details": [
-            "Original due 3:25:00; revised due 3:48:00; cancellation acknowledged at 3:23:19. Updated and Deleted routine cards visible.",
-            "Whole-minute scheduling rounded the requested revised time up by 58 seconds; disclosed by the bot."
+            "Same existing Dots conversation, with previous benchmark exposure disclosed.",
+            "One attempt using the published Browser research skill and its original checks."
           ],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Instinct": {
-          "status": "pending",
-          "summary": "Same reminder updated and cancelled; absence check ends at 3:49:46 p.m.",
-          "details": [
-            "Original due 3:25:06; revised due 3:47:46. Cancellation acknowledged at 3:23 p.m.; bot reports the schedule listing no longer contains it."
-          ],
-          "sources": []
-        },
-        "ChatGPT Dots": {
-          "status": "pending",
-          "summary": "Same reminder updated and disabled; absence check ends at 3:49:11 p.m.",
-          "details": [
-            "Original due 3:26:38; revised due 3:47:11. Native cancellation result shows enabled false; subsequent listing verifies no active copy.",
-            "Only this test reminder was changed; the price-check job remained enabled."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Muse": {
-          "status": "not_evaluated",
-          "summary": "The separate change and cancel prompts were not sent. This is not an assistant failure.",
-          "details": [
-            "Muse created the original reminder and it fired. The required operator follow-up turns to revise and cancel it never arrived.",
-            "The scenario explicitly requires waiting for those instructions. Update, cancellation and absence of later delivery therefore cannot be assessed.",
-            "A new controlled create, change and cancel sequence is needed. This assigned scenario is shown separately as not tested, rather than failed or pending verification."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         }
-      }
+      },
+      "criterion": "Load a relevant native research skill, observe all plan limits and prices, choose the cheapest qualifying plan, and cite the visited page.",
+      "category": "Browser"
     },
     {
-      "name": "Research later",
-      "criterion": "Fresh product check after the due time, accurate source-linked update within five minutes.",
+      "task_id": "memory-update",
+      "name": "Memory update and skill use",
+      "skill": "benchmark-memory-update",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-update.zip",
+      "package_sha256": "e2b84ab3c3344d252b3a1c1c89b5897f10a05f476be64162c883bb35fd5fb98f",
       "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
         "GrokBot": {
-          "status": "passed",
-          "summary": "Fresh Anker check; update arrived 86 seconds after the scheduled due time.",
-          "details": [
-            "Due 3:23:00; app notification at 3:24:26. Fresh saved page and trace support $29.99, in stock, exact black variant.",
-            "Trace records check time 3:24:10; saved page timestamp 3:23:52. Both are after due. Stock quantity changed from the initial research."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Instinct": {
-          "status": "passed",
-          "summary": "New Monoprice observation and an update in the 3:21 minute; product link followed at 3:22.",
-          "details": [
-            "Due 3:21:08; exported new source observation at 3:21:36 reports $27.99 and In Stock. Messages independently shows the update and linked product.",
-            "Fresh execution is supported by the sanitized agent observation; evidence is less detailed than a retained raw page or screenshot. Receipt is known to the minute."
-          ],
-          "sources": []
-        },
-        "ChatGPT Dots": {
-          "status": "passed",
-          "summary": "Fresh UGREEN browser check; source-linked update arrived about 52 seconds after due.",
-          "details": [
-            "Due 3:25:47; new navigation 3:25:53, price read by 3:26:13, availability verified by 3:26:35, platform message at 3:26:39.109279.",
-            "Reported $39.99 base or $27.99 with a time-limited coupon, enabled Add to Cart, exact variant. The user-facing check time was navigation start; completed observations are recorded separately."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         },
         "Muse": {
-          "status": "passed",
-          "summary": "A saved fresh price-check log and timely notification support a pass.",
-          "details": [
-            "Reported due time: October 2, 5:40:41 a.m. EDT. The saved observation log records a new live-page check around 5:41 a.m. for the exact Belkin black variant, SKU 6633264, at $39.99 with stock available.",
-            "The desktop app independently shows the matching update at 5:43 a.m., placing delivery 139 to under 199 seconds after due, within the five-minute allowance.",
-            "Freshness and page content are supported by a saved agent observation log, not a raw retailer capture. This is the same evidence limitation noted for Instinct. Precise receipt seconds are unavailable."
-          ],
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
           "sources": []
         }
-      }
+      },
+      "criterion": "Load a relevant native memory skill, retrieve the isolated seeded preference, update it durably, and verify the current value without conflicting entries.",
+      "category": "Memory"
     },
     {
-      "name": "Clean expenses",
-      "criterion": "Deduplicate receipts, preserve refunds, flag missing amounts, deliver correct totals and a usable file.",
+      "task_id": "computer-calculator",
+      "name": "Computer use: Calculator",
+      "skill": "benchmark-computer-calculator",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-computer-calculator.zip",
+      "package_sha256": "d992429bec63b8e4680821230ad56317f488fdbf8692fef693f188506b0ebf95",
       "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
         "GrokBot": {
-          "status": "passed",
-          "summary": "Correct CSV bundle: $189.80, refund retained, duplicate removed, missing amount flagged.",
-          "details": [
-            "Read the delivered CSV data and independently reconciled Lodging $120, Meals $41.90, Office $3, Transport $24.90.",
-            "Nine distinct receipts retained, eight numeric amounts. CSV is explicitly allowed by the task; XLSX is not required."
-          ],
-          "sources": [
-            [
-              "Cleaned data",
-              "evidence/grokbot/output/expenses-cleaned.csv"
-            ],
-            [
-              "Category totals",
-              "evidence/grokbot/output/expenses-category-totals.csv"
-            ]
-          ]
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
         },
         "Instinct": {
-          "status": "passed",
-          "summary": "Correct formula workbook: $189.80, with eight valid rows and separate review flags.",
-          "details": [
-            "Read actual cells and formulas. Duplicate A103 removed; -$5 refund included; missing A110 excluded and flagged.",
-            "SUMIF formulas reconcile to $189.80. Cached formula results are absent, so a spreadsheet app must recalculate; original file was not changed."
-          ],
-          "sources": [
-            [
-              "Expense workbook",
-              "evidence/instinct/evidence/expense-summary-everyday-1001.xlsx"
-            ]
-          ]
-        },
-        "ChatGPT Dots": {
-          "status": "passed",
-          "summary": "Correct formula workbook: $189.80, retained incomplete row, review notes and cached totals.",
-          "details": [
-            "Read actual formulas and cached values. Summary total B10 is $189.80, driven by category SUMIFS.",
-            "Nine distinct receipts, missing amount left blank, -$5 refund retained and duplicate A103 removed. Original file was not changed."
-          ],
-          "sources": [
-            [
-              "Expense workbook",
-              "evidence/dots/expense-summary.xlsx"
-            ]
-          ]
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
         },
         "Muse": {
-          "status": "passed",
-          "summary": "Correct workbook: $189.80, duplicate removed, refund kept and missing amount flagged.",
-          "details": [
-            "Read the delivered workbook and independently reconciled it against the original synthetic CSV: Transport $24.90, Meals $41.90, Office $3.00 and Lodging $120.00.",
-            "Nine distinct receipts remain. Duplicate r005 was removed, the -$5 refund retained, and r010 kept with a blank amount and MISSING_AMOUNT flag. Numeric rows total $189.80.",
-            "The workbook contains cleaned rows, category totals and review notes. Its totals are static values; formulas are not required by the task. The submitted file was not changed."
-          ],
-          "sources": [
-            [
-              "Expense workbook",
-              "evidence/muse/cleaned-expenses.xlsx"
-            ]
-          ]
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
         }
-      }
+      },
+      "criterion": "Load a relevant native desktop skill, enter 137 \u00d7 29 in the operating system\u2019s Calculator, observe its display, and report the displayed result.",
+      "category": "Computer"
+    },
+    {
+      "task_id": "purchase-research",
+      "name": "Purchase research",
+      "skill": "benchmark-purchase-research",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-purchase-research.zip",
+      "package_sha256": "d0c5f876295ecf24b073d2e28cb3c75f35110d5e6d291fa338822f06135e2634",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Verify three exact products against every constraint using current sources; explain port sharing, returns, and a supported recommendation.",
+      "category": "Research"
+    },
+    {
+      "task_id": "checkout-handoff",
+      "name": "Shopping checkout handoff",
+      "skill": "benchmark-checkout-handoff",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-checkout-handoff.zip",
+      "package_sha256": "ef94b2088cd141f8aa05e8e760e21aba0c626ca156054ef248053ac2c33e1370",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Prepare the exact cart, reach visible payment fields, verify displayed totals, and provide a secure handoff without placing an order.",
+      "category": "Shopping"
+    },
+    {
+      "task_id": "reminder-delivery",
+      "name": "Reminder delivery",
+      "skill": "benchmark-reminder-delivery",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-reminder-delivery.zip",
+      "package_sha256": "a6ead4c80994d99cd9b530a64328d287c6532515a091eb688895b2b5ccb6dc17",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Create the reminder and observe exactly one delivery, not early and no more than 120 seconds late, through the observation window.",
+      "category": "Scheduling"
+    },
+    {
+      "task_id": "reminder-change-cancel",
+      "name": "Reminder changes and cancellation",
+      "skill": "benchmark-reminder-change-cancel",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-reminder-change-cancel.zip",
+      "package_sha256": "ab5f39b1b4dbbab65d10845901b3768dd165328b4f8a92fb8252b35e5680616e",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Create one reminder, update that same reminder, cancel it, and verify no delivery through both due times plus two minutes.",
+      "category": "Scheduling"
+    },
+    {
+      "task_id": "scheduled-research",
+      "name": "Scheduled research",
+      "skill": "benchmark-scheduled-research",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-scheduled-research.zip",
+      "package_sha256": "d01f720de81174ce6ae91e5a5177cc2200e386863afccdd9cfb96171c9bdbe95",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Schedule a fresh product check after the due time and deliver an accurate source-linked update within five minutes.",
+      "category": "Scheduling"
+    },
+    {
+      "task_id": "memory-followup",
+      "name": "Memory across conversations",
+      "skill": "benchmark-memory-followup",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-followup.zip",
+      "package_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Store and update isolated synthetic preferences, then retrieve and apply the current values in a genuinely separate conversation.",
+      "category": "Memory"
+    },
+    {
+      "task_id": "expense-summary",
+      "name": "Expense file cleanup",
+      "skill": "benchmark-expense-summary",
+      "package_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-expense-summary.zip",
+      "package_sha256": "62d320275f9bb9d81b711177d76c8c56fadb66689c9f08bb6aaae079096a5d8d",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "Not started.",
+          "details": [],
+          "sources": []
+        }
+      },
+      "criterion": "Remove duplicate expenses, retain refunds, flag missing values, reconcile totals, and deliver usable files.",
+      "category": "Files"
     }
   ],
-  "notes": [
-    "Full-pass counts describe the reviewed evidence for these attempts, not a general ranking. Missing evidence is not proof that an underlying task was performed incorrectly.",
-    "Muse has three supported full outcomes. Research needs more original source evidence, checkout stopped for required user details, and change/cancel was not exercised because the operator prompts were missing.",
-    "GrokBot missed the reminder deadline; Instinct stopped appropriately at a CAPTCHA. Checkout prerequisites and access barriers differ by merchant.",
-    "All four expense outputs reconcile to $189.80. CSV and static or formula-based workbooks are all allowed by the brief.",
-    "Cross-conversation memory was excluded. Muse activity shows that it loaded its native shopping skill. Creating a workbook does not establish desktop UI control."
-  ],
-  "methodology": [
-    "One attempt per assistant. Dots, GrokBot and Instinct ran on October 1; Muse ran on October 2. Six Everyday scenarios were assigned, with each assistant using its own tools.",
-    "Reviewed downloaded reports, available product screenshots, actual spreadsheet/CSV contents and platform message records. Muse was added in a separate evidence audit; the October 1 assessments were retained, not blindly regraded alongside it.",
-    "Receipt provenance is stated in each row. Some timestamps are exported platform readbacks; others were independently visible in the desktop apps. None establish device push delivery or user attention.",
-    "Different run times, recommended products, merchants and tool environments affect task difficulty. Checkout is an end-to-end experience, not a controlled same-site contest.",
-    "Full passes require supported task criteria. Partial evidence, needs-user, pending verification and not-tested outcomes are distinct from failures. Muse’s missing change/cancel operator sequence is not an assistant failure.",
-    "Unknown underlying models and one attempt prevent a general model ranking. Comparable cost/token data were unavailable. No tasks were rerun to repair scores; structural report validation alone does not prove success."
-  ],
-  "original_suite": [
-    {
-      "task": "Browser form",
-      "GrokBot": "Passed · receipt verified",
-      "Instinct": "Passed · receipt verified",
-      "ChatGPT Dots": "Passed · receipt verified",
-      "Muse": "Not tested"
-    },
-    {
-      "task": "Plan comparison + skill",
-      "GrokBot": "Passed · correct $18 Studio answer and native skill record",
-      "Instinct": "Partial · correct answer, document-only skill use",
-      "ChatGPT Dots": "Partial · correct answer, strict skill disclosure not established",
-      "Muse": "Not tested"
-    },
-    {
-      "task": "Memory update + skill",
-      "GrokBot": "Partial · update read back; memory skill absent",
-      "Instinct": "Blocked · isolated durable writes unavailable",
-      "ChatGPT Dots": "Partial · update recovered after stale read; strict evidence limitations",
-      "Muse": "Not tested"
-    },
-    {
-      "task": "Desktop calculator",
-      "GrokBot": "Blocked · calculator unavailable",
-      "Instinct": "Unsupported · desktop tool unavailable",
-      "ChatGPT Dots": "Blocked · native desktop attempted; only PCB calculator found",
-      "Muse": "Not tested"
-    },
-    {
-      "task": "Strict full outcomes",
-      "GrokBot": "2 / 4",
-      "Instinct": "1 / 4",
-      "ChatGPT Dots": "1 / 4",
-      "Muse": "Not tested"
-    }
-  ],
-  "scope_note": "Single-run pilot of whole assistants using their own tools, conducted October 1–2, 2026. No purchase was placed. Selected public product screenshots and synthetic expense outputs are included; private chats, checkout session URLs and internal logs are not published. Full passes are counted against assigned tasks; untested scenarios are explicitly marked. These results have not undergone an anonymized side-by-side regrade.",
-  "run_dates": {
-    "ChatGPT Dots": "2026-10-01",
-    "GrokBot": "2026-10-01",
-    "Instinct": "2026-10-01",
-    "Muse": "2026-10-02"
+  "manual_testing": {
+    "name": "Voice-mode tests",
+    "url": "https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode",
+    "status": "not_evaluated"
   }
 }

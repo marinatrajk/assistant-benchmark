@@ -9,6 +9,11 @@
       "source": "/results/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/skill-runs.json",
+      "destination": "/review.json",
+      "permanent": true
     }
   ]
 }

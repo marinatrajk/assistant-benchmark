@@ -2,17 +2,10 @@
 
 const content = document.getElementById('content');
 const names = ['ChatGPT Dots', 'GrokBot', 'Instinct', 'Muse'];
-const info = {
-  'ChatGPT Dots': { id: 'dots', delay: '119s late', delayNote: 'Passed, just inside the 120-second limit.' },
-  'GrokBot': { id: 'grokbot', delay: '238s late', delayNote: 'Failed the 120-second delivery limit.' },
-  'Instinct': { id: 'instinct', delay: 'Within limit', delayNote: 'Combined send log and minute-level receipt; exact delivery seconds unavailable.' },
-  'Muse': { id: 'muse', delay: 'Within limit', delayNote: 'Receipt was 30 to under 90 seconds after due, based on the app’s minute-level timestamp. The reported 52 seconds is a worker timestamp, not measured receipt latency.' }
-};
-const groups = { 'All tasks': [0, 1, 2, 3, 4, 5], Shopping: [1], Research: [0], Scheduling: [2, 3, 4], Files: [5] };
+const info = { 'ChatGPT Dots': { id: 'dots' }, GrokBot: { id: 'grokbot' }, Instinct: { id: 'instinct' }, Muse: { id: 'muse' } };
+let groups = {};
 const labels = { passed: 'Passed', partial: 'Partial', failed: 'Failed', pending: 'Pending', awaiting_user: 'Needs user', not_evaluated: 'Not tested', not_run: 'Not started', running: 'Running', awaiting_response: 'Awaiting response', blocked: 'Blocked', unsupported: 'Unsupported', awaiting_review: 'Awaiting review' };
 let data;
-let skillRuns;
-let skillAgent = 'ChatGPT Dots';
 let filter = 'All tasks';
 let layout = 'list';
 
@@ -32,15 +25,13 @@ const badge = status => `<span class="badge ${esc(status)}">${labels[status] || 
 const icon = name => name === 'Instinct'
   ? '<span class="agent-icon instinct" aria-hidden="true">I</span>'
   : `<span class="agent-icon image-icon ${info[name].id}" aria-hidden="true"><img src="assets/${info[name].id}-logo.png" alt="" width="52" height="52"></span>`;
-const count = (name, indices = groups['All tasks']) => indices.filter(i => data.tasks[i].results[name].status === 'passed').length;
-const unresolvedLabel = name => ['pending', 'not_evaluated'].map(status => {
-  const total = data.tasks.filter(task => task.results[name].status === status).length;
-  return total ? `${total} ${labels[status].toLowerCase()}` : '';
-}).filter(Boolean).join(' · ');
+const count = (name, indices = groups['All tasks']) => indices.filter(i => data.tasks[i].results[name].status === 'passed' && data.tasks[i].results[name].review_status === 'reviewed').length;
+const reviewedCount = (name, indices = groups['All tasks']) => indices.filter(i => data.tasks[i].results[name].review_status === 'reviewed').length;
+const unresolvedLabel = name => `${reviewedCount(name)} of ${data.tasks.length} reviewed`;
 const score = (passed, total) => `<span class="score-number">${passed}<span class="score-divider">/</span><span class="score-total">${total}</span></span>`;
-const pilot = name => `<div class="pilot-meta"><span class="pilot">Provisional</span><span>${name ? (data.run_dates[name] === '2026-10-02' ? 'Oct 2, 2026' : 'Oct 1, 2026') : 'Oct 1–2, 2026'}</span></div>`;
-const note = () => `<div class="snapshot-note">${glyph('clock')}<p>Cancellation: 3 pending · Muse not tested.</p><a href="#methodology">Methodology</a></div>`;
-const reviewed = () => `<p class="fineprint">Reviewed ${esc(data.reviewed_at)}. Cross-conversation memory was not tested.</p>`;
+const round = () => '<div class="round-meta"><span class="round-label">In progress</span><span>Oct 2, 2026</span></div>';
+const note = () => `<div class="snapshot-note">${glyph('clock')}<p>Only reviewed passes count. Unrun tests are not failures.</p><a href="#methodology">Methodology</a></div>`;
+const updated = () => `<p class="fineprint">Updated ${esc(data.updated_at)}. Individual skill version ${esc(data.suite_version)}.</p>`;
 
 function leaderboard() {
   const indices = groups[filter];
@@ -52,10 +43,10 @@ function leaderboard() {
       const rank = sorted.findIndex(other => count(other, indices) === passed) + 1;
       const tied = sorted.filter(other => count(other, indices) === passed).length > 1;
       return `<article class="agent-row">
-        <span class="rank" title="${tied ? 'Tied for ' : 'Rank '}${rank}">${String(rank).padStart(2, '0')}</span>
+        <span class="rank" title="${reviewedCount(name, indices) ? `${tied ? 'Tied for ' : 'Rank '}${rank}` : 'No reviewed results yet'}">${reviewedCount(name, indices) ? String(rank).padStart(2, '0') : '—'}</span>
         ${icon(name)}
-        <div class="agent-info"><a class="agent-name agent-profile-link" href="#assistant/${info[name].id}" aria-label="Review ${name}: ${passed} of ${indices.length} supported outcomes">${name}</a><div class="bar" role="group" aria-label="${name} test outcomes">${indices.map(i => `<button class="task-dash ${data.tasks[i].results[name].status}" type="button" data-agent="${info[name].id}" data-task="${i}" aria-label="${esc(`${name} · ${data.tasks[i].name}: ${labels[data.tasks[i].results[name].status]}`)}"></button>`).join('')}</div></div>
-        <div class="metric align-right">${score(passed, indices.length)}</div>
+        <div class="agent-info"><a class="agent-name agent-profile-link" href="#assistant/${info[name].id}" aria-label="Review ${name}: ${passed} of ${indices.length} individual tasks passed">${name}</a><div class="bar" role="group" aria-label="${name} test outcomes">${indices.map(i => `<button class="task-dash ${data.tasks[i].results[name].status}" type="button" data-agent="${info[name].id}" data-task="${i}" aria-label="${esc(`${name} · ${data.tasks[i].name}: ${labels[data.tasks[i].results[name].status]}`)}"></button>`).join('')}</div></div>
+        <div class="metric align-right">${score(passed, indices.length)}<span class="metric-coverage">${reviewedCount(name, indices)} reviewed</span></div>
         <div class="manual-result" aria-label="${name}: manual voice tests not tested"><span class="manual-inline-label">Manual</span><span>Not tested</span></div>
         <span class="open-indicator">${glyph('chevron')}</span>
       </article>`;
@@ -64,14 +55,14 @@ function leaderboard() {
 }
 
 function renderHome() {
-  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Everyday pilot</p><h1>Assistant results<span class="title-period">.</span></h1><p class="intro-caption">${names.length} assistants<span>·</span>6 tasks<span>·</span>Their own tools</p></div>${pilot()}</div>
+  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Individual tests</p><h1>Assistant results<span class="title-period">.</span></h1><p class="intro-caption">${names.length} assistants<span>·</span>${data.tasks.length} tasks<span>·</span>Their own tools</p></div>${round()}</div>
     <div class="toolbar"><div class="filters" role="group" aria-label="Filter by task">${Object.entries(groups).map(([name, indices]) => `<button class="chip" type="button" data-filter="${name}" aria-pressed="${filter === name}">${name}<span>${indices.length}</span></button>`).join('')}</div>
       <div class="segmented" role="group" aria-label="Results layout"><button type="button" data-layout="list" aria-label="List view" title="List view" aria-pressed="${layout === 'list'}">${glyph('list')}</button><button type="button" data-layout="grid" aria-label="Grid view" title="Grid view" aria-pressed="${layout === 'grid'}">${glyph('grid')}</button></div>
     </div>
     <div id="leaderboard" aria-live="polite">${leaderboard()}</div>
-    <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_evaluated">Not tested</span></div><span class="key-caption">Full passes / assigned tasks</span></div>
+    <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_run">Not started</span></div><span class="key-caption">Reviewed passes / individual tasks</span></div>
     <p class="manual-note">Manual: <a href="https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode">Voice-mode tests</a> · Results coming after testing.</p>
-    ${note()}${skillRoundLink()}`;
+    ${note()}`;
   content.querySelectorAll('[data-filter]').forEach(button => {
     button.onclick = () => {
       filter = button.dataset.filter;
@@ -91,28 +82,6 @@ function renderHome() {
 function updateLeaderboard() {
   hideTaskTooltip();
   document.getElementById('leaderboard').innerHTML = leaderboard();
-}
-
-function skillRoundLink(name) {
-  return `<a class="skill-round-link" href="#skill-runs${name ? '/' + info[name].id : ''}"><span><strong>Individual skill runs</strong><span>11 standalone tests · October 2 round</span></span><span>View progress ${glyph('chevron')}</span></a>`;
-}
-
-function renderSkillRuns() {
-  if (!skillRuns) {
-    content.innerHTML = '<div class="empty-state"><h1>Skill runs couldn’t load.</h1><p>Please refresh, or open the run data directly.</p><a class="button" href="skill-runs.json">Open run data</a></div>';
-    return;
-  }
-  const rows = skillRuns.tasks.map(task => ({ task, result: task.results[skillAgent] }));
-  const reviewedCount = rows.filter(({ result }) => result.review_status === 'reviewed').length;
-  const passed = rows.filter(({ result }) => result.review_status === 'reviewed' && result.status === 'passed').length;
-  content.innerHTML = `<div class="intro"><div><p class="eyebrow">October 2, 2026 · Standalone skills</p><h1>Individual skill runs<span class="title-period">.</span></h1><p class="intro-caption">One skill at a time. Evidence reviewed after each run.</p></div><a class="button" href="skill-runs.json" download>Run data ${glyph('file')}</a></div>
-    <div class="skill-agent-tabs" role="group" aria-label="Choose assistant">${names.map(name => `<button class="chip" type="button" data-skill-agent="${info[name].id}" aria-pressed="${skillAgent === name}">${esc(name)}</button>`).join('')}</div>
-    <div class="skill-run-heading">${icon(skillAgent)}<div><h2>${esc(skillAgent)}</h2><p>${reviewedCount} of ${rows.length} reviewed · ${passed} passed</p></div></div>
-    <div class="task-list">${rows.map(({task, result}, index) => `<article class="task-result"><div class="task-result-head"><h3><span class="skill-order">${String(index + 1).padStart(2, '0')}</span>${esc(task.name)}</h3>${badge(result.status)}</div><p class="task-summary">${esc(result.summary)}</p>${result.details.length || result.sources.length ? evidence({criterion: 'All required checks in the published task skill must be supported by observed evidence.'}, result) : ''}<details class="skill-protocol"><summary>Task protocol</summary><div><a href="https://github.com/marinatrajk/assistant-benchmark/tree/${esc(skillRuns.repository_commit)}/skills/${esc(task.skill)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(skillRuns.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details></article>`).join('')}</div>
-    <details class="skill-method"><summary>How to read this round</summary><ul>${skillRuns.methodology.map(item => `<li>${esc(item)}</li>`).join('')}</ul></details><p class="fineprint">Updated ${esc(skillRuns.updated_at)}. <a href="#assistants">View the earlier Everyday pilot.</a></p>`;
-  content.querySelectorAll('[data-skill-agent]').forEach(button => {
-    button.onclick = () => { location.hash = `skill-runs/${button.dataset.skillAgent}`; };
-  });
 }
 
 // A single floating tooltip stays clear of clipped rows and narrow viewports.
@@ -214,46 +183,53 @@ window.addEventListener('resize', positionTaskTooltip);
 
 function evidence(task, result) {
   return `<details class="evidence-disclosure"><summary>Evidence${glyph('chevron')}</summary><div class="evidence-body"><p class="criterion"><strong>Pass criterion</strong>${esc(task.criterion)}</p><ul>${result.details.map(detail => `<li>${esc(detail)}</li>`).join('')}</ul>
-    ${result.sources.length ? `<div class="sources">${result.sources.map(([label, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${glyph('file')}<span>${esc(label)}</span></a>`).join('')}</div>` : '<p class="source-note">Based on reviewer observations. Private conversation records are not published.</p>'}
+    ${result.sources.length ? `<div class="sources">${result.sources.map(([label, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${glyph('file')}<span>${esc(label)}</span></a>`).join('')}</div>` : '<p class="source-note">No evidence published yet.</p>'}
   </div></details>`;
 }
 
+function protocol(task, result) {
+  return `<details class="skill-protocol"><summary>Task protocol</summary><div><a href="https://github.com/marinatrajk/assistant-benchmark/tree/${esc(data.repository_commit)}/skills/${esc(task.skill)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(data.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details>`;
+}
+
 function renderProfile(name) {
-  const tasks = data.tasks.map(task => {
+  const tasks = data.tasks.map((task, index) => {
     const result = task.results[name];
-    return `<article class="task-result"><div class="task-result-head"><h3>${esc(task.name)}</h3>${badge(result.status)}</div><p class="task-summary">${esc(result.summary)}</p>${evidence(task, result)}</article>`;
+    return `<article class="task-result" id="task-${esc(task.task_id)}"><div class="task-result-head"><h3><span class="skill-order">${String(index + 1).padStart(2, '0')}</span>${esc(task.name)}</h3>${badge(result.status)}</div>${result.status !== 'not_run' ? `<p class="task-summary">${esc(result.summary)}</p>` : ''}${result.details.length || result.sources.length ? evidence(task, result) : ''}${protocol(task, result)}</article>`;
   }).join('');
+  const notStarted = data.tasks.filter(task => task.results[name].status === 'not_run').length;
+  const awaitingReview = data.tasks.filter(task => task.results[name].status === 'awaiting_review').length;
   content.innerHTML = `<a class="back" href="#assistants">${glyph('back')}<span>All assistants</span></a>
-    <div class="profile-hero">${icon(name)}<div class="profile-heading"><h1>${name}</h1><div class="profile-stat">${score(count(name), data.tasks.length)}<span>supported outcomes</span><span class="profile-pending">${unresolvedLabel(name)}</span></div></div><a class="button" href="#compare">Compare</a></div>
-    <div class="profile-layout"><section><div class="section-title"><h2>Task results</h2><span>${data.tasks.length} scenarios</span></div><div class="task-list">${tasks}</div></section>
-      <aside class="sidebar"><div class="run-card"><h2>At a glance</h2><dl><div class="stat-line"><dt>Reminder</dt><dd>${info[name].delay}</dd></div><div class="stat-line"><dt>Expense total</dt><dd>$189.80</dd></div><div class="stat-line"><dt>Orders placed</dt><dd>0</dd></div></dl><details class="timing-note"><summary>About the timing${glyph('chevron')}</summary><p>${info[name].delayNote} Timing describes the conversation notification, not a device push or a read receipt.</p></details></div><div class="review-note">${pilot(name)}<p>One run with the assistant’s own tools.</p><a href="#methodology">How we tested</a></div></aside>
-    </div>${skillRoundLink(name)}${reviewed()}`;
+    <div class="profile-hero">${icon(name)}<div class="profile-heading"><h1>${name}</h1><div class="profile-stat">${score(count(name), data.tasks.length)}<span>individual tasks passed</span><span class="profile-pending">${unresolvedLabel(name)}</span></div></div><a class="button" href="#compare">Compare</a></div>
+    <div class="profile-layout"><section><div class="section-title"><h2>Individual task results</h2><span>${data.tasks.length} tests</span></div><div class="task-list">${tasks}</div></section>
+      <aside class="sidebar"><div class="run-card"><h2>Test progress</h2><dl><div class="stat-line"><dt>Reviewed</dt><dd>${reviewedCount(name)} / ${data.tasks.length}</dd></div><div class="stat-line"><dt>Awaiting review</dt><dd>${awaitingReview}</dd></div><div class="stat-line"><dt>Not started</dt><dd>${notStarted}</dd></div><div class="stat-line"><dt>Manual tests</dt><dd>Not tested</dd></div></dl></div><div class="review-note">${round()}<p>Each task uses its own skill and evidence checklist.</p><a href="#methodology">How we test</a></div></aside>
+    </div>${updated()}`;
 }
 
 function renderCompare() {
-  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Side by side</p><h1>Compare results<span class="title-period">.</span></h1><p class="intro-caption">Six scenarios. The same brief.</p></div>${pilot()}</div>
-    <div class="table-wrap"><table class="comparison"><caption class="sr-only">Everyday pilot task comparison</caption><thead><tr><th scope="col">Scenario</th>${names.map(name => `<th scope="col"><a class="compare-agent" href="#assistant/${info[name].id}">${icon(name)}<span>${name}</span></a><div class="compare-score">${score(count(name), 6)}<span>passed</span></div></th>`).join('')}</tr></thead><tbody>${data.tasks.map((task, index) => `<tr><th scope="row">${esc(task.name)}<span class="task-index">${String(index + 1).padStart(2, '0')}</span></th>${names.map(name => `<td>${badge(task.results[name].status)}<details class="comparison-detail"><summary>Details${glyph('chevron')}</summary><p>${esc(task.results[name].summary)}</p><p class="criterion"><strong>Pass criterion</strong>${esc(task.criterion)}</p><a href="#assistant/${info[name].id}">Review evidence</a></details></td>`).join('')}</tr>`).join('')}</tbody></table></div>
-    ${note()}<p class="fineprint">Different merchants and tool environments may affect results.</p>`;
+  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Side by side</p><h1>Compare results<span class="title-period">.</span></h1><p class="intro-caption">${data.tasks.length} individual tests. Each assistant’s own tools.</p></div>${round()}</div>
+    <div class="table-wrap"><table class="comparison"><caption class="sr-only">Individual task comparison</caption><thead><tr><th scope="col">Task</th>${names.map(name => `<th scope="col"><a class="compare-agent" href="#assistant/${info[name].id}">${icon(name)}<span>${name}</span></a><div class="compare-score">${score(count(name), data.tasks.length)}<span>passed</span></div><p class="comparison-coverage">${reviewedCount(name)} reviewed</p></th>`).join('')}</tr></thead><tbody>${data.tasks.map((task, index) => `<tr><th scope="row">${esc(task.name)}<span class="task-index">${String(index + 1).padStart(2, '0')}</span></th>${names.map(name => `<td>${badge(task.results[name].status)}<details class="comparison-detail"><summary>Details${glyph('chevron')}</summary><p>${esc(task.results[name].summary)}</p><p class="criterion"><strong>Pass criterion</strong>${esc(task.criterion)}</p><a href="#assistant/${info[name].id}">Review evidence</a></details></td>`).join('')}</tr>`).join('')}</tbody></table></div>
+    ${note()}${updated()}`;
 }
 
 function renderMethod() {
-  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Behind the results</p><h1>Methodology<span class="title-period">.</span></h1><p class="intro-caption">Real tasks, reviewed against the evidence.</p></div>${pilot()}</div>
-    <div class="callout">${glyph('clock')}<p>Cancellation was confirmed by the three October 1 assistants; final absence checks remain unverified. Muse did not receive the change/cancel prompts, so that test was not exercised.</p></div>
-    <div class="method-grid"><section><h2>How this was reviewed</h2><ol class="method-list">${data.methodology.map(text => `<li>${esc(text)}</li>`).join('')}</ol><details class="method-findings"><summary><h2>What the results mean</h2>${glyph('chevron')}</summary><ul class="method-list">${data.notes.map(text => `<li>${esc(text)}</li>`).join('')}</ul></details></section>
-      <aside><div class="run-card method-card"><h3>A full pass</h3><p>The task criteria are met and supported by reviewed evidence. Partial, pending, needs-user and not-tested outcomes are counted separately.</p><hr><h3>Limits of this pilot</h3><p>One attempt per assistant. No general model ranking, comparable cost data, or cross-conversation memory test.</p><p>No purchase was placed.</p></div></aside>
-    </div><section class="legacy-section"><div class="section-title"><h2>Earlier capability suite</h2><span>Separate evaluation</span></div><p>These tasks also required native skill evidence. Pass counts are not directly comparable to the Everyday pilot.</p><div class="table-wrap"><table class="legacy"><thead><tr><th scope="col">Original scenario</th>${names.map(name => `<th scope="col">${name}</th>`).join('')}</tr></thead><tbody>${data.original_suite.map(task => `<tr><th scope="row">${esc(task.task)}</th>${names.map(name => `<td>${esc(task[name])}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section><p class="fineprint">${esc(data.scope_note)}</p>${reviewed()}`;
+  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Behind the results</p><h1>Methodology<span class="title-period">.</span></h1><p class="intro-caption">${data.tasks.length} individual tests, reviewed against the evidence.</p></div>${round()}</div>
+    <div class="method-grid"><section><h2>How we test</h2><ol class="method-list">${data.methodology.map(text => `<li>${esc(text)}</li>`).join('')}</ol><h2>Published protocols</h2><p class="method-protocol-link"><a href="https://github.com/marinatrajk/assistant-benchmark/blob/${esc(data.repository_commit)}/docs/SKILLS.md">Read the task catalog and download each skill ↗</a></p></section>
+      <aside><div class="run-card method-card"><h3>A full pass</h3><p>Every required check must be supported by reviewed evidence. A self-reported result stays awaiting review until that evidence is checked.</p><hr><h3>Other outcomes</h3><p>Partial, failed, blocked, unsupported, needs-user, and pending results retain their specific reason. Not started means no attempt has been made.</p><hr><h3>Separate manual checks</h3><p><a href="${esc(data.manual_testing.url)}">Voice-mode tests ↗</a> are performed by a person and shown in the Manual column.</p></div></aside>
+    </div>${updated()}`;
 }
 
 function route() {
   if (!data) return;
   hideTaskTooltip();
-  const hash = location.hash.slice(1) || 'assistants';
+  let hash = location.hash.slice(1) || 'assistants';
+  // Keep old individual-run bookmarks pointed at the canonical views.
+  if (hash === 'skill-runs') hash = 'assistants';
+  else if (hash.startsWith('skill-runs/')) hash = hash.replace('skill-runs/', 'assistant/');
+  if (location.hash.startsWith('#skill-runs')) history.replaceState(null, '', `#${hash}`);
   // The skip link moves focus without replacing the current view.
   if (hash === 'content') { content.focus(); return; }
   const name = names.find(item => hash === `assistant/${info[item].id}`);
-  const skillName = names.find(item => hash === `skill-runs/${info[item].id}`);
-  if (skillName) skillAgent = skillName;
-  const view = hash === 'skill-runs' || skillName ? 'skill-runs' : name ? 'assistants' : ['compare', 'methodology'].includes(hash) ? hash : 'assistants';
+  const view = name ? 'assistants' : ['compare', 'methodology'].includes(hash) ? hash : 'assistants';
   document.querySelectorAll('[data-nav]').forEach(link => {
     const active = link.dataset.nav === view;
     link.classList.toggle('active', active);
@@ -261,11 +237,10 @@ function route() {
   });
   content.dataset.view = name ? 'profile' : view;
   if (name) renderProfile(name);
-  else if (view === 'skill-runs') renderSkillRuns();
   else if (view === 'compare') renderCompare();
   else if (view === 'methodology') renderMethod();
   else renderHome();
-  document.title = name ? `${name} — Assistant Benchmark` : view === 'skill-runs' ? 'Individual skill runs — Assistant Benchmark' : view === 'compare' ? 'Compare assistants — Assistant Benchmark' : view === 'methodology' ? 'Methodology — Assistant Benchmark' : 'Assistant Benchmark — real-world results';
+  document.title = name ? `${name} — Assistant Benchmark` : view === 'compare' ? 'Compare assistants — Assistant Benchmark' : view === 'methodology' ? 'Methodology — Assistant Benchmark' : 'Assistant Benchmark — real-world results';
 }
 
 window.addEventListener('hashchange', () => {
@@ -293,23 +268,15 @@ window.addEventListener('afterprint', () => {
   printDetails.forEach(({ element, open }) => { element.open = open; });
   printDetails = [];
 });
-fetch('review.json?v=20261002-muse').then(response => {
+fetch('review.json', { cache: 'no-cache' }).then(response => {
   if (!response.ok) throw new Error('Results unavailable');
   return response.json();
 }).then(result => {
   data = result;
-  // A bookmarked skip-link hash still needs an initial page.
+  groups = { 'All tasks': data.tasks.map((_, i) => i) };
+  data.tasks.forEach((task, index) => (groups[task.category] ??= []).push(index));
   if (location.hash === '#content') renderHome();
   route();
 }).catch(() => {
-  content.innerHTML = '<div class="empty-state"><h1>Results couldn’t load.</h1><p>Please refresh, or open the reviewed data directly.</p><a class="button" href="review.json">Open reviewed data</a></div>';
-});
-fetch('skill-runs.json', { cache: 'no-cache' }).then(response => {
-  if (!response.ok) throw new Error('Skill runs unavailable');
-  return response.json();
-}).then(result => {
-  skillRuns = result;
-  if (location.hash.startsWith('#skill-runs')) route();
-}).catch(() => {
-  if (location.hash.startsWith('#skill-runs')) route();
+  content.innerHTML = '<div class="empty-state"><h1>Results couldn’t load.</h1><p>Please refresh, or open the individual task data directly.</p><a class="button" href="review.json">Open task data</a></div>';
 });

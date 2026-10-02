@@ -1,0 +1,36 @@
+{
+  "provenance": "Selected successful browser tool calls observed by the operator in the platform record. Private session identifiers omitted.",
+  "run_id": "dots-browser-form-20261002-01",
+  "actions": [
+    {
+      "tool": "js",
+      "server": "cua_repl",
+      "arguments": {
+        "code": "var formStart = Date.now(); var formTrace=[]; var freshForm = await cua.createBrowserTab(\"1\", \"https://paces-agent-tests-20261001.marinatrajk.chatgpt.site/form\"); formTrace.push({at:new Date().toISOString(),action:\"Create fresh tab and navigate to fixture /form\",result:\"Contact form observed\"}); nodeRepl.write({started_at:new Date(formStart).toISOString()});",
+        "title": "Run fresh browser-form attempt"
+      },
+      "status": "completed",
+      "durationMs": 7031
+    },
+    {
+      "tool": "js",
+      "server": "cua_repl",
+      "arguments": {
+        "code": "await freshForm.playwright.getByRole('textbox',{name:'Name',exact:true}).fill('Ada Lovelace'); await freshForm.playwright.getByRole('textbox',{name:'Email',exact:true}).fill('ada@example.com'); await freshForm.playwright.locator('#topic').selectOption({label:'Research'}); var filledState=await freshForm.getAXState(); var filledImage=await freshForm.screenshot({fullPage:true}); await nodeRepl.emitImage(filledImage); formTrace.push({at:new Date().toISOString(),action:\"Fill Name Ada Lovelace; Email ada@example.com; select topic Research\",result:filledState});",
+        "title": "Fill requested synthetic form values"
+      },
+      "status": "completed",
+      "durationMs": 549
+    },
+    {
+      "tool": "js",
+      "server": "cua_repl",
+      "arguments": {
+        "code": "await freshForm.playwright.getByRole('button',{name:'Send request',exact:true}).click(); var receiptState=await freshForm.getAXState(); var receiptImage=await freshForm.screenshot({fullPage:true}); await nodeRepl.emitImage(receiptImage); var resultUrl=await freshForm.url(); await freshForm.markDeliverable(); var formEnd=Date.now(); formTrace.push({at:new Date(formEnd).toISOString(),action:\"Click Send request; observe confirmation; capture screenshot\",result:receiptState}); nodeRepl.write({ended_at:new Date(formEnd).toISOString(),duration_ms:formEnd-formStart,url:resultUrl,tool_calls:3});",
+        "title": "Submit once and capture fresh confirmation"
+      },
+      "status": "completed",
+      "durationMs": 680
+    }
+  ]
+}

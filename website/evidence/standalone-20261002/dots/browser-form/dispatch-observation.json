@@ -16,5 +16,7 @@
     "A follow-up status inquiry was sent after the assignment remained active without visible activity. It asked to preserve the same attempt and avoid duplicate submission."
   ],
   "next_action": "Inspect the existing Dots conversation when it responds, review its actual report and evidence, then assign Browser research.",
-  "privacy_note": "This record contains only the benchmark assignment and operator observations. Private conversation records and platform session identifiers are excluded."
+  "privacy_note": "This record contains only the benchmark assignment and operator observations. Private conversation records and platform session identifiers are excluded.",
+  "superseded_by": "reviewed-report.json",
+  "correction": "This was an operator visibility observation, not an execution result. The saved trace later showed the attempt completed at 2026-10-02T11:26:04.632Z. The compact status view did not expose that activity at the earlier check."
 }
