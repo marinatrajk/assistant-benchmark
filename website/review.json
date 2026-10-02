@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T17:07:14.995826+00:00",
+  "updated_at": "2026-10-02T17:08:36.055257+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -928,14 +928,25 @@
           ]
         },
         "Instinct": {
-          "status": "awaiting_response",
-          "review_status": "unreviewed",
+          "status": "blocked",
+          "review_status": "reviewed",
           "run_id": "instinct-memory-followup-20261002-01",
-          "summary": "Checking isolated durable memory and genuinely fresh-conversation support.",
+          "summary": "Blocked at setup: isolated memory writes and a fresh recall conversation were unavailable.",
           "details": [
-            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+            "Instinct reports background/read-only durable memory with no controllable synthetic persona namespace.",
+            "No seed, update or recall execution occurred; all outcome checks remain unverified. Same-chat recall was not substituted.",
+            "The separate capability assessment is agent-exported; this is a setup limitation, not evidence of a failed retrieval attempt."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261002/instinct/memory-followup/reviewed-report.json"
+            ],
+            [
+              "Capability assessment",
+              "evidence/standalone-20261002/instinct/memory-followup/evidence/capability-assessment.json"
+            ]
+          ]
         },
         "Muse": {
           "status": "not_run",
@@ -1009,11 +1020,13 @@
           ]
         },
         "Instinct": {
-          "status": "not_run",
+          "status": "awaiting_response",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "instinct-expense-summary-20261002-01",
+          "summary": "Expense cleanup assigned; awaiting delivered files for independent reconciliation.",
+          "details": [
+            "Assigned through the existing Instinct conversation in the macOS Messages app. Prior conversation context is present; this is not a fresh session."
+          ],
           "sources": []
         },
         "Muse": {

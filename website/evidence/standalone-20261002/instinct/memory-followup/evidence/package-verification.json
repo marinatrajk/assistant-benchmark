@@ -1,0 +1,16 @@
+{
+  "source_url": "https://github.com/marinatrajk/assistant-benchmark/releases/download/v0.2.0/benchmark-memory-followup.zip",
+  "expected_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
+  "actual_sha256": "2e15b337b79e838d9bbcab45469365a4e8faba41d07ed812e6f79884f05ee439",
+  "hash_matches": true,
+  "read_before_setup_assessment": true,
+  "documents_read": [
+    "SKILL.md",
+    "references/task.md",
+    "assets/task.json",
+    "references/operator-turns.md",
+    "references/report-format.md",
+    "assets/report-template.json"
+  ],
+  "observed_at": "2026-10-02T19:07:27+02:00"
+}

@@ -1,0 +1,170 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-memory-followup",
+  "source_protocol": {
+    "suite_id": "paces-everyday-v1",
+    "suite_version": "0.1.0",
+    "task_id": "memory-followup"
+  },
+  "run_id": "instinct-memory-followup-20261002-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [
+      "No isolated synthetic durable-memory namespace available for this benchmark; real memory was not accessed for evidence or changed."
+    ]
+  },
+  "task_inputs": {
+    "persona_id": "paces-test-instinct-followup-20261002-01"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 600,
+    "max_tool_calls_per_task": 80,
+    "repetitions": 1,
+    "timezone": "America/New_York",
+    "market": "US",
+    "currency": "USD"
+  },
+  "task_ids_requested": [
+    "memory-followup"
+  ],
+  "started_at": "2026-10-02T19:06:45+02:00",
+  "updated_at": "2026-10-02T19:07:27+02:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Setup-only stop as explicitly requested; seed, update and fresh recall phases were not started.",
+    "Package read and hash verified before setup assessment.",
+    "No execution metrics measured: capability inspection and report preparation are outside active task execution.",
+    "Capability evidence is sanitized; raw implementation identifiers and unrelated context are withheld."
+  ],
+  "tasks": [
+    {
+      "task_id": "memory-followup",
+      "status": "blocked",
+      "reason": "Durable recall exists, but the setup cannot satisfy isolated controllable persona storage and genuinely fresh-session retrieval together. The task sheet defines absence of an isolated durable namespace as blocked.",
+      "execution_started": false,
+      "answer": "Stopped at setup. No seed/update or recall attempt was made. All four outcome checks remain unverified.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "No task execution began; active/elapsed execution timing, task call count and token measurements are unobserved and null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Operational identifiers are withheld. Evidence records only benchmark-specific package verification, operator scope and the capability assessment. No seed or update evidence exists.",
+      "checks": [
+        {
+          "id": "stored",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "updated",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "new-session-recall",
+          "status": "unverified",
+          "evidence_ids": []
+        },
+        {
+          "id": "applied",
+          "status": "unverified",
+          "evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "package-verified",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Assigned package downloaded, SHA-256 matched, and full template and contract read before setup assessment.",
+          "ref": "evidence/package-verification.json",
+          "observed_at": "2026-10-02T19:07:27+02:00"
+        },
+        {
+          "id": "operator-setup-scope",
+          "kind": "operator_attestation",
+          "provenance": "operator",
+          "summary": "Operator requested setup only and a blocked report if isolation and fresh retrieval are unavailable.",
+          "ref": "evidence/operator-scope.json",
+          "observed_at": "2026-10-02T19:06:34+02:00"
+        },
+        {
+          "id": "setup-capability-assessment",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Setup inspection found no supported isolated persona write/update and no established fresh-only recall session route. No benchmark execution or unrelated changes occurred.",
+          "ref": "evidence/capability-assessment.json",
+          "observed_at": "2026-10-02T19:07:27+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": [
+            "setup-capability-assessment"
+          ]
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": {
+        "initial_session": null,
+        "recall_session": null,
+        "same_environment": null,
+        "isolated": false,
+        "evidence_ids": [
+          "setup-capability-assessment"
+        ]
+      }
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Blocked at setup. The agent disclosed no controllable isolated durable-memory writes and no established genuinely fresh recall session through this interface. Those prerequisites were checked separately for this task; no seed/update/recall steps occurred and all four outcome checks remain unverified. Capability assessment is agent-exported self-report, not an independently inspected internal memory inventory. Existing Messages conversation was not treated as a fresh session."
+}

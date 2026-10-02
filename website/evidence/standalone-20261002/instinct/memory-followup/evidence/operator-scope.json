@@ -1,0 +1,16 @@
+{
+  "source": "Authenticated operator request supplied in conversation context",
+  "request_at": "2026-10-02T19:06:34+02:00",
+  "run_id": "instinct-memory-followup-20261002-01",
+  "operator_label": "Instinct",
+  "persona_id": "paces-test-instinct-followup-20261002-01",
+  "scope": "Capability/setup inspection only. No seed or update turn was supplied.",
+  "restrictions": [
+    "No preference writes or real-memory pollution",
+    "No waiting for indexing",
+    "No simulated fresh conversation or same-chat recall",
+    "No substitute scratch store",
+    "Preserve timed jobs and existing checkout checkpoint"
+  ],
+  "blocked_report_requested_if_limitation_remains": true
+}

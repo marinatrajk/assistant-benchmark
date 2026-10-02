@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-02T19:07:27+02:00",
+  "kind": "Sanitized capability assessment, not a storage or retrieval execution trace",
+  "durable_recall": "Available in the existing environment; no benchmark persona retrieval attempted.",
+  "isolated_persona_storage": "No supported controllable isolated durable namespace was available for this setup.",
+  "separate_seed_and_update": "Not performed; isolated storage prerequisite unmet.",
+  "fresh_session_retrieval": "No supported means was available to establish a genuinely fresh recall session receiving only the persona ID and recall request. No session was created or simulated.",
+  "both_requirements_satisfied": false,
+  "execution_started": false,
+  "seed_evidence": null,
+  "update_evidence": null,
+  "recall_evidence": null,
+  "effects": "No preference or memory writes, indexing wait, scratch memory, scheduled-job changes, or checkout actions.",
+  "limits": "Capability evidence is a sanitized setup assessment, not an independent end-to-end memory test. No private memory content or implementation details are exported."
+}

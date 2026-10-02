@@ -1,0 +1,6 @@
+Structure valid. Actual evidence still needs independent review.
+{
+  "task_id": "memory-followup",
+  "status": "blocked",
+  "provisional": false
+}
