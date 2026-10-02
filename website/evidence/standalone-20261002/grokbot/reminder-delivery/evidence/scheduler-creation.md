@@ -1,0 +1,11 @@
+# Scheduler creation (native routine scheduler, server-side)
+- Current time read from the box clock: 2026-10-02T10:59:56-04:00 (America/New_York, EDT, UTC-4). User message timestamp: 10:59 AM ET.
+- Created at about 11:00:00-04:00 (the box clock read 11:00:05 right after the save).
+- Request: name "Paces screen-break reminder (grokbot-reminder-delivery-20261002-01)", schedule cron "10 11 2 10 *" (user local time, America/New_York).
+- Saved prompt: deliver exactly "Paces grokbot-reminder-delivery-20261002-01 — take a screen break." in this chat, then delete the routine; if it is past Oct 2, 2026, send nothing and delete.
+- Scheduler result (verbatim): Saved routine "Paces screen-break reminder (grokbot-reminder-delivery-20261002-01)" (folder paces-screen-break-reminder-grokbot-reminder-del): Once October 2 at 11:10 AM.
+- Job id (folder): paces-screen-break-reminder-grokbot-reminder-del
+- Due: 2026-10-02T11:10:00-04:00 (15:10:00Z). This is 10 min 4 s after the time read, because the scheduler has minute granularity.
+- The scheduler interprets the job as one-time ("Once October 2 at 11:10 AM"); the saved prompt also self-deletes after firing as a guard against a yearly cron repeat.
+- Routines are kept server-side; no local job file exists on the box (checked). The tool result above is the only creation/detail record exposed.
+- Unrelated jobs: no other routines existed; nothing else was changed.

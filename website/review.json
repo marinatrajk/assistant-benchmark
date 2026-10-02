@@ -2,7 +2,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-02T15:00:29.472286+00:00",
+  "updated_at": "2026-10-02T15:05:39.649319+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
@@ -522,14 +522,24 @@
           ]
         },
         "GrokBot": {
-          "status": "running",
+          "status": "pending",
           "review_status": "unreviewed",
           "run_id": "grokbot-reminder-delivery-20261002-01",
-          "summary": "Assigned: create one native reminder for ten minutes from the observed current time.",
+          "summary": "Scheduled for 11:10 a.m. EDT; delivery and duplicate checks close at 11:12.",
           "details": [
-            "Actual delivery and duplicate observation must be checked through due plus two minutes."
+            "Native routine creation was observed in the app; downloaded scheduler evidence confirms the message and due time.",
+            "The scheduler uses whole minutes, giving a four-second rounding difference from the clock read. Actual delivery is not yet established."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/provisional-report.json"
+            ],
+            [
+              "Creation evidence",
+              "evidence/standalone-20261002/grokbot/reminder-delivery/evidence/scheduler-creation.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -584,12 +594,24 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "pending",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
-          "sources": []
+          "run_id": "grokbot-reminder-change-cancel-20261002-01",
+          "summary": "Created for 11:21, changed to 11:27 and cancelled; absence checks close at 11:29 a.m. EDT.",
+          "details": [
+            "Separate create, change and cancel turns are recorded. Exported next-turn scheduler snapshots confirm the revised due time and subsequent deletion.",
+            "The screen-break routine was preserved. Absence through both due times is still being observed."
+          ],
+          "sources": [
+            [
+              "Provisional report",
+              "evidence/standalone-20261002/grokbot/reminder-change-cancel/provisional-report.json"
+            ],
+            [
+              "Post-cancel listing evidence",
+              "evidence/standalone-20261002/grokbot/reminder-change-cancel/evidence/4-cancel-verification.md"
+            ]
+          ]
         },
         "Instinct": {
           "status": "not_run",
@@ -645,11 +667,13 @@
           ]
         },
         "GrokBot": {
-          "status": "not_run",
+          "status": "running",
           "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "Not started.",
-          "details": [],
+          "run_id": "grokbot-scheduled-research-20261002-01",
+          "summary": "Assigned: schedule a fresh check of the exact selected product in fifteen minutes.",
+          "details": [
+            "The existing Amazon restriction must be respected; unavailable price or stock must be reported honestly."
+          ],
           "sources": []
         },
         "Instinct": {
