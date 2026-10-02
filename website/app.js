@@ -40,20 +40,11 @@ const pilot = name => `<div class="pilot-meta"><span class="pilot">Provisional</
 const note = () => `<div class="snapshot-note">${glyph('clock')}<p>Cancellation: 3 pending · Muse not tested.</p><a href="#methodology">Methodology</a></div>`;
 const reviewed = () => `<p class="fineprint">Reviewed ${esc(data.reviewed_at)}. Cross-conversation memory was not tested.</p>`;
 
-function statusChips(name, indices) {
-  const counts = {};
-  indices.forEach(i => {
-    const status = data.tasks[i].results[name].status;
-    if (status !== 'passed') counts[status] = (counts[status] || 0) + 1;
-  });
-  return Object.entries(counts).map(([status, value]) => `<span class="outcome-tag ${status}">${value} ${labels[status].toLowerCase()}</span>`).join('') || '<span class="outcome-tag complete">All passed</span>';
-}
-
 function leaderboard() {
   const indices = groups[filter];
   const sorted = [...names].sort((a, b) => count(b, indices) - count(a, indices));
   return `<div class="agent-list ${layout}">
-    <div class="list-head" aria-hidden="true"><span class="assistant-label">Assistant</span><span class="align-right">Passed</span><span class="align-right manual-heading">Manual</span><span class="align-right">Other outcomes</span></div>
+    <div class="list-head" aria-hidden="true"><span class="assistant-label">Assistant</span><span class="align-right">Passed</span><span class="align-right manual-heading">Manual</span></div>
     ${sorted.map(name => {
       const passed = count(name, indices);
       const rank = sorted.findIndex(other => count(other, indices) === passed) + 1;
@@ -64,7 +55,6 @@ function leaderboard() {
         <div class="agent-info"><a class="agent-name agent-profile-link" href="#assistant/${info[name].id}" aria-label="Review ${name}: ${passed} of ${indices.length} supported outcomes">${name}</a><div class="bar" role="group" aria-label="${name} test outcomes">${indices.map(i => `<button class="task-dash ${data.tasks[i].results[name].status}" type="button" data-agent="${info[name].id}" data-task="${i}" aria-label="${esc(`${name} · ${data.tasks[i].name}: ${labels[data.tasks[i].results[name].status]}`)}"></button>`).join('')}</div></div>
         <div class="metric align-right">${score(passed, indices.length)}</div>
         <div class="manual-result" aria-label="${name}: manual voice tests not tested"><span class="manual-inline-label">Manual</span><span>Not tested</span></div>
-        <div class="outcome">${statusChips(name, indices)}</div>
         <span class="open-indicator">${glyph('chevron')}</span>
       </article>`;
     }).join('')}
