@@ -1,5 +1,7 @@
 # Release provenance
 
+On October 3, 2026, the catalog gained a twelfth task: downloading and transcribing the supplied YouTube and TikTok videos. It has its own `assistant-benchmark-media-v1` protocol at version `1.0.0`. All four new result slots start as `not_run`; the original 11 packages and recorded outcomes are unchanged. The catalog denominator increases to 12 with review coverage shown separately.
+
 ## Current website format
 
 On October 2, 2026, the website switched to the 11 individual tasks across its main list, profiles, comparison, methodology and JSON export. `website/review.json` is the current dataset. The previous six-task review was preserved unchanged at `benchmarks/legacy/reviews/everyday-pilot-20261002.json`; its scores are not carried forward into individual attempts. Old individual-run bookmarks resolve to the main views.

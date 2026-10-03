@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build self-contained task skills from the frozen protocols and task catalog."""
+"""Build self-contained task skills from frozen or newly authored protocols."""
 import argparse
 from copy import deepcopy
 import hashlib
@@ -26,6 +26,7 @@ NOTES = {
     "scheduled-research": "The operator must supply the exact product URL and variant; earlier research is optional. Ask for missing inputs and mark awaiting_user rather than choosing a product. Schedule one native job for a fresh price/stock check, using the requested channel. Return a pending report immediately after scheduling. At or after due time, observe the source anew, retain its check time and update the report from actual notification evidence. Do not precompute the update, buy anything or create recurring monitoring.",
     "memory-followup": "Read references/operator-turns.md for the separate seed, update and fresh recall phases. Preferences come from the operator; this skill contains no answer key. Use only isolated synthetic durable memory. In the fresh conversation, receive only the persona ID and recall request: do not open an earlier report, seeded preferences, old transcript or other answer-bearing artifact. The operator joins the two sessions' evidence. Same-chat recall does not pass. Wait for user turns rather than simulating a fresh conversation.",
     "expense-summary": "Use the bundled assets/sample-expenses.csv as the immutable synthetic input. Deliver the actual cleaned rows, category/overall totals and review flags as a readable workbook or CSV bundle. Deduplicate by receipt_id, retain refunds, and leave missing amounts unfilled. Native desktop interaction and skill use may be recorded if observed, but are not required for a correct file outcome.",
+    "video-download-transcription": "Download and transcribe both supplied videos: one YouTube video and one TikTok video. Use the exact URLs in assets/task.json, resolve redirects through your existing tools, and retain source identity evidence. Deliver playable video files with audio, full timestamped transcripts and the per-source manifest described in the task sheet. Captions may assist transcription only when their origin is disclosed and their text is checked against the audio. A link, thumbnail, summary or captions alone cannot satisfy the download checks. Keep platform blockers and each source's outcome visible; completing one source cannot pass the combined task.",
 }
 
 REPORT_FORMAT = """# Single-task report
@@ -122,8 +123,17 @@ def build(output=ROOT / "skills"):
     for entry in catalog["tasks"]:
         entry = deepcopy(entry)
         task_id, name, family = entry["task_id"], entry["name"], entry["family"]
-        source, original, sheets, suite, version = sources[family]
-        source_task = next(task for task in original["tasks"] if task["task_id"] == task_id)
+        if "protocol" in entry:
+            # New tasks have their own protocol; never amend the frozen suites.
+            source, original, _, _, _ = sources["everyday"]
+            sheets = {task_id: (ROOT / entry["protocol"]).read_text()}
+            suite = entry["source_protocol"]["suite_id"]
+            version = entry["source_protocol"]["suite_version"]
+            source_task = {"checks": [{"id": check, "status": "unverified", "evidence_ids": []}
+                                      for check in entry["checks"]]}
+        else:
+            source, original, sheets, suite, version = sources[family]
+            source_task = next(task for task in original["tasks"] if task["task_id"] == task_id)
         folder = output / name
         for sub in ["assets", "references", "scripts", "agents"]:
             (folder / sub).mkdir(parents=True, exist_ok=True)
@@ -134,6 +144,7 @@ def build(output=ROOT / "skills"):
             config.update(market=defaults["market"], currency=defaults["currency"])
         for key in entry.get("config_keys", []):
             config[key] = defaults[key]
+        config.update(entry.get("run_config", {}))
         entry.update(suite_id=catalog["suite_id"], suite_version=catalog["suite_version"], skill_name=name,
                      source_protocol={"suite_id": suite, "suite_version": version, "task_id": task_id},
                      checks=[check["id"] for check in source_task["checks"]], run_config=config,
@@ -156,7 +167,11 @@ def build(output=ROOT / "skills"):
             report["environment"]["fixture_mode"] = "public_static"
         write_json(folder / "assets/report-template.json", report)
         (folder / "references/task.md").write_text(sheets[task_id])
-        (folder / "references/report-format.md").write_text(REPORT_FORMAT)
+        report_format = REPORT_FORMAT
+        if "protocol" in entry:
+            report_format = report_format.replace("the frozen protocol from which the task was extracted",
+                                                  "the independently versioned protocol that defines this task")
+        (folder / "references/report-format.md").write_text(report_format)
         workflow = entry.get("workflow")
         if workflow:
             (folder / "references/workflow.md").write_bytes((source / "references/task-skills" / workflow).read_bytes())

@@ -128,6 +128,44 @@
       "inputs": {"input_file": "assets/sample-expenses.csv"},
       "required_inputs": ["input_file"],
       "required_capabilities": {}
+    },
+    {
+      "task_id": "video-download-transcription",
+      "family": "media",
+      "name": "benchmark-video-download-transcription",
+      "title": "Video download and transcription",
+      "description": "Evaluate downloading and transcribing the supplied YouTube and TikTok videos with playable media, full timestamped transcripts, audio verification and a single-task evidence report.",
+      "summary": "Test YouTube and TikTok downloads and transcripts",
+      "inputs": {
+        "youtube_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+        "tiktok_url": "https://www.tiktok.com/t/ZTymk7jrT/"
+      },
+      "required_inputs": [
+        "youtube_url",
+        "tiktok_url"
+      ],
+      "required_capabilities": {},
+      "protocol": "benchmarks/protocols/video-download-transcription.md",
+      "source_protocol": {
+        "suite_id": "assistant-benchmark-media-v1",
+        "suite_version": "1.0.0",
+        "task_id": "video-download-transcription"
+      },
+      "checks": [
+        "youtube-source",
+        "youtube-download",
+        "youtube-transcript",
+        "youtube-verification",
+        "tiktok-source",
+        "tiktok-download",
+        "tiktok-transcript",
+        "tiktok-verification",
+        "usable-artifacts"
+      ],
+      "run_config": {
+        "active_timeout_seconds_per_task": 1200,
+        "max_tool_calls_per_task": 120
+      }
     }
   ]
 }

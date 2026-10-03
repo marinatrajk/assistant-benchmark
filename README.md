@@ -13,16 +13,17 @@ Each assistant uses its **own tools and capabilities**. The project evaluates th
 - **Research:** Compare products against a brief and support recommendations with sources.
 - **Shopping:** Prepare a checkout and hand it back to the user before payment.
 - **Scheduling:** Deliver reminders, handle changes and cancellations, and do work at a later time.
+- **Video:** Download YouTube and TikTok videos and deliver verified, timestamped transcripts.
 - **Files:** Turn messy information into usable files with accurate calculations.
 - **Browser, computer, and memory:** Complete browser forms, operate a desktop app, and retrieve and update durable preferences.
 
-The website now uses **11 individual tests**, each with its own [standalone benchmark skill](docs/SKILLS.md), evidence checklist and report. Tasks run one at a time. The project also includes a local harness for comparing models with a shared set of tools.
+The website now uses **12 individual tests**, each with its own [standalone benchmark skill](docs/SKILLS.md), evidence checklist and report. Tasks run one at a time. The project also includes a local harness for comparing models with a shared set of tools.
 
 Human-operated [voice-mode tests](manual-testing/voice-mode/README.md) cover interruptions, spoken corrections, noisy speech, screen awareness, reminders, and continuity between voice and text. They include shared test pages, scoring criteria, and a results template.
 
 ## Current results
 
-The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 11 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
+The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 12 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
 
 Results are provisional observations, not a definitive ranking. Different environments and timing affect outcomes. Reviews are AI-assisted with Codex and are not blinded or independently replicated. [Read the methodology and limitations.](docs/METHODOLOGY.md)
 

@@ -4,7 +4,7 @@
 
 1. Pick a skill from [the task catalog](SKILLS.md). Download that task's ZIP from a matching release, or build the archives with `python3 scripts/package_skills.py`. Record the commit, skill version and package hash.
 2. Start a fresh conversation in the assistant being evaluated. Attach the individual ZIP and send its `INVOCATION.txt`, or use its supported native skill interface. If ZIPs are unsupported, extract and provide that folder's files. Reading an assignment as a document does not itself establish native workflow skill loading.
-3. Supply the required inputs and use the same task brief, limits and environment across compared runs. Checkout and scheduled research accept an exact product URL and variant directly. They do not automatically run purchase research. The expense skill includes its CSV.
+3. Supply the required inputs and use the same task brief, limits and environment across compared runs. Checkout and scheduled research accept an exact product URL and variant directly. They do not automatically run purchase research. The expense skill includes its CSV. The video skill includes both source URLs and a shared 20-minute/120-call attempt budget.
 4. Collect the single-task result JSON, actual evidence and output files. Keep required future events and operator turns pending; update the same report when evidence arrives. Memory follow-up requires a genuinely fresh conversation without the seed/update transcript or report.
 5. Validate using the script inside the selected skill, then independently inspect the evidence. For example:
 
@@ -14,7 +14,7 @@ python3 skills/benchmark-checkout-handoff/scripts/validate_report.py /path/to/as
 
 Each report includes only its own task. The package's `references/operator-turns.md` describes the change/cancel or memory follow-up phases where relevant. Use a new run ID for a repeat and keep the previous attempt.
 
-Maintainers can regenerate task folders from the frozen task sheets, catalog and shared validator with `python3 scripts/build_task_skills.py`. The repository checker verifies that committed task packages match those sources. `python3 scripts/package_skills.py --include-legacy` also reproduces the historical archives.
+Maintainers can regenerate task folders from the frozen task sheets, new protocols in `benchmarks/protocols/`, catalog and shared validator with `python3 scripts/build_task_skills.py`. The repository checker verifies that committed task packages match those sources. `python3 scripts/package_skills.py --include-legacy` also reproduces the historical archives.
 
 ## Historical Everyday pilot
 

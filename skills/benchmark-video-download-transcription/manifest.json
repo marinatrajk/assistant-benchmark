@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-video-download-transcription",
+  "version": "1.0.0",
+  "task_id": "video-download-transcription",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-media-v1",
+    "suite_version": "1.0.0",
+    "task_id": "video-download-transcription"
+  },
+  "files": {
+    "INVOCATION.txt": "23c58be909633f876a07feb6ef329cb944cfc2b93218de3c6f352c4da5a083e1",
+    "SKILL.md": "b624f404516779cfc4392c68c035ad0bb2807c28b484151cd2ff4f9d25373555",
+    "agents/openai.yaml": "f8752fd71442f9a9a37705af1b5d25e9c5cf383a550303048c3bcc84a0b0bd58",
+    "assets/report-template.json": "585452ced1a5dc5833349594527f4239dde8d8b271f00eebdc53d987df71903f",
+    "assets/task.json": "5bfe0b1195483a6877184573cbb7d1082105853df2232ecfad6e6c479ecad101",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "cc68b3ac21f50d131c2ae5f5af097ae911e69ebafed41024e2fb1633aef0fff7",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

@@ -2,9 +2,9 @@
 
 ## Individual tasks are the current format
 
-The website uses `assistant-benchmark-tasks-v1`, version `1.0.0`: 11 individual tests, each with its own skill, task sheet, inputs, limits, evidence checklist and report. Assistants use their own existing capabilities. The operator assigns one task at a time and records the exact package hash, session conditions and any overrides.
+The website uses `assistant-benchmark-tasks-v1`, version `1.0.0`: 12 individual tests, each with its own skill, task sheet, inputs, limits, evidence checklist and report. Assistants use their own existing capabilities. The operator assigns one task at a time and records the exact package hash, session conditions and any overrides.
 
-The catalog covers browser form, browser research, memory update, desktop Calculator, purchase research, checkout handoff, reminder delivery, reminder change/cancel, scheduled research, cross-conversation memory and expense cleanup. Native workflow skill evidence is required for the browser research, memory update and Calculator tasks; receiving the benchmark assignment alone does not satisfy that requirement.
+The catalog covers browser form, browser research, memory update, desktop Calculator, purchase research, checkout handoff, reminder delivery, reminder change/cancel, scheduled research, cross-conversation memory, expense cleanup, and video download/transcription. The video task was added on October 3, 2026, as an unrun task for all four assistants; the previous 11-task results remain unchanged. Native workflow skill evidence is required for the browser research, memory update and Calculator tasks; receiving the benchmark assignment alone does not satisfy that requirement.
 
 Current results live in `website/review.json`. The same data drives every main website view and export. The old four-task portable and six-task Everyday suites are historical protocols, preserved under `benchmarks/legacy/`. Their scores are not carried into new individual runs. The local harness is a separate tool for testing configured models with shared capabilities.
 
@@ -28,7 +28,7 @@ An agent report is a claim to inspect. Reviewers should check the actual artifac
 
 Website progress states such as `awaiting_review`, `awaiting_response` and `running` describe operator workflow; they are not additional outcomes in the unchanged agent-report contract. Keep the submitted self-score separate from the reviewed result.
 
-The website numerator counts reviewed full passes, and its denominator is the 11 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
+The website numerator counts reviewed full passes, and its denominator is the 12 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
 
 ## Timing
 

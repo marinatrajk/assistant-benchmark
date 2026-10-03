@@ -188,7 +188,8 @@ function evidence(task, result) {
 }
 
 function protocol(task, result) {
-  return `<details class="skill-protocol"><summary>Task protocol</summary><div><a href="https://github.com/marinatrajk/assistant-benchmark/tree/${esc(data.repository_commit)}/skills/${esc(task.skill)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(data.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details>`;
+  const instructionsUrl = task.protocol_url || `https://github.com/marinatrajk/assistant-benchmark/tree/${data.repository_commit}/skills/${task.skill}`;
+  return `<details class="skill-protocol"><summary>Task protocol</summary><div><a href="${esc(instructionsUrl)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(data.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details>`;
 }
 
 function renderProfile(name) {

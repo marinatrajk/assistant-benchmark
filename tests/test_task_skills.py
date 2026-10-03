@@ -98,6 +98,26 @@ class TaskReportTests(unittest.TestCase):
         report["tasks"][0]["task_id"] = "browser-research"
         self.assertIn("Wrong task_id for this skill", validator.validate(report, task_spec=task_spec))
 
+    def test_video_requires_evidence_for_both_sources_and_file_handoff(self):
+        for check_id in [f"{platform}-{check}" for platform in ("youtube", "tiktok")
+                         for check in ("source", "download", "transcript", "verification")] + ["usable-artifacts"]:
+            with self.subTest(check=check_id):
+                task_spec, report = fixture("video-download-transcription", passed=True)
+                check = next(item for item in report["tasks"][0]["checks"] if item["id"] == check_id)
+                check["evidence_ids"] = []
+                self.assertIn("check.evidence_ids: evidence required", validator.validate(report, task_spec=task_spec))
+
+    def test_one_completed_video_is_partial_and_cannot_pass(self):
+        task_spec, report = fixture("video-download-transcription", passed=True)
+        task = report["tasks"][0]
+        task.update(status="partial", reason="YouTube completed; TikTok access blocked.")
+        for check in task["checks"]:
+            if check["id"].startswith("tiktok-") or check["id"] == "usable-artifacts":
+                check.update(status="unverified", evidence_ids=[])
+        self.assertEqual(validator.validate(report, task_spec=task_spec), [])
+        task["status"] = "passed"
+        self.assertIn("Full pass requires all checks", validator.validate(report, task_spec=task_spec))
+
     def test_missing_check_and_wrong_source_protocol_are_rejected(self):
         task_spec, report = fixture("purchase-research", passed=True)
         report["tasks"][0]["checks"].pop()
@@ -182,12 +202,12 @@ class TaskReportTests(unittest.TestCase):
 
 
 class TaskPackageTests(unittest.TestCase):
-    def test_all_eleven_archives_run_without_the_repo_or_other_skills(self):
+    def test_all_catalog_archives_run_without_the_repo_or_other_skills(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "archives"
             with redirect_stdout(io.StringIO()):
                 package_skills.build(output)
-            self.assertEqual(len(list(output.glob("benchmark-*.zip"))), 11)
+            self.assertEqual(len(list(output.glob("benchmark-*.zip"))), len(CATALOG))
             for entry in CATALOG:
                 with self.subTest(skill=entry["name"]):
                     extracted = Path(directory) / entry["name"]

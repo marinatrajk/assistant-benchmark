@@ -25,6 +25,8 @@ Serve `fixtures/` as a **separate site root** if agents need publicly accessible
 
 ## Result updates
 
-Edit `website/review.json` with evidence-backed individual task results. It is the single dataset for the main list, grid, profiles, comparison, exports and methodology. Its 11 task IDs and order match `benchmarks/task-catalog.json`. Adding an assistant also requires updating the `names` and `info` registry in `website/app.js` and providing its icon. Run repository checks and inspect list, grid, profile, comparison and tooltip views before deploying. Check that new public evidence contains no personal or session data.
+Edit `website/review.json` with evidence-backed individual task results. It is the single dataset for the main list, grid, profiles, comparison, exports and methodology. Its 12 task IDs and order match `benchmarks/task-catalog.json`. Adding an assistant also requires updating the `names` and `info` registry in `website/app.js` and providing its icon. Run repository checks and inspect list, grid, profile, comparison and tooltip views before deploying. Check that new public evidence contains no personal or session data.
+
+The new video task serves its protocol and skill ZIP from `website/protocols/` and `website/downloads/`. When revising it, rebuild the skill and ZIP, copy the protocol and archive into those folders, and update its `package_sha256` in `website/review.json`. The repository checker verifies that both published copies match the source protocol and generated package. Existing task links remain pinned to their original release.
 
 The six-task pilot is archived at `benchmarks/legacy/reviews/everyday-pilot-20261002.json`. It is no longer displayed or exported by the website. The previous `#skill-runs` routes resolve to the main individual-task views, and `/skill-runs.json` redirects to `/review.json` on Vercel. Package checks do not execute assistant tests.
