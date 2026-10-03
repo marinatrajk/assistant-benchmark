@@ -1,0 +1,115 @@
+{
+  "browser_task_purpose": "TikTok short-link resolution, source observation + native download attempt (run muse-video-download-transcription-20261003-01)",
+  "task_created_at": "2026-10-03T10:55:07Z",
+  "task_completed_at": "2026-10-03T10:58:23Z",
+  "status_at_export": "completed",
+  "step_count": 19,
+  "timeline_truncated": false,
+  "final_page": {
+    "url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+    "title": "Log in | TikTok"
+  },
+  "note": "Runtime-delivered action log only; carries no page content, screenshots, or raw tool output. Descriptions are the browser task's own readable action lines. The final page title 'Log in | TikTok' corroborates that the login modal/gate was present when the task ended. No screenshot of the modal itself exists from this attempt.",
+  "timeline": [
+    {
+      "at": "2026-10-03T10:55:24Z",
+      "tool": "browser_automation",
+      "action": "capture page (blank page at task start; no screenshot delivered)"
+    },
+    {
+      "at": "2026-10-03T10:55:26Z",
+      "tool": "browser_hand_off",
+      "action": "ask_for_information: exact TikTok short link was missing from the task brief; assistant supplied https://www.tiktok.com/t/ZTymk7jrT/ and steered the task"
+    },
+    {
+      "at": "2026-10-03T10:56:05Z",
+      "tool": "browser_automation",
+      "action": "go to www.tiktok.com"
+    },
+    {
+      "at": "2026-10-03T10:56:08Z",
+      "tool": "browser_automation",
+      "action": "read text"
+    },
+    {
+      "at": "2026-10-03T10:56:11Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:56:16Z",
+      "tool": "browser_automation",
+      "action": "capture page (screenshot delivered to assistant; shows resolved page partially loaded, before the login modal reappeared)"
+    },
+    {
+      "at": "2026-10-03T10:56:24Z",
+      "tool": "browser_automation",
+      "action": "reload"
+    },
+    {
+      "at": "2026-10-03T10:56:40Z",
+      "tool": "browser_automation",
+      "action": "click @e3"
+    },
+    {
+      "at": "2026-10-03T10:56:45Z",
+      "tool": "browser_automation",
+      "action": "click @e1"
+    },
+    {
+      "at": "2026-10-03T10:56:50Z",
+      "tool": "browser_automation",
+      "action": "click @e3"
+    },
+    {
+      "at": "2026-10-03T10:56:59Z",
+      "tool": "browser_automation",
+      "action": "reload"
+    },
+    {
+      "at": "2026-10-03T10:57:10Z",
+      "tool": "visual_browser_automation",
+      "action": "click"
+    },
+    {
+      "at": "2026-10-03T10:57:16Z",
+      "tool": "browser_automation",
+      "action": "reload"
+    },
+    {
+      "at": "2026-10-03T10:57:21Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:57:28Z",
+      "tool": "browser_automation",
+      "action": "press Escape"
+    },
+    {
+      "at": "2026-10-03T10:57:33Z",
+      "tool": "browser_automation",
+      "action": "click @e2"
+    },
+    {
+      "at": "2026-10-03T10:57:39Z",
+      "tool": "browser_automation",
+      "action": "click @e8"
+    },
+    {
+      "at": "2026-10-03T10:57:56Z",
+      "tool": "visual_browser_automation",
+      "action": "click"
+    },
+    {
+      "at": "2026-10-03T10:58:14Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:58:23Z",
+      "tool": "browser_hand_off",
+      "action": "hand off final report"
+    }
+  ]
+}

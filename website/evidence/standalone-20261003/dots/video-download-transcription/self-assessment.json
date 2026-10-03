@@ -1,0 +1,102 @@
+{
+  "run_id": "dots-video-download-transcription-20261003-01",
+  "original_report_sha256": "d17f67e15d181b1dac24b6cfff96300619b5a3299a1b3743ce467fa4870ea0eb",
+  "status": "partial",
+  "reason": "Both exact sources attempted. YouTube blocked by unusual-traffic reCAPTCHA. TikTok identity and ASR captions obtained, but media download canceled/HTTP 403; no audio comparison. No required check fully established.",
+  "checks": [
+    {
+      "id": "youtube-source",
+      "status": "unverified",
+      "evidence_ids": [
+        "youtube-access",
+        "youtube-verification"
+      ]
+    },
+    {
+      "id": "youtube-download",
+      "status": "unverified",
+      "evidence_ids": [
+        "youtube-access",
+        "youtube-verification"
+      ]
+    },
+    {
+      "id": "youtube-transcript",
+      "status": "unverified",
+      "evidence_ids": [
+        "youtube-access",
+        "youtube-verification"
+      ]
+    },
+    {
+      "id": "youtube-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "youtube-access",
+        "youtube-verification"
+      ]
+    },
+    {
+      "id": "tiktok-source",
+      "status": "unverified",
+      "evidence_ids": [
+        "tiktok-source",
+        "tiktok-download",
+        "tiktok-captions",
+        "tiktok-verification"
+      ]
+    },
+    {
+      "id": "tiktok-download",
+      "status": "unverified",
+      "evidence_ids": [
+        "tiktok-source",
+        "tiktok-download",
+        "tiktok-captions",
+        "tiktok-verification"
+      ]
+    },
+    {
+      "id": "tiktok-transcript",
+      "status": "unverified",
+      "evidence_ids": [
+        "tiktok-source",
+        "tiktok-download",
+        "tiktok-captions",
+        "tiktok-verification"
+      ]
+    },
+    {
+      "id": "tiktok-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "tiktok-source",
+        "tiktok-download",
+        "tiktok-captions",
+        "tiktok-verification"
+      ]
+    },
+    {
+      "id": "usable-artifacts",
+      "status": "unverified",
+      "evidence_ids": [
+        "manifest"
+      ]
+    }
+  ],
+  "metrics": {
+    "active_duration_ms": 213430,
+    "elapsed_duration_ms": 213430,
+    "tool_calls": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "source": "UTC and monotonic measurement from first exact-source action through final caption timestamp inspection. Setup/report assembly excluded. See evidence/protocol-and-timing.json; exact whole-session calls/tokens unavailable."
+  },
+  "deviations": [
+    "Prior exposure disclosed in evidence/protocol-and-timing.json; no prior outputs reused.",
+    "Operator reported parent turn appeared interrupted at 2026-10-03T10:54:55+00:00 and later reported execution-history visibility stopping after setup at 2026-10-03T11:00:23+00:00. Worker execution continued; no actual worker interruption observed, no attempt restart, no budget reset.",
+    "Exact whole-session tool-call count and token counts unavailable.",
+    "No media, completed transcripts or verified subtitles could be delivered. Captions retained only as explicitly unverified partial evidence."
+  ],
+  "disclosure": "Selected fields from the submitted report. The report and available exported evidence are retained privately. Any delivered media or captions are excluded from this public selection; this is not a complete original evidence bundle."
+}

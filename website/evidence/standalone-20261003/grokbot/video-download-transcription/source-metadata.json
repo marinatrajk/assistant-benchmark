@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "platform": "youtube",
+      "original_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "video_id": "7lmSll_GVCg",
+      "title": "We Tasted and Ranked 12 Store-Bought Marinara Jars With Chef Carla Lalli | Wirecutter | Taste Test",
+      "creator": "NYT Wirecutter",
+      "outcome": "partial",
+      "blocker": "Video downloaded and decoded in full. No speech-to-text capability on the box and the assistant cannot listen to audio; transcript is derived from creator-uploaded English captions and is NOT audio-verified.",
+      "observed_at": "2026-10-03T06:54:10-04:00",
+      "observed_full_duration_s": 995,
+      "downloaded_duration_s": 995.393016,
+      "media_format": "mp4 (AV1 video 1280x720 + AAC audio)",
+      "download_method": "yt-dlp 2026.08.19 (--js-runtimes node, format bv*[height<=720][ext=mp4]+ba[ext=m4a], ffmpeg merge, no re-encode)",
+      "transcription_method": "none (no ASR available); text taken from YouTube creator-uploaded subtitle track en (VTT) via yt-dlp; converted to SRT/VTT/TXT with Python, timing preserved, no text edits",
+      "caption_source": "YouTube creator-uploaded subtitles (en); YouTube automatic captions (en-orig) retained only for cross-check",
+      "resolved_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "provenance": "agent_export"
+    },
+    {
+      "platform": "tiktok",
+      "original_url": "https://www.tiktok.com/t/ZTymk7jrT/",
+      "video_id": "7691336841060158743",
+      "title": "#friends #rossgeller #chandlerbing #prediction #fyp",
+      "creator": "friendsclips4youu",
+      "outcome": "partial",
+      "blocker": "Video downloaded and decoded in full. No platform captions and no speech-to-text capability; no transcript/subtitles produced.",
+      "observed_at": "2026-10-03T06:54:12-04:00",
+      "observed_full_duration_s": 33,
+      "downloaded_duration_s": 33.2,
+      "media_format": "mp4 (HEVC video + AAC audio)",
+      "download_method": "yt-dlp 2026.08.19 (format bytevc1_1080p_258006-1, no impersonation target available - warning only)",
+      "transcription_method": null,
+      "caption_source": null,
+      "resolved_url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+      "provenance": "agent_export"
+    }
+  ],
+  "note": "Selected metadata from the agent-exported sources.json; TikTok share-tracking query removed. This is not an independent live-site retrieval."
+}

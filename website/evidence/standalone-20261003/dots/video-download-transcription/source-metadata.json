@@ -1,0 +1,49 @@
+{
+  "sources": [
+    {
+      "platform": "youtube",
+      "original_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "video_id": null,
+      "title": null,
+      "creator": null,
+      "outcome": "blocked",
+      "blocker": "Unusual-traffic reCAPTCHA blocks the exact source.",
+      "observed_at": "2026-10-03T10:55:37+00:00",
+      "observed_full_duration_seconds": null,
+      "downloaded_duration_seconds": null,
+      "media_format": null,
+      "download_method": "curl and cloud browser exact source navigation",
+      "transcription_method": null,
+      "caption_source": null,
+      "resolved_url": null,
+      "provenance": "agent_export"
+    },
+    {
+      "platform": "tiktok",
+      "original_url": "https://www.tiktok.com/t/ZTymk7jrT/",
+      "video_id": "7691336841060158743",
+      "title": "Ross Geller predicting AI in 1999 — Friends clip explained | TikTok",
+      "creator": {
+        "handle": "friendsclips4youu",
+        "display_name": "Friends!"
+      },
+      "outcome": "partial",
+      "blocker": "Media download canceled in browser, HTTP 403 through curl; no audio-verifiable transcript.",
+      "observed_at": "2026-10-03T10:56:07+00:00",
+      "observed_full_duration_seconds": 33.317776,
+      "downloaded_duration_seconds": null,
+      "media_format": null,
+      "download_method": "Existing browser locator.downloadMedia then curl of observed public media URL",
+      "transcription_method": null,
+      "caption_source": {
+        "platform": "TikTok",
+        "type": "ASR",
+        "declared_language": "eng-US",
+        "audio_verified": false
+      },
+      "resolved_url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+      "provenance": "agent_export"
+    }
+  ],
+  "note": "Selected metadata from the agent-exported sources.json; TikTok share-tracking query removed. This is not an independent live-site retrieval."
+}

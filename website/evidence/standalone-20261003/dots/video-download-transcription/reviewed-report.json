@@ -1,0 +1,222 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-video-download-transcription",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-media-v1",
+    "suite_version": "1.0.0",
+    "task_id": "video-download-transcription"
+  },
+  "run_id": "dots-video-download-transcription-20261003-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": "Chrome cloud browser",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Fresh output directory; no previous benchmark artifacts read or reused."
+    ]
+  },
+  "task_inputs": {
+    "youtube_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+    "tiktok_url": "https://www.tiktok.com/t/ZTymk7jrT/"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 120,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "video-download-transcription"
+  ],
+  "started_at": "2026-10-03T10:55:10.400693+00:00",
+  "updated_at": "2026-10-03T11:12:37.208139+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Prior exposure disclosed in evidence/protocol-and-timing.json; no prior outputs reused.",
+    "Operator reported parent turn appeared interrupted at 2026-10-03T10:54:55+00:00 and later reported execution-history visibility stopping after setup at 2026-10-03T11:00:23+00:00. Worker execution continued; no actual worker interruption observed, no attempt restart, no budget reset.",
+    "Exact whole-session tool-call count and token counts unavailable.",
+    "No media, completed transcripts or verified subtitles could be delivered. Captions retained only as explicitly unverified partial evidence.",
+    "Independent review is AI-assisted and not blinded. Evaluations overlap across assistants. Any delivered media or captions are retained privately; public evidence is selected metadata, self-assessment and review records."
+  ],
+  "tasks": [
+    {
+      "task_id": "video-download-transcription",
+      "status": "partial",
+      "reason": "Both exact sources attempted. YouTube blocked by unusual-traffic reCAPTCHA. TikTok identity and ASR captions obtained, but media download canceled/HTTP 403; no audio comparison. No required check fully established.",
+      "execution_started": true,
+      "answer": "Partial source metadata and unverified TikTok captions only. Neither video downloaded, and no transcript was verified against audio.",
+      "metrics": {
+        "active_duration_ms": 213430,
+        "elapsed_duration_ms": 213430,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "UTC and monotonic measurement from first exact-source action through final caption timestamp inspection. Setup/report assembly excluded. See evidence/protocol-and-timing.json; exact whole-session calls/tokens unavailable."
+      },
+      "tools_used": [
+        "functions.exec",
+        "exec_command",
+        "write_stdin",
+        "mcp__cua_repl.js",
+        "curl",
+        "python3",
+        "ffprobe",
+        "ffmpeg"
+      ],
+      "disclosure_note": "Existing downloadMedia browser capability and curl attempted; ffprobe/ffmpeg could not run media inspection because no video file existed. No ASR engine installed or run. Browser playback was visually observed muted, not listened to. Native skill loading not claimed; supplied benchmark documents read as files.",
+      "checks": [
+        {
+          "id": "youtube-source",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "youtube-download",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "youtube-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "youtube-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-source",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-download",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "usable-artifacts",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "submission",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Submitted outcome, check claims and disclosed limitations; selected fields, original hash retained.",
+          "ref": "self-assessment.json"
+        },
+        {
+          "id": "source-metadata",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Selected source metadata from the submitted sources manifest, with signed media and tracking URLs excluded.",
+          "ref": "source-metadata.json"
+        },
+        {
+          "id": "operator-review",
+          "kind": "trace",
+          "provenance": "operator",
+          "summary": "Independent artifact inspection and review limitations.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-03T11:12:37.207946+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "observed",
+          "mode": "mixed",
+          "label": "dot cloud Chrome browser",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Recovered the original 12,463-byte evidence ZIP through a lossless base64 export and verified its SHA-256. Checked all source-manifest file hashes, the completed native executor record, report and source/access evidence. The bundle contains no playable media or completed transcripts. YouTube access encountered an unusual-traffic reCAPTCHA before video identity and duration could be established. TikTok source metadata and seven platform ASR caption cues were retrieved, but the browser media download was canceled and command-line retrieval returned HTTP 403, including the documented recovery attempt. Neither playable media file exists in the submitted outcome. Caption timestamps were inspected, but no speech-to-caption comparison was performed; the agent explicitly states that browser playback was muted. All nine task checks remain unverified. The assistant measured 213.43 seconds from its first source action through final caption timestamp inspection using UTC and a monotonic clock. This is agent-measured, excludes setup/report assembly and is not comparable to an independently measured whole-session runtime. Exact calls and tokens remain unknown. The parent status view appeared interrupted or stalled, but the completed executor trace and final disclosure show that the worker continued. Continuation prompts retained the same attempt and budget; no actual worker interruption or restart was established. Existing benchmark chat reused. A prior same-TikTok attempt blocked on login was disclosed to the agent; it reports no previous outputs reused. Reviews are AI-assisted, overlap with the other assistants, and are not clean-room repetitions."
+}

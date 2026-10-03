@@ -1,6 +1,10 @@
 # Release provenance
 
-On October 3, 2026, the catalog gained a twelfth task: downloading and transcribing the supplied YouTube and TikTok videos. It has its own `assistant-benchmark-media-v1` protocol at version `1.0.0`. All four new result slots start as `not_run`; the original 11 packages and recorded outcomes are unchanged. The catalog denominator increases to 12 with review coverage shown separately.
+On October 3, 2026, the catalog gained a twelfth task: downloading and transcribing the supplied YouTube and TikTok videos. It has its own `assistant-benchmark-media-v1` protocol at version `1.0.0`. The original 11 packages and recorded outcomes are unchanged. The catalog denominator increases to 12 with review coverage shown separately.
+
+The four assistants each received one fresh attempt against commit `ce83a1a0d64eeaf7988105e994e15ced8c398ed8` and package SHA-256 `f8152a25314ccb06816b149dbdd7d2a9ef0e7d0f91c61b4491dda17238082ce0`. Dots, GrokBot and Instinct were reviewed as partial; Muse was blocked. None delivered both videos with complete, audio-verified transcripts. GrokBot and Instinct delivered both videos, whose complete audio and video streams decoded successfully during operator review.
+
+These attempts overlapped and used existing conversations; prior exposure and unverified environment resets are disclosed per result. Follow-ups recovered existing oversized attachments and corrected evidence, without rerunning source work. Muse withdrew unsupported timing claims. Dots' original evidence archive was retrieved through a lossless base64 export and its SHA-256 verified. Public evidence under `website/evidence/standalone-20261003/` contains selected metadata and review records. Full media and caption text are excluded from publication. This is one AI-assisted, unblinded review per assistant, not an independently replicated comparison.
 
 ## Current website format
 

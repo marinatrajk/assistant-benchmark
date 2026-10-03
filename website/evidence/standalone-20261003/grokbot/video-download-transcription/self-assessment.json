@@ -1,0 +1,103 @@
+{
+  "run_id": "grokbot-video-download-transcription-20261003-01",
+  "original_report_sha256": "ade7e525d3b62a495c88ddfdc935bfabebb64ebaa9fbda9e878e0b068bb5d8b4",
+  "status": "partial",
+  "reason": "Both full videos with audio were downloaded, identified and fully decoded, but speech-to-text is unsupported on this box and the assistant cannot listen to audio. YouTube transcript/SRT/VTT were derived from creator-uploaded English captions and could not be audio-verified; TikTok had no captions, so no transcript or subtitles exist. Transcript, verification and usable-artifacts checks remain unverified.",
+  "checks": [
+    {
+      "id": "youtube-source",
+      "status": "passed",
+      "evidence_ids": [
+        "yt-meta",
+        "yt-dl",
+        "yt-probe"
+      ]
+    },
+    {
+      "id": "youtube-download",
+      "status": "passed",
+      "evidence_ids": [
+        "yt-video",
+        "yt-probe",
+        "yt-decode"
+      ]
+    },
+    {
+      "id": "youtube-transcript",
+      "status": "unverified",
+      "evidence_ids": [
+        "yt-txt",
+        "yt-srt",
+        "yt-vtt",
+        "yt-capcheck"
+      ]
+    },
+    {
+      "id": "youtube-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "yt-verif",
+        "yt-capcheck",
+        "asr-fail"
+      ]
+    },
+    {
+      "id": "tiktok-source",
+      "status": "passed",
+      "evidence_ids": [
+        "tt-redirect",
+        "tt-meta",
+        "tt-probe"
+      ]
+    },
+    {
+      "id": "tiktok-download",
+      "status": "passed",
+      "evidence_ids": [
+        "tt-video",
+        "tt-probe",
+        "tt-decode"
+      ]
+    },
+    {
+      "id": "tiktok-transcript",
+      "status": "unverified",
+      "evidence_ids": [
+        "tt-verif",
+        "asr-fail"
+      ]
+    },
+    {
+      "id": "tiktok-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "tt-verif",
+        "asr-fail"
+      ]
+    },
+    {
+      "id": "usable-artifacts",
+      "status": "unverified",
+      "evidence_ids": [
+        "sources",
+        "hashes"
+      ]
+    }
+  ],
+  "metrics": {
+    "active_duration_ms": 84000,
+    "elapsed_duration_ms": 84000,
+    "tool_calls": 8,
+    "input_tokens": null,
+    "output_tokens": null,
+    "source": "Self-measured by the assistant: wall clock via date -Iseconds 06:54:02-04:00 to 06:55:26-04:00 (evidence/measured_start.txt, measured_end.txt); 8 Shell tool calls counted in that window. No user waits, so active=elapsed. Setup and report assembly excluded. Tokens not exposed."
+  },
+  "deviations": [
+    "Reused existing chat environment containing many earlier Assistant Benchmark runs (Oct 1-2, 2026); no known prior exposure to these two videos.",
+    "Tool-call and active-time budgets were self-counted/self-enforced by the assistant, not enforced by a harness.",
+    "Measured window boundaries: from capability check (06:54:02-04:00) to the end of verification-note writing (06:55:26-04:00); package download/SHA check, sources.json/report assembly, validation and zipping excluded.",
+    "No speech-to-text capability exists on the box (no whisper/faster-whisper/vosk/whisper.cpp; ffmpeg asr filter lacks pocketsphinx models) and installing was prohibited; the YouTube transcript is creator-caption-derived and unverified against audio; no TikTok transcript was produced.",
+    "yt-dlp was run with --js-runtimes node (existing node binary) for YouTube extraction; TikTok extraction warned that no impersonation target was available but succeeded."
+  ],
+  "disclosure": "Selected fields from the submitted report. The report and available exported evidence are retained privately. Any delivered media or captions are excluded from this public selection; this is not a complete original evidence bundle."
+}

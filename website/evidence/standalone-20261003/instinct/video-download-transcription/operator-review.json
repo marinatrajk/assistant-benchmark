@@ -1,0 +1,44 @@
+{
+  "bundle_sha256": "441bfd0bd6928d692a053d05d5c0e9fab3146be7b31597375eeb18e9f6a96c8e",
+  "sources": {
+    "youtube": {
+      "bytes": 359981647,
+      "sha256": "12b6d50f1f3f0e4dcc9a68338a41a5b1c893d9a505ae5837c75b7d5a86e8410b",
+      "full_av_decode_exit_code": 0,
+      "full_av_decode_stderr": "",
+      "duration_hms": "00:16:35.36",
+      "audio_present": true,
+      "video_present": true,
+      "readable_transcript_present": false,
+      "subtitle_present": false
+    },
+    "tiktok": {
+      "bytes": 1070726,
+      "sha256": "9093c945a08f0588e658fce01b45a8038759d479762d6d35fcd6319db03b459a",
+      "full_av_decode_exit_code": 0,
+      "full_av_decode_stderr": "",
+      "duration_hms": "00:00:33.20",
+      "audio_present": true,
+      "video_present": true,
+      "readable_transcript_present": false,
+      "subtitle_present": false
+    }
+  },
+  "youtube_handoff": {
+    "parts": 20,
+    "all_part_hashes_match_manifest": true,
+    "whole_file_hash_matches_manifest": true
+  },
+  "audio_fidelity_review": "Not assessed: neither transcript nor subtitles were delivered. Full media decoding does not establish transcript verification.",
+  "review_notes": [
+    "Independently decoded both delivered videos with audio: YouTube 995.36 seconds at 1080p and TikTok 33.20 seconds. Their file sizes and SHA-256 hashes match the submitted sources manifest.",
+    "The original bundle excluded the 360 MB YouTube file. An evidence-only follow-up delivered the existing file in 20 parts; all part hashes and the reassembled whole-file hash match. No download or transcription was rerun for this handoff.",
+    "Both transcript files and both subtitle files are absent. Instinct explicitly withheld verbatim third-party transcripts and did not run speech recognition. This is an observed refusal, not evidence that a transcription tool was unavailable.",
+    "Four source/download checks pass. Both transcript checks, both audio-verification checks and usable-artifacts remain unverified; decode and loudness/silence analysis do not verify speech against a transcript.",
+    "The existing conversation already contained the exact TikTok URL and an earlier download request. The assistant was instructed to make fresh downloads and reports doing so, but prior exposure is confirmed and a clean environment was not established. No precise timing or call-count measurement is available.",
+    "Full original media, downloader metadata and transport manifest are retained privately; only selected metadata and review records are published."
+  ],
+  "reviewed_at": "2026-10-03T11:12:37.196359+00:00",
+  "status": "partial",
+  "source_report_sha256": "21006a096a09b7ccb69b112ddfdf6a795329b7d0778dd17eb46dddd3388aa93c"
+}

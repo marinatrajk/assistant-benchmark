@@ -1,0 +1,47 @@
+{
+  "bundle_sha256": "f019b9be7844e5059dc65b14dd068d1fa9ff41630c879d281c8e3defe4059e53",
+  "original_report_preserved_byte_identically": true,
+  "original_report_sha256": "53b39a584c352575783921f3bb9cf13c8d40ec54bd264919e19eca7b03a183b0",
+  "corrected_report_metrics_all_null": true,
+  "sources": {
+    "youtube": {
+      "media_present": false,
+      "readable_transcript_present": false,
+      "subtitle_present": false,
+      "timeline_entries": 15,
+      "reported_step_count": 17,
+      "task_created_at": "2026-10-03T10:55:07Z",
+      "task_completed_at": "2026-10-03T10:57:12Z",
+      "final_page": {
+        "url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+        "title": "We Tasted and Ranked 12 Store-Bought Marinara Jars With Chef Carla Lalli | Wirecutter | Taste Test - YouTube"
+      },
+      "evidence_limitation": "Agent-exported readable action descriptions, not raw page contents or original browser tool results."
+    },
+    "tiktok": {
+      "media_present": false,
+      "readable_transcript_present": false,
+      "subtitle_present": false,
+      "timeline_entries": 20,
+      "reported_step_count": 19,
+      "task_created_at": "2026-10-03T10:55:07Z",
+      "task_completed_at": "2026-10-03T10:58:23Z",
+      "final_page": {
+        "url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+        "title": "Log in | TikTok"
+      },
+      "evidence_limitation": "Agent-exported readable action descriptions, not raw page contents or original browser tool results."
+    }
+  },
+  "review_notes": [
+    "The corrected archive was retrieved under a distinct filename and its SHA-256 verified. It contains the corrected report, a byte-identical original report, two screenshots, two browser action timelines, source metadata and verification notes; no media or transcript files.",
+    "The YouTube screenshot shows a preroll advertisement at 0:02 of 0:15; it does not establish the full target duration. The TikTok screenshot shows a partly loaded video page without a login modal. No original screenshot of the reported modal was supplied.",
+    "The exported TikTok action timeline ends with the page title Log in | TikTok and records repeated clicks, Escape and reloads. These readable action descriptions support the reported access problem but contain no raw page output. All nine task checks remain unverified.",
+    "The initial report incorrectly labeled unsupported timing and call counts as operator-measured. The assistant withdrew those values; the corrected report leaves every metric and run start/end timestamp null. Timeline step_count values also differ from listed entry counts, so no total call count is inferred.",
+    "Computer-use capability is marked not applicable in this review: the cited capability-inventory check used shell tools and does not demonstrate native desktop interaction. Browser use is evidenced by the screenshots and browser action exports.",
+    "Existing chat reused. Muse reports a prior attempt against these URLs on October 2 but says no prior downloads or transcripts were reused; this exposure and the claimed environment reset were not independently verified. Review-only follow-ups corrected evidence and delivery without rerunning the task."
+  ],
+  "reviewed_at": "2026-10-03T11:12:37.203195+00:00",
+  "status": "blocked",
+  "source_report_sha256": "9b5985428c4c7820d1a353cafb0a69f6ebfa30b03829a06f655efd85b56eb109"
+}

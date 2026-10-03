@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "platform": "youtube",
+      "original_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "video_id": "7lmSll_GVCg",
+      "title": "We Tasted and Ranked 12 Store-Bought Marinara Jars With Chef Carla Lalli | Wirecutter | Taste Test",
+      "creator": "NYT Wirecutter (shown in collaboration with NYT Cooking)",
+      "outcome": "blocked",
+      "observed_full_duration_seconds": 995,
+      "downloaded_duration_seconds": null,
+      "media_format": null,
+      "download_method": null,
+      "transcription_method": null,
+      "resolved_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "provenance": "agent_export"
+    },
+    {
+      "platform": "tiktok",
+      "original_url": "https://www.tiktok.com/t/ZTymk7jrT/",
+      "video_id": "7691336841060158743",
+      "title": "Friends! (#friends #rossgeller #chandlerbing #prediction #fyp)",
+      "creator": "@friendsclips4youu",
+      "outcome": "blocked",
+      "observed_full_duration_seconds": null,
+      "downloaded_duration_seconds": null,
+      "media_format": null,
+      "download_method": null,
+      "transcription_method": null,
+      "caption_source": null,
+      "resolved_url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+      "provenance": "agent_export"
+    }
+  ],
+  "note": "Selected metadata from the agent-exported sources.json; TikTok share-tracking query removed. This is not an independent live-site retrieval."
+}

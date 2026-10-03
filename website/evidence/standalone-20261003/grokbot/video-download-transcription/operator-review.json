@@ -1,0 +1,43 @@
+{
+  "reviewed_at": "2026-10-03T11:11:01.516653+00:00",
+  "source_bundle_sha256": "a471a98774de44a706faa1098ccdd2b74f871d4c6fcb9a5bc4be138f0c6aa57c",
+  "decoder": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
+  "sources": {
+    "youtube": {
+      "bytes": 92307382,
+      "sha256": "b2d532c62b14354c3f458df810d27e7c9932a3c7bcbddc9c3e3dd9da31984f50",
+      "duration_hms": "00:16:35.39",
+      "audio_present": true,
+      "video_present": true,
+      "full_decode_exit_code": 0,
+      "audio_fidelity_review": "Not assessed; submitted report already discloses missing required transcription/audio verification.",
+      "readable_transcript_present": true,
+      "subtitle_present": true,
+      "subtitle_cues": 494,
+      "subtitle_timestamp_issues": [],
+      "last_cue_end_seconds": 986.79,
+      "uncovered_tail_seconds": 8.603
+    },
+    "tiktok": {
+      "bytes": 1070726,
+      "sha256": "9093c945a08f0588e658fce01b45a8038759d479762d6d35fcd6319db03b459a",
+      "duration_hms": "00:00:33.20",
+      "audio_present": true,
+      "video_present": true,
+      "full_decode_exit_code": 0,
+      "audio_fidelity_review": "Not assessed; submitted report already discloses missing required transcription/audio verification.",
+      "readable_transcript_present": false,
+      "subtitle_present": false
+    }
+  },
+  "review_notes": [
+    "Reassembled four attachments and verified the original bundle SHA-256. Independently decoded both full media files with audio: YouTube 995.39 seconds at 720p; TikTok 33.20 seconds.",
+    "YouTube includes 494 subtitle cues with valid ordering and bounds, derived from creator captions. Audio fidelity was not verified and the final 8.603 seconds remain unclassified; matching automatic captions is not audio verification.",
+    "TikTok transcript and subtitle files are absent. The assistant reports no installed speech-recognition model and did not install one. Both transcript checks, both verification checks and usable-artifacts remain unverified.",
+    "The first delivery omitted the oversized bundle; a review-only follow-up recovered byte-split original files without rerunning the task. Source metadata and file hashes match the delivered media.",
+    "The assistant reports 84 seconds and eight calls on its own measurement boundary. These are not operator-measured; its report update time is later than the visible delivery time, so cross-environment clock alignment is not established.",
+    "Existing chat reused; prior exact-video exposure not independently established. No full videos or caption text are republished in the public evidence."
+  ],
+  "status": "partial",
+  "source_report_sha256": "ade7e525d3b62a495c88ddfdc935bfabebb64ebaa9fbda9e878e0b068bb5d8b4"
+}

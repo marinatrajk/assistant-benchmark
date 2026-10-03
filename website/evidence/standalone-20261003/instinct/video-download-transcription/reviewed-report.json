@@ -1,0 +1,213 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-video-download-transcription",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-media-v1",
+    "suite_version": "1.0.0",
+    "task_id": "video-download-transcription"
+  },
+  "run_id": "instinct-video-download-transcription-20261003-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "youtube_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+    "tiktok_url": "https://www.tiktok.com/t/ZTymk7jrT/"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 120,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "video-download-transcription"
+  ],
+  "started_at": "2026-10-03T12:53:55+02:00",
+  "updated_at": "2026-10-03T11:12:37.196644+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Reused chat environment: earlier today (2026-10-02) in this same environment a TikTok 'Friends!' clip was downloaded and sent to the operator and a Canton Rodeo recipe video was analyzed. The TikTok source today is the 'Friends!' creator account (friendsclips4youu); whether it is the same video as the earlier clip was not checked. Today's downloads were fresh and nothing earlier was reused.",
+    "Full verbatim transcripts (transcript.txt, SRT/VTT) were NOT produced for either video: the content is copyrighted third-party speech and the assistant withheld reproducing it. Transcript and verification checks are therefore unverified.",
+    "No ASR was run and no caption text is delivered. Audio verification evidence is limited to track inspection, full-decode, loudness and silence-gap analysis.",
+    "Package was downloaded, hash-verified (f8152a25...82ce0) and read before measured work. Tool call count and active time not measured exactly (about 8 calls, roughly 3 minutes by wall clock; unmeasured by a counter).",
+    "YouTube video is about 360 MB and cannot go as a chat attachment.",
+    "Independent review is AI-assisted and not blinded. Evaluations overlap across assistants. Any delivered media or captions are retained privately; public evidence is selected metadata, self-assessment and review records."
+  ],
+  "tasks": [
+    {
+      "task_id": "video-download-transcription",
+      "status": "partial",
+      "reason": "Both videos downloaded in full and decode; transcripts and audio-comparison verification not delivered.",
+      "execution_started": true,
+      "answer": "Both videos delivered and decoded. The assistant withheld both transcripts; no speech transcription or audio comparison was completed.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "tools_used": [
+        "yt-dlp",
+        "ffmpeg",
+        "ffprobe"
+      ],
+      "disclosure_note": "No transcript or caption text delivered; see deviations.",
+      "checks": [
+        {
+          "id": "youtube-source",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "youtube-download",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "youtube-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "youtube-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-source",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "tiktok-download",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "tiktok-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "usable-artifacts",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "submission",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Submitted outcome, check claims and disclosed limitations; selected fields, original hash retained.",
+          "ref": "self-assessment.json"
+        },
+        {
+          "id": "source-metadata",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Selected source metadata from the submitted sources manifest, with signed media and tracking URLs excluded.",
+          "ref": "source-metadata.json"
+        },
+        {
+          "id": "operator-review",
+          "kind": "trace",
+          "provenance": "operator",
+          "summary": "Independent artifact inspection and review limitations.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-03T11:12:37.196359+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Independently decoded both delivered videos with audio: YouTube 995.36 seconds at 1080p and TikTok 33.20 seconds. Their file sizes and SHA-256 hashes match the submitted sources manifest. The original bundle excluded the 360 MB YouTube file. An evidence-only follow-up delivered the existing file in 20 parts; all part hashes and the reassembled whole-file hash match. No download or transcription was rerun for this handoff. Both transcript files and both subtitle files are absent. Instinct explicitly withheld verbatim third-party transcripts and did not run speech recognition. This is an observed refusal, not evidence that a transcription tool was unavailable. Four source/download checks pass. Both transcript checks, both audio-verification checks and usable-artifacts remain unverified; decode and loudness/silence analysis do not verify speech against a transcript. The existing conversation already contained the exact TikTok URL and an earlier download request. The assistant was instructed to make fresh downloads and reports doing so, but prior exposure is confirmed and a clean environment was not established. No precise timing or call-count measurement is available. Full original media, downloader metadata and transport manifest are retained privately; only selected metadata and review records are published."
+}

@@ -1,0 +1,74 @@
+{
+  "evidence_transport": "Original ZIP exported losslessly as two base64 chunks through native tool-output readback, decoded locally and matched against the reported byte count and SHA-256. Completed executor records also inspected.",
+  "source_bundle_sha256": "964eac507b38c8065d12847261e6d55ae69d5baf1162075c15d36b1885a2e1b0",
+  "source_bundle_sha256_independently_verified": true,
+  "all_source_manifest_file_hashes_verified": true,
+  "sources": {
+    "youtube": {
+      "media_present": false,
+      "readable_transcript_present": false,
+      "subtitle_present": false,
+      "observed_access": {
+        "observed_at": "2026-10-03T10:55:37+00:00",
+        "original_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+        "observed_destination_base": "https://www.google.com/sorry/index",
+        "http_status": 429,
+        "page_excerpt": "Our systems have detected unusual traffic from your computer network. This page checks to see if it’s really you sending the requests, and not a robot.",
+        "challenge": "reCAPTCHA checkbox: I’m not a robot",
+        "result": "No challenge interaction. Identity, duration, media and captions unavailable.",
+        "sanitization": "Session-specific challenge query and network address omitted."
+      }
+    },
+    "tiktok": {
+      "media_present": false,
+      "readable_transcript_present": false,
+      "verified_subtitle_present": false,
+      "unverified_platform_caption_cues": 7,
+      "caption_timestamp_order_and_bounds_valid": true,
+      "caption_ranges_seconds": [
+        [
+          1.78,
+          4.8
+        ],
+        [
+          5.06,
+          8.36
+        ],
+        [
+          8.42,
+          10.98
+        ],
+        [
+          10.981,
+          14.901
+        ],
+        [
+          14.902,
+          19.701
+        ],
+        [
+          19.702,
+          23.881
+        ],
+        [
+          28.02,
+          31.36
+        ]
+      ],
+      "audio_compared": false,
+      "download_recovery_output": "2026-10-03T10:58:17.444381+00:00\nOrdinary same-source retry with TikTok Referer; no credentials or browser fingerprint changes.\nhttp_code=403\ncontent_type=video/mp4\nsize_download=0\ntime_total=5.941794\ncurl: (22) The requested URL returned error: 403\n\nexit=22"
+    }
+  },
+  "metrics_provenance": "Agent UTC/monotonic measurement of source actions, supported by executor output; not independent operator measurement. Setup, report assembly and artifact transport excluded. Exact whole-session tool calls and tokens unavailable.",
+  "review_notes": [
+    "Recovered the original 12,463-byte evidence ZIP through a lossless base64 export and verified its SHA-256. Checked all source-manifest file hashes, the completed native executor record, report and source/access evidence. The bundle contains no playable media or completed transcripts.",
+    "YouTube access encountered an unusual-traffic reCAPTCHA before video identity and duration could be established. TikTok source metadata and seven platform ASR caption cues were retrieved, but the browser media download was canceled and command-line retrieval returned HTTP 403, including the documented recovery attempt.",
+    "Neither playable media file exists in the submitted outcome. Caption timestamps were inspected, but no speech-to-caption comparison was performed; the agent explicitly states that browser playback was muted. All nine task checks remain unverified.",
+    "The assistant measured 213.43 seconds from its first source action through final caption timestamp inspection using UTC and a monotonic clock. This is agent-measured, excludes setup/report assembly and is not comparable to an independently measured whole-session runtime. Exact calls and tokens remain unknown.",
+    "The parent status view appeared interrupted or stalled, but the completed executor trace and final disclosure show that the worker continued. Continuation prompts retained the same attempt and budget; no actual worker interruption or restart was established.",
+    "Existing benchmark chat reused. A prior same-TikTok attempt blocked on login was disclosed to the agent; it reports no previous outputs reused. Reviews are AI-assisted, overlap with the other assistants, and are not clean-room repetitions."
+  ],
+  "reviewed_at": "2026-10-03T11:12:37.207946+00:00",
+  "status": "partial",
+  "source_report_sha256": "d17f67e15d181b1dac24b6cfff96300619b5a3299a1b3743ce467fa4870ea0eb"
+}

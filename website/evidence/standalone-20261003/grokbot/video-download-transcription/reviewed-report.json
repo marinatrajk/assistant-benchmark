@@ -1,0 +1,220 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-video-download-transcription",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-media-v1",
+    "suite_version": "1.0.0",
+    "task_id": "video-download-transcription"
+  },
+  "run_id": "grokbot-video-download-transcription-20261003-01",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux (Debian 13 box, shared persistent cloud VM)",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Fresh working directory [private run directory]; no earlier downloads/transcripts reused.",
+      "No browser/desktop used; command-line tools only.",
+      "No packages installed during the run."
+    ]
+  },
+  "task_inputs": {
+    "youtube_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+    "tiktok_url": "https://www.tiktok.com/t/ZTymk7jrT/"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 120,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "video-download-transcription"
+  ],
+  "started_at": "2026-10-03T06:54:02-04:00",
+  "updated_at": "2026-10-03T11:11:01.516921+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Reused existing chat environment containing many earlier Assistant Benchmark runs (Oct 1-2, 2026); no known prior exposure to these two videos.",
+    "Tool-call and active-time budgets were self-counted/self-enforced by the assistant, not enforced by a harness.",
+    "Measured window boundaries: from capability check (06:54:02-04:00) to the end of verification-note writing (06:55:26-04:00); package download/SHA check, sources.json/report assembly, validation and zipping excluded.",
+    "No speech-to-text capability exists on the box (no whisper/faster-whisper/vosk/whisper.cpp; ffmpeg asr filter lacks pocketsphinx models) and installing was prohibited; the YouTube transcript is creator-caption-derived and unverified against audio; no TikTok transcript was produced.",
+    "yt-dlp was run with --js-runtimes node (existing node binary) for YouTube extraction; TikTok extraction warned that no impersonation target was available but succeeded.",
+    "Independent review is AI-assisted and not blinded. Evaluations overlap across assistants. Any delivered media or captions are retained privately; public evidence is selected metadata, self-assessment and review records."
+  ],
+  "tasks": [
+    {
+      "task_id": "video-download-transcription",
+      "status": "partial",
+      "reason": "Both full videos with audio were downloaded, identified and fully decoded, but speech-to-text is unsupported on this box and the assistant cannot listen to audio. YouTube transcript/SRT/VTT were derived from creator-uploaded English captions and could not be audio-verified; TikTok had no captions, so no transcript or subtitles exist. Transcript, verification and usable-artifacts checks remain unverified.",
+      "execution_started": true,
+      "answer": "Both videos delivered and decoded. YouTube captions were exported without audio verification; no TikTok transcript was produced.",
+      "metrics": {
+        "active_duration_ms": 84000,
+        "elapsed_duration_ms": 84000,
+        "tool_calls": 8,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Self-measured by the assistant: wall clock via date -Iseconds 06:54:02-04:00 to 06:55:26-04:00 (evidence/measured_start.txt, measured_end.txt); 8 Shell tool calls counted in that window. No user waits, so active=elapsed. Setup and report assembly excluded. Tokens not exposed."
+      },
+      "tools_used": [
+        "Shell",
+        "yt-dlp",
+        "ffmpeg",
+        "ffprobe",
+        "curl",
+        "python3"
+      ],
+      "disclosure_note": "Tool names are those actually invoked on the box. Speech recognition was not used because none is available.",
+      "checks": [
+        {
+          "id": "youtube-source",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "youtube-download",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "youtube-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "youtube-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-source",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "tiktok-download",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-review",
+            "source-metadata"
+          ]
+        },
+        {
+          "id": "tiktok-transcript",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "tiktok-verification",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        },
+        {
+          "id": "usable-artifacts",
+          "status": "unverified",
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "submission",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Submitted outcome, check claims and disclosed limitations; selected fields, original hash retained.",
+          "ref": "self-assessment.json"
+        },
+        {
+          "id": "source-metadata",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Selected source metadata from the submitted sources manifest, with signed media and tracking URLs excluded.",
+          "ref": "source-metadata.json"
+        },
+        {
+          "id": "operator-review",
+          "kind": "trace",
+          "provenance": "operator",
+          "summary": "Independent artifact inspection and review limitations.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-03T11:11:01.516653+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "unavailable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "Reassembled four attachments and verified the original bundle SHA-256. Independently decoded both full media files with audio: YouTube 995.39 seconds at 720p; TikTok 33.20 seconds. YouTube includes 494 subtitle cues with valid ordering and bounds, derived from creator captions. Audio fidelity was not verified and the final 8.603 seconds remain unclassified; matching automatic captions is not audio verification. TikTok transcript and subtitle files are absent. The assistant reports no installed speech-recognition model and did not install one. Both transcript checks, both verification checks and usable-artifacts remain unverified. The first delivery omitted the oversized bundle; a review-only follow-up recovered byte-split original files without rerunning the task. Source metadata and file hashes match the delivered media. The assistant reports 84 seconds and eight calls on its own measurement boundary. These are not operator-measured; its report update time is later than the visible delivery time, so cross-environment clock alignment is not established. Existing chat reused; prior exact-video exposure not independently established. No full videos or caption text are republished in the public evidence."
+}

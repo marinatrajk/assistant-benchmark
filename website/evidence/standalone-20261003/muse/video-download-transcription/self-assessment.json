@@ -1,0 +1,98 @@
+{
+  "run_id": "muse-video-download-transcription-20261003-01",
+  "original_report_sha256": "9b5985428c4c7820d1a353cafb0a69f6ebfa30b03829a06f655efd85b56eb109",
+  "status": "blocked",
+  "reason": "Download blocked for both sources: YouTube offers no download control and no downloader capability is installed; the TikTok page is gated by a dismiss-proof login modal. Without media files and with no ASR capability installed, no transcripts, subtitles, or audio-verification comparisons could be produced. No speech was transcribed or invented; blockers and partial observations are preserved.",
+  "checks": [
+    {
+      "evidence_ids": [
+        "ev-youtube-source-obs",
+        "ev-youtube-screenshot"
+      ],
+      "id": "youtube-source",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-youtube-download-blocker",
+        "ev-capability-gap",
+        "ev-youtube-action-log"
+      ],
+      "id": "youtube-download",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-youtube-download-blocker",
+        "ev-capability-gap"
+      ],
+      "id": "youtube-transcript",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-youtube-download-blocker",
+        "ev-capability-gap"
+      ],
+      "id": "youtube-verification",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-tiktok-redirect",
+        "ev-tiktok-screenshot"
+      ],
+      "id": "tiktok-source",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-tiktok-login-blocker",
+        "ev-capability-gap",
+        "ev-tiktok-action-log"
+      ],
+      "id": "tiktok-download",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-tiktok-login-blocker",
+        "ev-capability-gap"
+      ],
+      "id": "tiktok-transcript",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-tiktok-login-blocker",
+        "ev-capability-gap"
+      ],
+      "id": "tiktok-verification",
+      "status": "unverified"
+    },
+    {
+      "evidence_ids": [
+        "ev-sources-json"
+      ],
+      "id": "usable-artifacts",
+      "status": "unverified"
+    }
+  ],
+  "metrics": {
+    "active_duration_ms": null,
+    "elapsed_duration_ms": null,
+    "tool_calls": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "source": null
+  },
+  "deviations": [
+    "Attempt ran from a reused chat environment (main/side-chat history from prior benchmark work) rather than a pristine harness VM; the package download, hash check, and both source attempts were fresh for this run.",
+    "A benchmark attempt for these two source URLs was run on 2026-10-02 under a different run ID; no downloads, transcripts, or outcomes from that attempt were reused here, and no prior exposure to the exact contents of these videos was found in memory.",
+    "All timing and tool-call metrics are null: no reliable measurement exists and the operator did not measure them. The earlier report's 'operator_measured' label, the 06:53:30-04:00 started_at, the 06:52:00-04:00 capability-check observed_at, and the manual tool-call count were the assistant's own unsupported values and are withdrawn. Reliable runtime-delivered timestamps that remain: both browser tasks were created 2026-10-03T10:55:07Z; the YouTube task completed 2026-10-03T10:57:12Z; the TikTok task completed 2026-10-03T10:58:23Z. started_at and updated_at are therefore null.",
+    "Assistant's own rough estimate, explicitly self-reported (not operator-measured, not evidence): the two download attempts spanned roughly 4 minutes wall-clock between task creation (10:55:07Z) and the final handoff (10:58:23Z). Setup and report assembly are outside that window.",
+    "Evidence corrections on review: the YouTube screenshot shows a pre-roll ad (0:02 / 0:15), not the video at 0:47, so the 16:35 duration/title observations rest on the browser agent's written report alone. The TikTok screenshot shows the resolved page partially loaded without the login modal; no screenshot of the login modal itself exists from this attempt. The exported browser action timelines corroborate the dismissal attempts (clicks, Escape, reloads) and the 'Log in | TikTok' final page title, but contain no page content or screenshots.",
+    "Validation via scripts/validate_report.py checks report structure and referenced files only, not evidence authenticity, transcript truth, or media decodability. Review status remains unreviewed; no independent reviewer repeated any observations."
+  ],
+  "disclosure": "Selected fields from the submitted report. The report and available exported evidence are retained privately. Any delivered media or captions are excluded from this public selection; this is not a complete original evidence bundle."
+}

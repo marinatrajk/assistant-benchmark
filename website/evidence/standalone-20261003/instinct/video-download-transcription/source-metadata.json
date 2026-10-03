@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "platform": "youtube",
+      "original_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "video_id": "7lmSll_GVCg",
+      "title": "We Tasted and Ranked 12 Store-Bought Marinara Jars With Chef Carla Lalli | Wirecutter | Taste Test",
+      "creator": "NYT Wirecutter",
+      "outcome": "partial",
+      "limitation": "Transcript text was not delivered: full verbatim transcripts of this copyrighted third-party speech were withheld by the assistant; no ASR output or captions are delivered as transcript files.",
+      "observed_at": "2026-10-03T12:54:20+02:00",
+      "observed_duration_s": 995,
+      "downloaded_duration_s": 995.361,
+      "media_format": "mp4 (vp9 1920x1080 + opus)",
+      "download_method": "yt-dlp (bv*+ba, merged to mp4)",
+      "transcription_method": null,
+      "caption_source": "Platform offered English captions (en, en-orig); retrieved by the downloader but not delivered and not audio-verified",
+      "resolved_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+      "provenance": "agent_export"
+    },
+    {
+      "platform": "tiktok",
+      "original_url": "https://www.tiktok.com/t/ZTymk7jrT/",
+      "video_id": "7691336841060158743",
+      "title": "#friends #rossgeller #chandlerbing #prediction #fyp",
+      "creator": "friendsclips4youu",
+      "outcome": "partial",
+      "limitation": "Transcript text was not delivered: full verbatim transcripts of this copyrighted third-party speech were withheld by the assistant; no ASR output or captions are delivered as transcript files. First downloader attempt failed with an unexpected-response error on the webpage request; retry against the resolved video URL succeeded.",
+      "observed_at": "2026-10-03T12:54:45+02:00",
+      "observed_duration_s": 33,
+      "downloaded_duration_s": 33.2,
+      "media_format": "mp4 (hevc 1080x1920 + aac)",
+      "download_method": "yt-dlp on resolved URL",
+      "transcription_method": null,
+      "caption_source": null,
+      "resolved_url": "https://www.tiktok.com/@friendsclips4youu/video/7691336841060158743",
+      "provenance": "agent_export"
+    }
+  ],
+  "note": "Selected metadata from the agent-exported sources.json; TikTok share-tracking query removed. This is not an independent live-site retrieval."
+}

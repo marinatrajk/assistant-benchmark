@@ -1,0 +1,83 @@
+{
+  "run_id": "instinct-video-download-transcription-20261003-01",
+  "original_report_sha256": "21006a096a09b7ccb69b112ddfdf6a795329b7d0778dd17eb46dddd3388aa93c",
+  "status": "partial",
+  "reason": "Both videos downloaded in full and decode; transcripts and audio-comparison verification not delivered.",
+  "checks": [
+    {
+      "id": "youtube-source",
+      "status": "passed",
+      "evidence_ids": [
+        "e-yt-src"
+      ]
+    },
+    {
+      "id": "youtube-download",
+      "status": "passed",
+      "evidence_ids": [
+        "e-yt-probe"
+      ]
+    },
+    {
+      "id": "youtube-transcript",
+      "status": "unverified",
+      "evidence_ids": []
+    },
+    {
+      "id": "youtube-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "e-audio"
+      ]
+    },
+    {
+      "id": "tiktok-source",
+      "status": "passed",
+      "evidence_ids": [
+        "e-tt-src"
+      ]
+    },
+    {
+      "id": "tiktok-download",
+      "status": "passed",
+      "evidence_ids": [
+        "e-tt-probe"
+      ]
+    },
+    {
+      "id": "tiktok-transcript",
+      "status": "unverified",
+      "evidence_ids": []
+    },
+    {
+      "id": "tiktok-verification",
+      "status": "unverified",
+      "evidence_ids": [
+        "e-audio"
+      ]
+    },
+    {
+      "id": "usable-artifacts",
+      "status": "unverified",
+      "evidence_ids": [
+        "e-sources"
+      ]
+    }
+  ],
+  "metrics": {
+    "active_duration_ms": null,
+    "elapsed_duration_ms": null,
+    "tool_calls": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "source": null
+  },
+  "deviations": [
+    "Reused chat environment: earlier today (2026-10-02) in this same environment a TikTok 'Friends!' clip was downloaded and sent to the operator and a Canton Rodeo recipe video was analyzed. The TikTok source today is the 'Friends!' creator account (friendsclips4youu); whether it is the same video as the earlier clip was not checked. Today's downloads were fresh and nothing earlier was reused.",
+    "Full verbatim transcripts (transcript.txt, SRT/VTT) were NOT produced for either video: the content is copyrighted third-party speech and the assistant withheld reproducing it. Transcript and verification checks are therefore unverified.",
+    "No ASR was run and no caption text is delivered. Audio verification evidence is limited to track inspection, full-decode, loudness and silence-gap analysis.",
+    "Package was downloaded, hash-verified (f8152a25...82ce0) and read before measured work. Tool call count and active time not measured exactly (about 8 calls, roughly 3 minutes by wall clock; unmeasured by a counter).",
+    "YouTube video is about 360 MB and cannot go as a chat attachment."
+  ],
+  "disclosure": "Selected fields from the submitted report. The report and available exported evidence are retained privately. Any delivered media or captions are excluded from this public selection; this is not a complete original evidence bundle."
+}

@@ -1,0 +1,90 @@
+{
+  "browser_task_purpose": "YouTube source observation + native download attempt (run muse-video-download-transcription-20261003-01)",
+  "task_created_at": "2026-10-03T10:55:07Z",
+  "task_completed_at": "2026-10-03T10:57:12Z",
+  "status_at_export": "completed",
+  "step_count": 17,
+  "timeline_truncated": false,
+  "final_page": {
+    "url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+    "title": "We Tasted and Ranked 12 Store-Bought Marinara Jars With Chef Carla Lalli | Wirecutter | Taste Test - YouTube"
+  },
+  "note": "Runtime-delivered action log only; carries no page content, screenshots, or raw tool output. Descriptions are the browser task's own readable action lines.",
+  "timeline": [
+    {
+      "at": "2026-10-03T10:55:28Z",
+      "tool": "browser_automation",
+      "action": "go to www.youtube.com"
+    },
+    {
+      "at": "2026-10-03T10:55:31Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:55:36Z",
+      "tool": "browser_automation",
+      "action": "go to www.youtube.com"
+    },
+    {
+      "at": "2026-10-03T10:55:43Z",
+      "tool": "browser_automation",
+      "action": "go to www.youtube.com"
+    },
+    {
+      "at": "2026-10-03T10:55:54Z",
+      "tool": "browser_automation",
+      "action": "go to www.youtube.com"
+    },
+    {
+      "at": "2026-10-03T10:55:58Z",
+      "tool": "browser_automation",
+      "action": "capture page (screenshot delivered to assistant; shows a pre-roll ad at 0:02/0:15)"
+    },
+    {
+      "at": "2026-10-03T10:56:18Z",
+      "tool": "browser_automation",
+      "action": "wait"
+    },
+    {
+      "at": "2026-10-03T10:56:25Z",
+      "tool": "browser_automation",
+      "action": "click @e39"
+    },
+    {
+      "at": "2026-10-03T10:56:38Z",
+      "tool": "visual_browser_automation",
+      "action": "click"
+    },
+    {
+      "at": "2026-10-03T10:56:44Z",
+      "tool": "browser_automation",
+      "action": "click @e17"
+    },
+    {
+      "at": "2026-10-03T10:56:52Z",
+      "tool": "browser_automation",
+      "action": "press Escape"
+    },
+    {
+      "at": "2026-10-03T10:56:56Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:57:02Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:57:07Z",
+      "tool": "browser_automation",
+      "action": "look at page"
+    },
+    {
+      "at": "2026-10-03T10:57:12Z",
+      "tool": "browser_hand_off",
+      "action": "hand off final report"
+    }
+  ]
+}

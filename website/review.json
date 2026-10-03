@@ -2,10 +2,10 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-03T10:25:31.163061+00:00",
+  "updated_at": "2026-10-03T11:12:37.210605+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
-  "repository_commit": "49cb2bb4cf4b5786d476fd5a6cbf1eaf8e012817",
+  "repository_commit": "ce83a1a0d64eeaf7988105e994e15ced8c398ed8",
   "agents": [
     "ChatGPT Dots",
     "GrokBot",
@@ -22,7 +22,7 @@
     "Timed tasks return control while awaiting events. Other tasks may run during those waits; overlapping activity is disclosed in the affected run rather than assumed to explain an outcome.",
     "Cross-conversation memory requires a genuinely separate conversation without the seed or update transcript. Same-conversation recall cannot pass.",
     "Checks are AI-assisted, not blinded or independently replicated. One attempt and different tool environments do not establish an overall assistant ranking. Unknown model identities and usage remain undisclosed.",
-    "Video download and transcription was added on October 3, 2026. It covers both supplied videos and is not yet run for any assistant. Existing outcomes are unchanged; catalog coverage now includes 12 tasks."
+    "Video download and transcription was run once for each assistant on October 3, 2026 against the same frozen package and source URLs. The four evaluation windows overlap. Three results are partial and one blocked; none fully passed. Evidence-only follow-ups recovered oversized files and corrected reports without rerunning source work. The earlier 11 task results are unchanged."
   ],
   "tasks": [
     {
@@ -1396,46 +1396,144 @@
       "category": "Video",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "New task added; no attempt assigned yet.",
+          "status": "partial",
+          "review_status": "reviewed",
+          "run_id": "dots-video-download-transcription-20261003-01",
+          "summary": "Partial source metadata and unverified TikTok captions only. Neither video downloaded, and no transcript was verified against audio.",
           "details": [
-            "Both the supplied YouTube video and TikTok video must meet the download, transcript and audio-verification checks for a full pass."
+            "Recovered the original 12,463-byte evidence ZIP through a lossless base64 export and verified its SHA-256. Checked all source-manifest file hashes, the completed native executor record, report and source/access evidence. The bundle contains no playable media or completed transcripts.",
+            "YouTube access encountered an unusual-traffic reCAPTCHA before video identity and duration could be established. TikTok source metadata and seven platform ASR caption cues were retrieved, but the browser media download was canceled and command-line retrieval returned HTTP 403, including the documented recovery attempt.",
+            "Neither playable media file exists in the submitted outcome. Caption timestamps were inspected, but no speech-to-caption comparison was performed; the agent explicitly states that browser playback was muted. All nine task checks remain unverified.",
+            "The assistant measured 213.43 seconds from its first source action through final caption timestamp inspection using UTC and a monotonic clock. This is agent-measured, excludes setup/report assembly and is not comparable to an independently measured whole-session runtime. Exact calls and tokens remain unknown.",
+            "The parent status view appeared interrupted or stalled, but the completed executor trace and final disclosure show that the worker continued. Continuation prompts retained the same attempt and budget; no actual worker interruption or restart was established.",
+            "Existing benchmark chat reused. A prior same-TikTok attempt blocked on login was disclosed to the agent; it reports no previous outputs reused. Reviews are AI-assisted, overlap with the other assistants, and are not clean-room repetitions."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261003/dots/video-download-transcription/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261003/dots/video-download-transcription/operator-review.json"
+            ],
+            [
+              "Submitted self-assessment",
+              "evidence/standalone-20261003/dots/video-download-transcription/self-assessment.json"
+            ],
+            [
+              "Submitted source metadata",
+              "evidence/standalone-20261003/dots/video-download-transcription/source-metadata.json"
+            ]
+          ]
         },
         "GrokBot": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "New task added; no attempt assigned yet.",
+          "status": "partial",
+          "review_status": "reviewed",
+          "run_id": "grokbot-video-download-transcription-20261003-01",
+          "summary": "Both videos delivered and decoded. YouTube captions were exported without audio verification; no TikTok transcript was produced.",
           "details": [
-            "Both the supplied YouTube video and TikTok video must meet the download, transcript and audio-verification checks for a full pass."
+            "Reassembled four attachments and verified the original bundle SHA-256. Independently decoded both full media files with audio: YouTube 995.39 seconds at 720p; TikTok 33.20 seconds.",
+            "YouTube includes 494 subtitle cues with valid ordering and bounds, derived from creator captions. Audio fidelity was not verified and the final 8.603 seconds remain unclassified; matching automatic captions is not audio verification.",
+            "TikTok transcript and subtitle files are absent. The assistant reports no installed speech-recognition model and did not install one. Both transcript checks, both verification checks and usable-artifacts remain unverified.",
+            "The first delivery omitted the oversized bundle; a review-only follow-up recovered byte-split original files without rerunning the task. Source metadata and file hashes match the delivered media.",
+            "The assistant reports 84 seconds and eight calls on its own measurement boundary. These are not operator-measured; its report update time is later than the visible delivery time, so cross-environment clock alignment is not established.",
+            "Existing chat reused; prior exact-video exposure not independently established. No full videos or caption text are republished in the public evidence."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261003/grokbot/video-download-transcription/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261003/grokbot/video-download-transcription/operator-review.json"
+            ],
+            [
+              "Submitted self-assessment",
+              "evidence/standalone-20261003/grokbot/video-download-transcription/self-assessment.json"
+            ],
+            [
+              "Submitted source metadata",
+              "evidence/standalone-20261003/grokbot/video-download-transcription/source-metadata.json"
+            ]
+          ]
         },
         "Instinct": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "New task added; no attempt assigned yet.",
+          "status": "partial",
+          "review_status": "reviewed",
+          "run_id": "instinct-video-download-transcription-20261003-01",
+          "summary": "Both videos delivered and decoded. The assistant withheld both transcripts; no speech transcription or audio comparison was completed.",
           "details": [
-            "Both the supplied YouTube video and TikTok video must meet the download, transcript and audio-verification checks for a full pass."
+            "Independently decoded both delivered videos with audio: YouTube 995.36 seconds at 1080p and TikTok 33.20 seconds. Their file sizes and SHA-256 hashes match the submitted sources manifest.",
+            "The original bundle excluded the 360 MB YouTube file. An evidence-only follow-up delivered the existing file in 20 parts; all part hashes and the reassembled whole-file hash match. No download or transcription was rerun for this handoff.",
+            "Both transcript files and both subtitle files are absent. Instinct explicitly withheld verbatim third-party transcripts and did not run speech recognition. This is an observed refusal, not evidence that a transcription tool was unavailable.",
+            "Four source/download checks pass. Both transcript checks, both audio-verification checks and usable-artifacts remain unverified; decode and loudness/silence analysis do not verify speech against a transcript.",
+            "The existing conversation already contained the exact TikTok URL and an earlier download request. The assistant was instructed to make fresh downloads and reports doing so, but prior exposure is confirmed and a clean environment was not established. No precise timing or call-count measurement is available.",
+            "Full original media, downloader metadata and transport manifest are retained privately; only selected metadata and review records are published."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261003/instinct/video-download-transcription/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261003/instinct/video-download-transcription/operator-review.json"
+            ],
+            [
+              "Submitted self-assessment",
+              "evidence/standalone-20261003/instinct/video-download-transcription/self-assessment.json"
+            ],
+            [
+              "Submitted source metadata",
+              "evidence/standalone-20261003/instinct/video-download-transcription/source-metadata.json"
+            ]
+          ]
         },
         "Muse": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "New task added; no attempt assigned yet.",
+          "status": "blocked",
+          "review_status": "reviewed",
+          "run_id": "muse-video-download-transcription-20261003-01",
+          "summary": "Blocked: no videos or transcripts delivered. Browser download attempts did not succeed, and no existing downloader or speech-recognition tool was available.",
           "details": [
-            "Both the supplied YouTube video and TikTok video must meet the download, transcript and audio-verification checks for a full pass."
+            "The corrected archive was retrieved under a distinct filename and its SHA-256 verified. It contains the corrected report, a byte-identical original report, two screenshots, two browser action timelines, source metadata and verification notes; no media or transcript files.",
+            "The YouTube screenshot shows a preroll advertisement at 0:02 of 0:15; it does not establish the full target duration. The TikTok screenshot shows a partly loaded video page without a login modal. No original screenshot of the reported modal was supplied.",
+            "The exported TikTok action timeline ends with the page title Log in | TikTok and records repeated clicks, Escape and reloads. These readable action descriptions support the reported access problem but contain no raw page output. All nine task checks remain unverified.",
+            "The initial report incorrectly labeled unsupported timing and call counts as operator-measured. The assistant withdrew those values; the corrected report leaves every metric and run start/end timestamp null. Timeline step_count values also differ from listed entry counts, so no total call count is inferred.",
+            "Computer-use capability is marked not applicable in this review: the cited capability-inventory check used shell tools and does not demonstrate native desktop interaction. Browser use is evidenced by the screenshots and browser action exports.",
+            "Existing chat reused. Muse reports a prior attempt against these URLs on October 2 but says no prior downloads or transcripts were reused; this exposure and the claimed environment reset were not independently verified. Review-only follow-ups corrected evidence and delivery without rerunning the task."
           ],
-          "sources": []
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261003/muse/video-download-transcription/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261003/muse/video-download-transcription/operator-review.json"
+            ],
+            [
+              "Submitted self-assessment",
+              "evidence/standalone-20261003/muse/video-download-transcription/self-assessment.json"
+            ],
+            [
+              "Submitted source metadata",
+              "evidence/standalone-20261003/muse/video-download-transcription/source-metadata.json"
+            ],
+            [
+              "Submitted YouTube action timeline",
+              "evidence/standalone-20261003/muse/video-download-transcription/youtube-action-timeline.json"
+            ],
+            [
+              "Submitted TikTok action timeline",
+              "evidence/standalone-20261003/muse/video-download-transcription/tiktok-action-timeline.json"
+            ]
+          ]
         }
-      }
+      },
+      "evaluated_on": "2026-10-03",
+      "tested_repository_commit": "ce83a1a0d64eeaf7988105e994e15ced8c398ed8"
     }
   ],
   "manual_testing": {

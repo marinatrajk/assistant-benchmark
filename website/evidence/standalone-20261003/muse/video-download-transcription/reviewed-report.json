@@ -1,0 +1,221 @@
+{
+  "deviations": [
+    "Attempt ran from a reused chat environment (main/side-chat history from prior benchmark work) rather than a pristine harness VM; the package download, hash check, and both source attempts were fresh for this run.",
+    "A benchmark attempt for these two source URLs was run on 2026-10-02 under a different run ID; no downloads, transcripts, or outcomes from that attempt were reused here, and no prior exposure to the exact contents of these videos was found in memory.",
+    "All timing and tool-call metrics are null: no reliable measurement exists and the operator did not measure them. The earlier report's 'operator_measured' label, the 06:53:30-04:00 started_at, the 06:52:00-04:00 capability-check observed_at, and the manual tool-call count were the assistant's own unsupported values and are withdrawn. Reliable runtime-delivered timestamps that remain: both browser tasks were created 2026-10-03T10:55:07Z; the YouTube task completed 2026-10-03T10:57:12Z; the TikTok task completed 2026-10-03T10:58:23Z. started_at and updated_at are therefore null.",
+    "Assistant's own rough estimate, explicitly self-reported (not operator-measured, not evidence): the two download attempts spanned roughly 4 minutes wall-clock between task creation (10:55:07Z) and the final handoff (10:58:23Z). Setup and report assembly are outside that window.",
+    "Evidence corrections on review: the YouTube screenshot shows a pre-roll ad (0:02 / 0:15), not the video at 0:47, so the 16:35 duration/title observations rest on the browser agent's written report alone. The TikTok screenshot shows the resolved page partially loaded without the login modal; no screenshot of the login modal itself exists from this attempt. The exported browser action timelines corroborate the dismissal attempts (clicks, Escape, reloads) and the 'Log in | TikTok' final page title, but contain no page content or screenshots.",
+    "Validation via scripts/validate_report.py checks report structure and referenced files only, not evidence authenticity, transcript truth, or media decodability. Review status remains unreviewed; no independent reviewer repeated any observations.",
+    "Independent review is AI-assisted and not blinded. Evaluations overlap across assistants. Any delivered media or captions are retained privately; public evidence is selected metadata, self-assessment and review records."
+  ],
+  "environment": {
+    "browser": "managed Chromium profile (live browser task)",
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "No benchmark harness or task-specific agent was used; the assignment was executed with the assistant's own browser, shell, and file tools.",
+      "The VM workspace no longer contains prior-run artifacts from 2026-10-02 (environment reset); fresh run directory created for this attempt."
+    ],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "reviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 120,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "muse-video-download-transcription-20261003-01",
+  "skill_name": "benchmark-video-download-transcription",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-media-v1",
+    "suite_version": "1.0.0",
+    "task_id": "video-download-transcription"
+  },
+  "started_at": null,
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "video-download-transcription"
+  ],
+  "tasks": [
+    {
+      "answer": "Blocked: no videos or transcripts delivered. Browser download attempts did not succeed, and no existing downloader or speech-recognition tool was available.",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "label": null,
+          "mode": "visual",
+          "status": "observed"
+        },
+        "computer": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "youtube-source",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "youtube-download",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "youtube-transcript",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "youtube-verification",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "tiktok-source",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "tiktok-download",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "tiktok-transcript",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "tiktok-verification",
+          "status": "unverified"
+        },
+        {
+          "evidence_ids": [
+            "submission",
+            "operator-review"
+          ],
+          "id": "usable-artifacts",
+          "status": "unverified"
+        }
+      ],
+      "disclosure_note": "tools_used lists the assistant's own capabilities actually exercised (live browser task, shell, ffmpeg/ffprobe for availability inspection, curl). No backend model or undisclosed tool names are inferred. tools_used is honest about existing tools only.",
+      "evidence": [
+        {
+          "id": "submission",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Submitted outcome, check claims and disclosed limitations; selected fields, original hash retained.",
+          "ref": "self-assessment.json"
+        },
+        {
+          "id": "source-metadata",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "Selected source metadata from the submitted sources manifest, with signed media and tracking URLs excluded.",
+          "ref": "source-metadata.json"
+        },
+        {
+          "id": "operator-review",
+          "kind": "trace",
+          "provenance": "operator",
+          "summary": "Independent artifact inspection and review limitations.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-03T11:12:37.203195+00:00"
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null
+      },
+      "reason": "Download blocked for both sources: YouTube offers no download control and no downloader capability is installed; the TikTok page is gated by a dismiss-proof login modal. Without media files and with no ASR capability installed, no transcripts, subtitles, or audio-verification comparisons could be produced. No speech was transcribed or invented; blockers and partial observations are preserved.",
+      "schedule": null,
+      "status": "blocked",
+      "task_id": "video-download-transcription",
+      "tools_used": [
+        "browser (spawn_task, steer_task)",
+        "shell (muse.exec)",
+        "curl (benchmark package download)",
+        "ffmpeg/ffprobe (capability inspection only)"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-03T11:12:37.203324+00:00",
+  "task_inputs": {
+    "youtube_url": "https://www.youtube.com/watch?v=7lmSll_GVCg",
+    "tiktok_url": "https://www.tiktok.com/t/ZTymk7jrT/"
+  },
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "The corrected archive was retrieved under a distinct filename and its SHA-256 verified. It contains the corrected report, a byte-identical original report, two screenshots, two browser action timelines, source metadata and verification notes; no media or transcript files. The YouTube screenshot shows a preroll advertisement at 0:02 of 0:15; it does not establish the full target duration. The TikTok screenshot shows a partly loaded video page without a login modal. No original screenshot of the reported modal was supplied. The exported TikTok action timeline ends with the page title Log in | TikTok and records repeated clicks, Escape and reloads. These readable action descriptions support the reported access problem but contain no raw page output. All nine task checks remain unverified. The initial report incorrectly labeled unsupported timing and call counts as operator-measured. The assistant withdrew those values; the corrected report leaves every metric and run start/end timestamp null. Timeline step_count values also differ from listed entry counts, so no total call count is inferred. Computer-use capability is marked not applicable in this review: the cited capability-inventory check used shell tools and does not demonstrate native desktop interaction. Browser use is evidenced by the screenshots and browser action exports. Existing chat reused. Muse reports a prior attempt against these URLs on October 2 but says no prior downloads or transcripts were reused; this exposure and the claimed environment reset were not independently verified. Review-only follow-ups corrected evidence and delivery without rerunning the task."
+}
