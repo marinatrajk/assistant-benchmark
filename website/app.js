@@ -68,8 +68,7 @@ function leaderboard() {
 
 function renderHome() {
   const useCase = selectedUseCase();
-  content.innerHTML = `<div class="intro"><div><p class="eyebrow">Choose by use case</p><h1>Best AI Agent for <span class="use-case-slot">[${useCase ? ` ${esc(useCase.phrase)} ` : ' '}]</span></h1><p class="intro-caption">${names.length} assistants<span>·</span>${data.tasks.length} tasks<span>·</span>Their own tools</p></div>${round()}</div>
-    <p class="use-case-description">${useCase ? esc(useCase.description) : 'Choose a task and compare what each assistant completed.'}</p>
+  content.innerHTML = `<div class="intro home-intro"><div><h1>${useCase ? `Best AI Agent for <span class="use-case-slot">[ ${esc(useCase.phrase)} ]</span>` : 'Compare AI agents'}</h1><p class="intro-caption">${names.length} assistants<span aria-hidden="true">·</span>${data.tasks.length} tasks</p>${useCase ? `<p class="use-case-description">${esc(useCase.description)}</p>` : ''}</div>${round()}</div>
     <div class="toolbar"><div class="filters" role="group" aria-label="Filter by use case">${Object.entries(groups).map(([name, indices]) => `<button class="chip" type="button" data-filter="${esc(name)}" aria-pressed="${filter === name}">${esc(name)}<span>${indices.length}</span></button>`).join('')}</div>
       <div class="segmented" role="group" aria-label="Results layout"><button type="button" data-layout="list" aria-label="List view" title="List view" aria-pressed="${layout === 'list'}">${glyph('list')}</button><button type="button" data-layout="grid" aria-label="Grid view" title="Grid view" aria-pressed="${layout === 'grid'}">${glyph('grid')}</button></div>
     </div>
