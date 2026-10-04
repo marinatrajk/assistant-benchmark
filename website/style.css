@@ -79,7 +79,6 @@ main { max-width: 1136px; margin: auto; padding: 62px 40px 74px; min-height: cal
 .home-intro .intro-caption { font-size: 14px; margin-top: 10px; }
 .home-intro > .round-meta { padding-top: 8px; }
 .use-case-description { color: #66666e; font-size: 14px; line-height: 1.7; margin-top: 12px; max-width: 720px; }
-.label-explainer { color: var(--muted); font-size: 12px; line-height: 1.7; margin: -3px 0 17px; }
 .category-protocols { margin: 0 0 24px; border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; font-size: 13px; }
 .category-protocols summary { cursor: pointer; font-weight: 500; }
 .category-protocols article { margin-top: 20px; max-width: 760px; }
@@ -321,7 +320,6 @@ footer a { margin-left: auto; color: #83838b; }
   .eyebrow { font-size: 10px; margin-bottom: 10px; }
   .intro-caption { font-size: 13px; gap: 8px; margin-top: 11px; }
   .use-case-description { font-size: 13px; }
-  .label-explainer { font-size: 11px; margin-bottom: 15px; }
   .intro > .round-meta { flex-direction: row; align-items: center; gap: 10px; margin-top: 18px; padding-top: 0; font-size: 11px; }
   .round-label { font-size: 11px; padding: 3px 8px; }
   .toolbar { flex-wrap: wrap; gap: 12px; margin-bottom: 15px; }
