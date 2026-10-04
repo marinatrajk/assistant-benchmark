@@ -76,7 +76,6 @@ function renderHome() {
       const task = data.tasks[index];
       return `<article><h2>${esc(task.name)}</h2><p>${esc(task.criterion)}</p><a href="${esc(instructionsUrl(task))}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a></article>`;
     }).join('')}</details>` : ''}
-    <p class="label-explainer">Category tags show reviewed passes / tests. New cases are not started. Results describe the tested tasks.</p>
     <div id="leaderboard" aria-live="polite">${leaderboard()}</div>
     <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_run">Not started</span></div><span class="key-caption">Reviewed passes / individual tasks</span></div>`;
   content.querySelectorAll('[data-filter]').forEach(button => {
