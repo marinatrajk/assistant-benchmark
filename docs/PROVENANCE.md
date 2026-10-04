@@ -1,5 +1,7 @@
 # Release provenance
 
+On October 4, 2026, the public display name changed to **Best AI Agent for [ ]**. Use-case filters and labels were added using an explicit mapping of the existing 12 tasks. Labels are derived from reviewed full passes on every mapped task. This presentation change retains the original grades, review timestamps, evidence, suite identifiers and packaged protocols. The GitHub repository and existing domain retain their established addresses.
+
 On October 3, 2026, the catalog gained a twelfth task: downloading and transcribing the supplied YouTube and TikTok videos. It has its own `assistant-benchmark-media-v1` protocol at version `1.0.0`. The original 11 packages and recorded outcomes are unchanged. The catalog denominator increases to 12 with review coverage shown separately.
 
 The four assistants each received one fresh attempt against commit `ce83a1a0d64eeaf7988105e994e15ced8c398ed8` and package SHA-256 `f8152a25314ccb06816b149dbdd7d2a9ef0e7d0f91c61b4491dda17238082ce0`. Dots, GrokBot and Instinct were reviewed as partial; Muse was blocked. None delivered both videos with complete, audio-verified transcripts. GrokBot and Instinct delivered both videos, whose complete audio and video streams decoded successfully during operator review.

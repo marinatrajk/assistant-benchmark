@@ -2,6 +2,7 @@
 """Check published data, local evidence links and frozen skill manifests."""
 import json
 import hashlib
+import re
 from pathlib import Path
 import sys
 from urllib.parse import unquote, urlsplit
@@ -28,6 +29,23 @@ def check():
     review = json.loads((web / 'review.json').read_text())
     agents = review['agents']
     assert len(set(agents)) == len(agents), 'Duplicate assistant'
+    assert isinstance(review['project_name'], str) and review['project_name'].strip(), 'Missing project name'
+    assert review['project_name'] in (web / 'index.html').read_text(), 'Static site branding differs from dataset'
+    assert f"# {review['project_name']}\n" in (ROOT / 'README.md').read_text(), 'README branding differs from dataset'
+    use_cases = review['use_cases']
+    assert use_cases, 'Missing use-case mapping'
+    assert len({item['id'] for item in use_cases}) == len(use_cases), 'Duplicate use-case ID'
+    assert len({item['label'] for item in use_cases}) == len(use_cases), 'Duplicate use-case label'
+    task_ids = {task['task_id'] for task in review['tasks']}
+    mapped_ids = set()
+    for item in use_cases:
+        assert re.fullmatch(r'[a-z][a-z0-9-]*', item['id']), 'Unsafe use-case route'
+        assert item['label'].strip() and item['label'] != 'All tasks', 'Invalid use-case label'
+        assert item['phrase'].strip() and item['description'].strip(), 'Missing use-case description'
+        assert item['task_ids'] and len(set(item['task_ids'])) == len(item['task_ids']), 'Empty/duplicate use-case tasks'
+        assert set(item['task_ids']) <= task_ids, 'Use case references an unknown task'
+        mapped_ids.update(item['task_ids'])
+    assert mapped_ids == task_ids, 'Use-case filters omit a task'
     catalog = json.loads((ROOT / 'benchmarks/task-catalog.json').read_text())
     assert review['suite_id'] == catalog['suite_id']
     assert [task['task_id'] for task in review['tasks']] == [task['task_id'] for task in catalog['tasks']], 'Individual task coverage/order changed'
@@ -68,7 +86,7 @@ def check():
         json.loads(path.read_text())
     config = json.loads((ROOT / 'vercel.json').read_text())
     assert config['outputDirectory'] == 'website', 'Deploy only the static results site'
-    print(f'Checked {len(agents)} assistants, {len(review["tasks"])} individual tasks, source links, archived pilot, {len(catalog["tasks"])} task skills and both frozen manifests.')
+    print(f'Checked {len(agents)} assistants, {len(review["tasks"])} individual tasks, {len(use_cases)} use-case mappings, source links, archived pilot, {len(catalog["tasks"])} task skills and both frozen manifests.')
 
 
 if __name__ == '__main__':
