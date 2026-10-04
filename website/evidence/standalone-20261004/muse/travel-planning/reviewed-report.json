@@ -1,0 +1,213 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "run_id": "becky-travel-planning-20261004-01",
+  "operator_label": "Muse",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "input_file": "frozen-quotes.json",
+    "initial_budget_gbp": 900,
+    "revised_budget_gbp": 700,
+    "separate_change_request_received": true
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 150,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "travel-planning"
+  ],
+  "started_at": "2026-10-04T09:36:30-04:00",
+  "updated_at": "2026-10-04T14:04:15.585690+00:00",
+  "review_status": "reviewed",
+  "deviations": [
+    "Existing conversation reused; initial run manually started by user.",
+    "Unknown platform metrics remain null. Original self-reported metrics are retained separately.",
+    "Only selected artifacts are published; original delivery archives are retained privately."
+  ],
+  "tasks": [
+    {
+      "task_id": "travel-planning",
+      "status": "failed",
+      "reason": "Correct £804 initial and £654 revised plans, but fails source accuracy: asserts refund terms absent from the quotes.",
+      "execution_started": true,
+      "answer": "Correct £804 initial and £654 revised plans, but fails source accuracy: asserts refund terms absent from the quotes.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Whole-run active time, exact task-only calls, tokens, cost and comparable elapsed boundaries were not independently captured. See submitted self-assessment for agent-reported measurements."
+      },
+      "tools_used": [],
+      "disclosure_note": "Disclosed tool names are retained in the submitted self-assessment. Outcome review uses actual artifacts and independently recomputed values; no backend identity or native capability inferred.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "review-constraints"
+          ]
+        },
+        {
+          "id": "total-cost",
+          "status": "passed",
+          "evidence_ids": [
+            "review-total-cost"
+          ]
+        },
+        {
+          "id": "sources",
+          "status": "failed",
+          "evidence_ids": [
+            "review-sources"
+          ]
+        },
+        {
+          "id": "itinerary",
+          "status": "passed",
+          "evidence_ids": [
+            "review-itinerary"
+          ]
+        },
+        {
+          "id": "revision",
+          "status": "passed",
+          "evidence_ids": [
+            "review-revision"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "review-constraints",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Both versions use November 12–15, 2026, two people, three nights in Lisbon. F1/F2 arrive at 13:00/10:00 before 20:00; bags are costed. H1 is 0.5 km away with free cancellation initially, and H2 is 0.8 km away in the revision.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "review-total-cost",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Independent recomputation: two-person return flights plus bags GBP 270; initial room 510 and city tax 24 gives 804; revised room 360 plus tax 24 gives 654. Headroom 96/46, saving 150; other qualifying flight has the same total.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "review-sources",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. The user allowing non-refundable hotels does not establish H2’s refund terms.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "review-itinerary",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "Both files contain dated arrival/stay/return outlines and the other qualifying flight as an alternative. Known arrival times are local; missing return-flight times are identified rather than invented.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "review-revision",
+          "kind": "observation",
+          "provenance": "operator",
+          "summary": "A separate operator turn reduced the budget to GBP 700 and relaxed cancellation. Revised H2 replaces H1 at GBP 654 with the initial version retained. Current-plan hotel, total and free-cancellation requirement are updated. The unsupported refund-policy assertion, where present, is scored under sources. Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established.",
+          "ref": "operator-review.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "initial-artifact",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Actual delivered initial-artifact",
+          "ref": "initial-itinerary.md",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "revised-artifact",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Actual delivered revised-artifact",
+          "ref": "revised-itinerary.md",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        },
+        {
+          "id": "quote-packet",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Actual delivered quote-packet",
+          "ref": "frozen-quotes.json",
+          "observed_at": "2026-10-04T14:04:15.585690+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ],
+  "reviewer": "Codex-assisted operator review",
+  "review_notes": "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through Muse macOS app. No new attempt was started. Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F1 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases. The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. The user allowing non-refundable hotels does not establish H2’s refund terms. Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established. This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts. Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred. Submitted computer-use capability was not established by itinerary file creation. The reviewed capability is not applicable; no native desktop action by Muse was required for this case."
+}

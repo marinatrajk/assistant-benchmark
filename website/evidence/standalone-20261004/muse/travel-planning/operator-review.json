@@ -1,0 +1,212 @@
+{
+  "task_id": "travel-planning",
+  "assistant": "Muse",
+  "run_id": "becky-travel-planning-20261004-01",
+  "reviewed_at": "2026-10-04T14:04:15.585690+00:00",
+  "status": "failed",
+  "reviewer": "Codex-assisted operator review",
+  "required_checks": {
+    "constraints": {
+      "status": "passed",
+      "finding": "Both versions use November 12–15, 2026, two people, three nights in Lisbon. F1/F2 arrive at 13:00/10:00 before 20:00; bags are costed. H1 is 0.5 km away with free cancellation initially, and H2 is 0.8 km away in the revision.",
+      "files": [
+        "initial-itinerary.md",
+        "revised-itinerary.md",
+        "frozen-quotes.json"
+      ]
+    },
+    "total-cost": {
+      "status": "passed",
+      "finding": "Independent recomputation: two-person return flights plus bags GBP 270; initial room 510 and city tax 24 gives 804; revised room 360 plus tax 24 gives 654. Headroom 96/46, saving 150; other qualifying flight has the same total.",
+      "files": [
+        "initial-itinerary.md",
+        "revised-itinerary.md",
+        "operator-review.json"
+      ]
+    },
+    "sources": {
+      "status": "failed",
+      "finding": "The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. The user allowing non-refundable hotels does not establish H2’s refund terms.",
+      "files": [
+        "initial-itinerary.md",
+        "revised-itinerary.md",
+        "frozen-quotes.json"
+      ]
+    },
+    "itinerary": {
+      "status": "passed",
+      "finding": "Both files contain dated arrival/stay/return outlines and the other qualifying flight as an alternative. Known arrival times are local; missing return-flight times are identified rather than invented.",
+      "files": [
+        "initial-itinerary.md",
+        "revised-itinerary.md"
+      ]
+    },
+    "revision": {
+      "status": "passed",
+      "finding": "A separate operator turn reduced the budget to GBP 700 and relaxed cancellation. Revised H2 replaces H1 at GBP 654 with the initial version retained. Current-plan hotel, total and free-cancellation requirement are updated. The unsupported refund-policy assertion, where present, is scored under sources. Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established.",
+      "files": [
+        "initial-itinerary.md",
+        "revised-itinerary.md",
+        "operator-review.json"
+      ]
+    }
+  },
+  "independent_combinations": [
+    {
+      "flight": "F1",
+      "hotel": "H1",
+      "fares": 220,
+      "bags": 50,
+      "room": 510,
+      "city_tax": 24,
+      "total": 804,
+      "initial_qualifies": true,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F1",
+      "hotel": "H2",
+      "fares": 220,
+      "bags": 50,
+      "room": 360,
+      "city_tax": 24,
+      "total": 654,
+      "initial_qualifies": false,
+      "revised_qualifies": true
+    },
+    {
+      "flight": "F1",
+      "hotel": "H3",
+      "fares": 220,
+      "bags": 50,
+      "room": 240,
+      "city_tax": 24,
+      "total": 534,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F2",
+      "hotel": "H1",
+      "fares": 190,
+      "bags": 80,
+      "room": 510,
+      "city_tax": 24,
+      "total": 804,
+      "initial_qualifies": true,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F2",
+      "hotel": "H2",
+      "fares": 190,
+      "bags": 80,
+      "room": 360,
+      "city_tax": 24,
+      "total": 654,
+      "initial_qualifies": false,
+      "revised_qualifies": true
+    },
+    {
+      "flight": "F2",
+      "hotel": "H3",
+      "fares": 190,
+      "bags": 80,
+      "room": 240,
+      "city_tax": 24,
+      "total": 534,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F3",
+      "hotel": "H1",
+      "fares": 140,
+      "bags": 50,
+      "room": 510,
+      "city_tax": 24,
+      "total": 724,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F3",
+      "hotel": "H2",
+      "fares": 140,
+      "bags": 50,
+      "room": 360,
+      "city_tax": 24,
+      "total": 574,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F3",
+      "hotel": "H3",
+      "fares": 140,
+      "bags": 50,
+      "room": 240,
+      "city_tax": 24,
+      "total": 454,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F4",
+      "hotel": "H1",
+      "fares": 130,
+      "bags": 40,
+      "room": 510,
+      "city_tax": 24,
+      "total": 704,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F4",
+      "hotel": "H2",
+      "fares": 130,
+      "bags": 40,
+      "room": 360,
+      "city_tax": 24,
+      "total": 554,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    },
+    {
+      "flight": "F4",
+      "hotel": "H3",
+      "fares": 130,
+      "bags": 40,
+      "room": 240,
+      "city_tax": 24,
+      "total": 434,
+      "initial_qualifies": false,
+      "revised_qualifies": false
+    }
+  ],
+  "initial_budget_gbp": 900,
+  "revised_budget_gbp": 700,
+  "initial_total_gbp": 804,
+  "revised_total_gbp": 654,
+  "initial_preserved_byte_identically": null,
+  "initial_preservation_observation": "Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established.",
+  "source_quote_packet_sha256": "fd01a95d95b1d74323845d51a7400a881578188e21618e6fd53a27d1675f1899",
+  "source_report_sha256": "b2e32f2f030d6116b993d589e99eea4ab9301a8f69b73f8bc18a830c74a37753",
+  "archive_sha256": "1e1b6006171d950b6330f7e8ec1ba59573dde4a6041fe06a435254503125100e",
+  "package_sha256": "157b0bacbdd815747ca0d6ee657a64cdc47d6537cc28c366305b8ccab7dfc0c9",
+  "review_notes": [
+    "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through Muse macOS app. No new attempt was started.",
+    "Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F1 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases.",
+    "The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. The user allowing non-refundable hotels does not establish H2’s refund terms.",
+    "Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established.",
+    "This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts.",
+    "Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred.",
+    "Submitted computer-use capability was not established by itinerary file creation. The reviewed capability is not applicable; no native desktop action by Muse was required for this case."
+  ],
+  "limitations": [
+    "One existing-conversation attempt per assistant; not a clean-room or repeated reliability comparison.",
+    "No live inventory, actual booking or all-in unquoted travel costs evaluated.",
+    "Initial phase was started manually by the user before Codex resumed observation."
+  ]
+}

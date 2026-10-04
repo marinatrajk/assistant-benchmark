@@ -1,0 +1,227 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "run_id": "travel-planning-newbot-20261004-0936-r1",
+  "operator_label": "GrokBot",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux (assistant's own sandbox computer)",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Work done in a fresh folder [run workspace]; no unrelated files, accounts or memories touched.",
+      "No browser, web search or booking site used; frozen quote packet only."
+    ]
+  },
+  "task_inputs": {
+    "input_file": "assets/input.json",
+    "input_file_bundle_copy": "inputs/input.json",
+    "input_sha256_verified_against_manifest": true,
+    "initial_request": "Three-night London–Lisbon trip for two, 12–15 Nov 2026, max GBP 900, cabin bags and listed taxes included, arrive before 20:00 local, hotel within 1.5 km of centre with free cancellation; costed itinerary, quote IDs, one alternative.",
+    "change_request": "Reduce the total budget to GBP 700. A non-refundable hotel is now acceptable; keep every other constraint and explain the changes. (Operator turn received 2026-10-04T09:55:00-04:00.)"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 150,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "travel-planning"
+  ],
+  "started_at": "2026-10-04T09:36:00-04:00",
+  "updated_at": "2026-10-04T09:55:42-04:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Quote packet has no departure or return flight times; itinerary leaves them unspecified rather than inventing them.",
+    "F1+H1 and F2+H1 tie at GBP 804; tie broken by earlier Lisbon arrival (F2 primary, F1 alternative).",
+    "Active-time and tool-call limits were not enforced by a platform clock/counter; active duration is unmeasurable and left null; tool_calls is a manual count.",
+    "Revised plan also ties (F1+H2 and F2+H2 at GBP 654); same tie-break by earlier arrival."
+  ],
+  "tasks": [
+    {
+      "task_id": "travel-planning",
+      "status": "passed",
+      "reason": null,
+      "execution_started": true,
+      "answer": "Initial (GBP 900, preserved): F2 + H1, GBP 804 (fares 190 + bags 80 + room 510 + city tax 24); alternative F1 + H1, GBP 804. Revised (GBP 700, non-refundable allowed): F2 (LGW-LIS, arrive 10:00 local 12 Nov 2026) + H2 (Lisbon, 0.8 km, non-refundable), 3 nights 12-15 Nov, GBP 654 = fares 190 + bags 80 + room 360 + city tax 24; alternative F1 (LHR-LIS, arrive 13:00) + H2, GBP 654. Change: H1 -> H2 saves GBP 150; free cancellation no longer applies. Frozen synthetic quotes, not live inventory; nothing booked.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": 1200000,
+        "tool_calls": 14,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Elapsed approximated from the operator's first request (09:36 EDT) to the revised delivery (~09:56 EDT), including the wait for the change request; minute precision only. Tool calls counted manually across both turns. Active time and tokens unobservable, so left null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Tool identifiers withheld; work used a shell on the assistant's own computer to unpack the package, verify hashes, compute costs with a Python script and write files.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-itinerary-initial",
+            "ev-calc-output",
+            "ev-itinerary-revised",
+            "ev-calc-revised-output"
+          ]
+        },
+        {
+          "id": "total-cost",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-calc-output",
+            "ev-itinerary-initial",
+            "ev-calc-revised-output",
+            "ev-itinerary-revised"
+          ]
+        },
+        {
+          "id": "sources",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-input",
+            "ev-itinerary-initial",
+            "ev-itinerary-revised"
+          ]
+        },
+        {
+          "id": "itinerary",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-itinerary-initial",
+            "ev-itinerary-revised"
+          ]
+        },
+        {
+          "id": "revision",
+          "status": "passed",
+          "evidence_ids": [
+            "ev-itinerary-revised",
+            "ev-calc-revised-output",
+            "ev-initial-preserved"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-input",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Frozen quote packet copied unchanged into the bundle; SHA-256 matches manifest.",
+          "ref": "inputs/input.json",
+          "observed_at": "2026-10-04T09:37:23-04:00"
+        },
+        {
+          "id": "ev-calc-script",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Script that filters every flight/hotel against the initial brief and computes all totals from the packet.",
+          "ref": "initial/plan_initial.py",
+          "observed_at": "2026-10-04T09:37:23-04:00"
+        },
+        {
+          "id": "ev-calc-output",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "Computed output: per-option totals, rejection reasons, qualifying combos (F1+H1 804, F2+H1 804), selection and alternative.",
+          "ref": "initial/calc_initial.json",
+          "observed_at": "2026-10-04T09:37:23-04:00"
+        },
+        {
+          "id": "ev-itinerary-initial",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Initial itinerary with local dates/times, cost breakdown, quote IDs, alternative, rejected options and frozen-scenario disclaimer.",
+          "ref": "initial/itinerary_initial.md",
+          "observed_at": "2026-10-04T09:37:23-04:00"
+        },
+        {
+          "id": "ev-initial-preserved",
+          "kind": "observation",
+          "provenance": "agent_export",
+          "summary": "SHA-256 of initial/ files taken before revision and re-verified OK after revision; initial result unchanged.",
+          "ref": "initial_hashes_before.txt",
+          "observed_at": "2026-10-04T09:55:42-04:00"
+        },
+        {
+          "id": "ev-calc-revised-script",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Revised calculation script: budget 700, free-cancellation filter removed, all other filters unchanged.",
+          "ref": "revised/plan_revised.py",
+          "observed_at": "2026-10-04T09:55:42-04:00"
+        },
+        {
+          "id": "ev-calc-revised-output",
+          "kind": "trace",
+          "provenance": "agent_export",
+          "summary": "Revised computed output: H1 combos 804 over budget; F2+H2 and F1+H2 at 654 within budget.",
+          "ref": "revised/calc_revised.json",
+          "observed_at": "2026-10-04T09:55:42-04:00"
+        },
+        {
+          "id": "ev-itinerary-revised",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "summary": "Distinct revised itinerary with explanation of changes, costs, quote IDs, alternative and non-refundable trade-off.",
+          "ref": "revised/itinerary_revised.md",
+          "observed_at": "2026-10-04T09:55:42-04:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ]
+}

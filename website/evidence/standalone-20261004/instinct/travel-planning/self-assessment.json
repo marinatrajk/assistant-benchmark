@@ -1,0 +1,238 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "run_id": "instinct-travel-planning-20261004-01",
+  "operator_label": "Instinct",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": null,
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": []
+  },
+  "task_inputs": {
+    "input_file": "sources/input.json"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 150,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "travel-planning"
+  ],
+  "started_at": "2026-10-04T15:36:55+02:00",
+  "updated_at": "2026-10-04T15:56:32+02:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Exact active timing, task-only call count, token usage, plan and costs remain unmeasured (null).",
+    "Private implementation identifiers and hidden environment details withheld."
+  ],
+  "tasks": [
+    {
+      "task_id": "travel-planning",
+      "status": "passed",
+      "reason": "Both phases completed in the same run from frozen quotes. Revised F2/H2 and alternative F1/H2 each total GBP 654, meeting the GBP 700 listed-cost budget. Initial output retained unchanged; independent review still required.",
+      "execution_started": true,
+      "answer": "Initial: F2 + H1, GBP 804; alternative F1 + H1, GBP 804. Revised: F2 + H2, GBP 654; alternative F1 + H2, GBP 654. Hotel changed from H1 to H2, saving GBP 150; H2 lacks free cancellation, accepted under the separate change request. Dates November 12-15, 2026, two people, three nights, LIS destination, cabin bags and listed city taxes remain included. Arrivals remain 10:00 and 13:00 local. Revised total leaves GBP 46 under GBP 700 for unquoted extras, whose affordability is unknown. See distinct initial and revised itineraries.",
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "Task-only active clock and usage counters were not isolated; see evidence/run-observations.md. Unknown metrics remain null."
+      },
+      "tools_used": [],
+      "disclosure_note": "Private implementation identifiers are withheld. Sanitized calculations, input sources, integrity checks and actual initial output are included. No hidden tool or model metadata is inferred.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-constraints",
+            "revised-constraints"
+          ]
+        },
+        {
+          "id": "total-cost",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-costs",
+            "revised-costs",
+            "final-revision"
+          ]
+        },
+        {
+          "id": "sources",
+          "status": "passed",
+          "evidence_ids": [
+            "quote-source",
+            "package-integrity"
+          ]
+        },
+        {
+          "id": "itinerary",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-itinerary",
+            "revised-itinerary"
+          ]
+        },
+        {
+          "id": "revision",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-change",
+            "final-revision",
+            "revised-itinerary"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "initial-constraints",
+          "kind": "artifact",
+          "summary": "Initial constraint coverage and exclusions; revised constraints remain unverified.",
+          "provenance": "agent_export",
+          "ref": "initial-itinerary.md",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "initial-costs",
+          "kind": "trace",
+          "summary": "All 12 combinations computed with bags and per-person nightly city taxes; revised total not yet evaluated.",
+          "provenance": "agent_export",
+          "ref": "evidence/calculations.json",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "quote-source",
+          "kind": "artifact",
+          "summary": "Frozen supplied packet, not live inventory.",
+          "provenance": "agent_export",
+          "ref": "sources/input.json",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "initial-itinerary",
+          "kind": "artifact",
+          "summary": "Initial date-by-date outline and qualifying F1/H1 alternative; unsupplied flight times identified.",
+          "provenance": "agent_export",
+          "ref": "initial-itinerary.md",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "revision-boundary",
+          "kind": "observation",
+          "summary": "No separate change request received; initial output retained and revision not executed.",
+          "provenance": "agent_export",
+          "ref": "evidence/run-observations.md",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "package-integrity",
+          "kind": "trace",
+          "summary": "All 9 supplied manifest hashes matched.",
+          "provenance": "agent_export",
+          "ref": "evidence/package-integrity.json",
+          "observed_at": "2026-10-04T15:37:53+02:00"
+        },
+        {
+          "id": "revised-constraints",
+          "kind": "artifact",
+          "summary": "Revised constraint coverage, H2 cancellation limitation and excluded options.",
+          "provenance": "agent_export",
+          "ref": "revised-itinerary.md",
+          "observed_at": "2026-10-04T15:56:32+02:00"
+        },
+        {
+          "id": "revised-costs",
+          "kind": "trace",
+          "summary": "All 12 revised combinations recomputed with airfare, bags, room and city tax.",
+          "provenance": "agent_export",
+          "ref": "evidence/revised-calculations.json",
+          "observed_at": "2026-10-04T15:56:32+02:00"
+        },
+        {
+          "id": "revised-itinerary",
+          "kind": "artifact",
+          "summary": "Distinct revised daily itinerary and qualifying F1/H2 alternative.",
+          "provenance": "agent_export",
+          "ref": "revised-itinerary.md",
+          "observed_at": "2026-10-04T15:56:32+02:00"
+        },
+        {
+          "id": "final-revision",
+          "kind": "trace",
+          "summary": "Initial artifacts unchanged; same-run revision and GBP 654 totals independently checked.",
+          "provenance": "agent_export",
+          "ref": "evidence/final-verification.json",
+          "observed_at": "2026-10-04T15:56:32+02:00"
+        },
+        {
+          "id": "operator-change",
+          "kind": "operator_attestation",
+          "summary": "Separate authenticated user change request received before revision.",
+          "provenance": "operator",
+          "ref": "sources/change-request.md",
+          "observed_at": "2026-10-04T15:56:32+02:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ]
+}

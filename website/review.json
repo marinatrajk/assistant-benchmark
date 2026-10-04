@@ -152,7 +152,7 @@
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",
-  "updated_at": "2026-10-03T11:12:37.210605+00:00",
+  "updated_at": "2026-10-04T14:04:15.585690+00:00",
   "suite_id": "assistant-benchmark-tasks-v1",
   "suite_version": "1.0.0",
   "repository_commit": "ce83a1a0d64eeaf7988105e994e15ced8c398ed8",
@@ -1697,38 +1697,172 @@
       "category": "Travel planning",
       "results": {
         "ChatGPT Dots": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "No attempt has been started for this case.",
-          "details": [],
-          "sources": []
+          "status": "passed",
+          "review_status": "reviewed",
+          "run_id": "dots-travel-planning-20261004-01",
+          "summary": "Passed: £804 initial plan and £654 revised plan, with correct costs, qualifying alternatives and both versions preserved.",
+          "details": [
+            "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through the existing Dots conversation through the Codex app connector. No new attempt was started.",
+            "Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F2 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases.",
+            "Selected quotes and material facts trace to the frozen packet. H2 is described as lacking free cancellation; unspecified refund terms are not invented.",
+            "Initial artifact is byte-identical to the independently retrieved initial version.",
+            "This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts.",
+            "Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred.",
+            "Retrieved the 81,301-byte final archive through a lossless base64 export and verified SHA-256, original package hash and preserved initial itinerary against the pre-revision execution output and manifest. The parent view showed interrupted waiting while its existing executor continued; one status/evidence follow-up was sent, without restarting or supplying solution help.",
+            "The assistant measured 352.06 seconds across its two active intervals and counted 10 observable calls. These boundaries exclude setup, reporting, packaging and operator wait, and are not an operator-measured whole-session runtime."
+          ],
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261004/dots/travel-planning/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261004/dots/travel-planning/operator-review.json"
+            ],
+            [
+              "Initial itinerary",
+              "evidence/standalone-20261004/dots/travel-planning/initial-itinerary.txt"
+            ],
+            [
+              "Revised itinerary",
+              "evidence/standalone-20261004/dots/travel-planning/revised-itinerary.txt"
+            ],
+            [
+              "Frozen quote packet",
+              "evidence/standalone-20261004/dots/travel-planning/frozen-quotes.json"
+            ],
+            [
+              "Submitted self-assessment (selected evidence published)",
+              "evidence/standalone-20261004/dots/travel-planning/self-assessment.json"
+            ]
+          ]
         },
         "GrokBot": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "No attempt has been started for this case.",
-          "details": [],
-          "sources": []
+          "status": "failed",
+          "review_status": "reviewed",
+          "run_id": "travel-planning-newbot-20261004-0936-r1",
+          "summary": "Correct £804 initial and £654 revised plans, but fails source accuracy: invents a full hotel cancellation loss.",
+          "details": [
+            "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through Grok Bot macOS app. No new attempt was started.",
+            "Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F2 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases.",
+            "The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. It additionally says cancelling would lose the hotel cost, an unsupported material claim.",
+            "Initial artifact is byte-identical to the independently retrieved initial version.",
+            "This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts.",
+            "Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred.",
+            "The submitted 14-call count and approximately 20-minute elapsed value are self-reported, not independently measured. Published reviewed metrics remain null."
+          ],
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261004/grokbot/travel-planning/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261004/grokbot/travel-planning/operator-review.json"
+            ],
+            [
+              "Initial itinerary",
+              "evidence/standalone-20261004/grokbot/travel-planning/initial-itinerary.md"
+            ],
+            [
+              "Revised itinerary",
+              "evidence/standalone-20261004/grokbot/travel-planning/revised-itinerary.md"
+            ],
+            [
+              "Frozen quote packet",
+              "evidence/standalone-20261004/grokbot/travel-planning/frozen-quotes.json"
+            ],
+            [
+              "Submitted self-assessment (selected evidence published)",
+              "evidence/standalone-20261004/grokbot/travel-planning/self-assessment.json"
+            ]
+          ]
         },
         "Instinct": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "No attempt has been started for this case.",
-          "details": [],
-          "sources": []
+          "status": "passed",
+          "review_status": "reviewed",
+          "run_id": "instinct-travel-planning-20261004-01",
+          "summary": "Passed: £804 initial plan and £654 revised plan, with correct costs, qualifying alternatives and both versions preserved.",
+          "details": [
+            "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through Instinct conversation in macOS Messages. No new attempt was started.",
+            "Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F2 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases.",
+            "Selected quotes and material facts trace to the frozen packet. H2 is described as lacking free cancellation; unspecified refund terms are not invented.",
+            "Initial artifact is byte-identical to the independently retrieved initial version.",
+            "This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts.",
+            "Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred."
+          ],
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261004/instinct/travel-planning/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261004/instinct/travel-planning/operator-review.json"
+            ],
+            [
+              "Initial itinerary",
+              "evidence/standalone-20261004/instinct/travel-planning/initial-itinerary.md"
+            ],
+            [
+              "Revised itinerary",
+              "evidence/standalone-20261004/instinct/travel-planning/revised-itinerary.md"
+            ],
+            [
+              "Frozen quote packet",
+              "evidence/standalone-20261004/instinct/travel-planning/frozen-quotes.json"
+            ],
+            [
+              "Submitted self-assessment (selected evidence published)",
+              "evidence/standalone-20261004/instinct/travel-planning/self-assessment.json"
+            ]
+          ]
         },
         "Muse": {
-          "status": "not_run",
-          "review_status": "unreviewed",
-          "run_id": null,
-          "summary": "No attempt has been started for this case.",
-          "details": [],
-          "sources": []
+          "status": "failed",
+          "review_status": "reviewed",
+          "run_id": "becky-travel-planning-20261004-01",
+          "summary": "Correct £804 initial and £654 revised plans, but fails source accuracy: asserts refund terms absent from the quotes.",
+          "details": [
+            "The user manually started the run around 09:36 EDT on October 4. Codex inspected the completed initial result and sent the published £700 change as a separate turn around 09:55 EDT in the same existing conversation through Muse macOS app. No new attempt was started.",
+            "Opened both actual itineraries and independently recomputed all 12 flight/hotel combinations from the supplied packet. F1 is the selected flight in both phases; the other qualifying flight is the alternative. Initial H1 costs £534 with city tax; revised H2 costs £384. Flight/bag cost is £270 in both cases.",
+            "The revised artifact asserts that H2 is non-refundable. The frozen packet only says free_cancellation=false; a complete refund policy or cancellation penalty is not supplied. The user allowing non-refundable hotels does not establish H2’s refund terms.",
+            "Initial attachment was opened separately in the original Muse message. Dates, selected quotes, costs, alternative, exclusions and unknown return time match the final bundle. Byte-level preservation was not independently established.",
+            "This is a frozen synthetic quote case. No live availability or booking is tested. The totals cover listed flight, bag, room and city-tax charges; unquoted extras and missing flight times do not become verified facts.",
+            "Reviewed against the five published checks, independently of the submitted self-score. Codex consulted the public reviewer reference; it did not supply reference answers to the assistants. Existing conversations and overlapping activity limit comparability. Assistant prior exposure to reference answers was not independently established. Subscription, usage cost and whole-run active timing are unknown; no efficiency ranking is inferred.",
+            "Submitted computer-use capability was not established by itinerary file creation. The reviewed capability is not applicable; no native desktop action by Muse was required for this case."
+          ],
+          "sources": [
+            [
+              "Reviewed report",
+              "evidence/standalone-20261004/muse/travel-planning/reviewed-report.json"
+            ],
+            [
+              "Independent artifact review",
+              "evidence/standalone-20261004/muse/travel-planning/operator-review.json"
+            ],
+            [
+              "Initial itinerary",
+              "evidence/standalone-20261004/muse/travel-planning/initial-itinerary.md"
+            ],
+            [
+              "Revised itinerary",
+              "evidence/standalone-20261004/muse/travel-planning/revised-itinerary.md"
+            ],
+            [
+              "Frozen quote packet",
+              "evidence/standalone-20261004/muse/travel-planning/frozen-quotes.json"
+            ],
+            [
+              "Submitted self-assessment (selected evidence published)",
+              "evidence/standalone-20261004/muse/travel-planning/self-assessment.json"
+            ]
+          ]
         }
-      }
+      },
+      "evaluated_on": "2026-10-04",
+      "tested_repository_commit": "fb035b54b03d407272989f8f8396f23214006646"
     },
     {
       "task_id": "email-management",

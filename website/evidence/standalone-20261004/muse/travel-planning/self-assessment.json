@@ -1,0 +1,182 @@
+{
+  "deviations": [],
+  "environment": {
+    "browser": null,
+    "execution_location": "unknown",
+    "isolation_notes": [],
+    "os": "linux"
+  },
+  "harness": {
+    "model": null,
+    "model_source": "unknown",
+    "name": null,
+    "reasoning_setting": null,
+    "version": null
+  },
+  "operator_label": "Muse",
+  "report_scope": "task",
+  "review_status": "unreviewed",
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 150,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "run_id": "becky-travel-planning-20261004-01",
+  "skill_name": "benchmark-travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "started_at": "2026-10-04T09:36:30-04:00",
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "task_ids_requested": [
+    "travel-planning"
+  ],
+  "task_inputs": {
+    "input_file": "input.json"
+  },
+  "tasks": [
+    {
+      "answer": "INITIAL (£900 brief): flights F1 (LHR→LIS, arr 13:00 local) + hotel H1 (Lisbon, 0.5 km, free cancellation). Flights 2×(£110+£25)=£270.00, hotel 3×£170=£510.00, city tax 2×£4×3=£24.00 — total £804.00. Alternative: F2 (LGW→LIS, arr 10:00)+H1, also £804.00. Excluded: F3 (arr 21:30), F4 (OPO not LIS), H2 (no free cancellation under initial brief), H3 (8 km). REVISED (£700 brief, non-refundable hotel acceptable): flights F1 + hotel H2 (Lisbon, 0.8 km, non-refundable). Flights £270.00, hotel 3×£120=£360.00, city tax £24.00 — total £654.00, within £700. Alternative: F2+H2, also £654.00. Changes: budget £900→£700 forced H1→H2 (F1+H1=£804 exceeds £700; H2 is the only hotel fitting the cap); cancellation requirement relaxed per the change request; flights, dates, party size, destination, arrival cutoff, bags, tax and distance limit unchanged. Frozen synthetic quotes only — no live inventory or booking.",
+      "capabilities": {
+        "browser": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "computer": {
+          "evidence_ids": [
+            "ev-itinerary",
+            "ev-itinerary-revised"
+          ],
+          "label": null,
+          "mode": null,
+          "status": "observed"
+        },
+        "memory": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "scheduling": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        },
+        "skills": {
+          "evidence_ids": [],
+          "label": null,
+          "mode": null,
+          "status": "not_applicable"
+        }
+      },
+      "checks": [
+        {
+          "evidence_ids": [
+            "ev-input",
+            "ev-itinerary"
+          ],
+          "id": "constraints",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-input",
+            "ev-itinerary"
+          ],
+          "id": "total-cost",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-input",
+            "ev-itinerary"
+          ],
+          "id": "sources",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-itinerary"
+          ],
+          "id": "itinerary",
+          "status": "passed"
+        },
+        {
+          "evidence_ids": [
+            "ev-itinerary-revised",
+            "ev-input"
+          ],
+          "id": "revision",
+          "status": "passed"
+        }
+      ],
+      "disclosure_note": null,
+      "evidence": [
+        {
+          "id": "ev-input",
+          "kind": "artifact",
+          "observed_at": "2026-10-04T09:37:06-04:00",
+          "provenance": "agent_export",
+          "ref": "input.json",
+          "summary": "Frozen quote packet copied verbatim from the benchmark bundle (assets/input.json); all selected options trace to these synthetic quotes, not live inventory."
+        },
+        {
+          "id": "ev-itinerary",
+          "kind": "artifact",
+          "provenance": "agent_export",
+          "ref": "itinerary-initial.md",
+          "summary": "Initial costed itinerary, preserved unchanged: quotes F1+H1, full GBP breakdown totalling £804.00 (flights £270.00, hotel £510.00, city tax £24.00), reasons for excluded quotes F3/F4/H2/H3, and qualifying alternative F2+H1 at £804.00."
+        },
+        {
+          "id": "ev-itinerary-revised",
+          "kind": "artifact",
+          "observed_at": "2026-10-04T09:55:56-04:00",
+          "provenance": "agent_export",
+          "ref": "itinerary-revised.md",
+          "summary": "Distinct revised itinerary for the £700 change request: quotes F1+H2, full GBP breakdown totalling £654.00 (flights £270.00, hotel £360.00, city tax £24.00), explanation of changes (H1→H2 on budget grounds; non-refundable accepted per request), and qualifying alternative F2+H2 at £654.00."
+        },
+        {
+          "id": "ev-zip",
+          "kind": "artifact",
+          "observed_at": "2026-10-04T09:56:10-04:00",
+          "provenance": "agent_export",
+          "ref": "becky-travel-planning-20261004-01-final.zip",
+          "summary": "Final delivery ZIP containing the updated one-task report, the frozen input packet, and the initial and revised itineraries."
+        }
+      ],
+      "execution_started": true,
+      "follow_up": {
+        "deadline_at": null,
+        "next_action": null,
+        "observer": null,
+        "required": false
+      },
+      "memory": null,
+      "metrics": {
+        "active_duration_ms": null,
+        "elapsed_duration_ms": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": null,
+        "tool_calls": null
+      },
+      "reason": "Both the initial and the revised results are delivered with evidence; the operator's change request has been applied and no further follow-up is outstanding.",
+      "schedule": null,
+      "status": "passed",
+      "task_id": "travel-planning",
+      "tools_used": [
+        "muse.exec",
+        "muse.read",
+        "muse.write"
+      ]
+    }
+  ],
+  "updated_at": "2026-10-04T09:56:10-04:00"
+}

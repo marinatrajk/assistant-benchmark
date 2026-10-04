@@ -1,0 +1,79 @@
+London to Lisbon revised itinerary
+
+Run ID: dots-travel-planning-20261004-01
+Same attempt, following the separate operator change request. Frozen synthetic quotes only; these are not checked current bookable offers.
+
+Recommendation
+
+Keep flight F2 and switch the hotel from H1 to H2. The revised total for two people, 12–15 November 2026, is GBP 654, which is GBP 46 below the new GBP 700 limit. Return fares, cabin bags and every listed tax are included.
+
+Selected quotes
+
+F2: London Gatwick (LGW) to Lisbon (LIS), arriving 12 November at 10:00 local time, before the 20:00 cutoff.
+H2: Lisbon hotel, 0.8 km from the city centre, for the nights of 12, 13 and 14 November. H2 has no free cancellation, which the changed brief now allows. The packet does not give detailed cancellation or refund rules, so no refund entitlement or specific penalty is assumed.
+
+Daily plan
+
+12 November 2026
+- Take F2 from LGW to LIS, arriving at 10:00 Lisbon local time. The outbound departure time and flight duration are not supplied.
+- Transfer to H2 and check in when permitted. The transfer price/method and hotel's check-in time are not supplied. Keep the remaining day flexible for settling in or a self-guided walk.
+- First night at H2.
+
+13 November 2026
+- Flexible Lisbon day, with no timed or paid activity committed by this quote packet.
+- Second night at H2.
+
+14 November 2026
+- Flexible Lisbon day. Any extra spending must fit the remaining GBP 46.
+- Third night at H2.
+
+15 November 2026
+- Check out of H2 and travel to LIS for the return leg included in F2's round-trip fare, under the supplied 15 November return date.
+- Return departure/arrival times, specific London return airport and hotel check-out time are not supplied. Leave the day unscheduled around that missing transport information.
+
+Full selected cost breakdown
+
+F2 return flight fares: GBP 95 per person x 2 = GBP 190
+F2 return cabin bags: GBP 40 per person x 2 = GBP 80
+Flights and bags subtotal: GBP 270
+H2 room: GBP 120 per night x 3 nights = GBP 360
+H2 city tax: GBP 4 per person per night x 2 people x 3 nights = GBP 24
+Hotel and city tax subtotal: GBP 384
+Total for two people: GBP 190 + 80 + 360 + 24 = GBP 654
+Revised budget: GBP 700
+Remaining: GBP 46
+
+The room is charged once per night, not once per person. City tax applies to six person-nights. Fares and cabin-bag charges are already round-trip and are not doubled again.
+
+Qualifying alternative
+
+Use F1 + H2 on the same dates for the same two people and three nights. F1 leaves London Heathrow (LHR) for Lisbon and arrives on 12 November at 13:00 local, before 20:00. H2 remains 0.8 km from the centre and has no free cancellation, as permitted by the revised brief.
+
+F1 return flight fares: GBP 110 per person x 2 = GBP 220
+F1 return cabin bags: GBP 25 per person x 2 = GBP 50
+Flights and bags subtotal: GBP 270
+H2 room: GBP 120 per night x 3 = GBP 360
+H2 city tax: GBP 4 x 2 people x 3 nights = GBP 24
+Alternative total: GBP 220 + 50 + 360 + 24 = GBP 654
+Remaining against GBP 700: GBP 46
+
+Use the same daily plan with a 13:00 arrival on the first day. F2 remains the recommendation because it arrives three hours earlier for the same quoted total.
+
+What changed
+
+- The budget falls from GBP 900 to GBP 700.
+- H2 replaces H1 in both the selected plan and the alternative. The room rate falls from GBP 170 to GBP 120 a night, saving GBP 50 x 3 = GBP 150.
+- The full total falls from GBP 804 to GBP 654. City tax stays GBP 24.
+- Hotel distance changes from 0.5 km to 0.8 km, still within 1.5 km.
+- The original hotel had free cancellation; the revised hotel does not. No free-cancellation claim is carried into the revised booking choice.
+- Dates, two travellers, three nights, Lisbon destination, flight choices, arrival cutoff and round-trip cabin bags are unchanged.
+
+Why the other quotes do not qualify
+
+H1 would leave the total at GBP 804, over the revised limit. H3 is 8 km from the centre, outside the distance limit. F3 arrives at 21:30, too late. F4 arrives at OPO rather than LIS.
+
+Scope and preservation
+
+All quote facts come from source-package/benchmark-travel-planning/assets/input.json. The selected IDs are F2/H2; the alternative IDs are F1/H2. The original F2/H1 and F1/H1 results remain unchanged in the initial artifacts.
+
+Meals, ground transport, sightseeing, insurance and any unlisted charges are unquoted and excluded, not assumed free. GBP 46 is remaining budget, not a verified estimate of those extras. The packet supports a GBP 654 flight/bag/hotel/listed-tax plan, not a fully timed or fully priced real-world holiday. No live inventory was used and no booking was made.

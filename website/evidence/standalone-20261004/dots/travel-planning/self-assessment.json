@@ -1,0 +1,367 @@
+{
+  "suite_id": "assistant-benchmark-tasks-v1",
+  "suite_version": "1.0.0",
+  "report_scope": "task",
+  "skill_name": "benchmark-travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "run_id": "dots-travel-planning-20261004-01",
+  "operator_label": "ChatGPT Dots",
+  "harness": {
+    "name": null,
+    "version": null,
+    "model": null,
+    "model_source": "unknown",
+    "reasoning_setting": null
+  },
+  "environment": {
+    "os": "Linux",
+    "browser": null,
+    "execution_location": "cloud",
+    "isolation_notes": [
+      "Run-specific local directory; original supplied archive and extracted source package preserved.",
+      "No live inventory checks or actual bookings. No unrelated account or file changes."
+    ]
+  },
+  "task_inputs": {
+    "input_file": "source-package/benchmark-travel-planning/assets/input.json",
+    "input_archive": "source-package/benchmark-travel-planning.zip",
+    "initial_budget_gbp": 900,
+    "requested_phase": "initial plus separately requested revision",
+    "separate_change_request_received": true,
+    "revised_budget_gbp": 700,
+    "non_refundable_hotel_now_acceptable": true,
+    "operator_change_request_file": "evidence/operator-change-request.txt"
+  },
+  "run_config": {
+    "active_timeout_seconds_per_task": 1200,
+    "max_tool_calls_per_task": 150,
+    "repetitions": 1,
+    "timezone": "America/New_York"
+  },
+  "task_ids_requested": [
+    "travel-planning"
+  ],
+  "started_at": "2026-10-04T13:38:30.347640+00:00",
+  "updated_at": "2026-10-04T14:01:30.284115+00:00",
+  "review_status": "unreviewed",
+  "deviations": [
+    "Benchmark instructions were read as an extracted SKILL.md document; native loading of benchmark-travel-planning was not established.",
+    "Active time and leaf tool calls are locally measured; hidden tool activity, model/settings, token usage, plan/subscription and usage charges are not observable. Setup, reporting, packaging, delivery and waiting are excluded from active timing.",
+    "The supplied quote packet omits departure and return flight times, transfer prices, hotel check-in/check-out times and cancellation deadlines; these are explicitly left unknown."
+  ],
+  "tasks": [
+    {
+      "task_id": "travel-planning",
+      "status": "passed",
+      "reason": "Initial and separately requested revised artifacts satisfy all five protocol checks in the observed frozen scenario. The initial output is unchanged, the same report and run ID are continued, and independent review remains outstanding.",
+      "execution_started": true,
+      "answer": "London to Lisbon revised itinerary\n\nRun ID: dots-travel-planning-20261004-01\nSame attempt, following the separate operator change request. Frozen synthetic quotes only; these are not checked current bookable offers.\n\nRecommendation\n\nKeep flight F2 and switch the hotel from H1 to H2. The revised total for two people, 12–15 November 2026, is GBP 654, which is GBP 46 below the new GBP 700 limit. Return fares, cabin bags and every listed tax are included.\n\nSelected quotes\n\nF2: London Gatwick (LGW) to Lisbon (LIS), arriving 12 November at 10:00 local time, before the 20:00 cutoff.\nH2: Lisbon hotel, 0.8 km from the city centre, for the nights of 12, 13 and 14 November. H2 has no free cancellation, which the changed brief now allows. The packet does not give detailed cancellation or refund rules, so no refund entitlement or specific penalty is assumed.\n\nDaily plan\n\n12 November 2026\n- Take F2 from LGW to LIS, arriving at 10:00 Lisbon local time. The outbound departure time and flight duration are not supplied.\n- Transfer to H2 and check in when permitted. The transfer price/method and hotel's check-in time are not supplied. Keep the remaining day flexible for settling in or a self-guided walk.\n- First night at H2.\n\n13 November 2026\n- Flexible Lisbon day, with no timed or paid activity committed by this quote packet.\n- Second night at H2.\n\n14 November 2026\n- Flexible Lisbon day. Any extra spending must fit the remaining GBP 46.\n- Third night at H2.\n\n15 November 2026\n- Check out of H2 and travel to LIS for the return leg included in F2's round-trip fare, under the supplied 15 November return date.\n- Return departure/arrival times, specific London return airport and hotel check-out time are not supplied. Leave the day unscheduled around that missing transport information.\n\nFull selected cost breakdown\n\nF2 return flight fares: GBP 95 per person x 2 = GBP 190\nF2 return cabin bags: GBP 40 per person x 2 = GBP 80\nFlights and bags subtotal: GBP 270\nH2 room: GBP 120 per night x 3 nights = GBP 360\nH2 city tax: GBP 4 per person per night x 2 people x 3 nights = GBP 24\nHotel and city tax subtotal: GBP 384\nTotal for two people: GBP 190 + 80 + 360 + 24 = GBP 654\nRevised budget: GBP 700\nRemaining: GBP 46\n\nThe room is charged once per night, not once per person. City tax applies to six person-nights. Fares and cabin-bag charges are already round-trip and are not doubled again.\n\nQualifying alternative\n\nUse F1 + H2 on the same dates for the same two people and three nights. F1 leaves London Heathrow (LHR) for Lisbon and arrives on 12 November at 13:00 local, before 20:00. H2 remains 0.8 km from the centre and has no free cancellation, as permitted by the revised brief.\n\nF1 return flight fares: GBP 110 per person x 2 = GBP 220\nF1 return cabin bags: GBP 25 per person x 2 = GBP 50\nFlights and bags subtotal: GBP 270\nH2 room: GBP 120 per night x 3 = GBP 360\nH2 city tax: GBP 4 x 2 people x 3 nights = GBP 24\nAlternative total: GBP 220 + 50 + 360 + 24 = GBP 654\nRemaining against GBP 700: GBP 46\n\nUse the same daily plan with a 13:00 arrival on the first day. F2 remains the recommendation because it arrives three hours earlier for the same quoted total.\n\nWhat changed\n\n- The budget falls from GBP 900 to GBP 700.\n- H2 replaces H1 in both the selected plan and the alternative. The room rate falls from GBP 170 to GBP 120 a night, saving GBP 50 x 3 = GBP 150.\n- The full total falls from GBP 804 to GBP 654. City tax stays GBP 24.\n- Hotel distance changes from 0.5 km to 0.8 km, still within 1.5 km.\n- The original hotel had free cancellation; the revised hotel does not. No free-cancellation claim is carried into the revised booking choice.\n- Dates, two travellers, three nights, Lisbon destination, flight choices, arrival cutoff and round-trip cabin bags are unchanged.\n\nWhy the other quotes do not qualify\n\nH1 would leave the total at GBP 804, over the revised limit. H3 is 8 km from the centre, outside the distance limit. F3 arrives at 21:30, too late. F4 arrives at OPO rather than LIS.\n\nScope and preservation\n\nAll quote facts come from source-package/benchmark-travel-planning/assets/input.json. The selected IDs are F2/H2; the alternative IDs are F1/H2. The original F2/H1 and F1/H1 results remain unchanged in the initial artifacts.\n\nMeals, ground transport, sightseeing, insurance and any unlisted charges are unquoted and excluded, not assumed free. GBP 46 is remaining budget, not a verified estimate of those extras. The packet supports a GBP 654 flight/bag/hotel/listed-tax plan, not a fully timed or fully priced real-world holiday. No live inventory was used and no booking was made.\n",
+      "metrics": {
+        "active_duration_ms": 352060.424,
+        "elapsed_duration_ms": 1379936.475,
+        "tool_calls": 10,
+        "input_tokens": null,
+        "output_tokens": null,
+        "source": "evidence/initial-run-metrics.json and evidence/cumulative-run-metrics.json. Python monotonic clocks measure the initial and revision active intervals; their durations are added. Ten observed leaf tool calls in those intervals include two progress-report calls with undisclosed communication implementation. Setup, report writing, packaging, delivery and functions.exec wrappers are excluded. Time between phases, including operator waiting, is excluded from active duration but included in elapsed time from original execution start to this final report snapshot. Exact operator waiting time alone and hidden provider usage are unmeasured."
+      },
+      "tools_used": [
+        "functions.exec",
+        "exec_command",
+        "apply_patch",
+        "skills.read",
+        "library.prepare_materialize"
+      ],
+      "disclosure_note": "Actual disclosed tools used across setup and execution are listed. The benchmark SKILL.md was read via exec_command as a document; native benchmark skill loading was not established. The task requires no native-skill check, so document-read mode is recorded separately from observed user-outcome success. No browser, native desktop input, personal-memory operation, scheduling, live inventory or real booking was needed. Subscription, token usage and usage charges remain unknown. Two progress-report calls are counted with communication implementation withheld.",
+      "checks": [
+        {
+          "id": "constraints",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-constraints",
+            "revised-constraints"
+          ],
+          "note": "Both initial and revised plans and their alternatives retain dates, party size, destination, arrival cutoff, bags and distance; cancellation follows the respective briefs."
+        },
+        {
+          "id": "total-cost",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-cost-lines",
+            "revised-cost-lines",
+            "both-phases-verification"
+          ],
+          "note": "Initial selected and alternative plans each cost GBP 804. Revised selected and alternative plans each cost GBP 654. All four totals include round-trip bags and six person-nights of city tax."
+        },
+        {
+          "id": "sources",
+          "status": "passed",
+          "evidence_ids": [
+            "source-integrity",
+            "revised-source-trace"
+          ],
+          "note": "All quoted facts are traceable to unchanged supplied input; both itineraries identify the frozen scenario and unknown details."
+        },
+        {
+          "id": "itinerary",
+          "status": "passed",
+          "evidence_ids": [
+            "initial-itinerary",
+            "revised-itinerary"
+          ],
+          "note": "Both dated itineraries have feasible qualifying alternatives with supplied local arrivals. Unsupplied return times and extras remain explicitly unknown."
+        },
+        {
+          "id": "revision",
+          "status": "passed",
+          "evidence_ids": [
+            "operator-change-request",
+            "revision-comparison",
+            "revised-structured-result",
+            "initial-preservation"
+          ],
+          "note": "Separate user turn received; distinct GBP 654 revision below GBP 700, with H2 and no free cancellation clearly stated. Initial outputs and initial report snapshot preserved byte-for-byte."
+        }
+      ],
+      "evidence": [
+        {
+          "id": "initial-constraints",
+          "kind": "observation",
+          "summary": "Both F2/H1 and F1/H1 satisfy every initial quoted constraint. The revised phase has not occurred.",
+          "provenance": "agent_export",
+          "ref": "evidence/initial-constraints.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "initial-cost-lines",
+          "kind": "artifact",
+          "summary": "Four charge rows per plan show all two-person round-trip fares and bags plus three room nights and six city-tax person-nights; both totals equal GBP 804.",
+          "provenance": "agent_export",
+          "ref": "initial-cost-breakdown.csv",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "initial-arithmetic-verification",
+          "kind": "observation",
+          "summary": "Separate Decimal recomputation from the original fields agrees with both result totals and both CSV charge sums.",
+          "provenance": "agent_export",
+          "ref": "evidence/initial-verification.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "source-integrity",
+          "kind": "observation",
+          "summary": "Every packaged file hash matches the supplied manifest; all quote facts map to frozen input fields.",
+          "provenance": "agent_export",
+          "ref": "evidence/source-integrity.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "initial-itinerary",
+          "kind": "artifact",
+          "summary": "Initial dated itinerary and qualifying F1/H1 alternative; known local arrival times and unquoted details are distinguished.",
+          "provenance": "agent_export",
+          "ref": "initial-itinerary.txt",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "initial-structured-result",
+          "kind": "artifact",
+          "summary": "Initial machine-readable selections, quote IDs, costs and limitations.",
+          "provenance": "agent_export",
+          "ref": "initial-result.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "revision-awaiting-user",
+          "kind": "observation",
+          "summary": "Historical initial-phase record: at that observation no separate change-request turn had been received. It is retained unchanged; the later operator-change-request evidence supersedes that pending state.",
+          "provenance": "agent_export",
+          "ref": "evidence/revision-awaiting-user.txt",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "run-measurements",
+          "kind": "trace",
+          "summary": "Initial active interval was within 20 minutes and observable leaf tool calls within 150. Setup, report writing and future waiting are not active time.",
+          "provenance": "agent_export",
+          "ref": "evidence/initial-run-metrics.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "setup-and-capabilities",
+          "kind": "observation",
+          "summary": "Observed environment, unknown costs/settings and document-read benchmark instruction mode recorded.",
+          "provenance": "agent_export",
+          "ref": "evidence/setup-record.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "calculation-tool-output",
+          "kind": "trace",
+          "summary": "Saved output of the executed initial planner showing the selected and alternative quote facts and totals.",
+          "provenance": "agent_export",
+          "ref": "evidence/calculation-output.json",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "calculation-source",
+          "kind": "artifact",
+          "summary": "Reproducible initial-only planner and evidence generator using supplied frozen input.",
+          "provenance": "agent_export",
+          "ref": "evidence/build_initial.py",
+          "observed_at": "2026-10-04T13:42:51.075520+00:00"
+        },
+        {
+          "id": "operator-change-request",
+          "kind": "operator_attestation",
+          "summary": "Exact separate operator change-request turn authorizing the GBP 700 revision; not a simulated turn.",
+          "provenance": "operator",
+          "ref": "evidence/operator-change-request.txt",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-constraints",
+          "kind": "observation",
+          "summary": "F2/H2 and F1/H2 meet the changed budget and all retained quoted constraints.",
+          "provenance": "agent_export",
+          "ref": "evidence/revised-constraints.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-cost-lines",
+          "kind": "artifact",
+          "summary": "Full revised charge rows: F2/H2 GBP 190 + 80 + 360 + 24 and F1/H2 GBP 220 + 50 + 360 + 24; both GBP 654.",
+          "provenance": "agent_export",
+          "ref": "revised-cost-breakdown.csv",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "both-phases-verification",
+          "kind": "observation",
+          "summary": "Independent Decimal calculations agree with all four plan totals, both CSVs and both briefs; original file hashes checked before same-report update.",
+          "provenance": "agent_export",
+          "ref": "evidence/revision-verification.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-source-trace",
+          "kind": "observation",
+          "summary": "Revised F2/F1/H2 facts copied from exact frozen quote fields; source hash and refund-term limits recorded.",
+          "provenance": "agent_export",
+          "ref": "evidence/revised-source-trace.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-itinerary",
+          "kind": "artifact",
+          "summary": "Distinct revised itinerary, full costs, qualifying alternative and explanation of every change.",
+          "provenance": "agent_export",
+          "ref": "revised-itinerary.txt",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-structured-result",
+          "kind": "artifact",
+          "summary": "Machine-readable revised quote IDs, costs, constraints and comparison with the initial result.",
+          "provenance": "agent_export",
+          "ref": "revised-result.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revision-comparison",
+          "kind": "observation",
+          "summary": "H1 to H2 reduces room cost by GBP 150 over three nights; hotel distance becomes 0.8 km and free cancellation becomes false.",
+          "provenance": "agent_export",
+          "ref": "evidence/revision-change-comparison.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "initial-preservation",
+          "kind": "observation",
+          "summary": "All original artifacts remain byte-identical; only the authorized working report changed, and its original bytes remain in initial-report-snapshot.json. The original initial ZIP is also unchanged.",
+          "provenance": "agent_export",
+          "ref": "evidence/initial-preservation-after-revision.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "cumulative-measurements",
+          "kind": "trace",
+          "summary": "Single-attempt initial plus revised active intervals and counts are within package limits; one operator change and zero extra-help requests recorded.",
+          "provenance": "agent_export",
+          "ref": "evidence/cumulative-run-metrics.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-calculation-output",
+          "kind": "trace",
+          "summary": "Saved observed output of the initial-source revision calculation.",
+          "provenance": "agent_export",
+          "ref": "evidence/revised-calculation-output.json",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "revised-calculation-source",
+          "kind": "artifact",
+          "summary": "Reproducible revision-only generator; it does not modify initial outputs.",
+          "provenance": "agent_export",
+          "ref": "evidence/build_revision.py",
+          "observed_at": "2026-10-04T14:00:45.864583+00:00"
+        },
+        {
+          "id": "operator-status-handoff",
+          "kind": "operator_attestation",
+          "summary": "One additional status/evidence handoff asked for completion of the same revision and stable bundle transport. An interrupted waiting view was reported; execution interruption was not independently observed.",
+          "provenance": "operator",
+          "ref": "evidence/operator-status-handoff.json",
+          "observed_at": "2026-10-04T14:01:30.284115+00:00"
+        }
+      ],
+      "capabilities": {
+        "browser": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "computer": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "memory": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "scheduling": {
+          "status": "not_applicable",
+          "mode": null,
+          "label": null,
+          "evidence_ids": []
+        },
+        "skills": {
+          "status": "unverified",
+          "mode": null,
+          "label": "Benchmark instructions read as a document; native benchmark skill loading not established",
+          "evidence_ids": [
+            "setup-and-capabilities"
+          ]
+        }
+      },
+      "follow_up": {
+        "required": false,
+        "next_action": null,
+        "deadline_at": null,
+        "observer": null
+      },
+      "schedule": null,
+      "memory": null
+    }
+  ]
+}
