@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Fix a timezone boundary bug"
+  short_description: "Test fix a timezone boundary bug"
+  default_prompt: "Use $benchmark-coding-timezone to run this task once with your own capabilities and return its report and evidence."

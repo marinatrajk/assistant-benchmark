@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-adaptive-tutoring",
+  "version": "1.0.0",
+  "task_id": "adaptive-tutoring",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "adaptive-tutoring"
+  },
+  "files": {
+    "INVOCATION.txt": "8d03497ade7031ee24343fe55beed4306bdfad08a0729ded7e636ab0025dbeba",
+    "SKILL.md": "c977c234b2b667c6ac728ccaffb3017228bdc1cc8d1d7a8ce432cf6f981f9ede",
+    "agents/openai.yaml": "cebbabb2bf8c6e237900feeebff5d952d33e1c6123a2a93235262a1f7c7b8bc1",
+    "assets/input.json": "70c5806813b87c5593ae6d7a749846b195d790c348ed1446d2bcc9bc1f75ff66",
+    "assets/report-template.json": "49c5fa3ad50bbe281c299bed66f8673466455deb34b4eaf582ead04c3e39d5ae",
+    "assets/task.json": "78dd4866d79404f33f7543954daf6fd13ec704220b973d00e99ebe29250b7f25",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "f482b890215f8e006d2f59c69d33bc2ab9ac87e82d190edf8f8798c92c70c780",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

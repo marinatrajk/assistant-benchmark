@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-travel-planning",
+  "version": "1.0.0",
+  "task_id": "travel-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "travel-planning"
+  },
+  "files": {
+    "INVOCATION.txt": "9670955e353cd5d3e85e4c546f7500530a24e98b0a945838bc0ca8d44dace9cf",
+    "SKILL.md": "9f44f096b33cb6557e501ca4ffb96af043eb23dbe211faaf23a7aa2af96cfbf6",
+    "agents/openai.yaml": "6b29b7fde8de7da12e69d4c8b4af77c19b5c40d932af4af9d63f628c038c52c6",
+    "assets/input.json": "fd01a95d95b1d74323845d51a7400a881578188e21618e6fd53a27d1675f1899",
+    "assets/report-template.json": "5b815505dbec96997952e66ccc856b3d0993e7e0458942d9e0b6626320174c2d",
+    "assets/task.json": "2347d45a01a842a30754f74064edcb753d34266192d5a978b3e28daa256ca843",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "5c6d56b7f544e467a69ad320ffbca7b0d1b1f8b62734bb915f2b0e84bb7072d1",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

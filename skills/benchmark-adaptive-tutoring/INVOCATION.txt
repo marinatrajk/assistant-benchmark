@@ -1,0 +1,1 @@
+Use $benchmark-adaptive-tutoring to evaluate only adaptive-tutoring once using your own existing tools. Follow the task sheet and limits; return the one-task report and actual evidence. Keep hidden metadata null and the report unreviewed.

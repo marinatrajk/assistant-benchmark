@@ -98,6 +98,23 @@ class TaskReportTests(unittest.TestCase):
         report["tasks"][0]["task_id"] = "browser-research"
         self.assertIn("Wrong task_id for this skill", validator.validate(report, task_spec=task_spec))
 
+    def test_search_intent_passes_require_every_check_and_operator_input(self):
+        for entry in CATALOG:
+            if entry['family'] != 'search_intent':
+                continue
+            for check_id in entry['checks']:
+                with self.subTest(task=entry['task_id'], check=check_id):
+                    task_spec, report = fixture(entry['task_id'], passed=True)
+                    check = next(item for item in report['tasks'][0]['checks'] if item['id'] == check_id)
+                    check.update(status='unverified', evidence_ids=[])
+                    self.assertIn('Full pass requires all checks', validator.validate(report, task_spec=task_spec))
+            for key, value in entry['inputs'].items():
+                if value is None:
+                    with self.subTest(task=entry['task_id'], missing_input=key):
+                        task_spec, report = fixture(entry['task_id'], passed=True)
+                        report['task_inputs'][key] = None
+                        self.assertTrue(validator.validate(report, task_spec=task_spec))
+
     def test_video_requires_evidence_for_both_sources_and_file_handoff(self):
         for check_id in [f"{platform}-{check}" for platform in ("youtube", "tiktok")
                          for check in ("source", "download", "transcript", "verification")] + ["usable-artifacts"]:
@@ -214,6 +231,9 @@ class TaskPackageTests(unittest.TestCase):
                     with zipfile.ZipFile(output / f'{entry["name"]}.zip') as archive:
                         archive.extractall(extracted)
                     folder = extracted / entry["name"]
+                    for target, source in entry.get('bundled_inputs', {}).items():
+                        self.assertEqual((folder / target).read_bytes(), (ROOT / source).read_bytes())
+                    self.assertFalse(any('reviewer' in path.parts for path in folder.rglob('*')))
                     result = subprocess.run([sys.executable, str(folder / "scripts/validate_report.py"),
                                              str(folder / "assets/report-template.json"), "--check-files"],
                                             cwd=extracted, capture_output=True, text=True)

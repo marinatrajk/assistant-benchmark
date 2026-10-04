@@ -1,0 +1,49 @@
+{
+  "sources": [
+    {
+      "id": "S1",
+      "type": "specification",
+      "model": "Redwood 14",
+      "price_usd": 1099,
+      "ram_gb": 16,
+      "dedicated_gpu": false,
+      "weight_kg": 1.4
+    },
+    {
+      "id": "S2",
+      "type": "specification",
+      "model": "Slate 15",
+      "price_usd": 1199,
+      "ram_gb": 16,
+      "dedicated_gpu": true,
+      "weight_kg": 1.9
+    },
+    {
+      "id": "S3",
+      "type": "manual",
+      "model": "Harbor 14",
+      "price_usd": 1149,
+      "ram_gb": 16,
+      "dedicated_gpu": true,
+      "weight_kg": 1.5,
+      "usb": "USB 3.2; no USB4"
+    },
+    {
+      "id": "S4",
+      "type": "marketing",
+      "model": "Harbor 14",
+      "claim": "Up to 10 hours battery and USB4 connectivity"
+    },
+    {
+      "id": "S5",
+      "type": "controlled-review",
+      "method": "same 200-nit browsing workload",
+      "battery_hours": {
+        "Redwood 14": 8.1,
+        "Slate 15": 5.0,
+        "Harbor 14": 4.0
+      },
+      "notes": "Harbor 14 loses sustained GPU performance when hot."
+    }
+  ]
+}

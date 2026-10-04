@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-research-synthesis",
+  "version": "1.0.0",
+  "task_id": "research-synthesis",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "research-synthesis"
+  },
+  "files": {
+    "INVOCATION.txt": "642980ba4eb8498e473ad3343110c3f78e62ea3a52b487f55175aca77561fdff",
+    "SKILL.md": "52d5818f242058cc3e0bc4cf861aaf4f43fd0913d9d97d0b6137d884d4ca1422",
+    "agents/openai.yaml": "8df73e41b679aee82d53c6eddf05b1551ad155b498c4f91a7b8abc29e2d2c15c",
+    "assets/input.json": "bf8db2282a0b28d8027383a2aead279d531fc09946c22b219f1f4d77fe97f76b",
+    "assets/report-template.json": "1d83f46bf3d120dda0f01a20317e86e85f0d9e91b12a85edde44d7d8e239075b",
+    "assets/task.json": "5b49702a0d84f555ebe10d4aa0bb4df1b8d12c99cc572012845ca1a4951879f3",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "406a929c4a038f946cee03bcde5383abe0f2bbc2697383b6721d3adf94a068e8",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

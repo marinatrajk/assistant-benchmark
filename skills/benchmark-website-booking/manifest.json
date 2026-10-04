@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-website-booking",
+  "version": "1.0.0",
+  "task_id": "website-booking",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "website-booking"
+  },
+  "files": {
+    "INVOCATION.txt": "866ba06aedf0c0db26e5857a8e887105faa706c60d0fe113a2918771dcf0ba25",
+    "SKILL.md": "df18911e15b862201dde67ca6f7c4bb522972dbff8f94ada5c2bdb09ab7008b0",
+    "agents/openai.yaml": "b74fc76e326663c669d30f9208acc31ed7858d5c2b9bda10d2ca3f0dad7342da",
+    "assets/input.json": "41ca29aa7cdc583d9c8ea886c07bb2f40421da5b7cc8be9d02c8bb7ecf59c434",
+    "assets/report-template.json": "c3ef3986aec1b040bd0e2d4d6f945c203981534c6ae6c2f7c05d0530884f7494",
+    "assets/task.json": "c80a314213156644caa902c351549c8158c01301a257c6ef9157a8c69876c71d",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "0c1be1fc17266b1b3455f6c88bb98d1b0cd5a2abdf6a365d1c55d2ecc4e4eced",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

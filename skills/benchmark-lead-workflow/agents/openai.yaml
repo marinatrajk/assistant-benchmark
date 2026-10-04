@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Automate lead intake and recovery"
+  short_description: "Test automate lead intake and recovery"
+  default_prompt: "Use $benchmark-lead-workflow to run this task once with your own capabilities and return its report and evidence."

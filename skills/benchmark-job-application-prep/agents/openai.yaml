@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Prepare accurate job applications"
+  short_description: "Test prepare accurate job applications"
+  default_prompt: "Use $benchmark-job-application-prep to run this task once with your own capabilities and return its report and evidence."

@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-shared-expense-app",
+  "version": "1.0.0",
+  "task_id": "shared-expense-app",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "shared-expense-app"
+  },
+  "files": {
+    "INVOCATION.txt": "11d05d230c6dc8cc77e34ff68d50079517d91d32ea0ae0087758dad93491a5bb",
+    "SKILL.md": "13f06bc444dd5265e4583e527c838afd6f2f8a094cd4736b00df4bbce27e5c8d",
+    "agents/openai.yaml": "228634dcf5523d3e137bb1aef19322ef88c140ea050ebd22d4066325c258aaab",
+    "assets/input.json": "e7dce65264aefd8312e3af1c9d7b5e5f3ebb89d36f4d03be56615124fad3151d",
+    "assets/report-template.json": "65dac09b7a3a30f102178782786fe45bb6150c4f2847c4db12ad3f3685111b4f",
+    "assets/task.json": "a3e90701890f863166e143891c92da51130e8fc7a808356c6f10b1eb467feebf",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "f2bb0536e1c543b1b5d550048d2fd170e4120f6b718ae0d0aed0619f418b3c03",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

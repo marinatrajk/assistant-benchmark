@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-email-management",
+  "version": "1.0.0",
+  "task_id": "email-management",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "email-management"
+  },
+  "files": {
+    "INVOCATION.txt": "d208495df04d077411eb70c039d9b03f2a70285ab910740e31be8c109cd0be8e",
+    "SKILL.md": "e7ca990eeb70da69aa7f95f737a15cae22dc5b5580ebfaaaa32f08322d166c31",
+    "agents/openai.yaml": "2fa42fd29503fc4362cb5949d12d7bc2d6827c34795493d5a39e5c63bfd27dfb",
+    "assets/input.json": "044a492919987dd305ba70dd671197a7766ec45456cc46e784b786961c107ce1",
+    "assets/report-template.json": "fa2ccd0f9d38882c4af3969420391ad3d1e092b8a301f48546046d0fed51d2f5",
+    "assets/task.json": "496f702fab3f1aacace4b5c2c64ccfadb4c2a1a7ff2e20bbb28e588406ec08d0",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "8aeb3e8832da25a5b48f3dfeda7c1afca2529b09c30ea6864426650caaffa027",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

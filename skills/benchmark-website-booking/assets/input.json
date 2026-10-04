@@ -1,0 +1,39 @@
+{
+  "business": "Paw & Polish",
+  "timezone": "America/New_York",
+  "hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "services": [
+    {
+      "id": "wash",
+      "name": "Wash and dry",
+      "minutes": 30,
+      "price_usd": 40
+    },
+    {
+      "id": "full",
+      "name": "Full groom",
+      "minutes": 60,
+      "price_usd": 75
+    },
+    {
+      "id": "nails",
+      "name": "Nail trim",
+      "minutes": 15,
+      "price_usd": 15
+    }
+  ],
+  "test_customer": {
+    "name": "Alex Example",
+    "email": "alex@example.invalid"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Trip planning under a budget"
+  short_description: "Test trip planning under a budget"
+  default_prompt: "Use $benchmark-travel-planning to run this task once with your own capabilities and return its report and evidence."

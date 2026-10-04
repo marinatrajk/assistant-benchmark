@@ -2,81 +2,151 @@
   "project_name": "Best AI Agent for [ ]",
   "use_cases": [
     {
+      "id": "travel",
+      "label": "Travel planning",
+      "phrase": "travel planning",
+      "description": "Plan a trip within a budget, compare the supplied quotes and adapt when plans change.",
+      "task_ids": [
+        "travel-planning"
+      ]
+    },
+    {
+      "id": "email",
+      "label": "Email management",
+      "phrase": "email management",
+      "description": "Triage a supplied inbox, draft accurate replies and resolve calendar conflicts.",
+      "task_ids": [
+        "email-management"
+      ]
+    },
+    {
       "id": "research",
-      "label": "Purchase research",
-      "phrase": "purchase research",
-      "description": "Compare products against a purchase brief with verified prices, variants and sources.",
-      "task_ids": ["purchase-research"]
+      "label": "Research",
+      "phrase": "research",
+      "description": "Compare sources, check constraints and deliver recommendations with traceable evidence.",
+      "task_ids": [
+        "browser-research",
+        "purchase-research",
+        "video-download-transcription",
+        "research-synthesis"
+      ]
     },
     {
-      "id": "shopping",
-      "label": "Checkout handoff",
-      "phrase": "shopping",
-      "description": "Reach the correct checkout and hand it back to the user before payment.",
-      "task_ids": ["checkout-handoff"]
+      "id": "coding",
+      "label": "Coding",
+      "phrase": "coding",
+      "description": "Fix a real bug, handle edge cases and keep existing callers working when requirements change.",
+      "task_ids": [
+        "coding-timezone"
+      ]
     },
     {
-      "id": "reminders",
-      "label": "Reminders",
-      "phrase": "reminders",
-      "description": "Deliver a reminder on time, then correctly change and cancel another reminder.",
-      "task_ids": ["reminder-delivery", "reminder-change-cancel"]
+      "id": "website",
+      "label": "Build a website",
+      "phrase": "building a website",
+      "description": "Build and verify a booking website that works on mobile and saves customer bookings.",
+      "task_ids": [
+        "website-booking"
+      ]
     },
     {
-      "id": "files",
-      "label": "Expense cleanup",
-      "phrase": "expense cleanup",
-      "description": "Reconcile messy receipts into usable files with accurate totals and flagged missing values.",
-      "task_ids": ["expense-summary"]
+      "id": "app",
+      "label": "Build an app",
+      "phrase": "building an app",
+      "description": "Build a working shared expense app with persistent data, settlements and separate user groups.",
+      "task_ids": [
+        "shared-expense-app"
+      ]
     },
     {
-      "id": "browser-forms",
-      "label": "Browser forms",
-      "phrase": "browser forms",
-      "description": "Enter the requested values, submit once and retain a matching confirmation.",
-      "task_ids": ["browser-form"]
+      "id": "automation",
+      "label": "Workflow automation",
+      "phrase": "workflow automation",
+      "description": "Run a lead workflow, prevent duplicates and recover when a connected service fails.",
+      "task_ids": [
+        "lead-workflow"
+      ]
     },
     {
-      "id": "memory",
-      "label": "Memory recall",
-      "phrase": "memory recall",
-      "description": "Retrieve updated preferences in a separate conversation without the earlier transcript.",
-      "task_ids": ["memory-followup"]
+      "id": "personal",
+      "label": "Personal assistant",
+      "phrase": "personal use",
+      "description": "Plan the week, manage reminders, complete everyday tasks and retain updated preferences.",
+      "task_ids": [
+        "browser-form",
+        "memory-update",
+        "computer-calculator",
+        "checkout-handoff",
+        "reminder-delivery",
+        "reminder-change-cancel",
+        "scheduled-research",
+        "memory-followup",
+        "weekly-planning"
+      ]
     },
     {
-      "id": "browser-research",
-      "label": "Browser research",
-      "phrase": "browser research",
-      "description": "Select a qualifying plan from a browser fixture using the required native research workflow.",
-      "task_ids": ["browser-research"]
+      "id": "finance",
+      "label": "Financial analysis / trading",
+      "phrase": "financial analysis and trading",
+      "description": "Analyze supplied financial data and run a reproducible paper backtest with fees.",
+      "task_ids": [
+        "financial-analysis"
+      ]
     },
     {
-      "id": "memory-updates",
-      "label": "Memory updates",
-      "phrase": "memory updates",
-      "description": "Write and update an isolated durable preference using the required native memory workflow.",
-      "task_ids": ["memory-update"]
+      "id": "jobs",
+      "label": "Job applications / résumé",
+      "phrase": "job applications and résumés",
+      "description": "Match roles to a candidate and prepare accurate, tailored application materials.",
+      "task_ids": [
+        "job-application-prep"
+      ]
     },
     {
-      "id": "scheduled-research",
-      "label": "Scheduled research",
-      "phrase": "scheduled research",
-      "description": "Run a fresh source check at a later time and deliver an accurate update within the deadline.",
-      "task_ids": ["scheduled-research"]
+      "id": "slides",
+      "label": "PowerPoint slides",
+      "phrase": "PowerPoint slides",
+      "description": "Create an editable PowerPoint deck with accurate charts and revise the underlying numbers.",
+      "task_ids": [
+        "board-slides"
+      ]
     },
     {
-      "id": "computer",
-      "label": "Computer use",
-      "phrase": "computer use",
-      "description": "Operate the operating-system Calculator through native desktop controls.",
-      "task_ids": ["computer-calculator"]
+      "id": "images",
+      "label": "Photo editing / image generation",
+      "phrase": "photo editing and image generation",
+      "description": "Edit supplied product photos consistently and preserve their details. Image generation is not yet covered.",
+      "task_ids": [
+        "image-editing"
+      ]
     },
     {
-      "id": "video",
-      "label": "Video & transcripts",
-      "phrase": "video downloads and transcripts",
-      "description": "Deliver playable YouTube and TikTok videos with timestamped transcripts verified against their audio.",
-      "task_ids": ["video-download-transcription"]
+      "id": "students",
+      "label": "Students / learning",
+      "phrase": "students and learning",
+      "description": "Teach a concept, respond to a learner’s mistakes and check their understanding.",
+      "task_ids": [
+        "adaptive-tutoring"
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Small business",
+      "phrase": "small business",
+      "description": "Clean up expenses, reconcile payments and deliver usable financial files.",
+      "task_ids": [
+        "expense-summary",
+        "business-reconciliation"
+      ]
+    },
+    {
+      "id": "local",
+      "label": "Run locally / self-hosted",
+      "phrase": "running locally",
+      "description": "Install a selected assistant locally and verify that it still works after an offline restart.",
+      "task_ids": [
+        "local-deployment"
+      ]
     }
   ],
   "round_id": "standalone-20261002",
@@ -93,8 +163,8 @@
     "Muse"
   ],
   "methodology": [
-    "Each of the 12 tasks has its own versioned skill, inputs, limits, evidence checklist, and report. Tasks are assigned one at a time using each assistant’s own existing tools.",
-    "The score counts reviewed full passes out of the 12 tasks in the catalog. Not-started and unreviewed tasks are not failures; review coverage is shown alongside the score.",
+    "Each of the 27 tasks has its own versioned skill, inputs, limits, evidence checklist, and report. Tasks are assigned one at a time using each assistant’s own existing tools.",
+    "The score counts reviewed full passes out of the 27 tasks in the catalog, or the selected category. Review coverage is shown separately; not-started and unreviewed tasks are not failures.",
     "An assistant’s self-score is a claim to inspect. Codex assists the operator in checking actual artifacts, browser observations, action records, and delivery evidence against the published criteria.",
     "Dots, GrokBot, Instinct and Muse were evaluated in existing conversations containing earlier context. Browser session and profile conditions are recorded per run. These conditions limit comparability.",
     "Browser research, memory update, and Calculator require a relevant native workflow skill in addition to the benchmark assignment. Reading the assignment as a document does not satisfy that check.",
@@ -102,7 +172,8 @@
     "Timed tasks return control while awaiting events. Other tasks may run during those waits; overlapping activity is disclosed in the affected run rather than assumed to explain an outcome.",
     "Cross-conversation memory requires a genuinely separate conversation without the seed or update transcript. Same-conversation recall cannot pass.",
     "Checks are AI-assisted, not blinded or independently replicated. One attempt and different tool environments do not establish an overall assistant ranking. Unknown model identities and usage remain undisclosed.",
-    "Video download and transcription was run once for each assistant on October 3, 2026 against the same frozen package and source URLs. The four evaluation windows overlap. Three results are partial and one blocked; none fully passed. Evidence-only follow-ups recovered oversized files and corrected reports without rerunning source work. The earlier 11 task results are unchanged."
+    "Video download and transcription was run once for each assistant on October 3, 2026 against the same frozen package and source URLs. The four evaluation windows overlap. Three results are partial and one blocked; none fully passed. Evidence-only follow-ups recovered oversized files and corrected reports without rerunning source work. The earlier 11 task results are unchanged.",
+    "On October 4, 2026, 15 search-intent cases were added across 15 categories. All start as not run. Each includes an initial brief, a separate operator change, required outputs and evidence checks. Existing results and their review dates are unchanged. Autocomplete informed category selection, not measured search volume or capability claims."
   ],
   "tasks": [
     {
@@ -231,7 +302,7 @@
         }
       },
       "criterion": "Enter the requested values through the browser, submit once, and observe the confirmation receipt.",
-      "category": "Browser"
+      "category": "Personal assistant"
     },
     {
       "task_id": "browser-research",
@@ -352,7 +423,7 @@
         }
       },
       "criterion": "Load a relevant native research skill, observe all plan limits and prices, choose the cheapest qualifying plan, and cite the visited page.",
-      "category": "Browser"
+      "category": "Research"
     },
     {
       "task_id": "memory-update",
@@ -469,7 +540,7 @@
         }
       },
       "criterion": "Load a relevant native memory skill, retrieve the isolated seeded preference, update it durably, and verify the current value without conflicting entries.",
-      "category": "Memory"
+      "category": "Personal assistant"
     },
     {
       "task_id": "computer-calculator",
@@ -586,7 +657,7 @@
         }
       },
       "criterion": "Load a relevant native desktop skill, enter 137 × 29 in the operating system’s Calculator, observe its display, and report the displayed result.",
-      "category": "Computer"
+      "category": "Personal assistant"
     },
     {
       "task_id": "purchase-research",
@@ -807,7 +878,7 @@
         }
       },
       "criterion": "Prepare the exact cart, reach visible payment fields, verify displayed totals, and provide a secure handoff without placing an order.",
-      "category": "Shopping"
+      "category": "Personal assistant"
     },
     {
       "task_id": "reminder-delivery",
@@ -931,7 +1002,7 @@
         }
       },
       "criterion": "Create the reminder and observe exactly one delivery, not early and no more than 120 seconds late, through the observation window.",
-      "category": "Scheduling"
+      "category": "Personal assistant"
     },
     {
       "task_id": "reminder-change-cancel",
@@ -1072,7 +1143,7 @@
         }
       },
       "criterion": "Create one reminder, update that same reminder, cancel it, and verify no delivery through both due times plus two minutes.",
-      "category": "Scheduling"
+      "category": "Personal assistant"
     },
     {
       "task_id": "scheduled-research",
@@ -1206,7 +1277,7 @@
         }
       },
       "criterion": "Schedule a fresh product check after the due time and deliver an accurate source-linked update within five minutes.",
-      "category": "Scheduling"
+      "category": "Personal assistant"
     },
     {
       "task_id": "memory-followup",
@@ -1317,7 +1388,7 @@
         }
       },
       "criterion": "Store and update isolated synthetic preferences, then retrieve and apply the current values in a genuinely separate conversation.",
-      "category": "Memory"
+      "category": "Personal assistant"
     },
     {
       "task_id": "expense-summary",
@@ -1463,7 +1534,7 @@
         }
       },
       "criterion": "Remove duplicate expenses, retain refunds, flag missing values, reconcile totals, and deliver usable files.",
-      "category": "Files"
+      "category": "Small business"
     },
     {
       "task_id": "video-download-transcription",
@@ -1473,7 +1544,7 @@
       "package_url": "downloads/benchmark-video-download-transcription.zip",
       "package_sha256": "f8152a25314ccb06816b149dbdd7d2a9ef0e7d0f91c61b4491dda17238082ce0",
       "criterion": "Download both complete videos with audio, deliver full readable and timestamped transcripts, verify them against the audio, and hand back usable files with per-source provenance.",
-      "category": "Video",
+      "category": "Research",
       "results": {
         "ChatGPT Dots": {
           "status": "partial",
@@ -1614,11 +1685,674 @@
       },
       "evaluated_on": "2026-10-03",
       "tested_repository_commit": "ce83a1a0d64eeaf7988105e994e15ced8c398ed8"
+    },
+    {
+      "task_id": "travel-planning",
+      "name": "Trip planning under a budget",
+      "skill": "benchmark-travel-planning",
+      "protocol_url": "protocols/search-intents/travel-planning.md",
+      "package_url": "downloads/benchmark-travel-planning.zip",
+      "package_sha256": "157b0bacbdd815747ca0d6ee657a64cdc47d6537cc28c366305b8ccab7dfc0c9",
+      "criterion": "Deliver an initial and revised itinerary that meets the budget and travel constraints, with complete costs and traceable quote IDs.",
+      "category": "Travel planning",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "email-management",
+      "name": "Inbox triage and reply drafts",
+      "skill": "benchmark-email-management",
+      "protocol_url": "protocols/search-intents/email-management.md",
+      "package_url": "downloads/benchmark-email-management.zip",
+      "package_sha256": "ad3722bd341c37ebeee12116e08557659fc77df4ce3bc799edeeac077cd855bd",
+      "criterion": "Prioritize the inbox, draft accurate replies, flag duplicate and malicious messages, and revise a meeting proposal without a calendar conflict.",
+      "category": "Email management",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "research-synthesis",
+      "name": "Research with conflicting sources",
+      "skill": "benchmark-research-synthesis",
+      "protocol_url": "protocols/search-intents/research-synthesis.md",
+      "package_url": "downloads/benchmark-research-synthesis.zip",
+      "package_sha256": "226f76761acce7417cf33cbe8eee99f8f10d4dac4d13e0731ccfd0adece94533",
+      "criterion": "Compare all candidates against the brief, reconcile conflicting source claims with citations, and update the recommendation when priorities change.",
+      "category": "Research",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "coding-timezone",
+      "name": "Fix a timezone boundary bug",
+      "skill": "benchmark-coding-timezone",
+      "protocol_url": "protocols/search-intents/coding-timezone.md",
+      "package_url": "downloads/benchmark-coding-timezone.zip",
+      "package_sha256": "ba4716d7b91753fbcc572c3088f2a22ddc6bd8ed4c3f85443859bce08a21005a",
+      "criterion": "Deliver working initial and revised Python code that handles timezone boundaries, rejects invalid inputs, preserves callers and applies elapsed offsets correctly.",
+      "category": "Coding",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "website-booking",
+      "name": "Build a working booking website",
+      "skill": "benchmark-website-booking",
+      "protocol_url": "protocols/search-intents/website-booking.md",
+      "package_url": "downloads/benchmark-website-booking.zip",
+      "package_sha256": "cab9eebe73cf04403984f7aadf6d6629f27a0af7a0e7ca4dbf28e3b6aad1dfa8",
+      "criterion": "Deliver a working responsive booking site with validation, stored bookings and a staff view; add a service without losing earlier bookings.",
+      "category": "Build a website",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "shared-expense-app",
+      "name": "Build a shared expense app",
+      "skill": "benchmark-shared-expense-app",
+      "protocol_url": "protocols/search-intents/shared-expense-app.md",
+      "package_url": "downloads/benchmark-shared-expense-app.zip",
+      "package_sha256": "f159ce700b8db5857b659c8a7978fce9f86b2097b134b607e337b6db8b8d0a5e",
+      "criterion": "Deliver a working app that persists shared expenses, computes refunds and settlements correctly, and isolates separate user groups.",
+      "category": "Build an app",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "lead-workflow",
+      "name": "Automate lead intake and recovery",
+      "skill": "benchmark-lead-workflow",
+      "protocol_url": "protocols/search-intents/lead-workflow.md",
+      "package_url": "downloads/benchmark-lead-workflow.zip",
+      "package_sha256": "ffd0233e8123eb4bd0a1440a34494dd63f589c3626c69bd14f73cc4e0a3220e3",
+      "criterion": "Run a real lead trigger, assign owners, prevent duplicate records and drafts, and recover from an observed temporary CRM failure.",
+      "category": "Workflow automation",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "weekly-planning",
+      "name": "Plan and revise a working week",
+      "skill": "benchmark-weekly-planning",
+      "protocol_url": "protocols/search-intents/weekly-planning.md",
+      "package_url": "downloads/benchmark-weekly-planning.zip",
+      "package_sha256": "0d1c817d14bc5fce078148429084e775f44d1b1e539c67c5e3c28de23248486e",
+      "criterion": "Deliver a feasible weekly agenda and importable calendar, then revise deadlines and meetings while preserving completed work and stable event IDs.",
+      "category": "Personal assistant",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "financial-analysis",
+      "name": "Financial analysis and a paper backtest",
+      "skill": "benchmark-financial-analysis",
+      "protocol_url": "protocols/search-intents/financial-analysis.md",
+      "package_url": "downloads/benchmark-financial-analysis.zip",
+      "package_sha256": "603bc3f1bf60022d5aa62dc30a26741a284ca58ffffce21e335b56e3dc602016",
+      "criterion": "Deliver a formula-driven financial comparison and a paper trade ledger without lookahead; recompute fees and a changed margin scenario.",
+      "category": "Financial analysis / trading",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "job-application-prep",
+      "name": "Prepare accurate job applications",
+      "skill": "benchmark-job-application-prep",
+      "protocol_url": "protocols/search-intents/job-application-prep.md",
+      "package_url": "downloads/benchmark-job-application-prep.zip",
+      "package_sha256": "d203fbcd74f7abeb7d910364ab7d64134e1e665c8ee2a9fce2e65c5be5871343",
+      "criterion": "Select qualifying jobs, deliver tailored résumés and application fields without invented credentials, and revise the shortlist when constraints change.",
+      "category": "Job applications / résumé",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "board-slides",
+      "name": "Create an editable board update",
+      "skill": "benchmark-board-slides",
+      "protocol_url": "protocols/search-intents/board-slides.md",
+      "package_url": "downloads/benchmark-board-slides.zip",
+      "package_sha256": "391114abde755e51c3803ece8e218a818bb2eed6cd147756a6dd7847a9ea18b5",
+      "criterion": "Deliver six readable, editable PowerPoint slides whose numbers reconcile to the source packet, then update every dependent figure after the forecast changes.",
+      "category": "PowerPoint slides",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "image-editing",
+      "name": "Prepare consistent product images",
+      "skill": "benchmark-image-editing",
+      "protocol_url": "protocols/search-intents/image-editing.md",
+      "package_url": "downloads/benchmark-image-editing.zip",
+      "package_sha256": "309e675ad0f8e4bb67bc68b5175865e1acbadc4825748308a87582515ca2f2e8",
+      "criterion": "Deliver three consistent transparent product images with preserved labels, colors and geometry; revise only the requested image and retain both versions.",
+      "category": "Photo editing / image generation",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "adaptive-tutoring",
+      "name": "Teach and adapt to misconceptions",
+      "skill": "benchmark-adaptive-tutoring",
+      "protocol_url": "protocols/search-intents/adaptive-tutoring.md",
+      "package_url": "downloads/benchmark-adaptive-tutoring.zip",
+      "package_sha256": "2469bf1681a8d9e6ca502b2e61fb4cf1a6e62a134cc00a9cfafff493e9fde9b6",
+      "criterion": "Wait for real learner responses, diagnose the actual misconception, teach accurately and assess a fresh transfer question with reasoned feedback.",
+      "category": "Students / learning",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "business-reconciliation",
+      "name": "Reconcile business cash and invoices",
+      "skill": "benchmark-business-reconciliation",
+      "protocol_url": "protocols/search-intents/business-reconciliation.md",
+      "package_url": "downloads/benchmark-business-reconciliation.zip",
+      "package_sha256": "8d98902bcdc077b0380b7507ac268946137d915232d0cb4fa045a511e5e46965",
+      "criterion": "Deliver a working reconciliation spreadsheet with accurate deduplication, refunds, receivables and cash totals, then incorporate a new payment.",
+      "category": "Small business",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
+    },
+    {
+      "task_id": "local-deployment",
+      "name": "Run an assistant offline",
+      "skill": "benchmark-local-deployment",
+      "protocol_url": "protocols/search-intents/local-deployment.md",
+      "package_url": "downloads/benchmark-local-deployment.zip",
+      "package_sha256": "1cd65db9ce5246643ce2a8c17000ffd6e8feee0c22bd0227cea601421df934fd",
+      "criterion": "Run the selected assistant on an isolated local machine, produce correct file outputs, restart offline and process a changed input with no remote fallback.",
+      "category": "Run locally / self-hosted",
+      "results": {
+        "ChatGPT Dots": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "GrokBot": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Instinct": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        },
+        "Muse": {
+          "status": "not_run",
+          "review_status": "unreviewed",
+          "run_id": null,
+          "summary": "No attempt has been started for this case.",
+          "details": [],
+          "sources": []
+        }
+      }
     }
   ],
   "manual_testing": {
     "name": "Voice-mode tests",
     "url": "https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode",
     "status": "not_evaluated"
-  }
+  },
+  "catalog_version": "1.1.0",
+  "catalog_updated_on": "2026-10-04",
+  "catalog_repository_ref": "main"
 }

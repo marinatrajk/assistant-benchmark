@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Teach and adapt to misconceptions"
+  short_description: "Test teach and adapt to misconceptions"
+  default_prompt: "Use $benchmark-adaptive-tutoring to run this task once with your own capabilities and return its report and evidence."

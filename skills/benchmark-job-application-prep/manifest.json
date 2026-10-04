@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-job-application-prep",
+  "version": "1.0.0",
+  "task_id": "job-application-prep",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "job-application-prep"
+  },
+  "files": {
+    "INVOCATION.txt": "74e122f16ff6b6745a85e255da70aa37246fa2b085db1671bc5322f9ab91d7a8",
+    "SKILL.md": "860996dce3bab79498301c02a5a36f4390a48070bb66a8fdf08d63ecafc1a265",
+    "agents/openai.yaml": "255fcecb6d677a49abb3deb1b92b98c09185a9289da9a407e48b09f6c1003381",
+    "assets/input.json": "554445344f205d7f03b7bb0efc2d7cab6d3b30e37e08034a00998052789844f0",
+    "assets/report-template.json": "d9ca6749fbd9e888356f1bfcfd4a16855c2b63780a7eee7ee4a9b5a2e6608a28",
+    "assets/task.json": "9f97ad4b8367b980ee3102c2f3f45482eba63bbba78ac82b8e1cedbc64ff0cf7",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "f6da4aa588c3dd5259e88d76b8e791dfd75cc5d154cd6d3889549643995899ec",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

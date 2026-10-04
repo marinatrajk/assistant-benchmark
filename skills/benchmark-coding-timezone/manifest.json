@@ -1,0 +1,22 @@
+{
+  "name": "benchmark-coding-timezone",
+  "version": "1.0.0",
+  "task_id": "coding-timezone",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "coding-timezone"
+  },
+  "files": {
+    "INVOCATION.txt": "5de08891e0047a6d68a169ba117104383a16f39be6ccab04374c0462cc40133f",
+    "SKILL.md": "9e507a15376702653758e8dc68cb614e302a064a54af021606f39b339bfc250a",
+    "agents/openai.yaml": "0d19c81b33e53000e83c832f0f26733c21c0fb04d77a8de70511e16f8823d423",
+    "assets/project/README.md": "90161123c6bda009f468f3722455f58ba1c8284b94c572f1596634af618616f9",
+    "assets/project/reminders.py": "082606ede5aaafd8f8c5b36f6adf80106343afb4b1ef5475812dbd7c35895d88",
+    "assets/report-template.json": "b98c1eeef868a0904eb1d9c9608cb2887c8e11f1ce983ad2e541890a3ecc31d9",
+    "assets/task.json": "ac373bee52a97800193e6105a8d1671ee136ca984fa741b7dbc5c54219121a01",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "b5802d4e808840247e891b06062c74025bc7bc19fb23a19ee5b573bb8dd8a012",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

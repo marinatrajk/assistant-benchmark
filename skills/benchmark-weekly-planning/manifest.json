@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-weekly-planning",
+  "version": "1.0.0",
+  "task_id": "weekly-planning",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "weekly-planning"
+  },
+  "files": {
+    "INVOCATION.txt": "b1b058533fc7730e53f9599aa0ad2cb308340a088db7ce7dcb6761eddceaede7",
+    "SKILL.md": "3ecf4f29cf13b10a38f09dc5abc20d54f915668a56fa6def1caf73dcc938f66e",
+    "agents/openai.yaml": "46ad7232914a241916ed4ce1b8545d74af83b06002f8f0cd9664d7dfa3522489",
+    "assets/input.json": "feccff3c5916f9d14d56c2871adcdd817812bb7992ec9d6ff410df5d36ee3304",
+    "assets/report-template.json": "06fdffdc1954704478023ead9fb315d71ad897159f43212a8ec5c8fe8d493676",
+    "assets/task.json": "80dfc8fffcdd1d8d2cf9f448389b6a73f68a7afd5d4e1e3053a1321a21c3e6af",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "795c9b22a2aaf0bd35fb2058f8e60d8da3d7030a77311000cb8615c81efc5d73",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

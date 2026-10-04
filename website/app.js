@@ -30,23 +30,19 @@ const reviewedCount = (name, indices = groups['All tasks']) => indices.filter(i 
 const unresolvedLabel = name => `${reviewedCount(name)} of ${data.tasks.length} reviewed`;
 const score = (passed, total) => `<span class="score-number">${passed}<span class="score-divider">/</span><span class="score-total">${total}</span></span>`;
 const round = () => '<div class="round-meta"><span class="round-label">In progress</span><span>Oct 2, 2026</span></div>';
-const note = () => `<div class="snapshot-note">${glyph('clock')}<p>Only reviewed passes count. Unrun tests are not failures.</p><a href="#methodology">Methodology</a></div>`;
 const updated = () => `<p class="fineprint">Updated ${esc(data.updated_at)}. Individual skill version ${esc(data.suite_version)}.</p>`;
 
 const selectedUseCase = () => data.use_cases.find(useCase => useCase.label === filter);
 
-function qualifyingUseCases(name) {
-  return data.use_cases.filter(useCase => useCase.task_ids.length && useCase.task_ids.every(id => {
-    const result = data.tasks.find(task => task.task_id === id)?.results[name];
-    return result?.status === 'passed' && result.review_status === 'reviewed';
-  }));
-}
-
 function useCaseLabels(name) {
-  const useCases = qualifyingUseCases(name);
-  return `<div class="agent-labels" aria-label="${esc(name)}: use cases with reviewed passes">${useCases.length
-    ? useCases.map(useCase => `<a class="use-case-label${filter === useCase.label ? ' selected' : ''}" href="#for/${esc(useCase.id)}" title="${esc(`${useCase.task_ids.length} of ${useCase.task_ids.length} mapped tests passed and reviewed. Compare ${useCase.label.toLowerCase()}.`)}">${esc(useCase.label)}</a>`).join('')
-    : '<span class="no-use-case-labels">No reviewed use-case passes yet</span>'}</div>`;
+  const useCases = data.use_cases.filter(useCase => reviewedCount(name, groups[useCase.label]) > 0);
+  return `<div class="agent-labels" aria-label="${esc(name)}: tested categories">${useCases.length
+    ? useCases.map(useCase => {
+      const indices = groups[useCase.label];
+      const passed = count(name, indices);
+      return `<a class="use-case-label${passed ? ' has-passes' : ''}${filter === useCase.label ? ' selected' : ''}" href="#for/${esc(useCase.id)}" title="${esc(`${passed} reviewed passes / ${indices.length} tests; ${reviewedCount(name, indices)} reviewed. Compare ${useCase.label.toLowerCase()}.`)}">${esc(useCase.label)} <span class="category-score">${passed}/${indices.length}</span></a>`;
+    }).join('')
+    : '<span class="no-use-case-labels">No reviewed tests yet</span>'}</div>`;
 }
 
 function leaderboard() {
@@ -77,11 +73,13 @@ function renderHome() {
     <div class="toolbar"><div class="filters" role="group" aria-label="Filter by use case">${Object.entries(groups).map(([name, indices]) => `<button class="chip" type="button" data-filter="${esc(name)}" aria-pressed="${filter === name}">${esc(name)}<span>${indices.length}</span></button>`).join('')}</div>
       <div class="segmented" role="group" aria-label="Results layout"><button type="button" data-layout="list" aria-label="List view" title="List view" aria-pressed="${layout === 'list'}">${glyph('list')}</button><button type="button" data-layout="grid" aria-label="Grid view" title="Grid view" aria-pressed="${layout === 'grid'}">${glyph('grid')}</button></div>
     </div>
-    <p class="label-explainer">Labels show reviewed passes on every test mapped to that use case. These are provisional results from specific tasks.</p>
+    ${useCase ? `<details class="category-protocols"><summary>${useCase.task_ids.length} test ${useCase.task_ids.length === 1 ? 'case' : 'cases'}</summary>${groups[filter].map(index => {
+      const task = data.tasks[index];
+      return `<article><h2>${esc(task.name)}</h2><p>${esc(task.criterion)}</p><a href="${esc(instructionsUrl(task))}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a></article>`;
+    }).join('')}</details>` : ''}
+    <p class="label-explainer">Category tags show reviewed passes / tests. New cases are not started. Results describe the tested tasks.</p>
     <div id="leaderboard" aria-live="polite">${leaderboard()}</div>
-    <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_run">Not started</span></div><span class="key-caption">Reviewed passes / individual tasks</span></div>
-    <p class="manual-note">Manual: <a href="https://github.com/marinatrajk/assistant-benchmark/tree/main/manual-testing/voice-mode">Voice-mode tests</a> · Results coming after testing.</p>
-    ${note()}`;
+    <div class="results-key"><div class="legend"><span class="passed">Passed</span><span class="partial">Partial / needs user</span><span class="failed">Failed</span><span class="pending">Pending</span><span class="not_run">Not started</span></div><span class="key-caption">Reviewed passes / individual tasks</span></div>`;
   content.querySelectorAll('[data-filter]').forEach(button => {
     button.onclick = () => {
       const useCase = data.use_cases.find(item => item.label === button.dataset.filter);
@@ -205,9 +203,10 @@ function evidence(task, result) {
   </div></details>`;
 }
 
+const instructionsUrl = task => task.protocol_url || `https://github.com/marinatrajk/assistant-benchmark/tree/${data.repository_commit}/skills/${task.skill}`;
+
 function protocol(task, result) {
-  const instructionsUrl = task.protocol_url || `https://github.com/marinatrajk/assistant-benchmark/tree/${data.repository_commit}/skills/${task.skill}`;
-  return `<details class="skill-protocol"><summary>Task protocol</summary><div><a href="${esc(instructionsUrl)}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(data.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details>`;
+  return `<details class="skill-protocol"><summary>Task protocol</summary><div><a href="${esc(instructionsUrl(task))}">Instructions and checks ↗</a><a href="${esc(task.package_url)}">Download skill ZIP</a><p>Version ${esc(data.suite_version)} · ${result.review_status === 'reviewed' ? 'Reviewed by operator' : 'No completed operator review'}</p>${result.run_id ? `<p>Run: <code>${esc(result.run_id)}</code></p>` : ''}<p>Package SHA-256: <code>${esc(task.package_sha256)}</code></p></div></details>`;
 }
 
 function renderProfile(name) {
@@ -218,7 +217,7 @@ function renderProfile(name) {
   const notStarted = data.tasks.filter(task => task.results[name].status === 'not_run').length;
   const awaitingReview = data.tasks.filter(task => task.results[name].status === 'awaiting_review').length;
   content.innerHTML = `<a class="back" href="#assistants">${glyph('back')}<span>All assistants</span></a>
-    <div class="profile-hero">${icon(name)}<div class="profile-heading"><h1>${name}</h1><div class="profile-stat">${score(count(name), data.tasks.length)}<span>individual tasks passed</span><span class="profile-pending">${unresolvedLabel(name)}</span></div><p class="profile-label-heading">Use cases with reviewed passes</p>${useCaseLabels(name)}</div><a class="button" href="#compare">Compare</a></div>
+    <div class="profile-hero">${icon(name)}<div class="profile-heading"><h1>${name}</h1><div class="profile-stat">${score(count(name), data.tasks.length)}<span>individual tasks passed</span><span class="profile-pending">${unresolvedLabel(name)}</span></div><p class="profile-label-heading">Tested categories · reviewed passes / tests</p>${useCaseLabels(name)}</div><a class="button" href="#compare">Compare</a></div>
     <div class="profile-layout"><section><div class="section-title"><h2>Individual task results</h2><span>${data.tasks.length} tests</span></div><div class="task-list">${tasks}</div></section>
       <aside class="sidebar"><div class="run-card"><h2>Test progress</h2><dl><div class="stat-line"><dt>Reviewed</dt><dd>${reviewedCount(name)} / ${data.tasks.length}</dd></div><div class="stat-line"><dt>Awaiting review</dt><dd>${awaitingReview}</dd></div><div class="stat-line"><dt>Not started</dt><dd>${notStarted}</dd></div><div class="stat-line"><dt>Manual tests</dt><dd>Not tested</dd></div></dl></div><div class="review-note">${round()}<p>Each task uses its own skill and evidence checklist.</p><a href="#methodology">How we test</a></div></aside>
     </div>${updated()}`;
@@ -227,12 +226,12 @@ function renderProfile(name) {
 function renderCompare() {
   content.innerHTML = `<div class="intro"><div><p class="eyebrow">Side by side</p><h1>Compare results<span class="title-period">.</span></h1><p class="intro-caption">${data.tasks.length} individual tests. Each assistant’s own tools.</p></div>${round()}</div>
     <div class="table-wrap"><table class="comparison"><caption class="sr-only">Individual task comparison</caption><thead><tr><th scope="col">Task</th>${names.map(name => `<th scope="col"><a class="compare-agent" href="#assistant/${info[name].id}">${icon(name)}<span>${name}</span></a><div class="compare-score">${score(count(name), data.tasks.length)}<span>passed</span></div><p class="comparison-coverage">${reviewedCount(name)} reviewed</p>${useCaseLabels(name)}</th>`).join('')}</tr></thead><tbody>${data.tasks.map((task, index) => `<tr><th scope="row">${esc(task.name)}<span class="task-index">${String(index + 1).padStart(2, '0')}</span></th>${names.map(name => `<td>${badge(task.results[name].status)}<details class="comparison-detail"><summary>Details${glyph('chevron')}</summary><p>${esc(task.results[name].summary)}</p><p class="criterion"><strong>Pass criterion</strong>${esc(task.criterion)}</p><a href="#assistant/${info[name].id}">Review evidence</a></details></td>`).join('')}</tr>`).join('')}</tbody></table></div>
-    ${note()}${updated()}`;
+    ${updated()}`;
 }
 
 function renderMethod() {
   content.innerHTML = `<div class="intro"><div><p class="eyebrow">Behind the results</p><h1>Methodology<span class="title-period">.</span></h1><p class="intro-caption">${data.tasks.length} individual tests, reviewed against the evidence.</p></div>${round()}</div>
-    <div class="method-grid"><section><h2>Use-case labels</h2><p class="method-label-note">An assistant earns a label when every mapped test has a reviewed full pass. Click a label to compare those tests. For example, Reminders requires both delivery and change/cancel to pass. A label describes the tested task scope; repeat runs are needed to establish reliability or a best-in-category recommendation.</p><h2>How we test</h2><ol class="method-list">${data.methodology.map(text => `<li>${esc(text)}</li>`).join('')}</ol><h2>Published protocols</h2><p class="method-protocol-link"><a href="https://github.com/marinatrajk/assistant-benchmark/blob/${esc(data.repository_commit)}/docs/SKILLS.md">Read the task catalog and download each skill ↗</a></p></section>
+    <div class="method-grid"><section><h2>Categories and coverage</h2><p class="method-label-note">Categories follow the tasks people search for, such as travel planning, email management and coding. A tag appears after at least one test in that category has been reviewed. Its count shows reviewed full passes / mapped tests, with review coverage shown in the results. A tag is not a claim that every test passed. Repeat runs and broader coverage are needed for a best-in-category recommendation.</p><h2>How we test</h2><ol class="method-list">${data.methodology.map(text => `<li>${esc(text)}</li>`).join('')}</ol><h2>Published protocols</h2><p class="method-protocol-link"><a href="https://github.com/marinatrajk/assistant-benchmark/blob/${esc(data.catalog_repository_ref || data.repository_commit)}/docs/SKILLS.md">Read the task catalog and download each skill ↗</a></p></section>
       <aside><div class="run-card method-card"><h3>A full pass</h3><p>Every required check must be supported by reviewed evidence. A self-reported result stays awaiting review until that evidence is checked.</p><hr><h3>Other outcomes</h3><p>Partial, failed, blocked, unsupported, needs-user, and pending results retain their specific reason. Not started means no attempt has been made.</p><hr><h3>Separate manual checks</h3><p><a href="${esc(data.manual_testing.url)}">Voice-mode tests ↗</a> are performed by a person and shown in the Manual column.</p></div></aside>
     </div>${updated()}`;
 }
@@ -245,6 +244,11 @@ function route() {
   if (hash === 'skill-runs') hash = 'assistants';
   else if (hash.startsWith('skill-runs/')) hash = hash.replace('skill-runs/', 'assistant/');
   if (location.hash.startsWith('#skill-runs')) history.replaceState(null, '', `#${hash}`);
+  const categoryAliases = { shopping: 'personal', reminders: 'personal', memory: 'personal', 'memory-updates': 'personal', 'browser-forms': 'personal', computer: 'personal', 'scheduled-research': 'personal', files: 'business', 'browser-research': 'research', video: 'research' };
+  if (hash.startsWith('for/') && categoryAliases[hash.slice(4)]) {
+    hash = `for/${categoryAliases[hash.slice(4)]}`;
+    history.replaceState(null, '', `#${hash}`);
+  }
   // The skip link moves focus without replacing the current view.
   if (hash === 'content') { content.focus(); return; }
   const name = names.find(item => hash === `assistant/${info[item].id}`);
