@@ -14,7 +14,8 @@
     "test": "node --test test/*.test.js",
     "test:browser": "node --test test/browser.integration.js",
     "check": "node scripts/check.js",
-    "test:ui": "node --test test/ui.integration.js"
+    "test:ui": "node --test test/ui.integration.js",
+    "test:site": "node --test test/site.integration.js"
   },
   "dependencies": {
     "playwright": "1.63.0",

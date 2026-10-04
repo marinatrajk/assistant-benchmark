@@ -30,6 +30,12 @@ Website progress states such as `awaiting_review`, `awaiting_response` and `runn
 
 The website numerator counts reviewed full passes, and its denominator is the 12 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
 
+## Use-case labels
+
+The public project name is **Best AI Agent for [ ]**. Its use-case filters and assistant labels use the explicit task mapping in `website/review.json`. An assistant earns a label only when every mapped test has a reviewed full pass. For example, Reminders requires both delivery and change/cancel; a pass on cancellation alone is insufficient. All assistants remain visible when a use case is selected, including those with partial or blocked results.
+
+Labels describe the scope of the mapped tasks. They do not estimate reliability, cover every task in a broad market category, or establish a best-in-category winner. Existing grades, evidence, protocols and review timestamps are retained. See [the use-case mapping](USE_CASES.md) for the exact requirements and categories awaiting dedicated tests.
+
 ## Timing
 
 Record the due time, source-observation time, send time, and visible conversation receipt time separately. Use the configured timezone and explicit UTC offsets.

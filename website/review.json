@@ -1,4 +1,84 @@
 {
+  "project_name": "Best AI Agent for [ ]",
+  "use_cases": [
+    {
+      "id": "research",
+      "label": "Purchase research",
+      "phrase": "purchase research",
+      "description": "Compare products against a purchase brief with verified prices, variants and sources.",
+      "task_ids": ["purchase-research"]
+    },
+    {
+      "id": "shopping",
+      "label": "Checkout handoff",
+      "phrase": "shopping",
+      "description": "Reach the correct checkout and hand it back to the user before payment.",
+      "task_ids": ["checkout-handoff"]
+    },
+    {
+      "id": "reminders",
+      "label": "Reminders",
+      "phrase": "reminders",
+      "description": "Deliver a reminder on time, then correctly change and cancel another reminder.",
+      "task_ids": ["reminder-delivery", "reminder-change-cancel"]
+    },
+    {
+      "id": "files",
+      "label": "Expense cleanup",
+      "phrase": "expense cleanup",
+      "description": "Reconcile messy receipts into usable files with accurate totals and flagged missing values.",
+      "task_ids": ["expense-summary"]
+    },
+    {
+      "id": "browser-forms",
+      "label": "Browser forms",
+      "phrase": "browser forms",
+      "description": "Enter the requested values, submit once and retain a matching confirmation.",
+      "task_ids": ["browser-form"]
+    },
+    {
+      "id": "memory",
+      "label": "Memory recall",
+      "phrase": "memory recall",
+      "description": "Retrieve updated preferences in a separate conversation without the earlier transcript.",
+      "task_ids": ["memory-followup"]
+    },
+    {
+      "id": "browser-research",
+      "label": "Browser research",
+      "phrase": "browser research",
+      "description": "Select a qualifying plan from a browser fixture using the required native research workflow.",
+      "task_ids": ["browser-research"]
+    },
+    {
+      "id": "memory-updates",
+      "label": "Memory updates",
+      "phrase": "memory updates",
+      "description": "Write and update an isolated durable preference using the required native memory workflow.",
+      "task_ids": ["memory-update"]
+    },
+    {
+      "id": "scheduled-research",
+      "label": "Scheduled research",
+      "phrase": "scheduled research",
+      "description": "Run a fresh source check at a later time and deliver an accurate update within the deadline.",
+      "task_ids": ["scheduled-research"]
+    },
+    {
+      "id": "computer",
+      "label": "Computer use",
+      "phrase": "computer use",
+      "description": "Operate the operating-system Calculator through native desktop controls.",
+      "task_ids": ["computer-calculator"]
+    },
+    {
+      "id": "video",
+      "label": "Video & transcripts",
+      "phrase": "video downloads and transcripts",
+      "description": "Deliver playable YouTube and TikTok videos with timestamped transcripts verified against their audio.",
+      "task_ids": ["video-download-transcription"]
+    }
+  ],
   "round_id": "standalone-20261002",
   "title": "Individual task results",
   "started_on": "2026-10-02",

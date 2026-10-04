@@ -1,10 +1,10 @@
-# Assistant Benchmark
+# Best AI Agent for [ ]
 
 Real tasks. Each assistant's own tools. Evidence you can question.
 
 **[Explore the results →](https://www.assistant-benchmark.com/)**
 
-Assistant Benchmark is an open-source project that tests how well AI assistants handle everyday tasks. Can they research a purchase, get to checkout, deliver a reminder on time, or come back later with an update?
+Best AI Agent for [ ] is an open-source project that helps people choose an AI assistant for a specific task. Can it research a purchase, get to checkout, deliver a reminder on time, or come back later with an update?
 
 Each assistant uses its **own tools and capabilities**. The project evaluates the complete assistant experience: the model, its tools, and how reliably they work together.
 
@@ -25,6 +25,8 @@ Human-operated [voice-mode tests](manual-testing/voice-mode/README.md) cover int
 
 The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 12 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
 
+Choose a use case to fill the brackets and compare its task results. Each assistant's labels are derived from **reviewed full passes on every mapped test**. Reminders, for example, requires both timely delivery and successful change/cancel. Labels describe the tested scope. See [the use-case mapping](docs/USE_CASES.md).
+
 Results are provisional observations, not a definitive ranking. Different environments and timing affect outcomes. Reviews are AI-assisted with Codex and are not blinded or independently replicated. [Read the methodology and limitations.](docs/METHODOLOGY.md)
 
 The earlier multi-task pilot is retained as [historical data](benchmarks/legacy/reviews/everyday-pilot-20261002.json); its scores are not mixed into the current website.
@@ -35,6 +37,6 @@ This repository shares the website, benchmark tasks, agent skills, review criter
 
 Corrections, repeat evaluations, and independent reviews are welcome. See [Contributing](CONTRIBUTING.md) and [Release provenance](docs/PROVENANCE.md).
 
-Assistant Benchmark began as **Paces**; that name remains in historical benchmark files. The project is independent of the assistant vendors evaluated.
+Best AI Agent for [ ] was previously **Assistant Benchmark** and began as **Paces**; those names remain in historical benchmark files and protocol identifiers. The project is independent of the assistant vendors evaluated.
 
 Original code and documentation are [MIT licensed](LICENSE). Third-party assets and evidence retain their respective rights; see [NOTICE](NOTICE).
