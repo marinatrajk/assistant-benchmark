@@ -1,0 +1,40 @@
+{
+  "currency": "USD",
+  "users": [
+    "Alice",
+    "Bob"
+  ],
+  "group": "Weekend trip",
+  "expenses": [
+    {
+      "id": "E1",
+      "payer": "Alice",
+      "amount": "60.00",
+      "description": "Dinner",
+      "split": [
+        "Alice",
+        "Bob"
+      ]
+    },
+    {
+      "id": "E2",
+      "payer": "Bob",
+      "amount": "20.00",
+      "description": "Taxi",
+      "split": [
+        "Alice",
+        "Bob"
+      ]
+    },
+    {
+      "id": "E3",
+      "payer": "Alice",
+      "amount": "40.00",
+      "description": "Groceries",
+      "split": [
+        "Alice",
+        "Bob"
+      ]
+    }
+  ]
+}

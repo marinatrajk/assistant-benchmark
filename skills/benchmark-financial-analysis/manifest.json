@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-financial-analysis",
+  "version": "1.0.0",
+  "task_id": "financial-analysis",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "financial-analysis"
+  },
+  "files": {
+    "INVOCATION.txt": "d9166c275fee5309ba9106dba26e27358926f0563df23bae257cda4fd6b66d1c",
+    "SKILL.md": "2f44c96fae51df77383f42b8262c0386383758fc9c51a190beaf23a8bcfd4fed",
+    "agents/openai.yaml": "c943d6dbb5563b3f53c214f220311e0839b6cdff263db98f7a61360cf189a873",
+    "assets/input.json": "03a277dd87c049662a3da678b8227e4e99813512302f6ae1db9e50afcc02638b",
+    "assets/report-template.json": "e881974d8366dacb9039d249d87e41d1232589488612b352369222687421a7c8",
+    "assets/task.json": "e8f4fbb89572b3ff201bdc9a220f10976a7be54561f19254dfbd319cf99f35dd",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "d412ddcb2b4efbe7c1dc968eac876507552973147d4eecf64cc36ed324aef1e7",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

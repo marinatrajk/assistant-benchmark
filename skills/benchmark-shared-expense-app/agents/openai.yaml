@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Build a shared expense app"
+  short_description: "Test build a shared expense app"
+  default_prompt: "Use $benchmark-shared-expense-app to run this task once with your own capabilities and return its report and evidence."

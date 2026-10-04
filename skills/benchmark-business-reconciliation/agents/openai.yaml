@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Reconcile business cash and invoices"
+  short_description: "Test reconcile business cash and invoices"
+  default_prompt: "Use $benchmark-business-reconciliation to run this task once with your own capabilities and return its report and evidence."

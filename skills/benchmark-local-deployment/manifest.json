@@ -1,0 +1,22 @@
+{
+  "name": "benchmark-local-deployment",
+  "version": "1.0.0",
+  "task_id": "local-deployment",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "local-deployment"
+  },
+  "files": {
+    "INVOCATION.txt": "62faa6e98894ab342d465c7bca4bf30542205459e221f71006dd47823c9056b4",
+    "SKILL.md": "797697bad58971b4d9ad3520272145ba81326f6a892619147b905c8bc8c5248a",
+    "agents/openai.yaml": "4b12056f65bf967eaa01ac3ea06b1216a0dfe1ca6616aa02bb2f9d9f2a9ce40b",
+    "assets/expenses-revised.csv": "6eb8eaffa5bfd5e9a0569e8f63fbbbdf3c0e5a52975f5c1beb002fa867a3c897",
+    "assets/expenses.csv": "6cd22f25be99336a904d71d83209f9e5e3d8cb7ea3f6ca3121407cfa29e32741",
+    "assets/report-template.json": "01d03233416231641583db18f8cabef49d9ed9109be71e9ce449c09d16e999a7",
+    "assets/task.json": "9ce11873759d930ec54b0d97c374b5967414d8fa392852aa5bae76e9a9e83f8c",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "cfeb4645f1541b6ddd21b76f1439f959cec9414bfee3ffd12e13f4ab14f8bffc",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

@@ -1,6 +1,8 @@
 # Release provenance
 
-On October 4, 2026, the public display name changed to **Best AI Agent for [ ]**. Use-case filters and labels were added using an explicit mapping of the existing 12 tasks. Labels are derived from reviewed full passes on every mapped task. This presentation change retains the original grades, review timestamps, evidence, suite identifiers and packaged protocols. The GitHub repository and existing domain retain their established addresses.
+Later on October 4, 2026, catalog version 1.1.0 adds 15 search-intent cases and broadens the taxonomy to 15 categories. There are now 27 tasks. New cases use `assistant-benchmark-search-intents-v1` version 1.0.0 and start unrun/unreviewed for all four assistants. Tags show reviewed passes / tests for categories with reviewed coverage. The previous 12 skill packages and result objects remain unchanged. The homepage manual-testing and snapshot footer notes were removed. This is catalog authoring and site work, not a new round of assistant evaluations.
+
+On October 4, 2026, the public display name changed to **Best AI Agent for [ ]**. Use-case filters and labels were added using an explicit mapping of the existing 12 tasks. The initial labels required reviewed full passes on every mapped task; the later expansion above replaces that presentation with category coverage. This presentation change retains the original grades, review timestamps, evidence, suite identifiers and packaged protocols. The GitHub repository and existing domain retain their established addresses.
 
 On October 3, 2026, the catalog gained a twelfth task: downloading and transcribing the supplied YouTube and TikTok videos. It has its own `assistant-benchmark-media-v1` protocol at version `1.0.0`. The original 11 packages and recorded outcomes are unchanged. The catalog denominator increases to 12 with review coverage shown separately.
 

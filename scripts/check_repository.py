@@ -47,10 +47,15 @@ def check():
         mapped_ids.update(item['task_ids'])
     assert mapped_ids == task_ids, 'Use-case filters omit a task'
     catalog = json.loads((ROOT / 'benchmarks/task-catalog.json').read_text())
+    assert use_cases == catalog['use_cases'], 'Website categories differ from the task catalog'
+    assert review['catalog_version'] == catalog['catalog_version'], 'Stale website catalog version'
+    category_by_task = {task_id: item['label'] for item in use_cases for task_id in item['task_ids']}
+    assert sum(len(item['task_ids']) for item in use_cases) == len(task_ids), 'Each task needs one primary category'
     assert review['suite_id'] == catalog['suite_id']
     assert [task['task_id'] for task in review['tasks']] == [task['task_id'] for task in catalog['tasks']], 'Individual task coverage/order changed'
     statuses = {'passed', 'partial', 'failed', 'pending', 'awaiting_user', 'not_evaluated', 'not_run', 'running', 'blocked', 'unsupported', 'awaiting_review', 'awaiting_response'}
     for task in review['tasks']:
+        assert task['category'] == category_by_task[task['task_id']], 'Task category differs from its filter'
         # New tasks may ship their protocol and package with the static site.
         entry = next(item for item in catalog['tasks'] if item['task_id'] == task['task_id'])
         if entry.get('protocol'):

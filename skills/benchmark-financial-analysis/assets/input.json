@@ -1,0 +1,96 @@
+{
+  "cutoff": "2026-09-30",
+  "currency": "USD",
+  "financial_units": "millions",
+  "companies": [
+    {
+      "id": "A",
+      "revenue_prior": 100,
+      "revenue_current": 120,
+      "operating_income": 18,
+      "market_cap": 180,
+      "debt": 30,
+      "cash": 10,
+      "filed_on": "2026-08-01"
+    },
+    {
+      "id": "B",
+      "revenue_prior": 80,
+      "revenue_current": 100,
+      "operating_income": 20,
+      "market_cap": 240,
+      "debt": 20,
+      "cash": 10,
+      "filed_on": "2026-08-02"
+    },
+    {
+      "id": "C",
+      "revenue_prior": 150,
+      "revenue_current": 135,
+      "operating_income": 9,
+      "market_cap": 150,
+      "debt": 40,
+      "cash": 15,
+      "filed_on": "2026-08-03"
+    }
+  ],
+  "later_release": {
+    "company": "B",
+    "filed_on": "2026-10-02",
+    "revenue_forecast": 180
+  },
+  "rule": "Start with USD 10000 and zero shares. After two consecutive close-to-close declines, buy exactly one share at the next open if flat. After two consecutive rises, sell at the next open if holding. Charge fee rate on trade notional on every side. Never hold more than one share. Mark any final open position at the last close without a forced sale.",
+  "fee_rate": 0.001,
+  "prices": [
+    {
+      "date": "2026-09-01",
+      "open": 100,
+      "close": 100
+    },
+    {
+      "date": "2026-09-02",
+      "open": 100,
+      "close": 98
+    },
+    {
+      "date": "2026-09-03",
+      "open": 98,
+      "close": 96
+    },
+    {
+      "date": "2026-09-04",
+      "open": 97,
+      "close": 99
+    },
+    {
+      "date": "2026-09-05",
+      "open": 99,
+      "close": 101
+    },
+    {
+      "date": "2026-09-08",
+      "open": 102,
+      "close": 100
+    },
+    {
+      "date": "2026-09-09",
+      "open": 100,
+      "close": 98
+    },
+    {
+      "date": "2026-09-10",
+      "open": 99,
+      "close": 101
+    },
+    {
+      "date": "2026-09-11",
+      "open": 102,
+      "close": 103
+    },
+    {
+      "date": "2026-09-14",
+      "open": 104,
+      "close": 102
+    }
+  ]
+}

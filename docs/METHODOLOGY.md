@@ -2,9 +2,11 @@
 
 ## Individual tasks are the current format
 
-The website uses `assistant-benchmark-tasks-v1`, version `1.0.0`: 12 individual tests, each with its own skill, task sheet, inputs, limits, evidence checklist and report. Assistants use their own existing capabilities. The operator assigns one task at a time and records the exact package hash, session conditions and any overrides.
+The website uses `assistant-benchmark-tasks-v1`, version `1.0.0`: 27 individual tests, each with its own skill, task sheet, inputs, limits, evidence checklist and report. Assistants use their own existing capabilities. The operator assigns one task at a time and records the exact package hash, session conditions and any overrides.
 
-The catalog covers browser form, browser research, memory update, desktop Calculator, purchase research, checkout handoff, reminder delivery, reminder change/cancel, scheduled research, cross-conversation memory, expense cleanup, and video download/transcription. The video task was added on October 3, 2026, as an unrun task for all four assistants; the previous 11-task results remain unchanged. Native workflow skill evidence is required for the browser research, memory update and Calculator tasks; receiving the benchmark assignment alone does not satisfy that requirement.
+Catalog version 1.1.0 groups 27 tasks into 15 search-intent categories. Fifteen cases were added on October 4, 2026, each with an initial brief, separate operator change and five evidence checks. They begin unrun for every assistant. The prior 12 packages and all recorded results are preserved. Fixtures are synthetic or explicitly supplied by the operator; live integrations, a learner, licensed images or a local machine are prerequisites where stated.
+
+The original tasks still cover browser forms/research, memory, desktop Calculator, purchasing, reminders, scheduling, expenses and video download/transcription. Native workflow skill evidence is required for browser research, memory update and Calculator; receiving the benchmark assignment alone does not satisfy that requirement.
 
 Current results live in `website/review.json`. The same data drives every main website view and export. The old four-task portable and six-task Everyday suites are historical protocols, preserved under `benchmarks/legacy/`. Their scores are not carried into new individual runs. The local harness is a separate tool for testing configured models with shared capabilities.
 
@@ -28,13 +30,15 @@ An agent report is a claim to inspect. Reviewers should check the actual artifac
 
 Website progress states such as `awaiting_review`, `awaiting_response` and `running` describe operator workflow; they are not additional outcomes in the unchanged agent-report contract. Keep the submitted self-score separate from the reviewed result.
 
-The website numerator counts reviewed full passes, and its denominator is the 12 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
+The website numerator counts reviewed full passes, and its denominator is the 27 tasks in the catalog (or the selected category). Review coverage is shown separately. Not-started and unreviewed tasks are not failures. Sorting by supported passes does not establish universal superiority.
 
-## Use-case labels
+## Categories and coverage
 
-The public project name is **Best AI Agent for [ ]**. Its use-case filters and assistant labels use the explicit task mapping in `website/review.json`. An assistant earns a label only when every mapped test has a reviewed full pass. For example, Reminders requires both delivery and change/cancel; a pass on cancellation alone is insufficient. All assistants remain visible when a use case is selected, including those with partial or blocked results.
+The public name is **Best AI Agent for [ ]**. The shared category mapping in `benchmarks/task-catalog.json` and `website/review.json` follows search intents such as travel planning, email management, research, coding and building a website. A tag appears after at least one mapped test has been reviewed, and shows reviewed passes / mapped tests. All assistants remain visible under every category, including untested ones.
 
-Labels describe the scope of the mapped tasks. They do not estimate reliability, cover every task in a broad market category, or establish a best-in-category winner. Existing grades, evidence, protocols and review timestamps are retained. See [the use-case mapping](USE_CASES.md) for the exact requirements and categories awaiting dedicated tests.
+Tags describe observed coverage; a partial or failed test can produce a tag with zero passes. They do not establish broad category success or a winner. Case scope is explicit: frozen-source tasks do not prove live integration, image editing does not prove generation quality, and financial simulation does not prove real returns. Autocomplete supplies category ideas, not volume measurements. See [the mapping](USE_CASES.md) and [reviewer guide](../benchmarks/reviewer/search-intents.md).
+
+The new cases record plans, paid extras, elapsed/active time and operator help. Unknown measurements remain unknown. Compare equivalent conditions and repeat attempts before drawing conclusions about reliability, value or pricing.
 
 ## Timing
 

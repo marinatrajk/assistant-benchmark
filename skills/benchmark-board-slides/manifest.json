@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-board-slides",
+  "version": "1.0.0",
+  "task_id": "board-slides",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "board-slides"
+  },
+  "files": {
+    "INVOCATION.txt": "0823cf8625f3c707c5f91be1264af0767f794d3fabb1194da5051adb9317ba78",
+    "SKILL.md": "5c54afca64f3c163e601ca56e43f43f19a612d1a688394bc68a897d50213a97f",
+    "agents/openai.yaml": "29c1c02d0de1a3cfdd52ca2ca7d7144e7fbf394a2a30fcf433a40aa9e2ebae2d",
+    "assets/input.json": "30e0491534a334e9d08e40319189e9548bc8c0788a402eaf565aea0f7eaec4a0",
+    "assets/report-template.json": "4e5a6cc09bd7452546727f113e913cacc42ca1ab39f66ba71f377c1f85953ae1",
+    "assets/task.json": "05e013838d0f33679fee91511e1cf6082da21c004d68f97678dcf66cdab2b181",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "8a3fb4d415a77c710067d1027ca7f87122250a9f0f3917ed4220b6806283fd20",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "project": "Harbor launch",
+  "approved_budget_usd": 120000,
+  "actual_spend_usd": 132000,
+  "forecast_total_usd": 145000,
+  "additional_funding_requested_usd": 25000,
+  "milestones": [
+    {
+      "name": "Discovery",
+      "status": "done"
+    },
+    {
+      "name": "Prototype",
+      "status": "done"
+    },
+    {
+      "name": "Pilot",
+      "status": "done"
+    },
+    {
+      "name": "Rollout",
+      "status": "in_progress"
+    },
+    {
+      "name": "Support handover",
+      "status": "planned"
+    }
+  ],
+  "risks": [
+    {
+      "risk": "Supplier delay",
+      "owner": "Lee",
+      "mitigation": "Confirm backup supplier by October 9"
+    },
+    {
+      "risk": "Training capacity",
+      "owner": "Noor",
+      "mitigation": "Book two training sessions"
+    }
+  ],
+  "decision_deadline": "2026-10-09"
+}

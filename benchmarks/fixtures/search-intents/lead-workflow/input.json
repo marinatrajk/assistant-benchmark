@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "event_id": "L1",
+      "name": "Alex",
+      "email": "alex@example.invalid",
+      "region": "West"
+    },
+    {
+      "event_id": "L2",
+      "name": "Sam",
+      "email": "sam@example.invalid",
+      "region": "East"
+    },
+    {
+      "event_id": "L1",
+      "name": "Alex",
+      "email": "alex@example.invalid",
+      "region": "West"
+    },
+    {
+      "event_id": "L3",
+      "name": "Missing email",
+      "email": null,
+      "region": "East"
+    }
+  ],
+  "change_event": {
+    "event_id": "L4",
+    "name": "Jo",
+    "email": "jo@example.invalid",
+    "region": "West"
+  }
+}

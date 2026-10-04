@@ -10,22 +10,19 @@ Each assistant uses its **own tools and capabilities**. The project evaluates th
 
 ## What we test
 
-- **Research:** Compare products against a brief and support recommendations with sources.
-- **Shopping:** Prepare a checkout and hand it back to the user before payment.
-- **Scheduling:** Deliver reminders, handle changes and cancellations, and do work at a later time.
-- **Video:** Download YouTube and TikTok videos and deliver verified, timestamped transcripts.
-- **Files:** Turn messy information into usable files with accurate calculations.
-- **Browser, computer, and memory:** Complete browser forms, operate a desktop app, and retrieve and update durable preferences.
+The catalog covers **15 categories**: Travel planning, Email management, Research, Coding, Build a website, Build an app, Workflow automation, Personal assistant, Financial analysis / trading, Job applications / résumé, PowerPoint slides, Photo editing / image generation, Students / learning, Small business, and Run locally / self-hosted.
 
-The website now uses **12 individual tests**, each with its own [standalone benchmark skill](docs/SKILLS.md), evidence checklist and report. Tasks run one at a time. The project also includes a local harness for comparing models with a shared set of tools.
+There are **27 individual tests**, each with a [standalone benchmark skill](docs/SKILLS.md), inputs, pass criteria and evidence requirements. The 15 new cases include an initial request and a separate change request: revise a travel budget, resolve an inbox/calendar conflict, fix a timezone bug, build and update a booking site, and more. All 15 start as **Not started**. The existing 12 tasks and their results are retained.
+
+Tasks run one at a time using the assistant's own tools. The local harness separately compares models with a shared set of tools.
 
 Human-operated [voice-mode tests](manual-testing/voice-mode/README.md) cover interruptions, spoken corrections, noisy speech, screen awareness, reminders, and continuity between voice and text. They include shared test pages, scoring criteria, and a results template.
 
 ## Current results
 
-The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 12 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
+The individual task catalog covers **ChatGPT Dots, GrokBot, Instinct, and Muse**, starting with Dots. Every assistant has the same 27 task slots. The site shows reviewed passes, review coverage, pending work and unrun tests. Not-started tests are not failures.
 
-Choose a use case to fill the brackets and compare its task results. Each assistant's labels are derived from **reviewed full passes on every mapped test**. Reminders, for example, requires both timely delivery and successful change/cancel. Labels describe the tested scope. See [the use-case mapping](docs/USE_CASES.md).
+Choose a category to fill the brackets, compare its results and open its test briefs and skill downloads. An assistant gets a category tag when at least one mapped test has been reviewed. The tag shows **reviewed passes / tests**, so it describes coverage and outcomes without claiming a complete category pass. See [the category mapping](docs/USE_CASES.md).
 
 Results are provisional observations, not a definitive ranking. Different environments and timing affect outcomes. Reviews are AI-assisted with Codex and are not blinded or independently replicated. [Read the methodology and limitations.](docs/METHODOLOGY.md)
 

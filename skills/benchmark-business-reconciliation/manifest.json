@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-business-reconciliation",
+  "version": "1.0.0",
+  "task_id": "business-reconciliation",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "business-reconciliation"
+  },
+  "files": {
+    "INVOCATION.txt": "d5ceda8c1b143f3d689ffe723d7898ce3a4d10c3e7cd5804d93f33d8720957c5",
+    "SKILL.md": "21d1d653260b75645ad14eca7bb2644a6e10b309f5098996767650236467bc93",
+    "agents/openai.yaml": "5e2cdc5dc0f8cb28fa748638ff809a81343cf31ddd026693bb69c1ba3c58559a",
+    "assets/input.json": "01ae359643c6e05b2e584a355b4fcda7e532c3e336242fc2c5ccf77cbd593357",
+    "assets/report-template.json": "8d0bcb81487570313162e39c98a192e41110bbcad30b95567cb33216c743c9dd",
+    "assets/task.json": "e85c78c4ceabc5ed1a622858ed8248b79bd4d3fca41e9490ba4d03fc8cc66c74",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "116d241d17a6a95812f22e0064044ff9f14753ba941145394176af2eb4c83b13",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

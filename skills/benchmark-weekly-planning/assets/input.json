@@ -1,0 +1,54 @@
+{
+  "timezone": "America/New_York",
+  "week_start": "2026-10-05",
+  "working_hours": [
+    "09:00",
+    "17:00"
+  ],
+  "lunch": [
+    "12:00",
+    "13:00"
+  ],
+  "buffer_minutes": 15,
+  "prefer_deep_work_before": "12:00",
+  "fixed_events": [
+    {
+      "id": "client",
+      "date": "2026-10-05",
+      "start": "10:00",
+      "end": "11:00"
+    },
+    {
+      "id": "dentist",
+      "date": "2026-10-07",
+      "start": "14:00",
+      "end": "15:00"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "proposal",
+      "minutes": 120,
+      "deadline": "2026-10-08T15:00:00-04:00",
+      "deep_work": true
+    },
+    {
+      "id": "analysis",
+      "minutes": 180,
+      "deadline": "2026-10-09T16:00:00-04:00",
+      "deep_work": true
+    },
+    {
+      "id": "invoices",
+      "minutes": 60,
+      "deadline": "2026-10-06T17:00:00-04:00",
+      "deep_work": false
+    },
+    {
+      "id": "completed",
+      "minutes": 30,
+      "completed": true,
+      "completed_at": "2026-10-05T09:30:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "currency": "USD",
+  "orders": [
+    {
+      "id": "O1",
+      "amount": 120
+    },
+    {
+      "id": "O2",
+      "amount": 80
+    },
+    {
+      "id": "O3",
+      "amount": 200
+    },
+    {
+      "id": "O4",
+      "amount": 60
+    }
+  ],
+  "payments": [
+    {
+      "id": "P1",
+      "order": "O1",
+      "amount": 120
+    },
+    {
+      "id": "P2",
+      "order": "O2",
+      "amount": 80
+    },
+    {
+      "id": "P2",
+      "order": "O2",
+      "amount": 80
+    },
+    {
+      "id": "P3",
+      "order": "O3",
+      "amount": 195
+    }
+  ],
+  "refunds": [
+    {
+      "id": "R1",
+      "order": "O1",
+      "amount": 20
+    }
+  ],
+  "supplier_invoices": [
+    {
+      "id": "I1",
+      "amount": 90,
+      "paid": true
+    },
+    {
+      "id": "I2",
+      "amount": 130,
+      "paid": false
+    },
+    {
+      "id": "I3",
+      "amount": 30,
+      "paid": true
+    },
+    {
+      "id": "I3",
+      "amount": 30,
+      "paid": true
+    }
+  ]
+}

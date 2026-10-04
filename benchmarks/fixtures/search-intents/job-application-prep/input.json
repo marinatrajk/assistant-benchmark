@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-04",
+  "candidate": {
+    "name": "Ada Example",
+    "email": "ada@example.invalid",
+    "location": "Boston, MA",
+    "work_authorization": "US authorized; no sponsorship needed",
+    "experience_years": 2,
+    "roles": [
+      {
+        "title": "Support analyst",
+        "employer": "Example Services",
+        "start": "2024-06",
+        "end": "present"
+      }
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Excel"
+    ],
+    "constraints": {
+      "location": "US remote",
+      "minimum_salary_usd": 70000,
+      "maximum_required_years": 2
+    }
+  },
+  "jobs": [
+    {
+      "id": "J1",
+      "title": "Data analyst",
+      "location": "US remote",
+      "salary_usd": 82000,
+      "required_years": 2,
+      "active": true
+    },
+    {
+      "id": "J2",
+      "title": "Operations analyst",
+      "location": "US remote",
+      "salary_usd": 75000,
+      "required_years": 1,
+      "active": true
+    },
+    {
+      "id": "J3",
+      "title": "Reporting analyst",
+      "location": "US remote",
+      "salary_usd": 85000,
+      "required_years": 2,
+      "active": true
+    },
+    {
+      "id": "J4",
+      "title": "Business analyst",
+      "location": "Boston hybrid",
+      "salary_usd": 88000,
+      "required_years": 2,
+      "active": true
+    },
+    {
+      "id": "J5",
+      "title": "Senior analyst",
+      "location": "US remote",
+      "salary_usd": 120000,
+      "required_years": 7,
+      "active": true
+    },
+    {
+      "id": "J6",
+      "title": "Analyst",
+      "location": "US remote",
+      "salary_usd": 90000,
+      "required_years": 1,
+      "active": false
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Plan and revise a working week"
+  short_description: "Test plan and revise a working week"
+  default_prompt: "Use $benchmark-weekly-planning to run this task once with your own capabilities and return its report and evidence."

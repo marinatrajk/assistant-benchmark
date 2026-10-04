@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-lead-workflow",
+  "version": "1.0.0",
+  "task_id": "lead-workflow",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "lead-workflow"
+  },
+  "files": {
+    "INVOCATION.txt": "56a1b475cd771c0d4d8e1052d19e05513519425e420009cd731ca31cc4a2a2eb",
+    "SKILL.md": "95ade07a31f9d5a43648a1b577aa8d829ad703bdcd2830131a7521a5c0c5c900",
+    "agents/openai.yaml": "af50133b5fe2f24f34f7fbb202b87e6546d075759a627d53f3d963a08bf3ad86",
+    "assets/input.json": "57200534ed30cce0e8f6bed713a6396a74d793c7e367c04fbd25058434ef18e7",
+    "assets/report-template.json": "1fd3e3d79442627b97fda38afe171d004b2f3e63c87f0e20f2dafdf73846c251",
+    "assets/task.json": "ec9566a17e5ac4fe7ebeb3b5c6c2496f1b9c2fdb9a8c5ac7b80341494b889b35",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "79f47b9d09b7aea50acd5f5fbe7a8d36d1700a3f64c0f31c011abf6a0d332719",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark: Inbox triage and reply drafts"
+  short_description: "Test inbox triage and reply drafts"
+  default_prompt: "Use $benchmark-email-management to run this task once with your own capabilities and return its report and evidence."

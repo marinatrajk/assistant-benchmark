@@ -75,3 +75,9 @@ python3 benchmarks/legacy/paces-benchmark/scripts/validate_report.py /path/to/pa
 ## Record limitations
 
 Keep unavailable identity/settings null. Separate native skill loading from reading a document. Do not install capabilities mid-run or replace missing tools with this project's harness. Use a new run ID for a repeat and retain unsuccessful attempts. Never publish raw private records simply to make a result look more complete.
+
+## Search-intent cases
+
+Catalog version 1.1.0 includes 15 new cases covering the [search-intent categories](USE_CASES.md). Select a skill from [the catalog](SKILLS.md), supply its bundled fixtures and resolve any required null input before execution. Follow the exact initial request, retain the initial output, then send the task sheet's change request as a separate user turn. A full pass needs both phases. Tutoring also requires actual learner replies; workflow automation requires an isolated CRM and failure controls; image editing requires licensed originals; local deployment requires a specified stack and an operator-controlled machine.
+
+Use the [reviewer guide](../benchmarks/reviewer/search-intents.md) to check actual outputs, formulas, persisted state and revisions. Reviewer answers are public but excluded from agent ZIPs; record prior exposure and declare variants consistently. Record plan, paid extras, elapsed/active time and interventions. Package validation does not run these benchmarks or award assistant passes.

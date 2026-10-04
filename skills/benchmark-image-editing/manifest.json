@@ -1,0 +1,20 @@
+{
+  "name": "benchmark-image-editing",
+  "version": "1.0.0",
+  "task_id": "image-editing",
+  "source_protocol": {
+    "suite_id": "assistant-benchmark-search-intents-v1",
+    "suite_version": "1.0.0",
+    "task_id": "image-editing"
+  },
+  "files": {
+    "INVOCATION.txt": "559bcdfa60619c8df9023c638464b1484ea83a5dd7df52a306e3033c288c7ae8",
+    "SKILL.md": "901efe4217e75e3daf9120990a1135c11dc7133ccc2a4dff698b424bea9dab5f",
+    "agents/openai.yaml": "2296fd3a2fb8ab005bfa6a09b3b63ef72ba15eb5526f4833ba10f00df466fdb5",
+    "assets/report-template.json": "96ed392f9a7ec7c1bbd66e26fbb4b5d5749193b25aa5e7f2777ed95cadf3493b",
+    "assets/task.json": "96a4d3e26215a40a5c9c757b6eb33f087d76d12486e5775649bb767cf5fec9d9",
+    "references/report-format.md": "242c04c268ae91054f156905f1c3f5a95874f74f149e984d4fed974d11d3e364",
+    "references/task.md": "cffe214601934bc5030a4ac7e5e9ea9d415fd3b1bf75ce26d33b5a13a6e9b45b",
+    "scripts/validate_report.py": "0e8f4ca69015686aa5f1989f8b4e828396f6e47bbf1b2ba9e4fb49dee5c700bd"
+  }
+}
