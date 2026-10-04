@@ -79,12 +79,6 @@ main { max-width: 1136px; margin: auto; padding: 62px 40px 74px; min-height: cal
 .home-intro .intro-caption { font-size: 14px; margin-top: 10px; }
 .home-intro > .round-meta { padding-top: 8px; }
 .use-case-description { color: #66666e; font-size: 14px; line-height: 1.7; margin-top: 12px; max-width: 720px; }
-.category-protocols { margin: 0 0 24px; border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; font-size: 13px; }
-.category-protocols summary { cursor: pointer; font-weight: 500; }
-.category-protocols article { margin-top: 20px; max-width: 760px; }
-.category-protocols h2 { font-size: 15px; margin-bottom: 6px; }
-.category-protocols p { color: var(--muted); line-height: 1.7; }
-.category-protocols a { display: inline-block; margin: 8px 18px 0 0; text-decoration: underline; text-underline-offset: 3px; }
 .round-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; white-space: nowrap; color: var(--muted); }
 .round-label { border: 1px solid #e7e2d9; background: #f9f7f2; color: #8c754e; font-size: 12px; font-weight: 500; padding: 4px 9px; border-radius: 6px; }
 .toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 19px; }

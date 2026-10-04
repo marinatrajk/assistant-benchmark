@@ -83,7 +83,7 @@ test('search-intent categories show reviewed coverage, expose test packages, and
     await page.locator('.agent-list.grid').waitFor();
     assert.equal(await labels('GrokBot').filter({ hasText: 'Personal assistant 2/9' }).count(), 1);
 
-    // A new category exposes its real instructions and ZIP without inventing results.
+    // New categories retain unrun results; instructions and ZIPs remain in profiles.
     await page.locator('[data-filter="Travel planning"]').click();
     await page.waitForURL('**/#for/travel');
     await page.locator('[data-filter="Travel planning"][aria-pressed="true"]').waitFor();
@@ -92,13 +92,14 @@ test('search-intent categories show reviewed coverage, expose test packages, and
     assert.equal(await page.locator('.task-dash.not_run').count(), 4);
     assert.equal(await page.locator('.rank').first().innerText(), '—');
     assert.equal(await page.locator('.agent-labels a[href="#for/travel"]').count(), 0);
-    await page.locator('.category-protocols summary').click();
-    await page.getByRole('heading', { name: 'Trip planning under a budget' }).waitFor();
-    const protocolHref = await page.locator('.category-protocols a').first().getAttribute('href');
+    await row('ChatGPT Dots').locator('.agent-profile-link').click();
+    const travelTask = page.locator('.task-result').filter({ has: page.getByRole('heading', { name: 'Trip planning under a budget' }) });
+    await travelTask.locator('.skill-protocol summary').click();
+    const protocolHref = await travelTask.getByRole('link', { name: 'Instructions and checks' }).getAttribute('href');
     const protocol = await page.request.get(url + '/' + protocolHref);
     assert.equal(protocol.ok(), true);
     assert.match(await protocol.text(), /Separate operator change request/);
-    const packageHref = await page.locator('.category-protocols a').last().getAttribute('href');
+    const packageHref = await travelTask.getByRole('link', { name: 'Download skill ZIP' }).getAttribute('href');
     const download = await page.request.get(url + '/' + packageHref);
     assert.equal(download.ok(), true);
     assert.equal((await download.body()).subarray(0, 2).toString(), 'PK');
@@ -120,7 +121,6 @@ test('search-intent categories show reviewed coverage, expose test packages, and
       for (const route of ['#assistants', '#for/images', '#for/finance', '#for/travel', '#assistant/dots', '#compare', '#methodology']) {
         await page.goto(url + '/' + route);
         await page.waitForFunction(() => document.querySelector('.intro, .profile-hero'));
-        if (route.startsWith('#for/')) await page.locator('.category-protocols summary').click();
         await fits();
       }
     }
