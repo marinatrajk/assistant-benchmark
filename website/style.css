@@ -77,10 +77,7 @@ main { max-width: 1136px; margin: auto; padding: 62px 40px 74px; min-height: cal
 .home-intro { align-items: flex-start; margin-bottom: 28px; }
 .home-intro h1 { font-size: clamp(28px, 3.1vw, 38px); letter-spacing: -.045em; }
 .home-intro .intro-caption { font-size: 14px; margin-top: 10px; }
-.home-intro > .round-meta { padding-top: 8px; }
 .use-case-description { color: #66666e; font-size: 14px; line-height: 1.7; margin-top: 12px; max-width: 720px; }
-.round-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; white-space: nowrap; color: var(--muted); }
-.round-label { border: 1px solid #e7e2d9; background: #f9f7f2; color: #8c754e; font-size: 12px; font-weight: 500; padding: 4px 9px; border-radius: 6px; }
 .toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 19px; }
 .filters { display: flex; flex-wrap: wrap; min-width: 0; gap: 3px; padding: 4px; background: #f1f1f3; border: 1px solid #eeeeef; border-radius: 11px; }
 .chip { border: 0; background: transparent; min-height: 34px; padding: 7px 13px; font-size: 13px; font-weight: 500; color: #727278; border-radius: 7px; white-space: nowrap; }
@@ -220,7 +217,6 @@ dl { margin: 0; }
 .timing-note { margin-top: 16px; }
 .timing-note p { margin-top: 10px; font-size: 12px; line-height: 1.7; color: #85858c; }
 .review-note { padding: 24px 4px; font-size: 13px; color: #8b8b92; }
-.review-note .round-meta { gap: 9px; font-size: 11px; }
 .review-note p { margin: 14px 0 12px; line-height: 1.7; }
 .review-note a { color: #53535b; font-size: 12px; }
 .table-wrap { overflow: auto; border: 1px solid #e5e5e8; background: white; border-radius: var(--radius); }
@@ -284,7 +280,6 @@ footer a { margin-left: auto; color: #83838b; }
   .topbar nav { gap: 0; }
   .topbar nav a { padding: 8px 10px; }
   .intro { align-items: flex-start; }
-  .intro > .round-meta { flex-direction: column; align-items: flex-end; gap: 8px; padding-top: 4px; }
   .chip { padding: 7px 10px; font-size: 12px; }
   .chip span { margin-left: 5px; }
   .agent-row, .list-head { grid-template-columns: 20px 46px minmax(120px,1fr) 54px 70px 12px; column-gap: 12px; }
@@ -314,8 +309,6 @@ footer a { margin-left: auto; color: #83838b; }
   .eyebrow { font-size: 10px; margin-bottom: 10px; }
   .intro-caption { font-size: 13px; gap: 8px; margin-top: 11px; }
   .use-case-description { font-size: 13px; }
-  .intro > .round-meta { flex-direction: row; align-items: center; gap: 10px; margin-top: 18px; padding-top: 0; font-size: 11px; }
-  .round-label { font-size: 11px; padding: 3px 8px; }
   .toolbar { flex-wrap: wrap; gap: 12px; margin-bottom: 15px; }
   .filters { flex-wrap: wrap; width: 100%; gap: 2px; padding: 4px; border-radius: 10px; }
   .chip { flex: 1; padding: 8px 7px; font-size: 12px; min-height: 33px; }
